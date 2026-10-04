@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { ArrowRight, Loader2, RefreshCw, Sparkles, FileText } from 'lucide-react'
 import { Header } from '../components/Header'
 import { fetchArticleAngles, generateTeacherLesson } from '../lib/openai'
@@ -20,11 +20,7 @@ export function ArticleAnglesPage({ article, sourceText, level, onBack, onTeache
   const [selectedIdx, setSelectedIdx] = useState<number | null>(null)
   const [error, setError]             = useState('')
 
-  useEffect(() => {
-    loadAngles()
-  }, [])
-
-  async function loadAngles() {
+  const loadAngles = useCallback(async () => {
     setLoadingAngles(true)
     setError('')
     try {
@@ -37,7 +33,11 @@ export function ArticleAnglesPage({ article, sourceText, level, onBack, onTeache
     } finally {
       setLoadingAngles(false)
     }
-  }
+  }, [sourceText])
+
+  useEffect(() => {
+    loadAngles()
+  }, [loadAngles])
 
   async function handleSelect(angleInstruction: string | null, idx: number) {
     setSelectedIdx(idx)

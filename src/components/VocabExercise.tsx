@@ -2,6 +2,7 @@ import { useState, useEffect, useRef, useMemo } from 'react'
 import { X, CheckCircle2, XCircle, RotateCcw, Trophy } from 'lucide-react'
 import type { VocabItem } from '../types'
 import { storage } from '../lib/storage'
+import { shuffle } from '../lib/utils'
 
 interface Props {
   vocab: VocabItem[]
@@ -43,7 +44,7 @@ export function VocabExercise({ vocab, lessonTitle, onClose }: Props) {
 
   // Shuffle cloud display order once so position doesn't reveal the current word
   const cloudOrder = useMemo(
-    () => [...vocab.keys()].sort(() => Math.random() - 0.5),
+    () => shuffle([...vocab.keys()]),
     [vocab],
   )
 

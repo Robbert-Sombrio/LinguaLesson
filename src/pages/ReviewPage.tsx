@@ -3,6 +3,7 @@ import { X, CheckCircle2, XCircle, Trophy } from 'lucide-react'
 import { Header } from '../components/Header'
 import { storage } from '../lib/storage'
 import type { WordBankItem } from '../types'
+import { shuffle } from '../lib/utils'
 
 interface Props {
   onBack: () => void
@@ -109,11 +110,10 @@ export function ReviewPage({ onBack, onBankUpdated }: Props) {
       const pool = allWords
         .filter(b => b.word.toLowerCase() !== w.word.toLowerCase())
         .map(b => b.word)
-        .sort(() => Math.random() - 0.5)
-        .slice(0, 3)
-      return [w.word, ...pool].sort(() => Math.random() - 0.5)
+      const wrong = shuffle(pool).slice(0, 3)
+      return shuffle([w.word, ...wrong])
     })
-  }, [dueWords, allWords]) // eslint-disable-line react-hooks/exhaustive-deps
+  }, [dueWords, allWords])
 
   // Auto-advance 1.3 s after selection
   useEffect(() => {

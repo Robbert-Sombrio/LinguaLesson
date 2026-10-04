@@ -25,6 +25,19 @@ function formatDate(iso: string) {
   return d.toLocaleDateString('en-GB', { day: 'numeric', month: 'short' })
 }
 
+function Skeleton() {
+  return (
+    <div className="space-y-3">
+      {[1, 2, 3].map(i => (
+        <div key={i} className="bg-white border border-slate-100 rounded-2xl p-4 animate-pulse space-y-2">
+          <div className="h-3 bg-slate-100 rounded w-1/3" />
+          <div className="h-3 bg-slate-100 rounded w-3/4" />
+        </div>
+      ))}
+    </div>
+  )
+}
+
 export function SavedPage({ onLessonOpen, onHistoryOpen }: Props) {
   const [tab, setTab]           = useState<'saved' | 'recent'>('recent')
   const [lessons, setLessons]   = useState<Lesson[]>([])
@@ -57,17 +70,6 @@ export function SavedPage({ onLessonOpen, onHistoryOpen }: Props) {
         ? 'bg-white text-navy-700 shadow-sm'
         : 'text-slate-400 hover:text-slate-600'
     }`
-
-  const Skeleton = () => (
-    <div className="space-y-3">
-      {[1, 2, 3].map(i => (
-        <div key={i} className="bg-white border border-slate-100 rounded-2xl p-4 animate-pulse space-y-2">
-          <div className="h-3 bg-slate-100 rounded w-1/3" />
-          <div className="h-3 bg-slate-100 rounded w-3/4" />
-        </div>
-      ))}
-    </div>
-  )
 
   return (
     <div className="flex flex-col h-full">

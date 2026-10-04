@@ -5,6 +5,7 @@ import {
 import { Header } from '../components/Header'
 import { downloadTeacherHTML, downloadTeacherMarkdown } from '../lib/lessonExport'
 import type { Article, TeacherLesson } from '../types'
+import { shuffle } from '../lib/utils'
 
 interface Props {
   lesson: TeacherLesson
@@ -18,54 +19,39 @@ type Section =
   | 'roleplay' | 'dialogues' | 'didyouknow'
 
 
-export function TeacherLessonPage({ lesson, article, onBack }: Props) {
-  const [openSection, setOpenSection] = useState<Section>('warmup')
+const headerClass = 'w-full flex items-center justify-between px-4 py-3.5 text-left hover:bg-slate-50 transition-colors'
 
-  function toggle(s: Section) {
-    setOpenSection(openSection === s ? (null as unknown as Section) : s)
-  }
+interface SectionHeaderProps {
+  id: Section
+  label: string
+  emoji: string
+  badge?: string
+  openSection: Section | null
+  onToggle: (s: Section) => void
+}
 
-  // Shuffle the answer words once so they form a word-bank (no answers revealed)
-  const shuffledVocabWords = useMemo(() => {
-    const arr = lesson.vocabularyExercise.map(ex => ex.answer)
-    for (let i = arr.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1))
-      ;[arr[i], arr[j]] = [arr[j], arr[i]]
-    }
-    return arr
-  }, [lesson])
+function SectionHeader({ id, label, emoji, badge, openSection, onToggle }: SectionHeaderProps) {
+  const isOpen = openSection === id
+  return (
+    <button className={headerClass} onClick={() => onToggle(id)}>
+      <div className="flex items-center gap-2.5">
+        <span className="text-base">{emoji}</span>
+        <span className="font-bold text-sm text-navy-800">{label}</span>
+        {badge && (
+          <span className="text-[10px] bg-navy-100 text-navy-700 font-bold px-2 py-0.5 rounded-full">
+            {badge}
+          </span>
+        )}
+      </div>
+      {isOpen
+        ? <ChevronUp size={15} className="text-slate-400 shrink-0" />
+        : <ChevronDown size={15} className="text-slate-400 shrink-0" />}
+    </button>
+  )
+}
 
-  const chipColors = [
-    'bg-sky-100 text-sky-700 border-sky-200',
-    'bg-navy-100 text-navy-700 border-navy-200',
-    'bg-purple-100 text-purple-700 border-purple-200',
-    'bg-amber-100 text-amber-700 border-amber-200',
-  ]
-
-  const sectionClass = 'bg-white border border-slate-200 rounded-2xl overflow-hidden'
-  const headerClass  = 'w-full flex items-center justify-between px-4 py-3.5 text-left hover:bg-slate-50 transition-colors'
-
-  function SectionHeader({ id, label, emoji, badge }: { id: Section; label: string; emoji: string; badge?: string }) {
-    const isOpen = openSection === id
-    return (
-      <button className={headerClass} onClick={() => toggle(id)}>
-        <div className="flex items-center gap-2.5">
-          <span className="text-base">{emoji}</span>
-          <span className="font-bold text-sm text-navy-800">{label}</span>
-          {badge && (
-            <span className="text-[10px] bg-navy-100 text-navy-700 font-bold px-2 py-0.5 rounded-full">
-              {badge}
-            </span>
-          )}
-        </div>
-        {isOpen
-          ? <ChevronUp size={15} className="text-slate-400 shrink-0" />
-          : <ChevronDown size={15} className="text-slate-400 shrink-0" />}
-      </button>
-    )
-  }
-
-  const NumberedList = ({ items, className = '' }: { items: string[]; className?: string }) => (
+function NumberedList({ items, className = '' }: { items: string[]; className?: string }) {
+  return (
     <ol className={`space-y-2 ${className}`}>
       {items.map((item, i) => (
         <li key={i} className="flex items-start gap-2.5">
@@ -77,6 +63,30 @@ export function TeacherLessonPage({ lesson, article, onBack }: Props) {
       ))}
     </ol>
   )
+}
+
+export function TeacherLessonPage({ lesson, article, onBack }: Props) {
+  const [openSection, setOpenSection] = useState<Section>('warmup')
+
+  function toggle(s: Section) {
+    setOpenSection(openSection === s ? (null as unknown as Section) : s)
+  }
+
+  // Shuffle the answer words once so they form a word-bank (no answers revealed)
+  const shuffledVocabWords = useMemo(
+    () => shuffle(lesson.vocabularyExercise.map(ex => ex.answer)),
+    [lesson],
+  )
+
+  const chipColors = [
+    'bg-sky-100 text-sky-700 border-sky-200',
+    'bg-navy-100 text-navy-700 border-navy-200',
+    'bg-purple-100 text-purple-700 border-purple-200',
+    'bg-amber-100 text-amber-700 border-amber-200',
+  ]
+
+  const sectionClass = 'bg-white border border-slate-200 rounded-2xl overflow-hidden'
+
 
   return (
     <div className="flex flex-col h-full">
@@ -129,7 +139,7 @@ export function TeacherLessonPage({ lesson, article, onBack }: Props) {
 
         {/* ── Warm-up Questions ──────────────────────────────────────── */}
         <div className={sectionClass}>
-          <SectionHeader id="warmup" label="Warm-up Questions" emoji="🔥" badge={`${lesson.warmupQuestions.length} questions`} />
+          <SectionHeader openSection={openSection} onToggle={toggle} id="warmup" label="Warm-up Questions" emoji="🔥" badge={`${lesson.warmupQuestions.length} questions`} />
           {openSection === 'warmup' && (
             <div className="border-t border-slate-100 px-4 py-4">
               <NumberedList items={lesson.warmupQuestions} />
@@ -139,7 +149,7 @@ export function TeacherLessonPage({ lesson, article, onBack }: Props) {
 
         {/* ── Interesting Quote ──────────────────────────────────────── */}
         <div className={sectionClass}>
-          <SectionHeader id="quote" label="Interesting Quote" emoji="💡" />
+          <SectionHeader openSection={openSection} onToggle={toggle} id="quote" label="Interesting Quote" emoji="💡" />
           {openSection === 'quote' && (
             <div className="border-t border-slate-100 px-4 py-4">
               <div className="bg-navy-50 border-l-4 border-navy-500 pl-4 pr-2 py-3 rounded-r-xl">
@@ -153,7 +163,7 @@ export function TeacherLessonPage({ lesson, article, onBack }: Props) {
 
         {/* ── Vocabulary ─────────────────────────────────────────────── */}
         <div className={sectionClass}>
-          <SectionHeader id="vocab" label="Vocabulary" emoji="📚" badge={`${lesson.vocabulary.length} words`} />
+          <SectionHeader openSection={openSection} onToggle={toggle} id="vocab" label="Vocabulary" emoji="📚" badge={`${lesson.vocabulary.length} words`} />
           {openSection === 'vocab' && (
             <div className="border-t border-slate-100">
               <div className="divide-y divide-slate-100">
@@ -175,7 +185,7 @@ export function TeacherLessonPage({ lesson, article, onBack }: Props) {
 
         {/* ── Reading ────────────────────────────────────────────────── */}
         <div className={sectionClass}>
-          <SectionHeader id="reading" label="Reading" emoji="📖" />
+          <SectionHeader openSection={openSection} onToggle={toggle} id="reading" label="Reading" emoji="📖" />
           {openSection === 'reading' && (
             <div className="border-t border-slate-100 px-4 py-4 space-y-3">
               {lesson.reading
@@ -191,7 +201,7 @@ export function TeacherLessonPage({ lesson, article, onBack }: Props) {
 
         {/* ── Comprehension Questions ────────────────────────────────── */}
         <div className={sectionClass}>
-          <SectionHeader id="comprehension" label="Comprehension Questions" emoji="❓" badge={`${lesson.comprehensionQuestions.length} questions`} />
+          <SectionHeader openSection={openSection} onToggle={toggle} id="comprehension" label="Comprehension Questions" emoji="❓" badge={`${lesson.comprehensionQuestions.length} questions`} />
           {openSection === 'comprehension' && (
             <div className="border-t border-slate-100 px-4 py-4">
               <NumberedList items={lesson.comprehensionQuestions} />
@@ -201,7 +211,7 @@ export function TeacherLessonPage({ lesson, article, onBack }: Props) {
 
         {/* ── Vocabulary Exercise ────────────────────────────────────── */}
         <div className={sectionClass}>
-          <SectionHeader id="vocabEx" label="Vocabulary Exercise" emoji="✏️" />
+          <SectionHeader openSection={openSection} onToggle={toggle} id="vocabEx" label="Vocabulary Exercise" emoji="✏️" />
           {openSection === 'vocabEx' && (
             <div className="border-t border-slate-100 px-4 py-4 space-y-3">
               {/* Word bank */}
@@ -250,7 +260,7 @@ export function TeacherLessonPage({ lesson, article, onBack }: Props) {
 
         {/* ── Grammar Point ──────────────────────────────────────────── */}
         <div className={sectionClass}>
-          <SectionHeader id="grammar" label="Grammar Point" emoji="⚙️" />
+          <SectionHeader openSection={openSection} onToggle={toggle} id="grammar" label="Grammar Point" emoji="⚙️" />
           {openSection === 'grammar' && (
             <div className="border-t border-slate-100 px-4 py-4 space-y-3">
               <p className="text-sm font-bold text-navy-700">{lesson.grammarPoint.title}</p>
@@ -275,7 +285,7 @@ export function TeacherLessonPage({ lesson, article, onBack }: Props) {
 
         {/* ── Discussion Questions ───────────────────────────────────── */}
         <div className={sectionClass}>
-          <SectionHeader id="discussion" label="Discussion Questions" emoji="💬" badge={`${lesson.discussionQuestions.length} questions`} />
+          <SectionHeader openSection={openSection} onToggle={toggle} id="discussion" label="Discussion Questions" emoji="💬" badge={`${lesson.discussionQuestions.length} questions`} />
           {openSection === 'discussion' && (
             <div className="border-t border-slate-100 px-4 py-4">
               <NumberedList items={lesson.discussionQuestions} />
@@ -285,7 +295,7 @@ export function TeacherLessonPage({ lesson, article, onBack }: Props) {
 
         {/* ── Critical Thinking ──────────────────────────────────────── */}
         <div className={sectionClass}>
-          <SectionHeader id="critical" label="Critical Thinking" emoji="🧠" />
+          <SectionHeader openSection={openSection} onToggle={toggle} id="critical" label="Critical Thinking" emoji="🧠" />
           {openSection === 'critical' && (
             <div className="border-t border-slate-100 px-4 py-4">
               <div className="bg-purple-50 border border-purple-100 rounded-xl px-4 py-3">
@@ -297,7 +307,7 @@ export function TeacherLessonPage({ lesson, article, onBack }: Props) {
 
         {/* ── Writing Assignment ─────────────────────────────────────── */}
         <div className={sectionClass}>
-          <SectionHeader id="writing" label="Writing Assignment" emoji="📝" />
+          <SectionHeader openSection={openSection} onToggle={toggle} id="writing" label="Writing Assignment" emoji="📝" />
           {openSection === 'writing' && (
             <div className="border-t border-slate-100 px-4 py-4">
               <div className="bg-green-50 border border-green-100 rounded-xl px-4 py-3">
@@ -310,7 +320,7 @@ export function TeacherLessonPage({ lesson, article, onBack }: Props) {
 
         {/* ── Role-play Scenario ─────────────────────────────────────── */}
         <div className={sectionClass}>
-          <SectionHeader id="roleplay" label="Role-play Scenario" emoji="🎭" />
+          <SectionHeader openSection={openSection} onToggle={toggle} id="roleplay" label="Role-play Scenario" emoji="🎭" />
           {openSection === 'roleplay' && (
             <div className="border-t border-slate-100 px-4 py-4 space-y-3">
               {lesson.rolePlay.scenario && (
@@ -335,7 +345,7 @@ export function TeacherLessonPage({ lesson, article, onBack }: Props) {
 
         {/* ── Dialogue Practice ──────────────────────────────────────── */}
         <div className={sectionClass}>
-          <SectionHeader id="dialogues" label="Dialogue Practice" emoji="🗣️" badge={`${lesson.dialogues.length} dialogues`} />
+          <SectionHeader openSection={openSection} onToggle={toggle} id="dialogues" label="Dialogue Practice" emoji="🗣️" badge={`${lesson.dialogues.length} dialogues`} />
           {openSection === 'dialogues' && (
             <div className="border-t border-slate-100 px-4 py-4 space-y-5">
               {lesson.dialogues.map((dialogue, di) => (
@@ -372,7 +382,7 @@ export function TeacherLessonPage({ lesson, article, onBack }: Props) {
 
         {/* ── Did You Know? ──────────────────────────────────────────── */}
         <div className={sectionClass}>
-          <SectionHeader id="didyouknow" label="Did You Know?" emoji="🌍" />
+          <SectionHeader openSection={openSection} onToggle={toggle} id="didyouknow" label="Did You Know?" emoji="🌍" />
           {openSection === 'didyouknow' && (
             <div className="border-t border-slate-100 px-4 py-4">
               <div className="bg-amber-50 border border-amber-100 rounded-xl px-4 py-3">

@@ -29,6 +29,21 @@ const FEATURES = [
   },
 ]
 
+function Dots({ step }: { step: number }) {
+  return (
+    <div className="flex items-center justify-center gap-1.5">
+      {[0, 1, 2].map(i => (
+        <div
+          key={i}
+          className={`rounded-full transition-all ${
+            i === step ? 'w-4 h-1.5 bg-navy-700' : 'w-1.5 h-1.5 bg-slate-300'
+          }`}
+        />
+      ))}
+    </div>
+  )
+}
+
 export function OnboardingPage({ onComplete }: Props) {
   const [step, setStep]           = useState(0)
   const [openaiKey, setOpenaiKey] = useState('')
@@ -52,20 +67,6 @@ export function OnboardingPage({ onComplete }: Props) {
     'flex-1 text-xs bg-transparent outline-none text-slate-700 placeholder:text-slate-400 font-mono tracking-tight'
   const fieldClass =
     'flex items-center gap-2 bg-white border border-slate-200 rounded-2xl px-3 py-3 focus-within:border-navy-500 transition-colors'
-
-  /* ── Dots ──────────────────────────────────────────────────────────────── */
-  const Dots = () => (
-    <div className="flex items-center justify-center gap-1.5">
-      {[0, 1, 2].map(i => (
-        <div
-          key={i}
-          className={`rounded-full transition-all ${
-            i === step ? 'w-4 h-1.5 bg-navy-700' : 'w-1.5 h-1.5 bg-slate-300'
-          }`}
-        />
-      ))}
-    </div>
-  )
 
   /* ── Step 0: Welcome ───────────────────────────────────────────────────── */
   if (step === 0) return (
@@ -99,7 +100,7 @@ export function OnboardingPage({ onComplete }: Props) {
         >
           Get started <ArrowRight size={16} />
         </button>
-        <Dots />
+        <Dots step={step} />
       </div>
     </div>
   )
@@ -137,7 +138,7 @@ export function OnboardingPage({ onComplete }: Props) {
           <button onClick={() => setStep(0)} className="flex items-center gap-1 text-xs text-slate-400 hover:text-slate-600 transition-colors">
             <ArrowLeft size={13} /> Back
           </button>
-          <Dots />
+          <Dots step={step} />
           <div className="w-12" />
         </div>
       </div>
@@ -242,7 +243,7 @@ export function OnboardingPage({ onComplete }: Props) {
           <button onClick={() => setStep(1)} className="flex items-center gap-1 text-xs text-slate-400 hover:text-slate-600 transition-colors">
             <ArrowLeft size={13} /> Back
           </button>
-          <Dots />
+          <Dots step={step} />
           <div className="w-12" />
         </div>
       </div>
