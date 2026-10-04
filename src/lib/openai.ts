@@ -1,4 +1,5 @@
 import type { Article, ArticleAngle, Level, LessonContent, TeacherLesson } from '../types'
+import { LessonFormatError, validateAngles, validateLesson, validateTeacherLesson } from './validate'
 
 const LEVEL_DESC: Record<Level, string> = {
   B1: 'Intermediate (B1) — handles familiar work and everyday topics in clear standard English',
@@ -84,34 +85,114 @@ const SHARED_REQUIREMENTS = (level: Level) =>
 - Keep every item level-appropriate, a little challenging, and worth a busy professional's time
 - Return ONLY valid JSON, no markdown, no extra text`
 
-async function callOpenAIRaw<T>(prompt: string, apiKey: string, temperature = 0.7): Promise<T> {
-  const response = await fetch('https://api.openai.com/v1/chat/completions', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${apiKey}` },
-    body: JSON.stringify({
-      model: 'gpt-4o-mini',
-      messages: [{ role: 'user', content: prompt }],
-      response_format: { type: 'json_object' },
-      temperature,
-    }),
-  })
+// ── OpenAI call: timeout, retries with backoff, readable errors, output validation ──
+const MAX_ATTEMPTS = 3
 
-  if (!response.ok) {
-    const error = await response.json().catch(() => ({}))
-    throw new Error(
-      (error as { error?: { message?: string } }).error?.message ??
-        `OpenAI error ${response.status}`,
-    )
+class OpenAIHttpError extends Error {
+  status: number
+  retryable: boolean
+  retryAfterMs?: number
+
+  constructor(message: string, status: number, retryable: boolean, retryAfterMs?: number) {
+    super(message)
+    this.name = 'OpenAIHttpError'
+    this.status = status
+    this.retryable = retryable
+    this.retryAfterMs = retryAfterMs
+  }
+}
+
+const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms))
+
+async function describeHttpError(response: Response): Promise<OpenAIHttpError> {
+  const body = (await response.json().catch(() => ({}))) as { error?: { message?: string; code?: string } }
+  const apiMessage = body.error?.message
+  const { status } = response
+
+  if (status === 401) {
+    return new OpenAIHttpError('OpenAI rejected your API key. Check it in Settings.', status, false)
+  }
+  if (status === 429 && body.error?.code === 'insufficient_quota') {
+    return new OpenAIHttpError('Your OpenAI account is out of credit. Add billing at platform.openai.com, then try again.', status, false)
+  }
+  if (status === 429) {
+    const header = Number(response.headers.get('retry-after'))
+    return new OpenAIHttpError('OpenAI is rate-limiting requests. Wait a moment and try again.', status, true, header > 0 ? header * 1000 : undefined)
+  }
+  if (status >= 500) {
+    return new OpenAIHttpError('OpenAI is having trouble right now. Try again in a minute.', status, true)
+  }
+  return new OpenAIHttpError(apiMessage ?? `OpenAI error ${status}`, status, false)
+}
+
+async function callOpenAIRaw<T>(
+  prompt: string,
+  apiKey: string,
+  validate: (raw: unknown) => T,
+  { temperature = 0.7, timeoutMs = 90_000 }: { temperature?: number; timeoutMs?: number } = {},
+): Promise<T> {
+  let lastError: Error = new Error('OpenAI request failed')
+
+  for (let attempt = 1; attempt <= MAX_ATTEMPTS; attempt++) {
+    let waitMs = 1000 * 2 ** (attempt - 1)
+    try {
+      let response: Response
+      try {
+        response = await fetch('https://api.openai.com/v1/chat/completions', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${apiKey}` },
+          body: JSON.stringify({
+            model: 'gpt-4o-mini',
+            messages: [{ role: 'user', content: prompt }],
+            response_format: { type: 'json_object' },
+            temperature,
+          }),
+          signal: AbortSignal.timeout(timeoutMs),
+        })
+      } catch (e) {
+        const timedOut = (e as Error).name === 'TimeoutError'
+        throw new OpenAIHttpError(
+          timedOut ? 'OpenAI took too long to answer. Try again.' : 'Could not reach OpenAI. Check your internet connection.',
+          0,
+          true,
+        )
+      }
+
+      if (!response.ok) throw await describeHttpError(response)
+
+      const data = (await response.json()) as { choices?: { message?: { content?: string }; finish_reason?: string }[] }
+      const choice = data.choices?.[0]
+      const raw = choice?.message?.content
+      if (!raw) throw new LessonFormatError('empty response')
+      if (choice?.finish_reason === 'length') throw new LessonFormatError('response was cut off')
+
+      let parsed: unknown
+      try {
+        parsed = JSON.parse(raw)
+      } catch {
+        throw new LessonFormatError('response was not valid JSON')
+      }
+      return validate(parsed)
+    } catch (e) {
+      lastError = e as Error
+      if (e instanceof OpenAIHttpError) {
+        if (!e.retryable) throw e
+        if (e.retryAfterMs) waitMs = Math.min(e.retryAfterMs, 20_000)
+      } else if (!(e instanceof LessonFormatError)) {
+        throw e
+      }
+      if (attempt < MAX_ATTEMPTS) await sleep(waitMs)
+    }
   }
 
-  const data = (await response.json()) as { choices: { message: { content: string } }[] }
-  const raw = data.choices[0]?.message?.content
-  if (!raw) throw new Error('Empty response from OpenAI')
-  return JSON.parse(raw) as T
+  if (lastError instanceof LessonFormatError) {
+    throw new Error("The AI's answer wasn't in the right format, even after retrying. Please try again.")
+  }
+  throw lastError
 }
 
 function callOpenAI(prompt: string, apiKey: string): Promise<LessonContent> {
-  return callOpenAIRaw<LessonContent>(prompt, apiKey, 0.7)
+  return callOpenAIRaw(prompt, apiKey, validateLesson)
 }
 
 // ── Article-based lesson ──────────────────────────────────────────────────────
@@ -177,8 +258,7 @@ Return this JSON:
 
 Return ONLY valid JSON, no markdown, no extra text.`
 
-  const result = await callOpenAIRaw<{ angles: ArticleAngle[] }>(prompt, apiKey)
-  return result.angles
+  return callOpenAIRaw<ArticleAngle[]>(prompt, apiKey, validateAngles, { temperature: 0.8, timeoutMs: 45_000 })
 }
 
 // ── Generate a full teacher speaking lesson ───────────────────────────────────
@@ -287,7 +367,7 @@ Requirements:
 - discussionQuestions: exactly 5 — ask for opinions and professional experience, escalating in depth. Open-ended, never yes/no
 - Return ONLY valid JSON, no markdown, no extra text`
 
-  return callOpenAIRaw<TeacherLesson>(prompt, apiKey)
+  return callOpenAIRaw<TeacherLesson>(prompt, apiKey, validateTeacherLesson, { temperature: 0.8, timeoutMs: 120_000 })
 }
 
 // ── Topic-based lesson — generates a full original article on the topic ────────

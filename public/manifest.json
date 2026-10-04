@@ -6,20 +6,7 @@
   "permissions": [
     "sidePanel",
     "storage",
-    "activeTab",
-    "scripting",
     "tabs"
-  ],
-  "web_accessible_resources": [
-    {
-      "resources": [
-        "lesson-view.html",
-        "teacher-view.html"
-      ],
-      "matches": [
-        "<all_urls>"
-      ]
-    }
   ],
   "host_permissions": [
     "https://newsapi.org/*",

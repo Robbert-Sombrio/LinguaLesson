@@ -7,16 +7,16 @@ export async function fetchArticles(topic: Topic, apiKey: string): Promise<Artic
     // Use top-headlines by category for business / technology / entertainment
     url =
       `https://newsapi.org/v2/top-headlines` +
-      `?category=${topic.newsCategory}&language=en&pageSize=15&apiKey=${apiKey}`
+      `?category=${topic.newsCategory}&language=en&pageSize=15`
   } else {
     // Use /everything with a keyword query for personal-growth etc.
     const q = encodeURIComponent(topic.newsQuery)
     url =
       `https://newsapi.org/v2/everything` +
-      `?q=${q}&language=en&sortBy=publishedAt&pageSize=15&apiKey=${apiKey}`
+      `?q=${q}&language=en&sortBy=publishedAt&pageSize=15`
   }
 
-  const response = await fetch(url)
+  const response = await fetch(url, { headers: { 'X-Api-Key': apiKey }, signal: AbortSignal.timeout(20_000) })
 
   if (!response.ok) {
     const err = await response.json().catch(() => ({}))
@@ -49,8 +49,8 @@ export async function fetchArticleByUrl(
 ): Promise<Article | null> {
   try {
     const q = encodeURIComponent(articleUrl)
-    const url = `https://newsapi.org/v2/everything?q=${q}&pageSize=5&apiKey=${apiKey}`
-    const response = await fetch(url)
+    const url = `https://newsapi.org/v2/everything?q=${q}&pageSize=5`
+    const response = await fetch(url, { headers: { 'X-Api-Key': apiKey }, signal: AbortSignal.timeout(20_000) })
     if (!response.ok) return null
     const data = (await response.json()) as { articles: Article[] }
     return data.articles.find((a) => a.url === articleUrl) ?? null
