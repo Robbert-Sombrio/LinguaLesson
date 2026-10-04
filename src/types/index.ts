@@ -1,5 +1,5 @@
 // ─── English Level ────────────────────────────────────────────────────────────
-export type Level = 'B2' | 'C1'
+export type Level = 'B1' | 'B2' | 'C1' | 'C2'
 
 export interface LevelMeta {
   id: Level
@@ -8,8 +8,10 @@ export interface LevelMeta {
 }
 
 export const LEVELS: LevelMeta[] = [
-  { id: 'B2', label: 'B2', sublabel: 'Upper Intermediate' },
+  { id: 'B1', label: 'B1', sublabel: 'Intermediate' },
+  { id: 'B2', label: 'B2', sublabel: 'Upper Int.' },
   { id: 'C1', label: 'C1', sublabel: 'Advanced' },
+  { id: 'C2', label: 'C2', sublabel: 'Proficient' },
 ]
 
 // ─── Topics ───────────────────────────────────────────────────────────────────

@@ -1,20 +1,45 @@
 import type { Article, ArticleAngle, Level, LessonContent, TeacherLesson } from '../types'
 
 const LEVEL_DESC: Record<Level, string> = {
+  B1: 'Intermediate (B1) — handles familiar work and everyday topics in clear standard English',
   B2: 'Upper Intermediate (B2) — understands complex texts, expresses themselves clearly',
   C1: 'Advanced (C1) — expresses ideas fluently with precise vocabulary',
+  C2: 'Proficient (C2) — near-native range; notices subtle shades of meaning, tone and register',
 }
+
+// What "this level" means in practice, so the model pitches language correctly
+const LEVEL_GUIDE: Record<Level, string> = {
+  B1: 'Short, clear sentences (about 15 words on average). Common vocabulary; at most one or two idioms, each easy to infer from context. Simple tenses plus present perfect and first conditional. Vocabulary should be useful, high-frequency work English.',
+  B2: 'Natural, fluent prose. Include phrasal verbs, collocations and a couple of common idioms. Passive, reported speech and second/third conditionals are fine. Vocabulary should stretch the learner slightly beyond everyday work English.',
+  C1: 'Rich, precise language. Use hedging, nuance and implied meaning; vary register. Complex structures (inversion, cleft sentences, participle clauses) are fine. Vocabulary should be precise collocations and less obvious verbs and adjectives, not just "harder" words.',
+  C2: 'Sophisticated, near-native prose. Use irony, understatement, idiom, rhetorical devices and deliberate stylistic choices. Vocabulary should focus on subtle distinctions between near-synonyms, register and tone.',
+}
+
+// Words an article is typically written at, by level (used when we write the article)
+const ARTICLE_WORDS: Record<Level, string> = {
+  B1: '300-380',
+  B2: '420-520',
+  C1: '480-580',
+  C2: '520-620',
+}
+
+// Sean's voice and quality bar, applied to every prompt
+const AUDIENCE_AND_VOICE = `Audience: busy professionals (lawyers, managers, engineers, diplomats, doctors, executives) who work in English. They are smart and experienced. What holds them back is confidence and nuance, not grammar rules.
+Voice: direct, warm, sophisticated but approachable. Short, specific sentences and real-world examples. Sound like a sharp, friendly colleague, never like a textbook or a manual. Never talk down to the learner, and do not explain basic words they would know from their own language (cognates such as "strategy" or "information").
+Avoid overused AI words and phrases: delve, tapestry, landscape (figurative), realm, leverage, unlock, navigate (figurative), foster, crucial, pivotal, testament, game-changer, "in today's fast-paced world", "it's important to note", "dive into".
+Accuracy: never invent facts, figures, quotes, names or events. Use only what the source supports.
+Sensitive topics: do not steer discussion toward politics, religion or sex. If the source is about one of these, keep the questions on the business, language or human angle.`
 
 // Shared fields returned by both prompts
 const BASE_JSON_SCHEMA = (level: Level) => `
   "title": "Engaging lesson/article title",
-  "summary": "A 2-3 sentence overview at ${level} level",
+  "summary": "A 2-3 sentence overview written at ${level} level",
   "vocabulary": [
     {
       "word": "word or phrase",
       "pronunciation": "syllable-broken with the PRIMARY stressed syllable in ALL CAPS — verify each word carefully, e.g. 'IN-no-va-tive' (not in-NOV-a-tive), 'STRA-te-gy', 'REV-e-nue', 'phi-LAN-thro-py', 'en-tre-pre-NEUR', 'col-LAB-o-rate'",
-      "definition": "clear definition for ${level}",
-      "example": "natural sentence that MUST contain the word verbatim"
+      "definition": "plain-English definition at ${level}, max 20 words; note if the word is formal, informal or industry-specific",
+      "example": "a natural sentence about a realistic work or real-life situation that MUST contain the word verbatim"
     }
   ],
   "comprehensionQuestions": [
@@ -29,17 +54,17 @@ const BASE_JSON_SCHEMA = (level: Level) => `
       ]
     }
   ],
-  "discussionPoints": ["open-ended question 1", "question 2", "question 3"],
+  "discussionPoints": ["speaking prompt 1", "speaking prompt 2", "speaking prompt 3"],
   "grammar": {
     "point": "specific grammar structure highlighted in the lesson",
-    "explanation": "clear explanation for ${level}",
-    "example": "natural example sentence"
+    "explanation": "max 3 short sentences, ${level}-appropriate, no jargon",
+    "example": "natural example sentence, ideally taken from the text"
   }`
 
 // Topic-based lessons also include a full article
 const TOPIC_JSON_SCHEMA = (level: Level) => `{
 ${BASE_JSON_SCHEMA(level)},
-  "fullArticle": "A full article of 450-600 words written like a professional journalist or educator about the topic. Use multiple paragraphs separated by newlines. Make it engaging, factual and informative."
+  "fullArticle": "A full original article of ${ARTICLE_WORDS[level]} words, written at ${level} level like a good journalist at a quality publication. Multiple paragraphs separated by newlines."
 }`
 
 // Article-based lessons omit fullArticle
@@ -48,14 +73,18 @@ ${BASE_JSON_SCHEMA(level)}
 }`
 
 const SHARED_REQUIREMENTS = (level: Level) =>
-  `- Exactly 6 vocabulary items, 4 comprehension questions (each with exactly 4 choices, choices[0] = correct answer), 3 discussion points
+  `- Level guide for ${level}: ${LEVEL_GUIDE[level]}
+- Exactly 6 vocabulary items, 4 comprehension questions (each with exactly 4 choices, choices[0] = correct answer), 3 discussion points
+- Vocabulary: choose collocations, phrasal verbs, idioms and precise verbs or adjectives a professional would really use in meetings, emails and calls. Skip words that are too basic or easy cognates. Definitions in plain English; no circular definitions
 - CRITICAL: Each vocabulary "example" sentence MUST contain the exact "word" value verbatim so fill-in-the-blank exercises work
 - CRITICAL: Each vocabulary "pronunciation" MUST use hyphens between every syllable with the SINGLE PRIMARY-stressed syllable in ALL CAPS — double-check stress before writing, e.g. "IN-no-va-tive" (NOT "in-NOV-a-tive"), "STRA-te-gy", "REV-e-nue", "phi-LAN-thro-py", "en-tre-pre-NEUR", "col-LAB-o-rate", "ac-KNOWL-edge"
-- All content appropriate for ${level} English learners
-- Discussion points should be thought-provoking and open-ended
+- Comprehension questions: two on key details, one that needs inference, one on what the writer implies or why it matters. Wrong choices must be plausible, not silly
+- Discussion points are speaking prompts: ask the learner to take a position or draw on their own professional experience ("Has this happened in your industry?", "Would you push back, and how?"). Open-ended, never yes/no
+- Grammar: one structure that really appears in the text, explained briefly. Speaking confidence matters more than rules
+- Keep every item level-appropriate, a little challenging, and worth a busy professional's time
 - Return ONLY valid JSON, no markdown, no extra text`
 
-async function callOpenAI(prompt: string, apiKey: string): Promise<LessonContent> {
+async function callOpenAIRaw<T>(prompt: string, apiKey: string, temperature = 0.7): Promise<T> {
   const response = await fetch('https://api.openai.com/v1/chat/completions', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${apiKey}` },
@@ -63,7 +92,7 @@ async function callOpenAI(prompt: string, apiKey: string): Promise<LessonContent
       model: 'gpt-4o-mini',
       messages: [{ role: 'user', content: prompt }],
       response_format: { type: 'json_object' },
-      temperature: 0.7,
+      temperature,
     }),
   })
 
@@ -78,7 +107,11 @@ async function callOpenAI(prompt: string, apiKey: string): Promise<LessonContent
   const data = (await response.json()) as { choices: { message: { content: string } }[] }
   const raw = data.choices[0]?.message?.content
   if (!raw) throw new Error('Empty response from OpenAI')
-  return JSON.parse(raw) as LessonContent
+  return JSON.parse(raw) as T
+}
+
+function callOpenAI(prompt: string, apiKey: string): Promise<LessonContent> {
+  return callOpenAIRaw<LessonContent>(prompt, apiKey, 0.7)
 }
 
 // ── Article-based lesson ──────────────────────────────────────────────────────
@@ -101,7 +134,9 @@ Do NOT invent facts, quotes or figures. Keep content to what the headline and de
 - Every comprehension question must be answerable from the article text alone; do not add facts that are not in it`
     : `- Vocabulary and grammar should relate to the headline and description`
 
-  const prompt = `You are an expert English language teacher. Create a comprehensive English lesson based on the article below for a ${LEVEL_DESC[level]} learner.
+  const prompt = `You are an expert English coach for busy professionals. Create an English lesson based on the article below for a learner at this level: ${LEVEL_DESC[level]}.
+
+${AUDIENCE_AND_VOICE}
 
 Article Title: ${article.title}
 Article Description: ${article.description || 'No description available'}
@@ -119,37 +154,12 @@ ${grounding}`
   return callOpenAI(prompt, apiKey)
 }
 
-// ── Shared raw fetch helper (returns parsed JSON of any shape) ────────────────
-async function callOpenAIRaw<T>(prompt: string, apiKey: string): Promise<T> {
-  const response = await fetch('https://api.openai.com/v1/chat/completions', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${apiKey}` },
-    body: JSON.stringify({
-      model: 'gpt-4o-mini',
-      messages: [{ role: 'user', content: prompt }],
-      response_format: { type: 'json_object' },
-      temperature: 0.8,
-    }),
-  })
-  if (!response.ok) {
-    const error = await response.json().catch(() => ({}))
-    throw new Error(
-      (error as { error?: { message?: string } }).error?.message ??
-        `OpenAI error ${response.status}`,
-    )
-  }
-  const data = (await response.json()) as { choices: { message: { content: string } }[] }
-  const raw = data.choices[0]?.message?.content
-  if (!raw) throw new Error('Empty response from OpenAI')
-  return JSON.parse(raw) as T
-}
-
 // ── Fetch 3 article angles for teacher mode ───────────────────────────────────
 export async function fetchArticleAngles(
   sourceText: string,
   apiKey: string,
 ): Promise<ArticleAngle[]> {
-  const prompt = `You are an EFL teacher preparing a speaking-focused English lesson. Given the article or topic below, suggest exactly 3 distinct angles or perspectives for writing the lesson's reading text. Each angle should offer a genuinely different focus, framing, or audience perspective.
+  const prompt = `You are an EFL teacher preparing a speaking-focused English lesson. Given the article or topic below, suggest exactly 3 distinct angles or perspectives for writing the lesson's reading text. Each angle should offer a genuinely different focus, framing, or audience perspective, grounded in what the source actually says (for example the manager's view, the customer's view, the long-term consequences). Do not invent facts.
 
 Source:
 ${sourceText}
@@ -181,7 +191,7 @@ const TEACHER_JSON_SCHEMA = `{
     "Question 4?",
     "Question 5?"
   ],
-  "interestingQuote": "A thought-provoking quote related to the topic (with attribution)",
+  "interestingQuote": "A striking line that actually appears in the source, with who said it if the source says so. If the source has no good line, use a short sentence from it. NEVER invent a quote or attribute words to a real person.",
   "vocabulary": [
     {
       "word": "word or phrase",
@@ -189,7 +199,7 @@ const TEACHER_JSON_SCHEMA = `{
       "pronunciation": "SYL-la-ble (stressed syllable in ALL CAPS, e.g. BY-zan-tine, re-LIN-quish, STRA-te-gy)"
     }
   ],
-  "reading": "Full rephrased/original article text — 400-550 words, multiple paragraphs separated by double newlines. Engaging C1/C2 level prose.",
+  "reading": "Reading text at the lesson level, multiple paragraphs separated by double newlines. Engaging, specific, faithful to the source facts.",
   "comprehensionQuestions": [
     "Comprehension question 1?",
     "Question 2?",
@@ -203,8 +213,8 @@ const TEACHER_JSON_SCHEMA = `{
     { "sentence": "Complete sentence with _____ where the vocabulary word goes.", "answer": "vocabulary word" }
   ],
   "grammarPoint": {
-    "title": "Grammar Structure Name (e.g. Nominalisation, Passive Voice, Inversion)",
-    "explanation": "Clear explanation for C1/C2 level learners.",
+    "title": "Grammar Structure Name",
+    "explanation": "Short, clear explanation for this level (max 4 sentences).",
     "examples": [
       "Original sentence → Transformed using the grammar structure",
       "Another example → Transformed"
@@ -218,12 +228,12 @@ const TEACHER_JSON_SCHEMA = `{
     "Question 4?",
     "Question 5?"
   ],
-  "criticalThinking": "One big open-ended design or opinion challenge that requires students to synthesise multiple ideas.",
-  "writingAssignment": "Essay/writing prompt with clear word count guidance (e.g. 150-300 words) and topic focus.",
+  "criticalThinking": "One open-ended challenge where students must take and defend a position, using ideas from the reading and their own professional experience.",
+  "writingAssignment": "A short, practical writing task a professional would really do (an email, a short memo, a LinkedIn post, a summary for a colleague) with word count guidance for the level.",
   "rolePlay": {
-    "roleA": "Role A — character description and their position/task in the conversation.",
-    "roleB": "Role B — character description and their opposing or complementary position.",
-    "scenario": "Brief 1-2 sentence scenario setup for both students."
+    "roleA": "Role A — a realistic professional, their stake in the issue and what they want from the conversation.",
+    "roleB": "Role B — a realistic professional with a different, equally reasonable stake.",
+    "scenario": "1-2 sentences placing both people in a real situation that follows from the source (a meeting, a call, a decision). No theatrical or invented characters."
   },
   "dialogues": [
     {
@@ -239,19 +249,22 @@ const TEACHER_JSON_SCHEMA = `{
       ]
     }
   ],
-  "didYouKnow": "One fascinating fact related to the topic to spark curiosity."
+  "didYouKnow": "One fact stated in the source (or, for a topic with no source text, one you are certain is true) that sparks curiosity. Never guess."
 }`
 
 export async function generateTeacherLesson(
   sourceText: string,
   angleInstruction: string | null,
   apiKey: string,
+  level: Level = 'C1',
 ): Promise<TeacherLesson> {
   const focus = angleInstruction
     ? `Write the reading passage focusing on this angle: ${angleInstruction}`
-    : `Rephrase and adapt the source material into a clear, engaging reading passage for C1/C2 English learners.`
+    : `Rephrase and adapt the source material into a clear, engaging reading passage for ${level} English learners.`
 
-  const prompt = `You are an expert EFL teacher creating a comprehensive, speaking-focused lesson plan.
+  const prompt = `You are an expert English coach creating a speaking-focused lesson plan for a learner at this level: ${LEVEL_DESC[level]}.
+
+${AUDIENCE_AND_VOICE}
 
 Source material:
 ${sourceText}
@@ -262,15 +275,16 @@ Return this exact JSON structure:
 ${TEACHER_JSON_SCHEMA}
 
 Requirements:
-- vocabulary: exactly 10 advanced/topic-specific words or phrases drawn directly from the reading
+- Level guide for ${level}: ${LEVEL_GUIDE[level]}
+- vocabulary: exactly 10 collocations, phrasal verbs, idioms or precise words drawn directly from the reading, ones a professional would really use. Skip basic words and easy cognates
 - pronunciation: syllable-broken, PRIMARY stressed syllable in ALL CAPS (e.g. BY-zan-tine, re-LIN-quish, STRA-te-gy, CRO-ny, en-TAN-gled)
-- reading: 400-550 words, write it as a C1/C2 level article matching the angle instruction
-- comprehensionQuestions: exactly 7 questions that directly test understanding of the reading
+- reading: ${ARTICLE_WORDS[level]} words, written at ${level} level and matching the angle instruction. Stay faithful to the facts in the source; if the source is only a topic, include only things you are certain are true
+- comprehensionQuestions: exactly 7 questions that test understanding of the reading, from detail to inference
 - vocabularyExercise: exactly 10 sentences (one per vocab word), each with _____ marking the blank — never give the answer away in surrounding words
-- grammarPoint: choose a real C1/C2 structure from the reading (nominalisation, passives, inversion, cleft sentences, etc.)
-- dialogues: exactly 2 dialogues; each 8-10 lines; write COMPLETE sentences with NO blanks — dialogues must be fully readable, natural, and rehearsable as-is, weaving in vocabulary words naturally within the conversation
-- warmupQuestions: exactly 5 — activate prior knowledge and spark debate
-- discussionQuestions: exactly 5 — deeper post-reading critical discussion
+- grammarPoint: one real ${level} structure that appears in the reading. Keep it brief; the lesson is about speaking
+- dialogues: exactly 2 dialogues, each 8-10 lines, set in realistic workplace situations connected to the topic. COMPLETE sentences with NO blanks; natural, rehearsable as-is, weaving in vocabulary words without forcing them
+- warmupQuestions: exactly 5 — easy to answer, activate real experience, spark debate
+- discussionQuestions: exactly 5 — ask for opinions and professional experience, escalating in depth. Open-ended, never yes/no
 - Return ONLY valid JSON, no markdown, no extra text`
 
   return callOpenAIRaw<TeacherLesson>(prompt, apiKey)
@@ -282,10 +296,12 @@ export async function generateLessonFromTopic(
   level: Level,
   apiKey: string,
 ): Promise<LessonContent> {
-  const prompt = `You are an expert English language teacher and journalist. Create a comprehensive English lesson on the topic "${topic}" for a ${LEVEL_DESC[level]} learner.
+  const prompt = `You are an expert English coach and journalist. Create an English lesson on the topic "${topic}" for a learner at this level: ${LEVEL_DESC[level]}.
+
+${AUDIENCE_AND_VOICE}
 
 Your task:
-1. Write a FULL ORIGINAL ARTICLE of 450-600 words about "${topic}" as if published in a quality newspaper or educational magazine. Use multiple paragraphs, include real facts, statistics or examples, and write in an engaging journalistic style.
+1. Write a FULL ORIGINAL ARTICLE of ${ARTICLE_WORDS[level]} words about "${topic}" as if published in a quality newspaper. Use multiple paragraphs and concrete, real-world examples. Only include figures, dates, company names or events you are certain are real; otherwise describe the trend in general terms. Never invent quotes or people. No generic hypothetical scenarios.
 2. Build all lesson components (vocabulary, questions, discussion, grammar) FROM that article.
 
 Return this JSON structure:
@@ -293,7 +309,7 @@ ${TOPIC_JSON_SCHEMA(level)}
 
 Requirements:
 ${SHARED_REQUIREMENTS(level)}
-- "fullArticle" MUST be 450-600 words, written in flowing paragraphs, factual and engaging
+- "fullArticle" MUST be ${ARTICLE_WORDS[level]} words, written in flowing paragraphs, factual and engaging
 - "summary" should be a 2-3 sentence TL;DR of the fullArticle
 - Vocabulary should come directly from the fullArticle text
 - Comprehension questions must be answerable from the fullArticle`

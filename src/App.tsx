@@ -119,6 +119,7 @@ export default function App() {
           <ArticleAnglesPage
             article={page.article}
             sourceText={page.sourceText}
+            level={level}
             onBack={() => navigate({ name: 'create' })}
             onTeacherLessonReady={handleTeacherLessonReady}
           />

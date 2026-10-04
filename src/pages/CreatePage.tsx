@@ -227,7 +227,7 @@ export function CreatePage({ level, onLevelChange, onTopicSelect, onSettings, on
               🎓 Speaking-Focused Lesson Builder
             </p>
             <p className="text-xs text-slate-600 leading-relaxed">
-              Generate a full C1/C2 lesson plan with warm-up, reading, vocabulary, grammar, role-play, dialogue practice and more — from any article or topic.
+              Generate a full speaking lesson plan at the level you choose below, with warm-up, reading, vocabulary, grammar, role-play, dialogue practice and more — from any article or topic.
             </p>
           </div>
         )}
@@ -335,32 +335,32 @@ export function CreatePage({ level, onLevelChange, onTopicSelect, onSettings, on
           {error && <p className="text-xs text-red-500 px-1">{error}</p>}
         </div>
 
-        {/* ── 4. Level selector (student mode only) ───────────────────── */}
+        {/* ── 4. Level selector (both modes) ──────────────────────────── */}
+        {!isTeacher && <Divider label="Or browse by topic" />}
+        <div>
+          <p className="text-[10px] font-bold tracking-widest text-slate-400 uppercase mb-2">English Level</p>
+          <div className="flex gap-2">
+            {LEVELS.map((l) => (
+              <button
+                key={l.id}
+                onClick={() => onLevelChange(l.id)}
+                className={`flex-1 rounded-2xl py-3 px-2 text-center transition-all border ${
+                  level === l.id
+                    ? 'bg-navy-700 border-navy-700 text-white shadow-md'
+                    : 'bg-white border-slate-200 text-slate-600 hover:border-navy-400'
+                }`}
+              >
+                <p className="text-base font-black">{l.id}</p>
+                <p className={`text-[10px] leading-tight mt-0.5 ${level === l.id ? 'text-sky-200' : 'text-slate-400'}`}>
+                  {l.sublabel}
+                </p>
+              </button>
+            ))}
+          </div>
+        </div>
+
         {!isTeacher && (
           <>
-            <Divider label="Or browse by topic" />
-            <div>
-              <p className="text-[10px] font-bold tracking-widest text-slate-400 uppercase mb-2">Your English Level</p>
-              <div className="flex gap-2">
-                {LEVELS.map((l) => (
-                  <button
-                    key={l.id}
-                    onClick={() => onLevelChange(l.id)}
-                    className={`flex-1 rounded-2xl py-3 px-2 text-center transition-all border ${
-                      level === l.id
-                        ? 'bg-navy-700 border-navy-700 text-white shadow-md'
-                        : 'bg-white border-slate-200 text-slate-600 hover:border-navy-400'
-                    }`}
-                  >
-                    <p className="text-base font-black">{l.id}</p>
-                    <p className={`text-[10px] leading-tight mt-0.5 ${level === l.id ? 'text-sky-200' : 'text-slate-400'}`}>
-                      {l.sublabel}
-                    </p>
-                  </button>
-                ))}
-              </div>
-            </div>
-
             <div>
               <p className="text-[10px] font-bold tracking-widest text-slate-400 uppercase mb-2">Choose a Topic</p>
               <div className="space-y-2">

@@ -3,16 +3,17 @@ import { ArrowRight, Loader2, RefreshCw, Sparkles, FileText } from 'lucide-react
 import { Header } from '../components/Header'
 import { fetchArticleAngles, generateTeacherLesson } from '../lib/openai'
 import { storage } from '../lib/storage'
-import type { Article, ArticleAngle, TeacherLesson } from '../types'
+import type { Article, ArticleAngle, Level, TeacherLesson } from '../types'
 
 interface Props {
   article: Article
   sourceText: string
+  level: Level
   onBack: () => void
   onTeacherLessonReady: (lesson: TeacherLesson, article: Article) => void
 }
 
-export function ArticleAnglesPage({ article, sourceText, onBack, onTeacherLessonReady }: Props) {
+export function ArticleAnglesPage({ article, sourceText, level, onBack, onTeacherLessonReady }: Props) {
   const [angles, setAngles]           = useState<ArticleAngle[]>([])
   const [loadingAngles, setLoadingAngles] = useState(true)
   const [generating, setGenerating]   = useState(false)
@@ -45,7 +46,7 @@ export function ArticleAnglesPage({ article, sourceText, onBack, onTeacherLesson
     try {
       const key = await storage.getOpenAIKey()
       if (!key) throw new Error('Please add your OpenAI API key in Settings first.')
-      const lesson = await generateTeacherLesson(sourceText, angleInstruction, key)
+      const lesson = await generateTeacherLesson(sourceText, angleInstruction, key, level)
       onTeacherLessonReady(lesson, article)
     } catch (e) {
       setError((e as Error).message)
@@ -123,7 +124,7 @@ export function ArticleAnglesPage({ article, sourceText, onBack, onTeacherLesson
                     <div className="flex-1">
                       <p className="text-sm font-bold text-navy-800">Rephrase for the classroom</p>
                       <p className="text-xs text-slate-500 mt-0.5 leading-relaxed">
-                        Keep the original content but rewrite it at C1/C2 level for English learners — clearer structure, richer vocabulary in context.
+                        Keep the original content but rewrite it at {level} level for English learners — clearer structure, richer vocabulary in context.
                       </p>
                     </div>
                     <ArrowRight size={15} className="text-slate-300 group-hover:text-sky-500 transition-colors mt-1 shrink-0" />
