@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LinguaLesson</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,900;1,400&display=swap" rel="stylesheet">
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Inter',system-ui,sans-serif;background:#f8fafc;color:#1e293b;line-height:1.6;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    a{color:inherit;text-decoration:none}
+    .top-bar{position:sticky;top:0;background:#1e3a5f;color:#fff;display:flex;align-items:center;justify-content:space-between;padding:12px 24px;z-index:100;gap:12px;box-shadow:0 2px 12px rgba(0,0,0,.15)}
+    .brand{font-size:13px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#7dd3fc;flex-shrink:0}
+    .top-bar-actions{display:flex;gap:8px;flex-shrink:0}
+    .btn{border:none;cursor:pointer;font-family:'Inter',sans-serif;font-weight:700;font-size:12px;border-radius:10px;padding:8px 16px;transition:opacity .2s;display:inline-flex;align-items:center;gap:6px}
+    .btn:hover{opacity:.85}
+    .btn-print{background:#fff;color:#1e3a5f}
+    .container{max-width:780px;margin:0 auto;padding:40px 24px 80px}
+    .hero{margin-bottom:32px}
+    .badges{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
+    .badge{display:inline-flex;align-items:center;font-size:11px;font-weight:700;padding:3px 11px;border-radius:20px;letter-spacing:.05em;text-transform:uppercase}
+    .badge-level{background:#1e3a5f;color:#fff}
+    .badge-source{background:#e0f2fe;color:#0369a1}
+    .lesson-title{font-size:28px;font-weight:900;color:#0f172a;line-height:1.2;margin-bottom:8px}
+    .source-link{font-size:12px;color:#64748b}
+    .source-link a{color:#0369a1;text-decoration:underline}
+    .section{background:#fff;border:1px solid #e2e8f0;border-radius:16px;padding:24px;margin-bottom:18px}
+    .section-heading{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:#94a3b8;margin-bottom:18px}
+    .summary-text{font-size:15px;color:#334155;line-height:1.75}
+    .article-body p{margin-bottom:16px;font-size:15px;line-height:1.8;color:#334155}
+    .article-body p:last-child{margin-bottom:0}
+    .vocab-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+    @media(max-width:540px){.vocab-grid{grid-template-columns:1fr}}
+    .vocab-card{background:#f8fafc;border:1px solid #e2e8f0;border-radius:12px;padding:14px}
+    .vocab-word{font-size:15px;font-weight:800;color:#1e3a5f;margin-bottom:2px}
+    .vocab-pron{font-size:11px;font-family:monospace;font-weight:600;color:#0369a1;letter-spacing:.04em;margin-bottom:5px}
+    .vocab-def{font-size:12px;color:#64748b;line-height:1.55;margin-bottom:6px}
+    .vocab-example{font-size:12px;color:#94a3b8;font-style:italic}
+    .q-list{list-style:none;counter-reset:qc}
+    .q-list li{counter-increment:qc;padding:12px 0;border-bottom:1px solid #f1f5f9;display:flex;gap:10px;font-size:14px;color:#334155;line-height:1.6}
+    .q-list li:last-child{border-bottom:none;padding-bottom:0}
+    .q-list li::before{content:counter(qc)".";font-weight:800;color:#1e3a5f;flex-shrink:0;min-width:22px}
+    .disc-list{list-style:none}
+    .disc-list li{padding:10px 0;border-bottom:1px solid #f1f5f9;display:flex;gap:10px;font-size:14px;color:#334155;line-height:1.6}
+    .disc-list li:last-child{border-bottom:none}
+    .disc-num{font-weight:800;color:#0369a1;flex-shrink:0;min-width:22px}
+    .grammar-point{font-size:18px;font-weight:900;color:#1e3a5f;margin-bottom:8px}
+    .grammar-exp{font-size:14px;color:#334155;line-height:1.7;margin-bottom:14px}
+    .grammar-example{background:#f0f9ff;border:1px solid #bae6fd;border-radius:12px;padding:12px 16px;font-size:14px;color:#0369a1;font-style:italic}
+    .footer{text-align:center;font-size:11px;color:#94a3b8;margin-top:48px;padding-top:20px;border-top:1px solid #e2e8f0}
+    .error{padding:60px 24px;text-align:center;color:#64748b;font-size:14px}
+    @media print{
+      .no-print{display:none!important}
+      .top-bar{position:relative;background:#1e3a5f!important}
+      body{background:#fff}
+      .section{page-break-inside:avoid;box-shadow:none}
+      .container{padding:24px}
+    }
+  </style>
+</head>
+<body>
+  <div id="root"><p class="error">Loading lesson…</p></div>
+
+  <script>
+    function esc(s){
+      return String(s)
+        .replace(/&/g,'&amp;').replace(/</g,'&lt;')
+        .replace(/>/g,'&gt;').replace(/"/g,'&quot;')
+    }
+
+    function paragraphs(text){
+      return (text||'').split(/\n+/)
+        .map(p=>p.trim()).filter(Boolean)
+        .map(p=>'<p>'+esc(p)+'</p>').join('')
+    }
+
+    function render(article, lesson, level){
+      const isTopicBased = article.url.startsWith('topic:')
+      const sourceURL    = isTopicBased ? null : article.url
+
+      const articleSection = lesson.fullArticle ? `
+        <div class="section">
+          <p class="section-heading">📖 Reading Material</p>
+          <div class="article-body">${paragraphs(lesson.fullArticle)}</div>
+        </div>` : ''
+
+      const sourceLink = sourceURL
+        ? `<p class="source-link">Source: <a href="${esc(sourceURL)}" target="_blank" rel="noopener">${esc(article.source.name)}</a></p>`
+        : ''
+
+      const vocabCards = lesson.vocabulary.map(v=>`
+        <div class="vocab-card">
+          <p class="vocab-word">${esc(v.word)}</p>
+          ${v.pronunciation ? `<p class="vocab-pron">${esc(v.pronunciation)}</p>` : ''}
+          <p class="vocab-def">${esc(v.definition)}</p>
+          <p class="vocab-example">"${esc(v.example)}"</p>
+        </div>`).join('')
+
+      const questions = lesson.comprehensionQuestions
+        .map(q=>`<li>${esc(q.question)}</li>`).join('')
+
+      const discussion = lesson.discussionPoints
+        .map((p,i)=>`<li><span class="disc-num">${i+1}.</span>${esc(p)}</li>`).join('')
+
+      const now = new Date().toLocaleDateString('en-GB',{year:'numeric',month:'long',day:'numeric'})
+
+      return `
+        <div class="top-bar no-print">
+          <span class="brand">🌍 LinguaLesson</span>
+          <div class="top-bar-actions">
+            <button class="btn btn-print" onclick="window.print()">🖨 Print / Save as PDF</button>
+          </div>
+        </div>
+        <div class="container">
+          <div class="hero">
+            <div class="badges">
+              <span class="badge badge-level">${esc(level)}</span>
+              <span class="badge badge-source">${esc(article.source.name)}</span>
+            </div>
+            <h1 class="lesson-title">${esc(lesson.title)}</h1>
+            ${sourceLink}
+          </div>
+
+          ${articleSection}
+
+          <div class="section">
+            <p class="section-heading">📝 Summary</p>
+            <p class="summary-text">${esc(lesson.summary)}</p>
+          </div>
+
+          <div class="section">
+            <p class="section-heading">📚 Vocabulary — ${lesson.vocabulary.length} words</p>
+            <div class="vocab-grid">${vocabCards}</div>
+          </div>
+
+          <div class="section">
+            <p class="section-heading">🧠 Comprehension Questions</p>
+            <ul class="q-list">${questions}</ul>
+          </div>
+
+          <div class="section">
+            <p class="section-heading">💬 Discussion Points</p>
+            <ul class="disc-list">${discussion}</ul>
+          </div>
+
+          <div class="section">
+            <p class="section-heading">✏️ Grammar Focus</p>
+            <p class="grammar-point">${esc(lesson.grammar.point)}</p>
+            <p class="grammar-exp">${esc(lesson.grammar.explanation)}</p>
+            <p class="grammar-example">"${esc(lesson.grammar.example)}"</p>
+          </div>
+
+          <p class="footer">Generated with LinguaLesson · ${now}</p>
+        </div>`
+    }
+
+    // Read from chrome.storage.local (available because this page is
+    // part of the extension, served from chrome-extension://)
+    chrome.storage.local.get(['lessonExport'], function(result){
+      const data = result.lessonExport
+      if(!data || !data.lessonContent){
+        document.getElementById('root').innerHTML =
+          '<p class="error">No lesson data found. Please go back to the extension and try again.</p>'
+        return
+      }
+      document.title = data.lessonContent.title + ' — LinguaLesson'
+      document.getElementById('root').innerHTML =
+        render(data.article, data.lessonContent, data.level)
+
+      // Auto-open print dialog when launched from the "Save as PDF" button
+      if(new URLSearchParams(location.search).get('print') === '1'){
+        setTimeout(() => window.print(), 800)
+      }
+    })
+  </script>
+</body>
+</html>
