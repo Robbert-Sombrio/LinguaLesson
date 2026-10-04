@@ -4,6 +4,12 @@
 // or category listing page).
 
 chrome.runtime.onMessage.addListener((message, _sender, sendResponse) => {
+  // Full rendered HTML, so the sidebar can extract the article body (see lib/articleText.ts)
+  if (message.type === 'GET_PAGE_HTML') {
+    sendResponse({ html: document.documentElement.outerHTML })
+    return true
+  }
+
   if (message.type === 'GET_PAGE_META') {
     const title =
       (document.querySelector('meta[property="og:title"]') as HTMLMetaElement)?.content ||

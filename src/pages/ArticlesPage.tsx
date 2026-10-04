@@ -6,6 +6,7 @@ import { TOPICS } from '../types'
 import type { TopicId, Article, Level, LessonContent } from '../types'
 import { fetchArticles } from '../lib/news'
 import { generateLesson } from '../lib/openai'
+import { getArticleText } from '../lib/articleText'
 import { storage } from '../lib/storage'
 
 interface Props {
@@ -51,9 +52,10 @@ export function ArticlesPage({ topicId, level, onBack, onLessonReady }: Props) {
     setGenError('')
     setLoadingId(article.url)
     try {
+      const read = await getArticleText(article.url)
       const openaiKey = await storage.getOpenAIKey()
       if (!openaiKey) throw new Error('Please add your OpenAI API key in Settings.')
-      const content = await generateLesson(article, level, openaiKey)
+      const content = await generateLesson(article, level, openaiKey, read?.text)
       onLessonReady(article, content)
     } catch (e) {
       setGenError((e as Error).message)
@@ -68,6 +70,7 @@ export function ArticlesPage({ topicId, level, onBack, onLessonReady }: Props) {
     setIsCustomLoading(true)
     setGenError('')
     try {
+      const read = await getArticleText(url)
       const openaiKey = await storage.getOpenAIKey()
       if (!openaiKey) throw new Error('Please add your OpenAI API key in Settings.')
 
@@ -79,7 +82,7 @@ export function ArticlesPage({ topicId, level, onBack, onLessonReady }: Props) {
         publishedAt: new Date().toISOString(),
         source: { name: new URL(url).hostname.replace(/^www\./, '') },
       }
-      const content = await generateLesson(article, level, openaiKey)
+      const content = await generateLesson(article, level, openaiKey, read?.text)
       onLessonReady(article, content)
     } catch (e) {
       setGenError((e as Error).message)

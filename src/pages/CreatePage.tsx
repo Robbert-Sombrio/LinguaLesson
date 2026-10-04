@@ -5,6 +5,7 @@ import { TopicCard } from '../components/TopicCard'
 import { LEVELS, TOPICS } from '../types'
 import type { Level, TopicId, Article, LessonContent } from '../types'
 import { generateLesson, generateLessonFromTopic } from '../lib/openai'
+import { getArticleText } from '../lib/articleText'
 import { storage } from '../lib/storage'
 
 interface DetectedArticle {
@@ -63,7 +64,7 @@ export function CreatePage({ level, onLevelChange, onTopicSelect, onSettings, on
   }
 
   // Build a concise source description for teacher mode
-  function buildSourceText(article: Article, extra?: string): string {
+  function buildSourceText(article: Article, extra?: string, articleText?: string | null): string {
     const parts: string[] = []
     if (article.url.startsWith('topic:')) {
       const topic = decodeURIComponent(article.url.replace('topic:', ''))
@@ -75,6 +76,7 @@ export function CreatePage({ level, onLevelChange, onTopicSelect, onSettings, on
       parts.push(`Title: ${article.title}`)
     }
     if (extra) parts.push(extra)
+    if (articleText) parts.push(`Article text:\n${articleText}`)
     return parts.join('\n')
   }
 
@@ -113,6 +115,8 @@ export function CreatePage({ level, onLevelChange, onTopicSelect, onSettings, on
     setError('')
     setLoadingWhat('url')
     try {
+      // First: the permission prompt for this site needs the click's user gesture
+      const read = await getArticleText(url)
       await getOpenAIKey()
       let hostname = url
       try { hostname = new URL(url).hostname.replace(/^www\./, '') } catch { /* keep raw */ }
@@ -123,14 +127,14 @@ export function CreatePage({ level, onLevelChange, onTopicSelect, onSettings, on
       }
 
       if (mode === 'teacher') {
-        onTeacherModeReady(article, buildSourceText(article))
+        onTeacherModeReady(article, buildSourceText(article, undefined, read?.text))
         setLoadingWhat(null)
         return
       }
 
       const key = await storage.getOpenAIKey()
       if (!key) throw new Error('Please add your OpenAI API key in Settings first.')
-      const content = await generateLesson(article, level, key)
+      const content = await generateLesson(article, level, key, read?.text)
       onLessonReady(article, content)
     } catch (e) { setError((e as Error).message) }
     finally    { setLoadingWhat(null) }
@@ -142,6 +146,7 @@ export function CreatePage({ level, onLevelChange, onTopicSelect, onSettings, on
     setError('')
     setLoadingWhat('detected')
     try {
+      const read = await getArticleText(detectedArticle.url)
       await getOpenAIKey()
       const article: Article = {
         title:       detectedArticle.title,
@@ -155,7 +160,7 @@ export function CreatePage({ level, onLevelChange, onTopicSelect, onSettings, on
       if (mode === 'teacher') {
         onTeacherModeReady(
           article,
-          buildSourceText(article, detectedArticle.description ? `Description: ${detectedArticle.description}` : ''),
+          buildSourceText(article, detectedArticle.description ? `Description: ${detectedArticle.description}` : '', read?.text),
         )
         setLoadingWhat(null)
         return
@@ -163,7 +168,7 @@ export function CreatePage({ level, onLevelChange, onTopicSelect, onSettings, on
 
       const key = await storage.getOpenAIKey()
       if (!key) throw new Error('Please add your OpenAI API key in Settings first.')
-      const content = await generateLesson(article, level, key)
+      const content = await generateLesson(article, level, key, read?.text)
       onLessonReady(article, content)
     } catch (e) { setError((e as Error).message) }
     finally    { setLoadingWhat(null) }

@@ -86,19 +86,35 @@ export async function generateLesson(
   article: Article,
   level: Level,
   apiKey: string,
+  articleText?: string | null,
 ): Promise<LessonContent> {
+  // Without the real text the model can only see the headline, so it must not invent details.
+  const source = articleText
+    ? `Article text (the single source of truth for this lesson):
+"""
+${articleText}
+"""`
+    : `Only the headline and description are available — the article text could not be read.
+Do NOT invent facts, quotes or figures. Keep content to what the headline and description support, and focus on language around the topic.`
+  const grounding = articleText
+    ? `- Vocabulary words and phrases must appear verbatim in the article text; take the grammar point from sentences in it
+- Every comprehension question must be answerable from the article text alone; do not add facts that are not in it`
+    : `- Vocabulary and grammar should relate to the headline and description`
+
   const prompt = `You are an expert English language teacher. Create a comprehensive English lesson based on the article below for a ${LEVEL_DESC[level]} learner.
 
 Article Title: ${article.title}
-Article Description: ${article.description ?? 'No description available'}
+Article Description: ${article.description || 'No description available'}
 Article URL: ${article.url}
+
+${source}
 
 Return this JSON structure:
 ${ARTICLE_JSON_SCHEMA(level)}
 
 Requirements:
 ${SHARED_REQUIREMENTS(level)}
-- Vocabulary and grammar should draw from or relate to the article content`
+${grounding}`
 
   return callOpenAI(prompt, apiKey)
 }
