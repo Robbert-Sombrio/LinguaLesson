@@ -22,9 +22,10 @@ export interface Topic {
   label: string
   description: string
   emoji: string
-  // NewsAPI category (or null → use `everything` endpoint with query)
-  newsCategory: string | null
+  /** NewsAPI search: OR-joined terms, so any one of them can match */
   newsQuery: string
+  /** Only articles from these publications are shown (NewsAPI allows up to 20) */
+  domains: string[]
 }
 
 export const TOPICS: Topic[] = [
@@ -33,32 +34,48 @@ export const TOPICS: Topic[] = [
     label: 'Business & Finance',
     description: 'Markets, entrepreneurship, economics',
     emoji: '💼',
-    newsCategory: 'business',
-    newsQuery: 'business finance markets economy',
+    newsQuery:
+      '(economy OR markets OR "business strategy" OR management OR entrepreneurship OR "supply chain" OR inflation OR "central bank")',
+    domains: [
+      'economist.com', 'hbr.org', 'fortune.com', 'bbc.com', 'theguardian.com', 'vox.com',
+      'theatlantic.com', 'fastcompany.com', 'inc.com', 'time.com', 'npr.org',
+    ],
   },
   {
     id: 'technology',
     label: 'Technology & Innovation',
     description: 'AI, startups, digital trends',
     emoji: '⚡',
-    newsCategory: 'technology',
-    newsQuery: 'technology AI innovation startups',
+    newsQuery:
+      '("artificial intelligence" OR AI OR startups OR software OR cybersecurity OR "tech industry" OR robotics OR semiconductors)',
+    domains: [
+      'technologyreview.com', 'wired.com', 'arstechnica.com', 'theverge.com', 'bbc.com',
+      'theguardian.com', 'vox.com', 'theatlantic.com', 'economist.com', 'fastcompany.com', 'newyorker.com',
+    ],
   },
   {
     id: 'culture',
     label: 'Culture & Lifestyle',
     description: 'Arts, society, travel, food',
     emoji: '🌍',
-    newsCategory: 'entertainment',
-    newsQuery: 'culture arts society lifestyle',
+    newsQuery:
+      '(culture OR arts OR society OR travel OR food OR books OR cities OR language OR education) NOT (celebrity OR gossip OR "red carpet")',
+    domains: [
+      'theatlantic.com', 'newyorker.com', 'theguardian.com', 'bbc.com', 'vox.com', 'npr.org',
+      'aeon.co', 'time.com', 'economist.com', 'smithsonianmag.com', 'nationalgeographic.com',
+    ],
   },
   {
     id: 'personal-growth',
     label: 'Personal Development',
     description: 'Productivity, leadership, mindset',
     emoji: '✨',
-    newsCategory: null,
-    newsQuery: 'personal development productivity leadership mindset self-improvement',
+    newsQuery:
+      '(productivity OR leadership OR mindset OR habits OR "emotional intelligence" OR burnout OR "decision-making" OR resilience OR "work-life balance" OR creativity)',
+    domains: [
+      'hbr.org', 'psychologytoday.com', 'bbc.com', 'theatlantic.com', 'fastcompany.com', 'bigthink.com',
+      'vox.com', 'theguardian.com', 'time.com', 'inc.com', 'aeon.co', 'npr.org',
+    ],
   },
 ]
 

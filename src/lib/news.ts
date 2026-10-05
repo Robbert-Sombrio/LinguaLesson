@@ -1,20 +1,20 @@
 import type { Article, Topic } from '../types'
 
-export async function fetchArticles(topic: Topic, apiKey: string): Promise<Article[]> {
-  let url: string
+const RECENT_DAYS = 14
 
-  if (topic.newsCategory) {
-    // Use top-headlines by category for business / technology / entertainment
-    url =
-      `https://newsapi.org/v2/top-headlines` +
-      `?category=${topic.newsCategory}&language=en&pageSize=15`
-  } else {
-    // Use /everything with a keyword query for personal-growth etc.
-    const q = encodeURIComponent(topic.newsQuery)
-    url =
-      `https://newsapi.org/v2/everything` +
-      `?q=${q}&language=en&sortBy=publishedAt&pageSize=15`
-  }
+export async function fetchArticles(topic: Topic, apiKey: string): Promise<Article[]> {
+  // Search only the topic's quality publications, newest first, matching on headline/description
+  const from = new Date(Date.now() - RECENT_DAYS * 86_400_000).toISOString().slice(0, 10)
+  const params = new URLSearchParams({
+    q: topic.newsQuery,
+    domains: topic.domains.join(','),
+    searchIn: 'title,description',
+    language: 'en',
+    sortBy: 'publishedAt',
+    from,
+    pageSize: '30',
+  })
+  const url = `https://newsapi.org/v2/everything?${params}`
 
   const response = await fetch(url, { headers: { 'X-Api-Key': apiKey }, signal: AbortSignal.timeout(20_000) })
 
@@ -35,10 +35,15 @@ export async function fetchArticles(topic: Topic, apiKey: string): Promise<Artic
     throw new Error(data.message ?? 'Unknown NewsAPI error')
   }
 
-  // Filter out articles without images or titles
-  return data.articles.filter(
-    (a) => a.urlToImage && a.title && a.title !== '[Removed]',
-  )
+  // Drop removed items and duplicates; articles without a picture are fine (the card handles it)
+  const seen = new Set<string>()
+  return data.articles.filter((a) => {
+    if (!a.title || a.title === '[Removed]' || !a.url) return false
+    const key = a.title.trim().toLowerCase()
+    if (seen.has(key)) return false
+    seen.add(key)
+    return true
+  })
 }
 
 // Fetch metadata for an arbitrary URL by searching NewsAPI
