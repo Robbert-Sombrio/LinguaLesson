@@ -1,0 +1,29 @@
+{
+  "skill_name": "collage-broll",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Use collage-broll on this line: Most people think AI is here to think for you. It's more like a mirror that shows you the holes in your question.",
+      "expected_output": "At Gate 1, proposes one clear visual metaphor with key objects, palette and assembly order, then stops for approval. Must not generate an image or call any video model.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "I approve the 'knowledge cards reconnecting into a network along tracks' metaphor from last round. Go ahead with the still. Don't make every background blue, and coloured paper pieces are fine.",
+      "expected_output": "At Gate 2, writes a varied-colour halftone paper-collage visual spec, builds the blank 9:16 colour card, uploads it to an ElevenLabs flow, generates variations with gemini-3-pro-image wired to that card, saves them in the project, shows a numbered contact sheet, and stops for a second approval. Must not call Omni Flash.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "All the stills are approved, go ahead and make the videos.",
+      "expected_output": "At Gate 3, uses gemini-omni-flash-preview via scripts/generate_video.py without asking which model, uses the exact empty first frame and approved last frame, generates 5s 9:16 video, strips audio, builds contact sheets and checks the end frame. Must not default to Veo.",
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "Of these five, metaphors 1, 2 and 4 are approved. I still want to change 3 and 5. Move on to the next step.",
+      "expected_output": "Advances only items 1, 2 and 4 to still generation, keeps items 3 and 5 at metaphor revision. Must not generate video for any item.",
+      "files": []
+    }
+  ]
+}
