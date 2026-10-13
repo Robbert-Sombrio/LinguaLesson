@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>LinguaLesson launch</title>
+<style>
+:root{
+  --navy:#1e3a5f; --ink:#0f172a; --sky:#7dd3fc; --blue:#0369a1; --pale:#e0f2fe;
+  --slate:#334155; --mute:#64748b; --line:#e2e8f0; --bg:#f8fafc;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1080px;height:1920px;overflow:hidden;background:#0b1729}
+body{font-family:'Inter',system-ui,sans-serif;color:#fff;-webkit-font-smoothing:antialiased}
+
+/* stage */
+.stage{position:absolute;inset:0;overflow:hidden;
+  background:radial-gradient(1200px 900px at 80% 10%,#24507f 0%,transparent 60%),
+             radial-gradient(900px 900px at 0% 100%,#173a63 0%,transparent 55%),
+             linear-gradient(180deg,#0e2140,#0b1729)}
+.grid{position:absolute;inset:0;opacity:.07;
+  background-image:linear-gradient(#fff 1px,transparent 1px),linear-gradient(90deg,#fff 1px,transparent 1px);
+  background-size:60px 60px;animation:drift 15s linear both}
+@keyframes drift{to{background-position:0 -120px}}
+
+/* generic timeline helpers: outer = exit, inner = enter */
+.out{animation:fadeOut .45s ease-in both;animation-delay:var(--o,99s)}
+.in{animation:riseIn .6s cubic-bezier(.2,.8,.2,1) both;animation-delay:var(--d,0s)}
+.pop{animation:pop .5s cubic-bezier(.3,1.5,.5,1) both;animation-delay:var(--d,0s)}
+.fade{animation:fadeIn .4s ease both;animation-delay:var(--d,0s)}
+@keyframes riseIn{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:none}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes fadeOut{from{opacity:1}to{opacity:0;transform:translateY(-24px)}}
+@keyframes pop{from{opacity:0;transform:scale(.7)}to{opacity:1;transform:none}}
+
+/* captions */
+.cap{position:absolute;left:80px;right:80px;top:150px;height:330px}
+.cap .c{position:absolute;inset:0}
+.cap h1{font-size:84px;line-height:1.04;font-weight:900;letter-spacing:-.035em}
+.cap h1 em{font-style:normal;color:var(--sky)}
+.cap p{margin-top:26px;font-size:34px;font-weight:600;color:#b7cbe2;letter-spacing:-.01em}
+.kicker{display:inline-flex;align-items:center;gap:12px;font-size:24px;font-weight:800;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--sky);margin-bottom:26px}
+.kicker i{width:12px;height:12px;border-radius:50%;background:var(--sky);display:block}
+
+/* browser */
+.browserWrap{position:absolute;left:60px;top:560px;width:960px;height:1250px}
+.browser{position:absolute;inset:0;border-radius:28px;background:#fff;overflow:hidden;
+  box-shadow:0 40px 120px rgba(0,0,0,.5),0 0 0 1px rgba(255,255,255,.08)}
+.chrome{height:78px;background:#eef2f7;border-bottom:1px solid #dde3ea;display:flex;align-items:center;gap:14px;padding:0 24px}
+.dots{display:flex;gap:9px}.dots b{width:15px;height:15px;border-radius:50%;background:#cbd5e1;display:block}
+.dots b:nth-child(1){background:#f87171}.dots b:nth-child(2){background:#fbbf24}.dots b:nth-child(3){background:#34d399}
+.url{flex:1;height:44px;border-radius:22px;background:#fff;border:1px solid #dde3ea;display:flex;align-items:center;
+  gap:10px;padding:0 20px;font-size:20px;color:var(--mute)}
+.url .lock{width:14px;height:16px;border:2.5px solid #94a3b8;border-radius:3px}
+.extBtn{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;background:#fff;border:1px solid #dde3ea;position:relative}
+.viewport{position:absolute;top:78px;left:0;right:0;bottom:0;overflow:hidden}
+
+/* article page */
+.article{position:absolute;inset:0;padding:56px 60px;color:var(--ink);background:#fff}
+.article .sec{font-size:20px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#b91c1c;margin-bottom:22px}
+.article h2{font-size:58px;line-height:1.08;font-weight:900;letter-spacing:-.03em;margin-bottom:22px;font-family:Georgia,'DejaVu Serif',serif}
+.article .dek{font-size:28px;color:var(--slate);line-height:1.45;margin-bottom:30px;font-family:Georgia,'DejaVu Serif',serif}
+.article .by{font-size:19px;color:var(--mute);margin-bottom:34px}
+.hero{height:330px;border-radius:16px;margin-bottom:36px;position:relative;overflow:hidden;
+  background:linear-gradient(135deg,#fde68a,#fca5a5 45%,#93c5fd)}
+.hero .cal{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:flex;gap:14px}
+.hero .cal span{width:92px;height:120px;border-radius:14px;background:rgba(255,255,255,.88);display:grid;place-items:center;
+  font:800 26px Inter;color:var(--navy)}
+.hero .cal span.off{background:rgba(15,23,42,.18);color:rgba(255,255,255,.9);text-decoration:line-through}
+.para{height:16px;border-radius:8px;background:#e5e9f0;margin-bottom:18px}
+
+/* side panel */
+.panel{position:absolute;top:0;bottom:0;right:0;width:600px;background:#fff;border-left:1px solid var(--line);
+  box-shadow:-30px 0 60px rgba(15,23,42,.18);animation:slideIn .7s cubic-bezier(.2,.8,.2,1) both;animation-delay:var(--d)}
+@keyframes slideIn{from{transform:translateX(105%)}to{transform:none}}
+.ph{height:86px;background:var(--navy);display:flex;align-items:center;gap:16px;padding:0 28px}
+.ph .t{font-size:22px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--sky)}
+.pbody{padding:30px 28px;color:var(--ink)}
+.label{font-size:16px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#94a3b8;margin-bottom:14px}
+.detected{border:1px solid var(--line);border-radius:18px;padding:20px;display:flex;gap:18px;margin-bottom:34px;background:var(--bg)}
+.detected .th{width:96px;height:96px;border-radius:12px;flex-shrink:0;background:linear-gradient(135deg,#fde68a,#fca5a5 45%,#93c5fd)}
+.detected b{display:block;font-size:22px;line-height:1.25;font-weight:800;margin-bottom:8px}
+.detected small{font-size:17px;color:var(--mute)}
+.ok{display:inline-flex;align-items:center;gap:8px;margin-top:10px;font-size:15px;font-weight:700;color:#047857;background:#d1fae5;border-radius:20px;padding:4px 12px}
+.levels{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:34px}
+.lv{height:76px;border-radius:16px;border:2px solid var(--line);display:grid;place-items:center;font-size:28px;font-weight:900;color:var(--slate);position:relative}
+.lv.sel::after{content:"";position:absolute;inset:-2px;border-radius:16px;background:var(--navy);
+  animation:fadeIn .25s ease both;animation-delay:var(--d)}
+.lv span{position:relative;z-index:1}
+.lv.sel span{animation:toWhite .25s ease both;animation-delay:var(--d)}
+@keyframes toWhite{to{color:#fff}}
+.field{border:2px solid var(--line);border-radius:16px;height:70px;display:flex;align-items:center;padding:0 20px;font-size:22px;color:var(--slate);margin-bottom:34px;gap:12px}
+.field b{background:var(--pale);color:var(--blue);border-radius:10px;padding:4px 12px;font-size:19px}
+.go{height:92px;border-radius:20px;background:linear-gradient(135deg,#0369a1,#1e3a5f);color:#fff;display:flex;align-items:center;justify-content:center;
+  gap:14px;font-size:27px;font-weight:800;position:relative;overflow:hidden;animation:press .3s ease both;animation-delay:var(--d)}
+@keyframes press{50%{transform:scale(.95)}100%{transform:none}}
+.go .lbl2{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:16px;background:linear-gradient(135deg,#0369a1,#1e3a5f)}
+.spin{width:32px;height:32px;border-radius:50%;border:4px solid rgba(255,255,255,.3);border-top-color:#fff;animation:rot .7s linear infinite}
+@keyframes rot{to{transform:rotate(360deg)}}
+.bar{height:8px;border-radius:4px;background:var(--line);margin-top:22px;overflow:hidden}
+.bar i{display:block;height:100%;background:linear-gradient(90deg,#38bdf8,#0369a1);transform-origin:left;
+  animation:grow 1.1s ease-in-out both;animation-delay:var(--d)}
+@keyframes grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+
+/* cursor */
+.cursor{position:absolute;width:54px;height:54px;z-index:50;left:0;top:0;
+  animation:cur 3.2s cubic-bezier(.45,0,.2,1) both;animation-delay:2.6s}
+@keyframes cur{
+  0%{transform:translate(1000px,1000px)}
+  25%{transform:translate(905px,35px)}      /* extension icon */
+  32%{transform:translate(905px,35px) scale(.85)}
+  36%{transform:translate(905px,35px)}
+  52%{transform:translate(721px,492px)}     /* C1 */
+  56%{transform:translate(721px,492px) scale(.85)}
+  60%{transform:translate(721px,492px)}
+  80%{transform:translate(652px,748px)}     /* generate */
+  85%{transform:translate(652px,748px) scale(.85);opacity:1}
+  100%{transform:translate(652px,748px);opacity:0}
+}
+
+/* lesson page */
+.lesson{position:absolute;inset:0;background:var(--bg);color:var(--ink);overflow:hidden}
+.ltop{position:absolute;top:0;left:0;right:0;height:84px;background:var(--navy);display:flex;align-items:center;justify-content:space-between;padding:0 32px;z-index:3}
+.brand{font-size:21px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--sky)}
+.lbtns{display:flex;gap:12px}
+.lbtn{font-size:18px;font-weight:700;border-radius:12px;padding:10px 18px;background:rgba(255,255,255,.12);color:#fff}
+.lbtn.w{background:#fff;color:var(--navy)}
+.lbtn.glow{animation:glow .5s ease both;animation-delay:var(--d)}
+@keyframes glow{50%{box-shadow:0 0 0 10px rgba(125,211,252,.6);transform:scale(1.08)}100%{box-shadow:0 0 0 0 rgba(125,211,252,0)}}
+.lscroll{position:absolute;top:84px;left:0;right:0;padding:40px 40px;animation:scrollUp 2.4s cubic-bezier(.5,0,.3,1) both;animation-delay:8.6s}
+@keyframes scrollUp{to{transform:translateY(-560px)}}
+.badges{display:flex;gap:10px;margin-bottom:16px}
+.badge{font-size:16px;font-weight:800;padding:6px 16px;border-radius:20px;letter-spacing:.05em;text-transform:uppercase}
+.badge.l{background:var(--navy);color:#fff}.badge.s{background:var(--pale);color:var(--blue)}
+.ltitle{font-size:46px;font-weight:900;line-height:1.12;letter-spacing:-.025em;margin-bottom:28px}
+.card{background:#fff;border:1px solid var(--line);border-radius:22px;padding:28px;margin-bottom:22px}
+.shead{font-size:16px;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:#94a3b8;margin-bottom:20px}
+.vgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.vc{background:var(--bg);border:1px solid var(--line);border-radius:16px;padding:18px}
+.vw{font-size:25px;font-weight:800;color:var(--navy)}
+.vp{font-size:16px;font-family:monospace;font-weight:600;color:var(--blue);margin:2px 0 8px}
+.vd{font-size:17px;color:var(--mute);line-height:1.45;margin-bottom:8px}
+.ve{font-size:16px;color:#94a3b8;font-style:italic;line-height:1.4}
+.ql{list-style:none}
+.ql li{display:flex;gap:14px;font-size:22px;line-height:1.45;color:var(--slate);padding:14px 0;border-bottom:1px solid #f1f5f9}
+.ql li:last-child{border:none}
+.ql li b{color:var(--navy);min-width:28px}
+.gp{font-size:30px;font-weight:900;color:var(--navy);margin-bottom:10px}
+.gx{font-size:20px;color:var(--slate);line-height:1.55;margin-bottom:16px}
+.gex{background:#f0f9ff;border:1px solid #bae6fd;border-radius:14px;padding:16px 20px;font-size:21px;color:var(--blue);font-style:italic}
+
+/* print / teacher scene */
+.sheets{position:absolute;left:0;right:0;top:600px;height:1100px}
+.sheet{position:absolute;top:0;width:560px;height:790px;background:#fff;border-radius:14px;color:var(--ink);padding:40px 38px;
+  box-shadow:0 30px 90px rgba(0,0,0,.45)}
+.sheet .sb{height:44px;margin:-40px -38px 30px;border-radius:14px 14px 0 0;background:var(--navy);display:flex;align-items:center;padding:0 24px;
+  font-size:15px;font-weight:800;letter-spacing:.1em;color:var(--sky)}
+.sheet h3{font-size:30px;font-weight:900;line-height:1.15;margin-bottom:22px;letter-spacing:-.02em}
+.sheet .row{height:13px;border-radius:7px;background:#e5e9f0;margin-bottom:14px}
+.sheet .ans{display:flex;gap:10px;align-items:center;font-size:18px;font-weight:700;color:#047857;background:#ecfdf5;border:1px solid #a7f3d0;
+  border-radius:10px;padding:10px 14px;margin:12px 0}
+.sheet .tag{position:absolute;bottom:34px;left:38px;font-size:17px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;border-radius:20px;padding:6px 16px}
+.s1{left:70px;animation:sheetL .8s cubic-bezier(.2,.8,.2,1) both;animation-delay:11.1s}
+.s2{left:450px;animation:sheetR .8s cubic-bezier(.2,.8,.2,1) both;animation-delay:11.35s}
+@keyframes sheetL{from{opacity:0;transform:translateY(200px) rotate(0)}to{opacity:1;transform:rotate(-6deg)}}
+@keyframes sheetR{from{opacity:0;transform:translateY(240px) rotate(0)}to{opacity:1;transform:translateY(90px) rotate(5deg)}}
+
+/* end card */
+.end{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.logo{width:200px;height:200px;border-radius:52px;background:linear-gradient(140deg,#38bdf8,#0369a1 55%,#1e3a5f);display:grid;place-items:center;
+  box-shadow:0 30px 80px rgba(3,105,161,.55),inset 0 0 0 2px rgba(255,255,255,.25);margin-bottom:56px}
+.logo span{font-size:92px;font-weight:900;letter-spacing:-.08em;color:#fff}
+.end h2{font-size:108px;font-weight:900;letter-spacing:-.045em;line-height:1}
+.end .sub{font-size:40px;font-weight:600;color:#b7cbe2;margin:22px 0 70px}
+.cta{display:inline-flex;align-items:center;gap:20px;background:#fff;color:var(--navy);font-size:40px;font-weight:800;border-radius:999px;padding:30px 60px;
+  box-shadow:0 20px 60px rgba(0,0,0,.35)}
+.cta .ch{width:48px;height:48px;border-radius:50%;
+  background:conic-gradient(#ea4335 0 120deg,#fbbc05 0 240deg,#34a853 0);position:relative}
+.cta .ch::after{content:"";position:absolute;inset:13px;border-radius:50%;background:#4285f4;box-shadow:0 0 0 4px #fff}
+.site{position:absolute;bottom:140px;left:0;right:0;font-size:30px;font-weight:700;color:#8fb3d6;letter-spacing:.02em}
+.shine{animation:shine 1.2s ease both;animation-delay:var(--d)}
+@keyframes shine{0%{transform:scale(1)}40%{transform:scale(1.05)}100%{transform:scale(1)}}
+</style>
+</head>
+<body>
+<div class="stage">
+  <div class="grid"></div>
+
+  <!-- CAPTIONS -->
+  <div class="cap">
+    <div class="c out" style="--o:2.25s"><div class="in" style="--d:.15s">
+      <div class="kicker"><i></i>For English coaches</div>
+      <h1>Your next lesson is <em>already</em> in the news.</h1>
+    </div></div>
+
+    <div class="c out" style="--o:5.85s"><div class="in" style="--d:2.6s">
+      <div class="kicker"><i></i>Step 1</div>
+      <h1>Open any article.<br>Pick a <em>level</em>.</h1>
+    </div></div>
+
+    <div class="c out" style="--o:10.75s"><div class="in" style="--d:6.1s">
+      <div class="kicker"><i></i>Step 2</div>
+      <h1>Get a full <em>C1</em> lesson in seconds.</h1>
+      <p>Vocabulary · questions · grammar · discussion</p>
+    </div></div>
+
+    <div class="c out" style="--o:13.1s"><div class="in" style="--d:11s">
+      <div class="kicker"><i></i>Step 3</div>
+      <h1>Print it. Or teach from the <em>answer key</em>.</h1>
+    </div></div>
+  </div>
+
+  <!-- HOOK VISUAL: headline cards -->
+  <div class="out" style="--o:2.25s;position:absolute;left:0;right:0;top:640px;height:1100px">
+    <div class="in" style="--d:.5s;position:absolute;left:90px;top:0;width:900px">
+      <div class="card" style="background:#fff;color:var(--ink);transform:rotate(-3deg);padding:40px">
+        <div class="shead" style="color:#b91c1c">Business</div>
+        <div style="font:900 50px/1.1 Georgia,serif;letter-spacing:-.02em">The four-day week trial that changed minds</div>
+      </div>
+    </div>
+    <div class="in" style="--d:.8s;position:absolute;left:150px;top:330px;width:860px">
+      <div class="card" style="background:#fff;color:var(--ink);transform:rotate(2.5deg);padding:40px">
+        <div class="shead" style="color:#7c3aed">Technology</div>
+        <div style="font:900 50px/1.1 Georgia,serif;letter-spacing:-.02em">What AI agents mean for the entry-level job</div>
+      </div>
+    </div>
+    <div class="in" style="--d:1.1s;position:absolute;left:70px;top:660px;width:880px">
+      <div class="card" style="background:#fff;color:var(--ink);transform:rotate(-1.5deg);padding:40px">
+        <div class="shead" style="color:#047857">Culture</div>
+        <div style="font:900 50px/1.1 Georgia,serif;letter-spacing:-.02em">Why the world is learning Korean from K-dramas</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BROWSER -->
+  <div class="out" style="--o:10.85s;position:absolute;inset:0">
+  <div class="browserWrap in" style="--d:2.45s">
+    <div class="browser">
+      <div class="chrome">
+        <div class="dots"><b></b><b></b><b></b></div>
+        <div class="url"><span class="lock"></span>news-site.com/business/the-four-day-week-trial</div>
+        <div class="extBtn"><div style="width:26px;height:26px;border-radius:8px;background:linear-gradient(140deg,#38bdf8,#1e3a5f);display:grid;place-items:center;font:900 13px Inter;color:#fff;letter-spacing:-.06em">LL</div></div>
+      </div>
+      <div class="viewport">
+        <!-- article -->
+        <div class="article">
+          <div class="sec">Business · 7 min read</div>
+          <h2>The four-day week trial that changed minds</h2>
+          <div class="dek">61 UK companies tested it in 2022. Most of them never went back to five days.</div>
+          <div class="by">By the Business desk · Updated today</div>
+          <div class="hero"><div class="cal"><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span class="off">Fri</span></div></div>
+          <div class="para" style="width:96%"></div><div class="para" style="width:88%"></div><div class="para" style="width:93%"></div>
+          <div class="para" style="width:70%"></div><div class="para" style="width:91%"></div><div class="para" style="width:84%"></div>
+        </div>
+
+        <!-- side panel -->
+        <div class="panel" style="--d:3.55s">
+          <div class="ph">
+            <div style="width:44px;height:44px;border-radius:12px;background:linear-gradient(140deg,#38bdf8,#0369a1);display:grid;place-items:center;font:900 20px Inter;color:#fff;letter-spacing:-.06em">LL</div>
+            <div class="t">LinguaLesson</div>
+          </div>
+          <div class="pbody">
+            <div class="label">Article detected</div>
+            <div class="detected">
+              <div class="th"></div>
+              <div><b>The four-day week trial that changed minds</b><small>news-site.com · Business</small><br><span class="ok">✓ Ready to use</span></div>
+            </div>
+            <div class="label">Student level</div>
+            <div class="levels">
+              <div class="lv"><span>B1</span></div>
+              <div class="lv"><span>B2</span></div>
+              <div class="lv sel" style="--d:4.4s"><span>C1</span></div>
+              <div class="lv"><span>C2</span></div>
+            </div>
+            <div class="label">Student industry</div>
+            <div class="field">Tailor examples for <b>HR &amp; management</b></div>
+            <div class="go" style="--d:5.3s">✦ Generate Lesson from Article
+              <div class="lbl2 fade" style="--d:5.45s"><div class="spin"></div>Building your lesson…</div>
+            </div>
+            <div class="bar fade" style="--d:5.45s"><i style="--d:5.45s"></i></div>
+          </div>
+        </div>
+
+        <!-- lesson -->
+        <div class="lesson fade" style="--d:6.4s">
+          <div class="ltop">
+            <div class="brand">LinguaLesson</div>
+            <div class="lbtns">
+              <div class="lbtn glow" style="--d:10.2s">Teacher Edition</div>
+              <div class="lbtn w glow" style="--d:10.45s">⎙ Print / PDF</div>
+            </div>
+          </div>
+          <div class="lscroll">
+            <div class="in" style="--d:6.6s">
+              <div class="badges"><span class="badge l">C1 Advanced</span><span class="badge s">Business</span><span class="badge s">HR focus</span></div>
+              <div class="ltitle">Working less, getting more: the four-day week</div>
+            </div>
+            <div class="card in" style="--d:6.9s">
+              <div class="shead">Key vocabulary</div>
+              <div class="vgrid">
+                <div class="vc pop" style="--d:7.1s"><div class="vw">attrition</div><div class="vp">/əˈtrɪʃ.ən/</div><div class="vd">Staff leaving a company over time.</div><div class="ve">“Attrition fell by 57% during the trial.”</div></div>
+                <div class="vc pop" style="--d:7.3s"><div class="vw">to pilot</div><div class="vp">/ˈpaɪ.lət/</div><div class="vd">To test an idea on a small scale first.</div><div class="ve">“61 firms piloted the scheme.”</div></div>
+                <div class="vc pop" style="--d:7.5s"><div class="vw">pushback</div><div class="vp">/ˈpʊʃ.bæk/</div><div class="vd">Resistance from the people affected.</div><div class="ve">“Managers expected pushback from clients.”</div></div>
+                <div class="vc pop" style="--d:7.7s"><div class="vw">make the case</div><div class="vp">/meɪk ðə keɪs/</div><div class="vd">To argue clearly that something is right.</div><div class="ve">“The data made the case for staying.”</div></div>
+              </div>
+            </div>
+            <div class="card in" style="--d:8.0s">
+              <div class="shead">Comprehension questions</div>
+              <ul class="ql">
+                <li><b>1.</b>Why did attrition fall during the trial?</li>
+                <li><b>2.</b>What did firms measure besides revenue?</li>
+                <li><b>3.</b>Which roles were hardest to fit into four days?</li>
+              </ul>
+            </div>
+            <div class="card">
+              <div class="shead">Grammar focus</div>
+              <div class="gp">Inversion for emphasis</div>
+              <div class="gx">Put the negative adverb first to sound more formal and persuasive in meetings.</div>
+              <div class="gex">“Not only did revenue hold steady, but sick days fell by 65%.”</div>
+            </div>
+            <div class="card">
+              <div class="shead">Discussion</div>
+              <ul class="ql">
+                <li><b>1.</b>Could your team deliver the same output in four days? What would break first?</li>
+                <li><b>2.</b>How would you pitch the idea to a sceptical CEO?</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- cursor (coordinates are relative to the browser frame) -->
+    <svg class="cursor" viewBox="0 0 24 24"><path d="M4 2l16 9.5-7 1.6-3.6 6.9z" fill="#fff" stroke="#0f172a" stroke-width="1.8" stroke-linejoin="round"/></svg>
+  </div>
+  </div>
+
+  <!-- PRINT / TEACHER -->
+  <div class="out" style="--o:13.1s;position:absolute;inset:0">
+    <div class="sheets">
+      <div class="sheet s1">
+        <div class="sb">STUDENT COPY · C1</div>
+        <h3>Working less, getting more: the four-day week</h3>
+        <div class="row" style="width:92%"></div><div class="row" style="width:80%"></div><div class="row" style="width:86%"></div>
+        <div style="font:800 17px Inter;color:#94a3b8;letter-spacing:.1em;margin:26px 0 14px">FILL THE GAP</div>
+        <div style="font-size:20px;line-height:1.6;color:var(--slate)">Most firms that ______ the scheme decided to keep it.</div>
+        <div class="row" style="width:88%;margin-top:22px"></div><div class="row" style="width:76%"></div><div class="row" style="width:82%"></div>
+        <div class="tag" style="background:var(--pale);color:var(--blue)">Print-ready PDF</div>
+      </div>
+      <div class="sheet s2">
+        <div class="sb" style="background:#0f172a">TEACHER EDITION · ANSWER KEY</div>
+        <h3>Working less, getting more: the four-day week</h3>
+        <div class="row" style="width:90%"></div><div class="row" style="width:78%"></div>
+        <div class="ans">✓ 1. piloted</div>
+        <div class="ans">✓ 2. attrition</div>
+        <div class="ans">✓ 3. pushback</div>
+        <div style="font:800 17px Inter;color:#94a3b8;letter-spacing:.1em;margin:22px 0 12px">CLASS ACTIVITY</div>
+        <div style="font-size:19px;line-height:1.55;color:var(--slate)">Ask: would this work at your company? Push for one concrete reason, then one risk.</div>
+        <div class="tag" style="background:#0f172a;color:#fff">Teacher edition</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- END CARD -->
+  <div class="end">
+    <div class="logo pop" style="--d:13.25s"><span>LL</span></div>
+    <h2 class="in" style="--d:13.45s">LinguaLesson</h2>
+    <div class="sub in" style="--d:13.6s">English lessons from the news</div>
+    <div class="in" style="--d:13.8s"><div class="cta shine" style="--d:14.3s"><span class="ch"></span>Add to Chrome</div></div>
+    <div class="site fade" style="--d:14s">seanwatson.coach</div>
+  </div>
+</div>
+
+<script>
+// Deterministic seek for frame-by-frame capture.
+window.seek = (ms) => {
+  for (const a of document.getAnimations()) { a.pause(); a.currentTime = ms; }
+};
+</script>
+</body>
+</html>
