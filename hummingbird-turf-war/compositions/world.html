@@ -21,7 +21,7 @@
       const H = 1920;
       const DUR = 15;
       const canvas = document.getElementById("world-canvas");
-      const ctx = canvas.getContext("2d");
+      let ctx = canvas.getContext("2d");
 
       // ---------- helpers ----------
       function mulberry32(a) {
@@ -526,6 +526,33 @@
         { x: -120, y: 1400, s: 1.2, a: -0.3, ph: 7, sway: 1 },
       ];
 
+      // Blurred plant layers never change shape, so draw them once and reuse the bitmap.
+      function bakeLayer(plants, blurPx, alpha) {
+        let x0 = Infinity, y0 = Infinity, x1 = -Infinity, y1 = -Infinity;
+        for (const pl of plants) {
+          x0 = Math.min(x0, pl.x - 420 * pl.s);
+          x1 = Math.max(x1, pl.x + 420 * pl.s);
+          y0 = Math.min(y0, pl.y - 320 * pl.s);
+          y1 = Math.max(y1, pl.y + 1500 * pl.s);
+        }
+        const pad = blurPx * 3;
+        x0 -= pad; y0 -= pad; x1 += pad; y1 += pad;
+        const c = document.createElement("canvas");
+        c.width = Math.ceil(x1 - x0);
+        c.height = Math.ceil(y1 - y0);
+        const main = ctx;
+        const lctx = c.getContext("2d");
+        ctx = lctx;
+        ctx.filter = "blur(" + blurPx + "px)";
+        ctx.globalAlpha = alpha;
+        ctx.translate(-x0, -y0);
+        for (const pl of plants) drawPlant(Object.assign({}, pl, { sway: 0 }), 0);
+        ctx = main;
+        return { c, x0, y0 };
+      }
+      const backLayer = bakeLayer(plantsBack, 5, 0.75);
+      const frontLayer = bakeLayer(plantsFront, 10, 0.9);
+
       // ---------- motion tracks ----------
       const R = REST;
       const dPos = track([
@@ -699,11 +726,7 @@
 
         // background plants, soft
         view(0.7);
-        ctx.filter = "blur(5px)";
-        ctx.globalAlpha = 0.75;
-        for (const pl of plantsBack) drawPlant(pl, t);
-        ctx.filter = "none";
-        ctx.globalAlpha = 1;
+        ctx.drawImage(backLayer.c, backLayer.x0 + Math.sin(t * 1.3) * 5, backLayer.y0);
 
         // main plane
         view(1);
@@ -760,11 +783,7 @@
 
         // foreground plants, blurred big
         view(1.35);
-        ctx.filter = "blur(10px)";
-        ctx.globalAlpha = 0.9;
-        for (const pl of plantsFront) drawPlant(pl, t);
-        ctx.filter = "none";
-        ctx.globalAlpha = 1;
+        ctx.drawImage(frontLayer.c, frontLayer.x0 + Math.sin(t * 1.1 + 2) * 7, frontLayer.y0);
 
         // paper grain
         ctx.setTransform(1, 0, 0, 1, 0, 0);
