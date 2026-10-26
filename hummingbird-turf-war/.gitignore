@@ -2,3 +2,5 @@ snaps/
 .hyperframes/
 renders/*.tmp
 renders/*.log
+renders/work-*/
+renders/.*
