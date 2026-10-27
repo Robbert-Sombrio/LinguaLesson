@@ -1,0 +1,54 @@
+<template>
+  <style>
+    @font-face { font-family: "Lora"; src: url("assets/fonts/lora-500-normal.woff2") format("woff2"); font-weight: 400 700; font-style: normal; }
+    #root { position: absolute; inset: 0; overflow: hidden; }
+    #wd-block { position: absolute; right: -60px; top: 1370px; width: 420px; height: 420px; background: #4e6388; }
+    #wd-qc { position: absolute; left: -210px; top: 1400px; width: 420px; height: 420px; border-radius: 50%; background: #b8cce2; }
+    #wd-label { position: absolute; left: 0; right: 0; top: 330px; text-align: center; font-family: "Inter", sans-serif; font-size: 26px; font-weight: 700; letter-spacing: 0.22em; color: #e2483f; }
+    #wd-word { position: absolute; left: 0; right: 0; top: 380px; text-align: center; font-family: "Lora", serif; font-weight: 700; font-size: 150px; letter-spacing: -0.02em; color: #2e3642; }
+    #wd-pron { position: absolute; left: 0; right: 0; top: 600px; text-align: center; font-family: "Inter", sans-serif; font-size: 58px; font-weight: 600; color: #4e6388; letter-spacing: 0.02em; }
+    #wd-pron b { color: #e2483f; font-weight: 800; }
+    #wd-rule { position: absolute; left: 340px; width: 400px; top: 700px; height: 4px; background: #2e3642; transform-origin: center; }
+    #wd-stage { position: absolute; left: 0; right: 0; top: 760px; height: 360px; }
+    #wd-circle { position: absolute; left: 150px; top: 30px; width: 300px; height: 300px; border-radius: 50%; background: #e3a728; mix-blend-mode: multiply; }
+    #wd-square { position: absolute; left: 650px; top: 45px; width: 270px; height: 270px; background: #e2483f; mix-blend-mode: multiply; }
+  </style>
+  <div id="root" data-composition-id="word" data-width="1080" data-height="1920">
+    <div id="wd-block" data-layout-allow-overflow></div>
+    <div id="wd-qc" data-layout-allow-overflow></div>
+    <div id="wd-label">THE WORD</div>
+    <div id="wd-word">Ambivalence</div>
+    <div id="wd-pron">am-<b>BIV</b>-uh-lens</div>
+    <div id="wd-rule"></div>
+    <div id="wd-stage" data-layout-allow-overlap>
+      <div id="wd-circle"></div>
+      <div id="wd-square"></div>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#wd-block", { x: 480 }, { x: 0, duration: 0.7, ease: "power3.out" }, 0.0);
+    tl.fromTo("#wd-qc", { scale: 0 }, { scale: 1, duration: 0.7, ease: "power3.out" }, 0.1);
+    tl.fromTo("#wd-label", { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.35, ease: "power2.out" }, 0.3);
+    // "The word is ambivalence."
+    tl.fromTo("#wd-word", { opacity: 0, scale: 0.86, y: 30 }, { opacity: 1, scale: 1, y: 0, duration: 0.45, ease: "back.out(1.6)" }, 1.92);
+    tl.fromTo("#wd-rule", { scaleX: 0 }, { scaleX: 1, duration: 0.4, ease: "power3.out" }, 2.3);
+    tl.fromTo("#wd-pron", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.35, ease: "power2.out" }, 2.75);
+    // "two conflicting things at the same time"
+    tl.fromTo("#wd-circle", { scale: 0 }, { scale: 1, duration: 0.4, ease: "back.out(2)" }, 4.08);
+    tl.fromTo("#wd-square", { scale: 0, rotation: 30 }, { scale: 1, rotation: 0, duration: 0.4, ease: "back.out(2)" }, 4.2);
+    tl.to("#wd-circle", { x: 120, duration: 0.45, ease: "power2.in" }, 4.4);
+    tl.to("#wd-square", { x: -120, duration: 0.45, ease: "power2.in" }, 4.4);
+    tl.to("#wd-circle", { x: 70, duration: 0.5, ease: "back.out(3)" }, 4.85);
+    tl.to("#wd-square", { x: -70, rotation: -6, duration: 0.5, ease: "back.out(3)" }, 4.85);
+    tl.to("#wd-circle", { x: 210, duration: 0.8, ease: "power3.inOut" }, 5.95);
+    tl.to("#wd-square", { x: -230, rotation: 0, duration: 0.8, ease: "power3.inOut" }, 5.95);
+    tl.to("#wd-stage", { scale: 1.06, duration: 0.42, ease: "sine.inOut" }, 6.2);
+    // exit
+    tl.to("#wd-word, #wd-pron, #wd-label, #wd-rule", { y: -260, opacity: 0, duration: 0.35, ease: "power2.in" }, 6.65);
+    tl.to("#wd-stage", { scale: 0.4, opacity: 0, duration: 0.35, ease: "power2.in" }, 6.65);
+    tl.to("#wd-block", { x: 480, duration: 0.35, ease: "power2.in" }, 6.65);
+    tl.to("#wd-qc", { scale: 0, duration: 0.35, ease: "power2.in" }, 6.65);
+    window.__timelines["word"] = tl;
+  </script>
+</template>

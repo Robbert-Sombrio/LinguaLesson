@@ -1,0 +1,716 @@
+[
+  {
+    "text": "Harvard",
+    "start": 0.17,
+    "end": 0.52,
+    "id": "w0"
+  },
+  {
+    "text": "Business",
+    "start": 0.52,
+    "end": 1.06,
+    "id": "w1"
+  },
+  {
+    "text": "Review",
+    "start": 1.12,
+    "end": 1.55,
+    "id": "w2"
+  },
+  {
+    "text": "published",
+    "start": 1.56,
+    "end": 2.05,
+    "id": "w3"
+  },
+  {
+    "text": "this",
+    "start": 2.1,
+    "end": 2.34,
+    "id": "w4"
+  },
+  {
+    "text": "headline",
+    "start": 2.34,
+    "end": 2.84,
+    "id": "w5"
+  },
+  {
+    "text": "last",
+    "start": 2.84,
+    "end": 3.16,
+    "id": "w6"
+  },
+  {
+    "text": "week.",
+    "start": 3.2,
+    "end": 3.4,
+    "id": "w7"
+  },
+  {
+    "text": "Most",
+    "start": 3.4,
+    "end": 4.15,
+    "id": "w8"
+  },
+  {
+    "text": "people",
+    "start": 4.15,
+    "end": 4.27,
+    "id": "w9"
+  },
+  {
+    "text": "can't",
+    "start": 4.27,
+    "end": 4.65,
+    "id": "w10"
+  },
+  {
+    "text": "pronounce",
+    "start": 4.68,
+    "end": 5.43,
+    "id": "w11"
+  },
+  {
+    "text": "the",
+    "start": 5.43,
+    "end": 5.68,
+    "id": "w12"
+  },
+  {
+    "text": "key",
+    "start": 5.68,
+    "end": 5.93,
+    "id": "w13"
+  },
+  {
+    "text": "word.",
+    "start": 5.93,
+    "end": 6.54,
+    "id": "w14"
+  },
+  {
+    "text": "The",
+    "start": 6.71,
+    "end": 6.88,
+    "id": "w15"
+  },
+  {
+    "text": "headline,",
+    "start": 6.88,
+    "end": 7.92,
+    "id": "w16"
+  },
+  {
+    "text": "leaders",
+    "start": 7.92,
+    "end": 8.5,
+    "id": "w17"
+  },
+  {
+    "text": "need",
+    "start": 8.5,
+    "end": 8.83,
+    "id": "w18"
+  },
+  {
+    "text": "to",
+    "start": 8.83,
+    "end": 8.94,
+    "id": "w19"
+  },
+  {
+    "text": "grapple",
+    "start": 8.99,
+    "end": 9.6,
+    "id": "w20"
+  },
+  {
+    "text": "with",
+    "start": 9.6,
+    "end": 9.96,
+    "id": "w21"
+  },
+  {
+    "text": "employee",
+    "start": 10.08,
+    "end": 10.8,
+    "id": "w22"
+  },
+  {
+    "text": "ambivalence",
+    "start": 10.8,
+    "end": 11.56,
+    "id": "w23"
+  },
+  {
+    "text": "on",
+    "start": 11.68,
+    "end": 11.86,
+    "id": "w24"
+  },
+  {
+    "text": "AI.",
+    "start": 11.86,
+    "end": 12.32,
+    "id": "w25"
+  },
+  {
+    "text": "The",
+    "start": 12.32,
+    "end": 13.11,
+    "id": "w26"
+  },
+  {
+    "text": "word",
+    "start": 13.11,
+    "end": 13.26,
+    "id": "w27"
+  },
+  {
+    "text": "is",
+    "start": 13.26,
+    "end": 13.53,
+    "id": "w28"
+  },
+  {
+    "text": "ambivalence.",
+    "start": 13.53,
+    "end": 15.44,
+    "id": "w29"
+  },
+  {
+    "text": "It",
+    "start": 15.44,
+    "end": 15.61,
+    "id": "w30"
+  },
+  {
+    "text": "doesn't",
+    "start": 15.61,
+    "end": 16.07,
+    "id": "w31"
+  },
+  {
+    "text": "mean",
+    "start": 16.07,
+    "end": 16.35,
+    "id": "w32"
+  },
+  {
+    "text": "you",
+    "start": 16.35,
+    "end": 16.51,
+    "id": "w33"
+  },
+  {
+    "text": "don't",
+    "start": 16.56,
+    "end": 16.91,
+    "id": "w34"
+  },
+  {
+    "text": "care.",
+    "start": 16.91,
+    "end": 17.44,
+    "id": "w35"
+  },
+  {
+    "text": "It",
+    "start": 17.44,
+    "end": 17.61,
+    "id": "w36"
+  },
+  {
+    "text": "means",
+    "start": 17.61,
+    "end": 17.94,
+    "id": "w37"
+  },
+  {
+    "text": "you",
+    "start": 17.94,
+    "end": 18.16,
+    "id": "w38"
+  },
+  {
+    "text": "feel",
+    "start": 18.16,
+    "end": 18.45,
+    "id": "w39"
+  },
+  {
+    "text": "two",
+    "start": 18.45,
+    "end": 18.66,
+    "id": "w40"
+  },
+  {
+    "text": "conflicting",
+    "start": 18.72,
+    "end": 19.47,
+    "id": "w41"
+  },
+  {
+    "text": "things",
+    "start": 19.47,
+    "end": 19.91,
+    "id": "w42"
+  },
+  {
+    "text": "at",
+    "start": 19.91,
+    "end": 20.05,
+    "id": "w43"
+  },
+  {
+    "text": "the",
+    "start": 20.05,
+    "end": 20.27,
+    "id": "w44"
+  },
+  {
+    "text": "same",
+    "start": 20.27,
+    "end": 20.56,
+    "id": "w45"
+  },
+  {
+    "text": "time.",
+    "start": 20.56,
+    "end": 20.98,
+    "id": "w46"
+  },
+  {
+    "text": "Employees",
+    "start": 23.85,
+    "end": 24.45,
+    "id": "w47"
+  },
+  {
+    "text": "are",
+    "start": 24.45,
+    "end": 24.71,
+    "id": "w48"
+  },
+  {
+    "text": "excited",
+    "start": 24.71,
+    "end": 25.26,
+    "id": "w49"
+  },
+  {
+    "text": "about",
+    "start": 25.34,
+    "end": 25.73,
+    "id": "w50"
+  },
+  {
+    "text": "AI",
+    "start": 25.78,
+    "end": 25.91,
+    "id": "w51"
+  },
+  {
+    "text": "saving",
+    "start": 25.91,
+    "end": 26.42,
+    "id": "w52"
+  },
+  {
+    "text": "them",
+    "start": 26.42,
+    "end": 26.76,
+    "id": "w53"
+  },
+  {
+    "text": "time",
+    "start": 26.76,
+    "end": 27.08,
+    "id": "w54"
+  },
+  {
+    "text": "and",
+    "start": 27.2,
+    "end": 27.22,
+    "id": "w55"
+  },
+  {
+    "text": "terrified",
+    "start": 27.76,
+    "end": 28.07,
+    "id": "w56"
+  },
+  {
+    "text": "it",
+    "start": 28.13,
+    "end": 28.28,
+    "id": "w57"
+  },
+  {
+    "text": "will",
+    "start": 28.3,
+    "end": 28.64,
+    "id": "w58"
+  },
+  {
+    "text": "replace",
+    "start": 28.64,
+    "end": 29.24,
+    "id": "w59"
+  },
+  {
+    "text": "them.",
+    "start": 29.24,
+    "end": 29.91,
+    "id": "w60"
+  },
+  {
+    "text": "That's",
+    "start": 29.91,
+    "end": 30.79,
+    "id": "w61"
+  },
+  {
+    "text": "ambivalence.",
+    "start": 30.79,
+    "end": 32.22,
+    "id": "w62"
+  },
+  {
+    "text": "Not",
+    "start": 32.39,
+    "end": 32.49,
+    "id": "w63"
+  },
+  {
+    "text": "indifference.",
+    "start": 32.49,
+    "end": 33.76,
+    "id": "w64"
+  },
+  {
+    "text": "Not",
+    "start": 33.91,
+    "end": 34.01,
+    "id": "w65"
+  },
+  {
+    "text": "confusion.",
+    "start": 34.01,
+    "end": 34.98,
+    "id": "w66"
+  },
+  {
+    "text": "Two",
+    "start": 35.19,
+    "end": 35.26,
+    "id": "w67"
+  },
+  {
+    "text": "strong",
+    "start": 35.26,
+    "end": 35.69,
+    "id": "w68"
+  },
+  {
+    "text": "feelings",
+    "start": 35.7,
+    "end": 36.26,
+    "id": "w69"
+  },
+  {
+    "text": "pulling",
+    "start": 36.32,
+    "end": 36.81,
+    "id": "w70"
+  },
+  {
+    "text": "in",
+    "start": 36.81,
+    "end": 36.96,
+    "id": "w71"
+  },
+  {
+    "text": "opposite",
+    "start": 36.96,
+    "end": 37.55,
+    "id": "w72"
+  },
+  {
+    "text": "directions.",
+    "start": 37.55,
+    "end": 38.44,
+    "id": "w73"
+  },
+  {
+    "text": "Next",
+    "start": 38.72,
+    "end": 38.89,
+    "id": "w74"
+  },
+  {
+    "text": "time",
+    "start": 38.89,
+    "end": 39.21,
+    "id": "w75"
+  },
+  {
+    "text": "a",
+    "start": 39.22,
+    "end": 39.3,
+    "id": "w76"
+  },
+  {
+    "text": "colleague",
+    "start": 39.3,
+    "end": 40.05,
+    "id": "w77"
+  },
+  {
+    "text": "says,",
+    "start": 40.05,
+    "end": 40.59,
+    "id": "w78"
+  },
+  {
+    "text": "I",
+    "start": 40.59,
+    "end": 40.68,
+    "id": "w79"
+  },
+  {
+    "text": "have",
+    "start": 40.68,
+    "end": 41.07,
+    "id": "w80"
+  },
+  {
+    "text": "mixed",
+    "start": 41.07,
+    "end": 41.56,
+    "id": "w81"
+  },
+  {
+    "text": "feelings",
+    "start": 41.56,
+    "end": 42.09,
+    "id": "w82"
+  },
+  {
+    "text": "about",
+    "start": 42.64,
+    "end": 42.83,
+    "id": "w83"
+  },
+  {
+    "text": "this,",
+    "start": 42.83,
+    "end": 43.43,
+    "id": "w84"
+  },
+  {
+    "text": "you",
+    "start": 43.43,
+    "end": 43.78,
+    "id": "w85"
+  },
+  {
+    "text": "can",
+    "start": 43.78,
+    "end": 44.12,
+    "id": "w86"
+  },
+  {
+    "text": "say,",
+    "start": 44.12,
+    "end": 44.59,
+    "id": "w87"
+  },
+  {
+    "text": "that's",
+    "start": 44.59,
+    "end": 44.9,
+    "id": "w88"
+  },
+  {
+    "text": "ambivalence.",
+    "start": 45.16,
+    "end": 45.91,
+    "id": "w89"
+  },
+  {
+    "text": "It's",
+    "start": 46.03,
+    "end": 46.14,
+    "id": "w90"
+  },
+  {
+    "text": "normal.",
+    "start": 46.14,
+    "end": 46.64,
+    "id": "w91"
+  },
+  {
+    "text": "Let's",
+    "start": 46.64,
+    "end": 47.37,
+    "id": "w92"
+  },
+  {
+    "text": "talk",
+    "start": 47.37,
+    "end": 47.55,
+    "id": "w93"
+  },
+  {
+    "text": "through",
+    "start": 47.55,
+    "end": 48.24,
+    "id": "w94"
+  },
+  {
+    "text": "both",
+    "start": 48.25,
+    "end": 48.67,
+    "id": "w95"
+  },
+  {
+    "text": "sides.",
+    "start": 48.67,
+    "end": 49.52,
+    "id": "w96"
+  },
+  {
+    "text": "One",
+    "start": 49.67,
+    "end": 49.8,
+    "id": "w97"
+  },
+  {
+    "text": "word,",
+    "start": 49.8,
+    "end": 50.37,
+    "id": "w98"
+  },
+  {
+    "text": "senior",
+    "start": 50.37,
+    "end": 50.94,
+    "id": "w99"
+  },
+  {
+    "text": "register,",
+    "start": 50.94,
+    "end": 51.9,
+    "id": "w100"
+  },
+  {
+    "text": "instant",
+    "start": 51.95,
+    "end": 52.41,
+    "id": "w101"
+  },
+  {
+    "text": "clarity.",
+    "start": 52.41,
+    "end": 53.06,
+    "id": "w102"
+  },
+  {
+    "text": "Ambivalence.",
+    "start": 53.27,
+    "end": 54.18,
+    "id": "w103"
+  },
+  {
+    "text": "Ambivalence.",
+    "start": 54.39,
+    "end": 55.68,
+    "id": "w104"
+  },
+  {
+    "text": "Stress",
+    "start": 55.85,
+    "end": 56.12,
+    "id": "w105"
+  },
+  {
+    "text": "on",
+    "start": 56.12,
+    "end": 56.26,
+    "id": "w106"
+  },
+  {
+    "text": "the",
+    "start": 56.26,
+    "end": 56.48,
+    "id": "w107"
+  },
+  {
+    "text": "second",
+    "start": 56.48,
+    "end": 56.9,
+    "id": "w108"
+  },
+  {
+    "text": "syllable.",
+    "start": 56.96,
+    "end": 57.73,
+    "id": "w109"
+  },
+  {
+    "text": "Follow",
+    "start": 57.93,
+    "end": 58.41,
+    "id": "w110"
+  },
+  {
+    "text": "and",
+    "start": 58.42,
+    "end": 58.75,
+    "id": "w111"
+  },
+  {
+    "text": "subscribe",
+    "start": 58.75,
+    "end": 59.74,
+    "id": "w112"
+  },
+  {
+    "text": "for",
+    "start": 59.74,
+    "end": 60.07,
+    "id": "w113"
+  },
+  {
+    "text": "more",
+    "start": 60.07,
+    "end": 60.51,
+    "id": "w114"
+  },
+  {
+    "text": "English",
+    "start": 60.51,
+    "end": 61.16,
+    "id": "w115"
+  },
+  {
+    "text": "tips",
+    "start": 61.27,
+    "end": 61.72,
+    "id": "w116"
+  },
+  {
+    "text": "and",
+    "start": 61.84,
+    "end": 62.05,
+    "id": "w117"
+  },
+  {
+    "text": "vocabulary.",
+    "start": 62.05,
+    "end": 63.52,
+    "id": "w118"
+  }
+]

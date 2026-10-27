@@ -1,0 +1,65 @@
+<template>
+  <style>
+    @font-face { font-family: "Lora"; src: url("assets/fonts/lora-500-normal.woff2") format("woff2"); font-weight: 400 700; font-style: normal; }
+    @font-face { font-family: "Lora"; src: url("assets/fonts/lora-500-italic.woff2") format("woff2"); font-weight: 400 700; font-style: italic; }
+    #root { position: absolute; inset: 0; overflow: hidden; }
+    #ct-label { position: absolute; left: 0; right: 0; top: 310px; text-align: center; font-family: "Inter", sans-serif; font-size: 26px; font-weight: 700; letter-spacing: 0.2em; color: #e2483f; }
+    .ct-wrap { position: absolute; top: 380px; width: 470px; filter: drop-shadow(0 14px 20px rgba(30,38,51,0.16)); }
+    #ct-lw { left: 50px; } #ct-rw { left: 560px; }
+    .ct-card { background: #fbfaf6; height: 720px; padding: 44px 36px; position: relative;
+      clip-path: polygon(0 0.6%, 14% 0, 38% 0.9%, 64% 0, 100% 0.7%, 99.3% 50%, 100% 99.4%, 72% 98.6%, 45% 99.6%, 20% 98.7%, 0 99.5%, 0.8% 48%); }
+    #ct-rcard { box-shadow: inset 0 0 0 8px #e3a728; }
+    .ct-tag { font-family: "Inter", sans-serif; font-size: 22px; font-weight: 700; letter-spacing: 0.16em; color: #6b7480; }
+    .ct-word { font-family: "Lora", serif; font-weight: 700; font-size: 66px; color: #2e3642; margin-top: 10px; letter-spacing: -0.01em; }
+    .ct-vis { position: relative; height: 250px; margin-top: 18px; }
+    #ct-fog { position: absolute; left: 115px; top: 20px; width: 210px; height: 210px; border-radius: 50%; background: #9aa6b4; filter: blur(16px); }
+    #ct-q { position: absolute; left: 0; right: 0; top: 52px; text-align: center; font-family: "Lora", serif; font-weight: 700; font-size: 120px; color: #fbfaf6; }
+    #ct-c { position: absolute; left: 70px; top: 50px; width: 150px; height: 150px; border-radius: 50%; background: #e3a728; }
+    #ct-s { position: absolute; left: 228px; top: 58px; width: 135px; height: 135px; background: #e2483f; }
+    #ct-rope { position: absolute; left: 145px; top: 122px; width: 150px; height: 6px; background: #2e3642; transform-origin: center; }
+    .ct-def { font-family: "Inter", sans-serif; font-size: 36px; font-weight: 600; line-height: 1.25; color: #2e3642; margin-top: 18px; }
+    .ct-ex { font-family: "Lora", serif; font-style: italic; font-size: 36px; color: #4e6388; margin-top: 22px; line-height: 1.25; }
+  </style>
+  <div id="root" data-composition-id="contrast" data-width="1080" data-height="1920">
+    <div id="ct-label">EASY TO MIX UP</div>
+    <div id="ct-lw" class="ct-wrap">
+      <div class="ct-card">
+        <div class="ct-tag">CONFUSION</div>
+        <div class="ct-word">ambiguous</div>
+        <div class="ct-vis"><div id="ct-fog"></div><div id="ct-q">?</div></div>
+        <div class="ct-def">One thing.<br />Unclear meaning.</div>
+        <div class="ct-ex">"an ambiguous email"</div>
+      </div>
+    </div>
+    <div id="ct-rw" class="ct-wrap">
+      <div class="ct-card" id="ct-rcard">
+        <div class="ct-tag">TWO FEELINGS</div>
+        <div class="ct-word">ambivalent</div>
+        <div class="ct-vis" data-layout-allow-overflow><div id="ct-rope"></div><div id="ct-c"></div><div id="ct-s"></div></div>
+        <div class="ct-def">Two clear feelings.<br />Pulling apart.</div>
+        <div class="ct-ex">"ambivalent about AI"</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#ct-label", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.3, ease: "power2.out" }, 0.05);
+    tl.fromTo("#ct-lw", { y: 300, opacity: 0, rotation: -6 }, { y: 0, opacity: 1, rotation: -1.5, duration: 0.5, ease: "power3.out" }, 0.0);
+    tl.fromTo("#ct-rw", { y: 300, opacity: 0, rotation: 6 }, { y: 0, opacity: 1, rotation: 1.5, duration: 0.5, ease: "power3.out" }, 0.3);
+    tl.fromTo("#ct-rcard", { boxShadow: "inset 0 0 0 0px #e3a728" }, { boxShadow: "inset 0 0 0 0px #e3a728", duration: 0.01 }, 0);
+    tl.fromTo("#ct-rope", { scaleX: 0 }, { scaleX: 0, duration: 0.01 }, 0);
+    tl.to("#ct-fog", { x: 14, scale: 1.08, duration: 1.1, ease: "sine.inOut", yoyo: true, repeat: 3 }, 0.4);
+    // "Two strong feelings..." — the right card wins the focus
+    tl.to("#ct-rcard", { boxShadow: "inset 0 0 0 8px #e3a728", duration: 0.3, ease: "power2.out" }, 1.4);
+    tl.to("#ct-lw", { opacity: 0.55, scale: 0.97, duration: 0.4, ease: "power2.out" }, 1.4);
+    // "...pulling in opposite directions"
+    tl.to("#ct-c", { x: -62, duration: 0.6, ease: "power3.out" }, 2.42);
+    tl.to("#ct-s", { x: 62, duration: 0.6, ease: "power3.out" }, 2.42);
+    tl.fromTo("#ct-rope", { scaleX: 1 }, { scaleX: 1.85, duration: 0.6, ease: "power3.out", immediateRender: false }, 2.42);
+    tl.to("#ct-c", { x: -54, duration: 0.18, ease: "sine.inOut", yoyo: true, repeat: 5 }, 3.05);
+    tl.to("#ct-s", { x: 54, duration: 0.18, ease: "sine.inOut", yoyo: true, repeat: 5 }, 3.05);
+    // exit
+    tl.to("#ct-lw, #ct-rw, #ct-label", { y: -200, opacity: 0, duration: 0.3, ease: "power2.in" }, 4.18);
+    window.__timelines["contrast"] = tl;
+  </script>
+</template>

@@ -1,0 +1,73 @@
+<template>
+  <style>
+    @font-face { font-family: "Lora"; src: url("assets/fonts/lora-500-normal.woff2") format("woff2"); font-weight: 400 700; font-style: normal; }
+    @font-face { font-family: "Lora"; src: url("assets/fonts/lora-500-italic.woff2") format("woff2"); font-weight: 400 700; font-style: italic; }
+    #root { position: absolute; inset: 0; overflow: hidden; }
+    #wk-kicker { position: absolute; left: 70px; top: 300px; font-family: "Inter", sans-serif; font-size: 26px; font-weight: 700; letter-spacing: 0.2em; color: #e2483f; }
+    .wk-wrap { position: absolute; filter: drop-shadow(0 14px 20px rgba(30,38,51,0.16)); }
+    #wk-cw { left: 60px; top: 360px; width: 740px; }
+    #wk-rw { left: 280px; top: 820px; width: 740px; }
+    .wk-bub { background: #fbfaf6; padding: 34px 44px 40px;
+      clip-path: polygon(0 1%, 20% 0, 52% 1.4%, 80% 0, 100% 1%, 99.4% 50%, 100% 99%, 70% 97.8%, 40% 99.4%, 12% 98%, 0 99%, 0.6% 50%); }
+    .wk-tag { font-family: "Inter", sans-serif; font-size: 22px; font-weight: 700; letter-spacing: 0.16em; color: #6b7480; display: flex; align-items: center; gap: 12px; }
+    .wk-tag i { display: block; width: 16px; height: 16px; border-radius: 50%; }
+    .wk-q { font-family: "Lora", serif; font-weight: 600; font-size: 56px; line-height: 1.2; color: #2e3642; margin-top: 12px; }
+    .wk-q span { display: inline-block; margin-right: 0.2em; }
+    #wk-mf { position: relative; }
+    #wk-mf-x { position: absolute; left: -4px; right: 0; top: 52%; height: 6px; background: #e2483f; transform-origin: left center; border-radius: 3px; }
+    #wk-up { position: absolute; left: 60px; right: 60px; top: 680px; height: 100px; display: flex; align-items: center; justify-content: center; gap: 26px; }
+    #wk-up-old { font-family: "Inter", sans-serif; font-size: 42px; font-weight: 600; color: #6b7480; text-decoration: line-through; text-decoration-color: #e2483f; text-decoration-thickness: 5px; }
+    #wk-up-arrow { width: 120px; height: 40px; }
+    #wk-up-new { position: relative; isolation: isolate; font-family: "Lora", serif; font-weight: 700; font-size: 60px; color: #2e3642; }
+    #wk-up-hl { position: absolute; left: -8px; right: -8px; top: 22%; bottom: 4%; background: #e3a728; opacity: 0.6; z-index: -1; transform-origin: left center; }
+    .wk-fig { position: absolute; top: 1380px; width: 150px; height: 300px; }
+    .wk-fig b { position: absolute; left: 30px; top: 0; width: 90px; height: 90px; border-radius: 50%; background: #2e3642; display: block; }
+    .wk-fig s { position: absolute; left: 0; top: 112px; width: 150px; height: 200px; border-radius: 75px 75px 0 0; display: block; }
+    #wk-f1 { left: 120px; } #wk-f2 { left: 810px; }
+  </style>
+  <div id="root" data-composition-id="work" data-width="1080" data-height="1920">
+    <div id="wk-kicker">AT WORK</div>
+    <div id="wk-cw" class="wk-wrap"><div class="wk-bub">
+      <div class="wk-tag"><i style="background:#1f8a8c"></i>YOUR COLLEAGUE</div>
+      <div class="wk-q"><span id="wk-c0">"I</span><span id="wk-c1">have</span><span id="wk-mf"><b id="wk-mf-x"></b><span id="wk-c2">mixed</span><span id="wk-c3">feelings</span></span><span id="wk-c4">about</span><span id="wk-c5">this."</span></div>
+    </div></div>
+    <div id="wk-up" data-layout-allow-overlap>
+      <div id="wk-up-old">mixed feelings</div>
+      <svg id="wk-up-arrow" viewBox="0 0 120 40"><rect x="0" y="16" width="92" height="8" fill="#2e3642"/><polygon points="120,20 88,2 88,38" fill="#2e3642"/></svg>
+      <div id="wk-up-new"><b id="wk-up-hl"></b>ambivalence</div>
+    </div>
+    <div id="wk-rw" class="wk-wrap"><div class="wk-bub">
+      <div class="wk-tag"><i style="background:#4e6388"></i>YOU</div>
+      <div class="wk-q" style="font-size:52px"><span id="wk-r0">"That's ambivalence.</span><span id="wk-r1">It's normal.</span><span id="wk-r2">Let's talk through both sides."</span></div>
+    </div></div>
+    <div id="wk-f1" class="wk-fig" data-layout-ignore><b></b><s style="background:#1f8a8c"></s></div>
+    <div id="wk-f2" class="wk-fig" data-layout-ignore><b></b><s style="background:#4e6388"></s></div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    const cw = ["#wk-c0", "#wk-c1", "#wk-c2", "#wk-c3", "#wk-c4", "#wk-c5"];
+    const ct = [1.74, 2.12, 2.51, 2.62, 3.33, 3.77];
+    tl.fromTo("#wk-kicker", { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.35, ease: "power2.out" }, 0.1);
+    tl.fromTo(".wk-fig", { y: 200, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: "back.out(1.4)", stagger: 0.12 }, 0.15);
+    tl.to("#wk-f1", { y: -10, duration: 0.9, ease: "sine.inOut", yoyo: true, repeat: 3 }, 1.6);
+    tl.fromTo("#wk-cw", { scale: 0.4, opacity: 0, transformOrigin: "10% 100%" }, { scale: 1, opacity: 1, rotation: -1, duration: 0.45, ease: "back.out(1.6)" }, 0.5);
+    cw.forEach((w, i) => tl.fromTo(w, { opacity: 0.12 }, { opacity: 1, duration: 0.2, ease: "power1.out" }, ct[i]));
+    tl.fromTo("#wk-mf-x", { scaleX: 0 }, { scaleX: 0, duration: 0.01 }, 0);
+    // "you can say: That's ambivalence."
+    tl.fromTo("#wk-rw", { scale: 0.4, opacity: 0, transformOrigin: "90% 100%" }, { scale: 1, opacity: 1, rotation: 1, duration: 0.45, ease: "back.out(1.6)" }, 5.0);
+    tl.to("#wk-f2", { y: -10, duration: 0.9, ease: "sine.inOut", yoyo: true, repeat: 5 }, 5.0);
+    tl.fromTo("#wk-r0", { opacity: 0.12 }, { opacity: 1, duration: 0.25 }, 5.07);
+    tl.fromTo("#wk-r1", { opacity: 0.12 }, { opacity: 1, duration: 0.25 }, 6.94);
+    tl.fromTo("#wk-r2", { opacity: 0.12 }, { opacity: 1, duration: 0.25 }, 8.27);
+    // the upgrade: mixed feelings -> ambivalence
+    tl.to("#wk-mf-x", { scaleX: 1, duration: 0.25, ease: "power2.out" }, 5.5);
+    tl.fromTo("#wk-up-old", { opacity: 0, x: -40 }, { opacity: 1, x: 0, duration: 0.3, ease: "power2.out" }, 5.35);
+    tl.fromTo("#wk-up-arrow", { scaleX: 0, transformOrigin: "left center" }, { scaleX: 1, duration: 0.3, ease: "power2.out" }, 5.5);
+    tl.fromTo("#wk-up-new", { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(2)" }, 5.62);
+    tl.fromTo("#wk-up-hl", { scaleX: 0 }, { scaleX: 1, duration: 0.3, ease: "power2.out" }, 5.6);
+    // exit
+    tl.to("#wk-cw, #wk-up, #wk-rw, #wk-kicker", { y: -240, opacity: 0, duration: 0.32, ease: "power2.in", stagger: 0.03 }, 9.9);
+    tl.to(".wk-fig", { y: 240, opacity: 0, duration: 0.3, ease: "power2.in" }, 9.9);
+    window.__timelines["work"] = tl;
+  </script>
+</template>
