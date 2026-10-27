@@ -6,7 +6,7 @@ import numpy as np
 src, dst = sys.argv[1], sys.argv[2]
 GAPS = [
     (46.52, 46.80, 0.08),   # for ... more
-    (47.36, 47.62, 0.06),   # English ... tips
+    (47.318, 47.62, 0.025), # English ... tips (ends after the "sh", removes a lip click)
     (48.12, 48.30, 0.06),   # tips ... and
     (48.82, 49.02, 0.05),   # and ... vocabulary
 ]
