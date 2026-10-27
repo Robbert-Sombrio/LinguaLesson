@@ -4,10 +4,10 @@ import json, sys
 
 platform = sys.argv[1] if len(sys.argv) > 1 else "youtube"
 CTA = {
-    "youtube":   {"cta": "A new word every day", "button": "Subscribe", "done": "Subscribed ✓"},
-    "tiktok":    {"cta": "Comment NEXT for tomorrow's word", "button": "Follow", "done": "Following ✓"},
+    "youtube":   {"cta": "More words like this", "button": "Subscribe", "done": "Subscribed ✓"},
+    "tiktok":    {"cta": "Comment NEXT for the next word", "button": "Follow", "done": "Following ✓"},
     "instagram": {"cta": "Save this for your next meeting", "button": "Follow", "done": "Following ✓"},
-    "linkedin":  {"cta": "Try this word in your next email", "button": "Connect", "done": "Connected ✓"},
+    "linkedin":  {"cta": "More workplace vocabulary", "button": "Follow", "done": "Following ✓"},
 }
 HANDLE = "@fluentedgepodcast"
 t = json.load(open("timing.json"))
