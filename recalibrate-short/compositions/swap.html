@@ -1,0 +1,60 @@
+<template>
+  <style>
+    @font-face { font-family: "Lora"; src: url("assets/fonts/lora-500-normal.woff2") format("woff2"); font-weight: 400 700; font-style: normal; }
+    #root { position: absolute; inset: 0; overflow: hidden; }
+    .sw-panel { position: absolute; left: 60px; right: 60px; height: 380px; filter: drop-shadow(0 14px 22px rgba(30,38,51,0.16)); }
+    #sw-before { top: 300px; } #sw-after { top: 735px; }
+    .sw-card { position: relative; height: 100%; background: #fbfaf6; border-radius: 6px; padding: 30px 40px; }
+    #sw-after .sw-card { box-shadow: inset 0 0 0 7px #e3a728; }
+    .sw-tag { font-family: "Inter", sans-serif; font-size: 24px; font-weight: 800; letter-spacing: 0.2em; display: flex; align-items: center; gap: 12px; }
+    #sw-before .sw-tag { color: #8a929c; } #sw-after .sw-tag { color: #c4861a; }
+    .sw-tag i { display: block; width: 16px; height: 16px; border-radius: 50%; }
+    .sw-text { font-family: "Lora", serif; font-size: 50px; line-height: 1.3; color: #2e3642; margin-top: 18px; }
+    .sw-w { position: relative; display: inline-block; isolation: isolate; }
+    #sw-x { position: absolute; left: -4px; right: -4px; top: 54%; height: 6px; background: #e2483f; border-radius: 3px; transform-origin: left center; }
+    #sw-hl { position: absolute; left: -8px; right: -8px; top: 18%; bottom: 4%; background: #e3a728; opacity: 0.75; z-index: -1; transform-origin: left center; }
+    .sw-notes { position: absolute; left: 40px; bottom: 28px; display: flex; gap: 14px; }
+    .sw-note { font-family: "Inter", sans-serif; font-size: 30px; font-weight: 700; color: #8a929c; border: 3px solid #c9cdd2; border-radius: 30px; padding: 6px 22px; }
+    .sw-sig { position: absolute; right: 40px; bottom: 30px; display: flex; align-items: flex-end; gap: 8px; height: 90px; }
+    .sw-sig b { display: block; width: 20px; border-radius: 3px; }
+    #sw-before .sw-sig b { background: #d9dcd8; } #sw-before .sw-sig b.on { background: #9aa3ad; }
+    #sw-after .sw-sig b { background: #e3a728; }
+    #sw-same { position: absolute; left: 60px; bottom: 30px; font-family: "Inter", sans-serif; font-size: 30px; font-weight: 700; color: #4e6388; }
+  </style>
+  <div id="root" data-composition-id="swap" data-width="1080" data-height="1920">
+    <div id="sw-before" class="sw-panel"><div class="sw-card">
+      <div class="sw-tag"><i style="background:#9aa3ad"></i>BEFORE</div>
+      <div class="sw-text">"We need to <span class="sw-w" id="sw-change">change<b id="sw-x"></b></span> our approach after Q3."</div>
+      <div class="sw-notes"><span class="sw-note" id="sw-n0">Fine.</span><span class="sw-note" id="sw-n1">Safe.</span><span class="sw-note" id="sw-n2">Forgettable.</span></div>
+      <div class="sw-sig" id="sw-sig0"><b class="on" style="height:22px"></b><b style="height:44px"></b><b style="height:66px"></b><b style="height:88px"></b></div>
+    </div></div>
+    <div id="sw-after" class="sw-panel"><div class="sw-card">
+      <div class="sw-tag"><i style="background:#e3a728"></i>AFTER</div>
+      <div class="sw-text">"We need to <span class="sw-w" id="sw-recal"><b id="sw-hl"></b>recalibrate</span> our approach after Q3."</div>
+      <div id="sw-same">Same meaning. Different signal.</div>
+      <div class="sw-sig" id="sw-sig1"><b id="sw-s0" style="height:22px"></b><b id="sw-s1" style="height:44px"></b><b id="sw-s2" style="height:66px"></b><b id="sw-s3" style="height:88px"></b></div>
+    </div></div>
+  </div>
+  <script>
+    // Cue times (local). "You wrote" / "Fine" "Safe" "Forgettable" / "swap" / "recalibrate" / "Same meaning" / "signal"
+    const T = { wrote: 0.0, fine: 3.0, safe: 3.5, forget: 4.0, swap: 4.8, recal: 6.5, same: 8.3, signal: 9.4, out: 10.2 };
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#sw-before", { x: -1100 }, { x: 0, duration: 0.5, ease: "power3.out" }, T.wrote);
+    tl.fromTo("#sw-n0", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.2, ease: "power2.out" }, T.fine);
+    tl.fromTo("#sw-n1", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.2, ease: "power2.out" }, T.safe);
+    tl.fromTo("#sw-n2", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.2, ease: "power2.out" }, T.forget);
+    tl.to("#sw-before .sw-text", { color: "#9aa3ad", duration: 0.4, ease: "power2.out" }, T.forget + 0.2);
+    // "Now swap one word"
+    tl.fromTo("#sw-x", { scaleX: 0 }, { scaleX: 1, duration: 0.25, ease: "power2.out" }, T.swap);
+    tl.fromTo("#sw-after", { x: 1100 }, { x: 0, duration: 0.5, ease: "power3.out" }, T.swap + 0.15);
+    tl.fromTo("#sw-same", { opacity: 0 }, { opacity: 0, duration: 0.01 }, 0);
+    tl.fromTo("#sw-hl", { scaleX: 0 }, { scaleX: 1, duration: 0.3, ease: "power2.out" }, T.recal);
+    tl.fromTo("#sw-recal", { scale: 1 }, { scale: 1.06, duration: 0.18, ease: "power2.out", yoyo: true, repeat: 1 }, T.recal + 0.05);
+    // "Same meaning. Completely different signal."
+    tl.to("#sw-same", { opacity: 1, duration: 0.3 }, T.same);
+    ["#sw-s0", "#sw-s1", "#sw-s2", "#sw-s3"].forEach((b, i) =>
+      tl.fromTo(b, { scaleY: 0, transformOrigin: "50% 100%" }, { scaleY: 1, duration: 0.18, ease: "back.out(2.5)" }, T.signal + i * 0.1));
+    tl.to("#sw-before, #sw-after", { y: -240, opacity: 0, duration: 0.3, ease: "power2.in", stagger: 0.05 }, T.out);
+    window.__timelines["swap"] = tl;
+  </script>
+</template>

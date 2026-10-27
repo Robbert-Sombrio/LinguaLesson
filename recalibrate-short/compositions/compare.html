@@ -1,0 +1,66 @@
+<template>
+  <style>
+    @font-face { font-family: "Lora"; src: url("assets/fonts/lora-500-normal.woff2") format("woff2"); font-weight: 400 700; font-style: normal; }
+    @font-face { font-family: "Lora"; src: url("assets/fonts/lora-500-italic.woff2") format("woff2"); font-weight: 400 700; font-style: italic; }
+    #root { position: absolute; inset: 0; overflow: hidden; }
+    .cp-col { position: absolute; top: 300px; width: 470px; height: 840px; border-radius: 6px; }
+    #cp-l { left: 50px; background: #f6efe9; } #cp-r { left: 560px; background: #e9eef5; }
+    .cp-word { position: absolute; left: 0; right: 0; top: 40px; text-align: center; font-family: "Lora", serif; font-weight: 700; font-size: 60px; color: #2e3642; }
+    .cp-eq { position: absolute; left: 0; right: 0; top: 120px; text-align: center; font-family: "Inter", sans-serif; font-size: 30px; font-weight: 700; letter-spacing: 0.04em; color: #6b7480; }
+    .cp-lab { position: absolute; left: 0; right: 0; top: 165px; text-align: center; font-family: "Lora", serif; font-style: italic; font-size: 64px; }
+    #cp-ll { color: #e2483f; } #cp-rl { color: #c4861a; }
+    #cp-zig { position: absolute; left: 30px; top: 330px; width: 410px; height: 260px; overflow: visible; }
+    #cp-dial { position: absolute; left: 35px; top: 300px; width: 400px; height: 400px; }
+    
+    .cp-chips { position: absolute; left: 0; right: 0; top: 720px; display: flex; justify-content: center; gap: 10px; }
+    .cp-chip { font-family: "Inter", sans-serif; font-size: 24px; font-weight: 700; color: #4e6388; border: 3px solid #4e6388; border-radius: 24px; padding: 4px 16px; }
+    #cp-panic { position: absolute; left: 0; right: 0; top: 650px; text-align: center; font-family: "Inter", sans-serif; font-size: 34px; font-weight: 800; color: #e2483f; letter-spacing: 0.12em; }
+  </style>
+  <div id="root" data-composition-id="compare" data-width="1080" data-height="1920">
+    <div id="cp-l" class="cp-col">
+      <div class="cp-word">change</div><div class="cp-eq">SOUNDS</div><div class="cp-lab" id="cp-ll">reactive</div>
+      <svg id="cp-zig" viewBox="0 0 410 260" data-layout-allow-overflow><polyline id="cp-zigline" points="0,130 40,40 75,210 115,20 150,230 190,60 225,200 265,30 300,220 340,80 375,190 410,110" fill="none" stroke="#e2483f" stroke-width="12" stroke-linejoin="round" stroke-linecap="round" /></svg>
+      <div id="cp-panic">PANIC?</div>
+    </div>
+    <div id="cp-r" class="cp-col">
+      <div class="cp-word">recalibrate</div><div class="cp-eq">SOUNDS</div><div class="cp-lab" id="cp-rl">deliberate</div>
+      <svg id="cp-dial" viewBox="0 0 400 400">
+        <path d="M40 220 A160 160 0 0 1 360 220" fill="none" stroke="#b8cce2" stroke-width="26" stroke-linecap="round" />
+        <path id="cp-zone" d="M226 63 A160 160 0 0 1 282 82" fill="none" stroke="#e3a728" stroke-width="26" />
+        <g stroke="#2e3642" stroke-width="4">
+          <line x1="40" y1="220" x2="66" y2="220" /><line x1="87" y1="107" x2="105" y2="125" /><line x1="200" y1="60" x2="200" y2="86" />
+          <line x1="313" y1="107" x2="295" y2="125" /><line x1="360" y1="220" x2="334" y2="220" />
+        </g>
+        <g id="cp-needle"><line x1="200" y1="220" x2="200" y2="112" stroke="#2e3642" stroke-width="9" stroke-linecap="round" /></g>
+        <circle cx="200" cy="220" r="20" fill="#2e3642" /><circle cx="200" cy="220" r="8" fill="#e3a728" />
+      </svg>
+      <div class="cp-chips"><span class="cp-chip" id="cp-c0">instruments</span><span class="cp-chip" id="cp-c1">data</span><span class="cp-chip" id="cp-c2">precise</span></div>
+    </div>
+  </div>
+  <script>
+    // Cue times (local): "Change sounds reactive" / "Recalibrate sounds deliberate" / instruments / data / precise adjustment / panicking / adjusting
+    const T = { change: 0.0, recal: 1.3, instr: 3.0, data: 3.9, precise: 4.7, panic: 6.9, adjust: 7.6, out: 8.4 };
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#cp-l", { y: 900 }, { y: 0, duration: 0.45, ease: "power3.out" }, T.change);
+    tl.fromTo("#cp-ll", { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2)" }, T.change + 0.6);
+    tl.fromTo("#cp-zigline", { strokeDasharray: 2200, strokeDashoffset: 2200 }, { strokeDashoffset: 0, duration: 0.7, ease: "power1.in" }, T.change + 0.6);
+    tl.to("#cp-zig", { x: 6, duration: 0.06, ease: "none", yoyo: true, repeat: 9 }, T.change + 1.3);
+    tl.fromTo("#cp-r", { y: 900 }, { y: 0, duration: 0.45, ease: "power3.out" }, T.recal);
+    tl.fromTo("#cp-rl", { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2)" }, T.recal + 0.7);
+    tl.fromTo("#cp-needle", { rotation: -70, svgOrigin: "200 220" }, { rotation: -20, svgOrigin: "200 220", duration: 0.8, ease: "power2.inOut" }, T.recal + 0.4);
+    tl.fromTo("#cp-zone", { opacity: 0 }, { opacity: 0, duration: 0.01 }, 0);
+    // "instruments, data, precise adjustment"
+    tl.fromTo("#cp-c0", { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.25, ease: "power2.out" }, T.instr);
+    tl.fromTo("#cp-c1", { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.25, ease: "power2.out" }, T.data);
+    tl.fromTo("#cp-c2", { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.25, ease: "power2.out" }, T.precise);
+    tl.to("#cp-zone", { opacity: 1, duration: 0.25 }, T.precise);
+    tl.to("#cp-needle", { rotation: 18, svgOrigin: "200 220", duration: 0.9, ease: "power3.inOut" }, T.precise + 0.2);
+    // "Not panicking. Adjusting."
+    tl.fromTo("#cp-panic", { opacity: 0, scale: 1.3 }, { opacity: 1, scale: 1, duration: 0.2, ease: "power2.out" }, T.panic);
+    tl.to("#cp-l", { opacity: 0.35, duration: 0.3 }, T.adjust);
+    tl.to("#cp-needle", { rotation: 22, svgOrigin: "200 220", duration: 0.25, ease: "power2.out", yoyo: true, repeat: 1 }, T.adjust);
+    tl.to("#cp-r", { scale: 1.03, duration: 0.25, ease: "power2.out" }, T.adjust);
+    tl.to("#cp-l, #cp-r", { y: -260, opacity: 0, duration: 0.3, ease: "power2.in" }, T.out);
+    window.__timelines["compare"] = tl;
+  </script>
+</template>
