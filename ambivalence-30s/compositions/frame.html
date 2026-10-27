@@ -1,0 +1,55 @@
+<template>
+  <style>
+    @font-face { font-family: "Lora"; src: url("assets/fonts/lora-500-normal.woff2") format("woff2"); font-weight: 400 700; font-style: normal; }
+    @font-face { font-family: "Lora"; src: url("assets/fonts/lora-500-italic.woff2") format("woff2"); font-weight: 400 700; font-style: italic; }
+    #root { position: absolute; inset: 0; overflow: hidden; background: #eeeae1; }
+    #frame-linen {
+      position: absolute; inset: 0;
+      background:
+        repeating-linear-gradient(0deg, rgba(46,54,66,0.045) 0 1px, transparent 1px 5px),
+        repeating-linear-gradient(90deg, rgba(46,54,66,0.035) 0 1px, transparent 1px 6px);
+    }
+    #frame-grid { position: absolute; left: -120px; top: -200px; width: 1320px; height: 2600px; opacity: 0.5; }
+    #frame-header {
+      position: absolute; left: 70px; right: 70px; top: 196px; height: 48px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .fh-brand { display: flex; align-items: center; gap: 14px; }
+    .fh-mark { display: flex; align-items: center; gap: 7px; }
+    .fh-dot { width: 20px; height: 20px; border-radius: 50%; background: #e2483f; }
+    .fh-sq { width: 19px; height: 19px; background: #4e6388; }
+    .fh-tri { width: 0; height: 0; border-left: 11px solid transparent; border-right: 11px solid transparent; border-bottom: 19px solid #b8cce2; }
+    .fh-name { font-family: "Lora", serif; font-style: italic; font-size: 34px; color: #2e3642; }
+    .fh-tag { font-family: "Inter", sans-serif; font-size: 22px; font-weight: 700; letter-spacing: 0.16em; color: #4e6388; }
+  </style>
+  <div id="root" data-composition-id="frame" data-width="1080" data-height="1920">
+    <div id="frame-linen"></div>
+    <svg id="frame-grid" viewBox="0 0 1320 2600" data-layout-ignore>
+      <g stroke="#2e3642" stroke-width="3" fill="none">
+        <line x1="0" y1="420" x2="1320" y2="420" /><line x1="0" y1="980" x2="1320" y2="980" />
+        <line x1="0" y1="1560" x2="1320" y2="1560" /><line x1="0" y1="2140" x2="1320" y2="2140" />
+        <line x1="220" y1="0" x2="220" y2="2600" /><line x1="610" y1="0" x2="610" y2="2600" />
+        <line x1="1010" y1="0" x2="1010" y2="2600" />
+      </g>
+      <circle cx="220" cy="420" r="26" fill="#e2483f" /><rect x="586" y="956" width="48" height="48" fill="#e3a728" />
+      <circle cx="1010" cy="980" r="34" fill="#1f8a8c" /><rect x="190" y="1530" width="60" height="60" fill="#4e6388" />
+      <circle cx="610" cy="1560" r="22" fill="#2e3642" /><rect x="980" y="2110" width="60" height="60" fill="#e2483f" />
+      <circle cx="220" cy="2140" r="30" fill="#e3a728" /><rect x="590" y="400" width="40" height="40" fill="#b8cce2" />
+    </svg>
+    <div id="frame-header" class="clip" data-start="0" data-duration="27.6">
+      <div class="fh-brand" id="fh-brand">
+        <div class="fh-mark"><div class="fh-dot"></div><div class="fh-sq"></div><div class="fh-tri"></div></div>
+        <div class="fh-name">The Fluent Edge</div>
+      </div>
+      <div class="fh-tag" id="fh-tag">BUSINESS ENGLISH</div>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#frame-grid", { y: 0 }, { y: -260, duration: 30, ease: "none" }, 0);
+    tl.fromTo("#fh-brand", { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.5, ease: "power3.out" }, 0.2);
+    tl.fromTo("#fh-tag", { opacity: 0 }, { opacity: 1, duration: 0.5, ease: "power2.out" }, 0.4);
+    tl.to("#fh-brand, #fh-tag", { opacity: 0, duration: 0.3, ease: "power2.in" }, 27.3);
+    window.__timelines["frame"] = tl;
+  </script>
+</template>

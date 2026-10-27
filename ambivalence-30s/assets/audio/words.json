@@ -1,0 +1,312 @@
+[
+ {
+  "text": "Harvard",
+  "start": 0.15,
+  "end": 0.46
+ },
+ {
+  "text": "Business",
+  "start": 0.46,
+  "end": 0.98
+ },
+ {
+  "text": "Review",
+  "start": 0.98,
+  "end": 1.39
+ },
+ {
+  "text": "published",
+  "start": 1.39,
+  "end": 2.0
+ },
+ {
+  "text": "this",
+  "start": 2.0,
+  "end": 2.16
+ },
+ {
+  "text": "headline.",
+  "start": 2.16,
+  "end": 2.7
+ },
+ {
+  "text": "Most",
+  "start": 3.33,
+  "end": 3.38
+ },
+ {
+  "text": "people",
+  "start": 3.42,
+  "end": 3.73
+ },
+ {
+  "text": "can't",
+  "start": 3.73,
+  "end": 3.97
+ },
+ {
+  "text": "pronounce",
+  "start": 3.97,
+  "end": 4.45
+ },
+ {
+  "text": "the",
+  "start": 4.45,
+  "end": 4.61
+ },
+ {
+  "text": "key",
+  "start": 4.75,
+  "end": 4.91
+ },
+ {
+  "text": "word.",
+  "start": 4.91,
+  "end": 5.4
+ },
+ {
+  "text": "Ambivalence.",
+  "start": 5.76,
+  "end": 6.78
+ },
+ {
+  "text": "Stress",
+  "start": 7.06,
+  "end": 7.58
+ },
+ {
+  "text": "on",
+  "start": 7.62,
+  "end": 7.72
+ },
+ {
+  "text": "the",
+  "start": 7.72,
+  "end": 7.82
+ },
+ {
+  "text": "second",
+  "start": 7.84,
+  "end": 8.07
+ },
+ {
+  "text": "syllable.",
+  "start": 8.08,
+  "end": 8.72
+ },
+ {
+  "text": "It",
+  "start": 9.2,
+  "end": 9.3
+ },
+ {
+  "text": "means",
+  "start": 9.3,
+  "end": 9.64
+ },
+ {
+  "text": "you",
+  "start": 9.66,
+  "end": 9.76
+ },
+ {
+  "text": "feel",
+  "start": 9.78,
+  "end": 10.18
+ },
+ {
+  "text": "two",
+  "start": 10.24,
+  "end": 10.52
+ },
+ {
+  "text": "conflicting",
+  "start": 10.56,
+  "end": 11.24
+ },
+ {
+  "text": "things",
+  "start": 11.32,
+  "end": 11.52
+ },
+ {
+  "text": "at",
+  "start": 11.52,
+  "end": 11.6
+ },
+ {
+  "text": "the",
+  "start": 11.6,
+  "end": 11.7
+ },
+ {
+  "text": "same",
+  "start": 11.7,
+  "end": 11.96
+ },
+ {
+  "text": "time.",
+  "start": 11.98,
+  "end": 12.6
+ },
+ {
+  "text": "Employees",
+  "start": 12.99,
+  "end": 13.6
+ },
+ {
+  "text": "are",
+  "start": 13.94,
+  "end": 14.1
+ },
+ {
+  "text": "excited",
+  "start": 14.1,
+  "end": 14.65
+ },
+ {
+  "text": "about",
+  "start": 14.81,
+  "end": 15.09
+ },
+ {
+  "text": "AI",
+  "start": 15.09,
+  "end": 15.25
+ },
+ {
+  "text": "saving",
+  "start": 15.26,
+  "end": 15.77
+ },
+ {
+  "text": "them",
+  "start": 15.77,
+  "end": 16.11
+ },
+ {
+  "text": "time",
+  "start": 16.11,
+  "end": 16.45
+ },
+ {
+  "text": "and",
+  "start": 16.45,
+  "end": 16.71
+ },
+ {
+  "text": "terrified",
+  "start": 16.71,
+  "end": 17.48
+ },
+ {
+  "text": "it",
+  "start": 17.48,
+  "end": 17.63
+ },
+ {
+  "text": "will",
+  "start": 17.66,
+  "end": 17.96
+ },
+ {
+  "text": "replace",
+  "start": 18.46,
+  "end": 18.59
+ },
+ {
+  "text": "them.",
+  "start": 18.59,
+  "end": 18.95
+ },
+ {
+  "text": "Next",
+  "start": 19.43,
+  "end": 19.73
+ },
+ {
+  "text": "time",
+  "start": 19.95,
+  "end": 20.03
+ },
+ {
+  "text": "a",
+  "start": 20.03,
+  "end": 20.1
+ },
+ {
+  "text": "colleague",
+  "start": 20.1,
+  "end": 20.78
+ },
+ {
+  "text": "says,",
+  "start": 20.78,
+  "end": 21.11
+ },
+ {
+  "text": "I",
+  "start": 21.11,
+  "end": 21.495
+ },
+ {
+  "text": "have",
+  "start": 21.495,
+  "end": 21.88
+ },
+ {
+  "text": "mixed",
+  "start": 21.88,
+  "end": 21.99
+ },
+ {
+  "text": "feelings",
+  "start": 21.99,
+  "end": 22.7
+ },
+ {
+  "text": "about",
+  "start": 22.7,
+  "end": 23.14
+ },
+ {
+  "text": "this,",
+  "start": 23.14,
+  "end": 23.66
+ },
+ {
+  "text": "you",
+  "start": 23.66,
+  "end": 23.92
+ },
+ {
+  "text": "can",
+  "start": 23.92,
+  "end": 24.18
+ },
+ {
+  "text": "say",
+  "start": 24.18,
+  "end": 24.44
+ },
+ {
+  "text": "that's",
+  "start": 24.44,
+  "end": 24.94
+ },
+ {
+  "text": "ambivalence.",
+  "start": 25.03,
+  "end": 26.31
+ },
+ {
+  "text": "It's",
+  "start": 26.31,
+  "end": 26.67
+ },
+ {
+  "text": "normal.",
+  "start": 26.67,
+  "end": 27.14
+ }
+]
