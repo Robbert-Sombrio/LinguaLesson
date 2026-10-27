@@ -1,42 +1,40 @@
-"""Write renders/ambivalence-30s.srt from assets/audio/words.json (timings checked against the final audio)."""
-import json
+"""Write renders/recalibrate-<platform>.srt from assets/audio/words-<platform>.json."""
+import json, sys
 
-words = json.load(open("assets/audio/words.json"))
+platform = sys.argv[1]
+words = json.load(open(f"assets/audio/words-{platform}.json"))
 words = words if isinstance(words, list) else words["words"]
-
-# Cue text, in order; each cue takes the next N words from the transcript.
-CUES = [
-    (6, "Harvard Business Review published this headline."),
-    (7, "Most people can't pronounce the key word."),
-    (1, "Ambivalence: am-BIV-uh-lens."),
-    (5, "Stress on the second syllable."),
-    (6, "It means you feel two conflicting"),
-    (5, "things at the same time."),
-    (8, "Employees are excited about AI\nsaving them time"),
-    (6, "and terrified it will replace them."),
-    (5, "Next time a colleague says,"),
-    (6, '"I have mixed feelings about this,"'),
-    (5, 'you can say: "That\'s ambivalence.'),
-    (2, "It's normal.\""),
-]
-assert sum(n for n, _ in CUES) == len(words), (sum(n for n, _ in CUES), len(words))
+FIX = {"recalibrate,": "recalibrate.", "next": "next"}
+phrases, cur = [], []
+for w in words:
+    cur.append(w)
+    if w["text"][-1] in ".,?!":
+        phrases.append(cur); cur = []
+if cur:
+    phrases.append(cur)
+cues = []
+for ph in phrases:
+    n = -(-len(ph) // 7); size = -(-len(ph) // n)
+    cues += [ph[i:i + size] for i in range(0, len(ph), size)]
 
 def ts(t):
-    ms = int(round(t * 1000))
-    h, ms = divmod(ms, 3600000); m, ms = divmod(ms, 60000); s, ms = divmod(ms, 1000)
+    ms = int(round(t * 1000)); h, ms = divmod(ms, 3600000); m, ms = divmod(ms, 60000); s, ms = divmod(ms, 1000)
     return f"{h:02}:{m:02}:{s:02},{ms:03}"
 
-out, i = [], 0
-spans = []
-for n, text in CUES:
-    g = words[i:i + n]; i += n
-    spans.append([g[0]["start"], g[-1]["end"], text])
-for k, sp in enumerate(spans):
-    start = max(0.0, sp[0] - 0.05)
-    end = sp[1] + 0.35
-    if k + 1 < len(spans):
-        end = min(end, spans[k + 1][0] - 0.06)
-    end = max(end, start + 0.8)
-    out.append(f"{k + 1}\n{ts(start)} --> {ts(end)}\n{sp[2]}\n")
-open("renders/ambivalence-30s.srt", "w").write("\n".join(out))
-print("\n".join(out))
+def text(c):
+    t = " ".join(w["text"] for w in c)
+    t = t.replace("Comment next", "Comment NEXT").replace("the fluent edge", "The Fluent Edge").replace("the Fluent Edge", "The Fluent Edge")
+    return t[0].upper() + t[1:]
+
+out = []
+for k, c in enumerate(cues):
+    start = max(0.0, c[0]["start"] - 0.05)
+    end = c[-1]["end"] + 0.3
+    if k + 1 < len(cues):
+        end = min(end, cues[k + 1][0]["start"] - 0.05)
+    t = text(c)
+    if t == "Recalibrate." and k > 0 and text(cues[k - 1]).endswith("recalibrate."):
+        t = "re-CAL-ih-brate."   # the second, syllable-by-syllable "recalibrate"
+    out.append(f"{k + 1}\n{ts(start)} --> {ts(max(end, start + 0.7))}\n{t}\n")
+open(f"renders/recalibrate-{platform}.srt", "w").write("\n".join(out))
+print(platform, len(cues), "cues")

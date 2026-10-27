@@ -9,7 +9,7 @@ CTA = {
     "instagram": {"cta": "Save this for your next meeting", "button": "Follow", "done": "Following ✓"},
     "linkedin":  {"cta": "More workplace vocabulary", "button": "Follow", "done": "Following ✓"},
 }
-HANDLE = "@fluentedgepodcast"
+HANDLES = {"youtube": "@fluentedgepodcast", "tiktok": "@thefluentedge", "instagram": "@thefluentedgepod", "linkedin": "@fluentedgepodcast"}
 t = json.load(open("timing.json"))
 total = t["total"][platform]
 scenes = [("frame", 0, total, 1), ("hook", *t["hook"], 2), ("swap", *t["swap"], 2), ("compare", *t["compare"], 2),
@@ -19,7 +19,7 @@ for i, (cid, st, du, z) in enumerate(scenes):
     kind = "captions" if cid == "captions" else "graphics"
     extra = ""
     if cid == "endcard":
-        vals = dict(CTA[platform], handle=HANDLE)
+        vals = dict(CTA[platform], handle=HANDLES[platform])
         extra = " data-variable-values='" + json.dumps(vals, ensure_ascii=False) + "'"
     hosts.append(f'      <div id="{cid}" data-composition-id="{cid}" data-composition-src="compositions/{cid}.html" data-start="{st}" data-duration="{round(du, 3)}"\n'
                  f'        data-track-index="{i + 1}" data-track-kind="{kind}" data-width="1080" data-height="1920" style="z-index: {z}"{extra}></div>')

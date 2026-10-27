@@ -1,3 +1,27 @@
-{ "hook": [0, 8.8], "swap": [8.8, 10.5], "compare": [19.3, 8.7], "endcard_start": 28.0,
-  "total": {"youtube": 31.5, "tiktok": 31.5, "instagram": 31.5, "linkedin": 31.5},
-  "voice": {"youtube": 31.0, "tiktok": 31.0, "instagram": 31.0, "linkedin": 31.0} }
+{
+ "hook": [
+  0,
+  10.45
+ ],
+ "swap": [
+  10.45,
+  12.9
+ ],
+ "compare": [
+  23.35,
+  6.75
+ ],
+ "endcard_start": 30.1,
+ "total": {
+  "youtube": 35.04,
+  "tiktok": 35.54,
+  "instagram": 35.97,
+  "linkedin": 37.06
+ },
+ "voice": {
+  "youtube": 34.24,
+  "tiktok": 34.74,
+  "instagram": 35.17,
+  "linkedin": 36.26
+ }
+}

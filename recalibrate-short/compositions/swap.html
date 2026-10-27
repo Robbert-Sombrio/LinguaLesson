@@ -37,7 +37,7 @@
   </div>
   <script>
     // Cue times (local). "You wrote" / "Fine" "Safe" "Forgettable" / "swap" / "recalibrate" / "Same meaning" / "signal"
-    const T = { wrote: 0.0, fine: 3.0, safe: 3.5, forget: 4.0, swap: 4.8, recal: 6.5, same: 8.3, signal: 9.4, out: 10.2 };
+    const T = { wrote: 0.05, fine: 3.62, safe: 3.82, forget: 4.02, swap: 4.43, recal: 6.71, same: 10.07, signal: 12.19, out: 12.62 };
     const tl = gsap.timeline({ paused: true });
     tl.fromTo("#sw-before", { x: -1100 }, { x: 0, duration: 0.5, ease: "power3.out" }, T.wrote);
     tl.fromTo("#sw-n0", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.2, ease: "power2.out" }, T.fine);

@@ -5,7 +5,7 @@ import numpy as np
 src, dst = sys.argv[1], sys.argv[2]
 SR = 48000
 THRESH_DB, MIN_SIL = -38, 0.4
-KEEP, LEAD, TAIL = 0.32, 0.12, 0.6
+KEEP, LEAD, TAIL = float(__import__("os").environ.get("KEEP", 0.32)), 0.12, 0.3
 
 pcm = subprocess.run(["ffmpeg", "-v", "error", "-i", src, "-ac", "1", "-ar", str(SR), "-f", "s16le", "-"],
                      capture_output=True, check=True).stdout

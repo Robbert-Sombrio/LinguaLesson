@@ -1,0 +1,752 @@
+[
+  {
+    "text": "Change",
+    "start": 0.04,
+    "end": 0.8,
+    "id": "w0"
+  },
+  {
+    "text": "one",
+    "start": 0.95,
+    "end": 1.32,
+    "id": "w1"
+  },
+  {
+    "text": "word",
+    "start": 1.64,
+    "end": 1.94,
+    "id": "w2"
+  },
+  {
+    "text": "in",
+    "start": 1.94,
+    "end": 2.23,
+    "id": "w3"
+  },
+  {
+    "text": "your",
+    "start": 2.24,
+    "end": 2.84,
+    "id": "w4"
+  },
+  {
+    "text": "next",
+    "start": 2.84,
+    "end": 3.44,
+    "id": "w5"
+  },
+  {
+    "text": "email",
+    "start": 3.44,
+    "end": 4.15,
+    "id": "w6"
+  },
+  {
+    "text": "and",
+    "start": 4.22,
+    "end": 4.32,
+    "id": "w7"
+  },
+  {
+    "text": "watch",
+    "start": 4.32,
+    "end": 4.63,
+    "id": "w8"
+  },
+  {
+    "text": "how",
+    "start": 4.63,
+    "end": 4.82,
+    "id": "w9"
+  },
+  {
+    "text": "people",
+    "start": 4.82,
+    "end": 5.2,
+    "id": "w10"
+  },
+  {
+    "text": "respond",
+    "start": 5.2,
+    "end": 5.64,
+    "id": "w11"
+  },
+  {
+    "text": "differently.",
+    "start": 5.64,
+    "end": 6.4,
+    "id": "w12"
+  },
+  {
+    "text": "The",
+    "start": 7.04,
+    "end": 7.17,
+    "id": "w13"
+  },
+  {
+    "text": "word",
+    "start": 7.41,
+    "end": 7.8,
+    "id": "w14"
+  },
+  {
+    "text": "is",
+    "start": 7.95,
+    "end": 8.21,
+    "id": "w15"
+  },
+  {
+    "text": "recalibrate,",
+    "start": 8.64,
+    "end": 9.9,
+    "id": "w16"
+  },
+  {
+    "text": "recalibrate,",
+    "start": 10,
+    "end": 11.25,
+    "id": "w17"
+  },
+  {
+    "text": "stress",
+    "start": 11.25,
+    "end": 11.83,
+    "id": "w18"
+  },
+  {
+    "text": "on",
+    "start": 11.83,
+    "end": 12.02,
+    "id": "w19"
+  },
+  {
+    "text": "the",
+    "start": 12.02,
+    "end": 12.31,
+    "id": "w20"
+  },
+  {
+    "text": "second",
+    "start": 12.31,
+    "end": 12.89,
+    "id": "w21"
+  },
+  {
+    "text": "syllable.",
+    "start": 12.89,
+    "end": 13.99,
+    "id": "w22"
+  },
+  {
+    "text": "You",
+    "start": 14.04,
+    "end": 14.17,
+    "id": "w23"
+  },
+  {
+    "text": "wrote,",
+    "start": 14.41,
+    "end": 14.83,
+    "id": "w24"
+  },
+  {
+    "text": "we",
+    "start": 14.84,
+    "end": 14.97,
+    "id": "w25"
+  },
+  {
+    "text": "need",
+    "start": 15.03,
+    "end": 15.32,
+    "id": "w26"
+  },
+  {
+    "text": "to",
+    "start": 15.32,
+    "end": 15.64,
+    "id": "w27"
+  },
+  {
+    "text": "change",
+    "start": 15.64,
+    "end": 16.02,
+    "id": "w28"
+  },
+  {
+    "text": "our",
+    "start": 16.02,
+    "end": 16.27,
+    "id": "w29"
+  },
+  {
+    "text": "approach",
+    "start": 16.27,
+    "end": 16.9,
+    "id": "w30"
+  },
+  {
+    "text": "after",
+    "start": 17,
+    "end": 17.37,
+    "id": "w31"
+  },
+  {
+    "text": "Q3.",
+    "start": 17.37,
+    "end": 17.99,
+    "id": "w32"
+  },
+  {
+    "text": "Fine,",
+    "start": 18.04,
+    "end": 18.8,
+    "id": "w33"
+  },
+  {
+    "text": "safe,",
+    "start": 19.52,
+    "end": 19.82,
+    "id": "w34"
+  },
+  {
+    "text": "forgettable.",
+    "start": 19.82,
+    "end": 21.99,
+    "id": "w35"
+  },
+  {
+    "text": "Now",
+    "start": 22.04,
+    "end": 22.17,
+    "id": "w36"
+  },
+  {
+    "text": "swap",
+    "start": 22.41,
+    "end": 22.8,
+    "id": "w37"
+  },
+  {
+    "text": "one",
+    "start": 22.84,
+    "end": 23.05,
+    "id": "w38"
+  },
+  {
+    "text": "word.",
+    "start": 23.62,
+    "end": 24,
+    "id": "w39"
+  },
+  {
+    "text": "We",
+    "start": 24.04,
+    "end": 24.17,
+    "id": "w40"
+  },
+  {
+    "text": "need",
+    "start": 24.41,
+    "end": 24.44,
+    "id": "w41"
+  },
+  {
+    "text": "to",
+    "start": 24.58,
+    "end": 24.64,
+    "id": "w42"
+  },
+  {
+    "text": "recalibrate",
+    "start": 24.8,
+    "end": 25.79,
+    "id": "w43"
+  },
+  {
+    "text": "our",
+    "start": 25.79,
+    "end": 26.07,
+    "id": "w44"
+  },
+  {
+    "text": "approach",
+    "start": 26.07,
+    "end": 26.83,
+    "id": "w45"
+  },
+  {
+    "text": "after",
+    "start": 26.83,
+    "end": 27.3,
+    "id": "w46"
+  },
+  {
+    "text": "Q3.",
+    "start": 27.3,
+    "end": 27.99,
+    "id": "w47"
+  },
+  {
+    "text": "Same",
+    "start": 28.04,
+    "end": 28.44,
+    "id": "w48"
+  },
+  {
+    "text": "meaning,",
+    "start": 28.58,
+    "end": 29.57,
+    "id": "w49"
+  },
+  {
+    "text": "completely",
+    "start": 29.65,
+    "end": 30.78,
+    "id": "w50"
+  },
+  {
+    "text": "different",
+    "start": 30.78,
+    "end": 31.87,
+    "id": "w51"
+  },
+  {
+    "text": "signal.",
+    "start": 31.87,
+    "end": 33,
+    "id": "w52"
+  },
+  {
+    "text": "Change",
+    "start": 33.04,
+    "end": 33.44,
+    "id": "w53"
+  },
+  {
+    "text": "sounds",
+    "start": 33.58,
+    "end": 33.8,
+    "id": "w54"
+  },
+  {
+    "text": "reactive,",
+    "start": 34.64,
+    "end": 35.09,
+    "id": "w55"
+  },
+  {
+    "text": "recalibrate",
+    "start": 35.09,
+    "end": 36.13,
+    "id": "w56"
+  },
+  {
+    "text": "sounds",
+    "start": 36.13,
+    "end": 36.7,
+    "id": "w57"
+  },
+  {
+    "text": "deliberate.",
+    "start": 36.7,
+    "end": 38,
+    "id": "w58"
+  },
+  {
+    "text": "It",
+    "start": 38.04,
+    "end": 38.05,
+    "id": "w59"
+  },
+  {
+    "text": "implies",
+    "start": 38.41,
+    "end": 38.62,
+    "id": "w60"
+  },
+  {
+    "text": "you",
+    "start": 38.64,
+    "end": 38.8,
+    "id": "w61"
+  },
+  {
+    "text": "have",
+    "start": 38.84,
+    "end": 39.05,
+    "id": "w62"
+  },
+  {
+    "text": "instruments,",
+    "start": 39.64,
+    "end": 40.04,
+    "id": "w63"
+  },
+  {
+    "text": "you",
+    "start": 40.04,
+    "end": 40.24,
+    "id": "w64"
+  },
+  {
+    "text": "have",
+    "start": 40.25,
+    "end": 40.53,
+    "id": "w65"
+  },
+  {
+    "text": "data,",
+    "start": 40.53,
+    "end": 40.91,
+    "id": "w66"
+  },
+  {
+    "text": "you're",
+    "start": 41,
+    "end": 41.58,
+    "id": "w67"
+  },
+  {
+    "text": "making",
+    "start": 41.64,
+    "end": 42.15,
+    "id": "w68"
+  },
+  {
+    "text": "a",
+    "start": 42.22,
+    "end": 42.29,
+    "id": "w69"
+  },
+  {
+    "text": "precise",
+    "start": 42.29,
+    "end": 42.88,
+    "id": "w70"
+  },
+  {
+    "text": "adjustment,",
+    "start": 42.99,
+    "end": 44.23,
+    "id": "w71"
+  },
+  {
+    "text": "not",
+    "start": 44.23,
+    "end": 44.4,
+    "id": "w72"
+  },
+  {
+    "text": "panicking,",
+    "start": 44.53,
+    "end": 45.73,
+    "id": "w73"
+  },
+  {
+    "text": "adjusting.",
+    "start": 45.91,
+    "end": 51,
+    "id": "w74"
+  },
+  {
+    "text": "Subscribe",
+    "start": 51.04,
+    "end": 52.31,
+    "id": "w75"
+  },
+  {
+    "text": "to",
+    "start": 52.31,
+    "end": 52.65,
+    "id": "w76"
+  },
+  {
+    "text": "The",
+    "start": 52.65,
+    "end": 53.06,
+    "id": "w77"
+  },
+  {
+    "text": "Fluent",
+    "start": 53.06,
+    "end": 53.9,
+    "id": "w78"
+  },
+  {
+    "text": "Edge",
+    "start": 54,
+    "end": 54.47,
+    "id": "w79"
+  },
+  {
+    "text": "for",
+    "start": 54.54,
+    "end": 54.97,
+    "id": "w80"
+  },
+  {
+    "text": "more",
+    "start": 54.97,
+    "end": 55.56,
+    "id": "w81"
+  },
+  {
+    "text": "words",
+    "start": 55.56,
+    "end": 56.3,
+    "id": "w82"
+  },
+  {
+    "text": "like",
+    "start": 56.3,
+    "end": 56.89,
+    "id": "w83"
+  },
+  {
+    "text": "this.",
+    "start": 56.89,
+    "end": 57.97,
+    "id": "w84"
+  },
+  {
+    "text": "Comment",
+    "start": 58.04,
+    "end": 58.64,
+    "id": "w85"
+  },
+  {
+    "text": "next",
+    "start": 58.75,
+    "end": 59.05,
+    "id": "w86"
+  },
+  {
+    "text": "for",
+    "start": 59.21,
+    "end": 59.46,
+    "id": "w87"
+  },
+  {
+    "text": "the",
+    "start": 59.64,
+    "end": 59.8,
+    "id": "w88"
+  },
+  {
+    "text": "next",
+    "start": 59.8,
+    "end": 60.22,
+    "id": "w89"
+  },
+  {
+    "text": "word.",
+    "start": 60.22,
+    "end": 60.9,
+    "id": "w90"
+  },
+  {
+    "text": "Follow",
+    "start": 61.04,
+    "end": 61.8,
+    "id": "w91"
+  },
+  {
+    "text": "The",
+    "start": 62.63,
+    "end": 62.72,
+    "id": "w92"
+  },
+  {
+    "text": "Fluent",
+    "start": 62.72,
+    "end": 63.86,
+    "id": "w93"
+  },
+  {
+    "text": "Edge",
+    "start": 63.86,
+    "end": 64.58,
+    "id": "w94"
+  },
+  {
+    "text": "for",
+    "start": 64.64,
+    "end": 65.15,
+    "id": "w95"
+  },
+  {
+    "text": "more.",
+    "start": 65.22,
+    "end": 66,
+    "id": "w96"
+  },
+  {
+    "text": "Save",
+    "start": 66.04,
+    "end": 66.17,
+    "id": "w97"
+  },
+  {
+    "text": "this",
+    "start": 66.41,
+    "end": 66.8,
+    "id": "w98"
+  },
+  {
+    "text": "for",
+    "start": 66.84,
+    "end": 67.05,
+    "id": "w99"
+  },
+  {
+    "text": "your",
+    "start": 67.05,
+    "end": 67.64,
+    "id": "w100"
+  },
+  {
+    "text": "next",
+    "start": 67.64,
+    "end": 67.95,
+    "id": "w101"
+  },
+  {
+    "text": "meeting.",
+    "start": 67.95,
+    "end": 68.9,
+    "id": "w102"
+  },
+  {
+    "text": "Follow",
+    "start": 69.04,
+    "end": 69.8,
+    "id": "w103"
+  },
+  {
+    "text": "The",
+    "start": 69.8,
+    "end": 70.65,
+    "id": "w104"
+  },
+  {
+    "text": "Fluent",
+    "start": 70.65,
+    "end": 71.63,
+    "id": "w105"
+  },
+  {
+    "text": "Edge",
+    "start": 71.63,
+    "end": 72.33,
+    "id": "w106"
+  },
+  {
+    "text": "for",
+    "start": 72.33,
+    "end": 72.86,
+    "id": "w107"
+  },
+  {
+    "text": "more",
+    "start": 72.86,
+    "end": 73.56,
+    "id": "w108"
+  },
+  {
+    "text": "words.",
+    "start": 73.56,
+    "end": 74.96,
+    "id": "w109"
+  },
+  {
+    "text": "Try",
+    "start": 75.04,
+    "end": 75.17,
+    "id": "w110"
+  },
+  {
+    "text": "this",
+    "start": 75.41,
+    "end": 75.64,
+    "id": "w111"
+  },
+  {
+    "text": "word",
+    "start": 75.75,
+    "end": 76.04,
+    "id": "w112"
+  },
+  {
+    "text": "in",
+    "start": 76.2,
+    "end": 76.32,
+    "id": "w113"
+  },
+  {
+    "text": "your",
+    "start": 76.64,
+    "end": 76.74,
+    "id": "w114"
+  },
+  {
+    "text": "next",
+    "start": 76.74,
+    "end": 77.15,
+    "id": "w115"
+  },
+  {
+    "text": "email.",
+    "start": 77.15,
+    "end": 77.9,
+    "id": "w116"
+  },
+  {
+    "text": "Follow",
+    "start": 78.05,
+    "end": 78.44,
+    "id": "w117"
+  },
+  {
+    "text": "The",
+    "start": 78.58,
+    "end": 78.64,
+    "id": "w118"
+  },
+  {
+    "text": "Fluent",
+    "start": 78.75,
+    "end": 79.22,
+    "id": "w119"
+  },
+  {
+    "text": "Edge",
+    "start": 79.22,
+    "end": 79.64,
+    "id": "w120"
+  },
+  {
+    "text": "for",
+    "start": 79.64,
+    "end": 79.82,
+    "id": "w121"
+  },
+  {
+    "text": "more",
+    "start": 79.82,
+    "end": 80.15,
+    "id": "w122"
+  },
+  {
+    "text": "workplace",
+    "start": 80.15,
+    "end": 80.89,
+    "id": "w123"
+  },
+  {
+    "text": "vocabulary.",
+    "start": 80.89,
+    "end": 81.99,
+    "id": "w124"
+  }
+]
