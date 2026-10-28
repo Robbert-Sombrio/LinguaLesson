@@ -24,17 +24,23 @@ def ts(t):
 def text(c):
     t = " ".join(w["text"] for w in c)
     t = t.replace("Comment next", "Comment NEXT").replace("the fluent edge", "The Fluent Edge").replace("the Fluent Edge", "The Fluent Edge")
-    return t[0].upper() + t[1:]
+    return t
 
-out = []
+out, prev_end, prev_text = [], 0.0, ""
 for k, c in enumerate(cues):
-    start = max(0.0, c[0]["start"] - 0.05)
+    start = max(prev_end, c[0]["start"] - 0.05)
     end = c[-1]["end"] + 0.3
     if k + 1 < len(cues):
         end = min(end, cues[k + 1][0]["start"] - 0.05)
     t = text(c)
+    if k == 0 or prev_text.endswith((".", "?", "!")):
+        t = t[0].upper() + t[1:]
     if t == "Recalibrate." and k > 0 and text(cues[k - 1]).endswith("recalibrate."):
         t = "re-CAL-ih-brate."   # the second, syllable-by-syllable "recalibrate"
-    out.append(f"{k + 1}\n{ts(start)} --> {ts(max(end, start + 0.7))}\n{t}\n")
+    end = max(end, start + 0.7)
+    if k + 1 < len(cues):
+        end = min(end, cues[k + 1][0]["start"] - 0.02)
+    out.append(f"{k + 1}\n{ts(start)} --> {ts(end)}\n{t}\n")
+    prev_end, prev_text = end, t
 open(f"renders/recalibrate-{platform}.srt", "w").write("\n".join(out))
 print(platform, len(cues), "cues")

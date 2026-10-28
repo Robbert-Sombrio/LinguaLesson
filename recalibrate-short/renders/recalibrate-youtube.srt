@@ -4,7 +4,7 @@ Change one word in your next email,
 
 2
 00:00:02,540 --> 00:00:04,790
-And watch how people respond differently.
+and watch how people respond differently.
 
 3
 00:00:04,790 --> 00:00:07,010
@@ -24,11 +24,11 @@ You wrote,
 
 7
 00:00:11,310 --> 00:00:12,600
-We need to change
+we need to change
 
 8
 00:00:12,600 --> 00:00:14,630
-Our approach after Q3.
+our approach after Q3.
 
 9
 00:00:14,630 --> 00:00:16,470
@@ -40,7 +40,7 @@ We need to recalibrate
 
 11
 00:00:18,140 --> 00:00:20,470
-Our approach after Q3.
+our approach after Q3.
 
 12
 00:00:20,470 --> 00:00:21,260
@@ -48,7 +48,7 @@ Same meaning,
 
 13
 00:00:21,260 --> 00:00:23,350
-Completely different signal.
+completely different signal.
 
 14
 00:00:23,350 --> 00:00:25,430
@@ -64,7 +64,7 @@ Not panicking,
 
 17
 00:00:29,110 --> 00:00:30,390
-Adjusting.
+adjusting.
 
 18
 00:00:30,390 --> 00:00:32,250
@@ -72,4 +72,4 @@ Subscribe to The Fluent Edge
 
 19
 00:00:32,250 --> 00:00:34,540
-For more words like this.
+for more words like this.

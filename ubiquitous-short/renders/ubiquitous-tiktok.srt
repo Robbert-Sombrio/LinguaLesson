@@ -3,12 +3,12 @@
 A client said this in a session,
 
 2
-00:00:02,020 --> 00:00:02,720
-And I had to
+00:00:02,020 --> 00:00:02,680
+and I had to
 
 3
-00:00:02,650 --> 00:00:03,970
-Stop and explain it.
+00:00:02,680 --> 00:00:03,970
+stop and explain it.
 
 4
 00:00:03,970 --> 00:00:06,120
@@ -16,7 +16,7 @@ The word is ubiquitous.
 
 5
 00:00:06,120 --> 00:00:07,490
-Ubiquitous,
+yoo-BIK-wih-tus.
 
 6
 00:00:07,490 --> 00:00:09,480
@@ -28,7 +28,7 @@ It means everywhere,
 
 8
 00:00:10,940 --> 00:00:12,440
-More than common.
+more than common.
 
 9
 00:00:12,440 --> 00:00:13,390
@@ -36,7 +36,7 @@ AI tools are now
 
 10
 00:00:13,390 --> 00:00:15,650
-Ubiquitous in the workplace.
+ubiquitous in the workplace.
 
 11
 00:00:15,650 --> 00:00:17,280
@@ -44,11 +44,11 @@ They're on every desk,
 
 12
 00:00:17,280 --> 00:00:18,370
-In every app,
+in every app,
 
 13
 00:00:18,370 --> 00:00:19,800
-In every meeting.
+in every meeting.
 
 14
 00:00:19,800 --> 00:00:21,570
@@ -60,23 +60,23 @@ Next time someone says,
 
 16
 00:00:23,150 --> 00:00:25,090
-These tools are everywhere,
+these tools are everywhere,
 
 17
 00:00:25,090 --> 00:00:27,480
-Say they're ubiquitous.
+say they're ubiquitous.
 
 18
-00:00:27,480 --> 00:00:28,180
+00:00:27,480 --> 00:00:28,120
 One word.
 
 19
-00:00:28,090 --> 00:00:29,480
+00:00:28,120 --> 00:00:29,480
 You sound like you read
 
 20
 00:00:29,480 --> 00:00:32,050
-The business pages over breakfast.
+the business pages over breakfast.
 
 21
 00:00:32,050 --> 00:00:34,450
