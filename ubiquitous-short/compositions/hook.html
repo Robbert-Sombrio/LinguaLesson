@@ -1,0 +1,57 @@
+<template>
+  <style>
+    @font-face { font-family: "Lora"; src: url("assets/fonts/lora-500-normal.woff2") format("woff2"); font-weight: 400 700; font-style: normal; }
+    @font-face { font-family: "Lora"; src: url("assets/fonts/lora-500-italic.woff2") format("woff2"); font-weight: 400 700; font-style: italic; }
+    #root { position: absolute; inset: 0; overflow: hidden; }
+    #hk-disc { position: absolute; left: -240px; top: 980px; width: 560px; height: 560px; border-radius: 50%; background: #b8cce2; }
+    #hk-sq { position: absolute; right: -60px; top: 1300px; width: 260px; height: 260px; background: #4e6388; }
+    #hk-notewrap { position: absolute; left: 70px; right: 70px; top: 300px; filter: drop-shadow(0 16px 24px rgba(30,38,51,0.18)); }
+    #hk-note { background: #fbfaf6; padding: 36px 46px 44px; border-left: 14px solid #e2483f;
+      clip-path: polygon(0 0, 100% 1%, 99.3% 50%, 100% 99%, 60% 98%, 30% 99.5%, 0 98.6%); }
+    #hk-tag { font-family: "Inter", sans-serif; font-size: 24px; font-weight: 800; letter-spacing: 0.2em; color: #e2483f; display: flex; align-items: center; gap: 12px; }
+    #hk-tag i { display: block; width: 16px; height: 16px; border-radius: 50%; background: #e2483f; }
+    #hk-line { font-family: "Lora", serif; font-size: 70px; line-height: 1.15; color: #2e3642; margin-top: 16px; }
+    #hk-this { position: relative; display: inline-block; isolation: isolate; font-weight: 700; }
+    #hk-this-hl { position: absolute; left: -8px; right: -8px; top: 20%; bottom: 4%; background: #e3a728; opacity: 0.75; z-index: -1; transform-origin: left center; }
+    #hk-word { position: absolute; left: 0; right: 0; top: 760px; text-align: center; font-family: "Lora", serif; font-weight: 700; font-size: 132px; color: #2e3642; letter-spacing: -0.02em; }
+    #hk-row { position: absolute; left: 110px; top: 950px; width: 860px; height: 180px; }
+    .hk-b { position: absolute; bottom: 0; height: 100px; display: flex; align-items: center; justify-content: center; font-family: "Lora", serif; font-weight: 700; font-size: 54px; color: #2e3642; background: #b8cce2; }
+    #hk-b0 { left: 0; width: 190px; } #hk-b1 { left: 210px; width: 230px; background: #e3a728; color: #1f2733; }
+    #hk-b2 { left: 460px; width: 190px; } #hk-b3 { left: 670px; width: 190px; }
+  </style>
+  <div id="root" data-composition-id="hook" data-width="1080" data-height="1920">
+    <div id="hk-disc" data-layout-allow-overflow></div>
+    <div id="hk-sq" data-layout-allow-overflow></div>
+    <div id="hk-notewrap"><div id="hk-note">
+      <div id="hk-tag"><i></i>FROM A CLIENT SESSION</div>
+      <div id="hk-line">A client said <span id="hk-this"><b id="hk-this-hl"></b>THIS</span> in a session</div>
+    </div></div>
+    <div id="hk-word">ubiquitous</div>
+    <div id="hk-row">
+      <div id="hk-b0" class="hk-b">yoo</div>
+      <div id="hk-b1" class="hk-b">BIK</div>
+      <div id="hk-b2" class="hk-b">wih</div>
+      <div id="hk-b3" class="hk-b">tus</div>
+    </div>
+  </div>
+  <script>
+    // Cue times (local): "this" / "ubiquitous" / syllables / "Stress"
+    const T = { this: 0.9, word: 4.2, sylls: 5.4, stress: 6.9, out: 8.6 };
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#hk-disc", { scale: 0 }, { scale: 1, duration: 0.8, ease: "power3.out" }, 0);
+    tl.fromTo("#hk-sq", { x: 340 }, { x: 0, duration: 0.6, ease: "power3.out" }, 0.1);
+    tl.fromTo("#hk-notewrap", { y: 240, opacity: 0, rotation: 3 }, { y: 0, opacity: 1, rotation: -1, duration: 0.55, ease: "power3.out" }, 0);
+    tl.fromTo("#hk-this-hl", { scaleX: 0 }, { scaleX: 1, duration: 0.3, ease: "power2.out" }, T.this);
+    tl.fromTo("#hk-this", { scale: 1 }, { scale: 1.1, duration: 0.18, ease: "power2.out", yoyo: true, repeat: 1 }, T.this + 0.05);
+    tl.to("#hk-notewrap", { rotation: 0.6, duration: 1.4, ease: "sine.inOut", yoyo: true, repeat: 2 }, 0.8);
+    tl.fromTo("#hk-word", { opacity: 0, y: 40, scale: 0.9 }, { opacity: 1, y: 0, scale: 1, duration: 0.4, ease: "back.out(1.6)" }, T.word);
+    ["#hk-b0", "#hk-b1", "#hk-b2", "#hk-b3"].forEach((b, i) =>
+      tl.fromTo(b, { y: -300, opacity: 0 }, { y: 0, opacity: 1, duration: 0.28, ease: "bounce.out" }, T.sylls + i * 0.22));
+    tl.to("#hk-b1", { height: 170, duration: 0.4, ease: "back.out(1.8)" }, T.stress);
+    tl.to("#hk-b0, #hk-b2, #hk-b3", { opacity: 0.6, duration: 0.3 }, T.stress + 0.05);
+    tl.to("#hk-notewrap, #hk-word, #hk-row", { y: -260, opacity: 0, duration: 0.3, ease: "power2.in", stagger: 0.03 }, T.out);
+    tl.to("#hk-disc", { scale: 0, duration: 0.3, ease: "power2.in" }, T.out);
+    tl.to("#hk-sq", { x: 340, duration: 0.3, ease: "power2.in" }, T.out);
+    window.__timelines["hook"] = tl;
+  </script>
+</template>

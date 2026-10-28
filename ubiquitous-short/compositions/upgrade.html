@@ -1,0 +1,65 @@
+<template>
+  <style>
+    @font-face { font-family: "Lora"; src: url("assets/fonts/lora-500-normal.woff2") format("woff2"); font-weight: 400 700; font-style: normal; }
+    #root { position: absolute; inset: 0; overflow: hidden; }
+    #up-kicker { position: absolute; left: 70px; top: 300px; font-family: "Inter", sans-serif; font-size: 26px; font-weight: 700; letter-spacing: 0.2em; color: #e2483f; }
+    .up-wrap { position: absolute; filter: drop-shadow(0 14px 20px rgba(30,38,51,0.16)); }
+    #up-them { left: 60px; top: 360px; width: 760px; }
+    #up-you { left: 260px; top: 640px; width: 760px; }
+    .up-bub { background: #fbfaf6; padding: 30px 42px 36px; clip-path: polygon(0 1%, 25% 0, 60% 1.4%, 100% 0.5%, 99.3% 50%, 100% 99%, 60% 98%, 25% 99.5%, 0 98.5%, 0.6% 50%); }
+    #up-you .up-bub { box-shadow: inset 0 0 0 7px #e3a728; }
+    .up-tag { font-family: "Inter", sans-serif; font-size: 22px; font-weight: 700; letter-spacing: 0.16em; color: #6b7480; display: flex; align-items: center; gap: 12px; }
+    .up-tag i { display: block; width: 16px; height: 16px; border-radius: 50%; }
+    .up-q { font-family: "Lora", serif; font-weight: 600; font-size: 60px; line-height: 1.2; color: #2e3642; margin-top: 10px; }
+    .up-w { position: relative; display: inline-block; isolation: isolate; }
+    #up-x { position: absolute; left: -4px; right: -4px; top: 54%; height: 7px; background: #e2483f; border-radius: 3px; transform-origin: left center; }
+    #up-hl { position: absolute; left: -8px; right: -8px; top: 20%; bottom: 4%; background: #e3a728; opacity: 0.75; z-index: -1; transform-origin: left center; }
+    #up-one { position: absolute; left: 0; right: 0; top: 900px; text-align: center; font-family: "Inter", sans-serif; font-size: 34px; font-weight: 800; letter-spacing: 0.18em; color: #4e6388; }
+    #up-scene { position: absolute; left: 290px; top: 960px; width: 500px; height: 220px; }
+  </style>
+  <div id="root" data-composition-id="upgrade" data-width="1080" data-height="1920">
+    <div id="up-kicker">AT WORK</div>
+    <div id="up-them" class="up-wrap"><div class="up-bub">
+      <div class="up-tag"><i style="background:#1f8a8c"></i>SOMEONE SAYS</div>
+      <div class="up-q">"These tools are <span class="up-w">everywhere<b id="up-x"></b></span>."</div>
+    </div></div>
+    <div id="up-you" class="up-wrap"><div class="up-bub">
+      <div class="up-tag"><i style="background:#4e6388"></i>YOU SAY</div>
+      <div class="up-q">"They're <span class="up-w"><b id="up-hl"></b>ubiquitous</span>."</div>
+    </div></div>
+    <div id="up-one">ONE WORD</div>
+    <svg id="up-scene" viewBox="0 0 500 220" data-layout-allow-overflow>
+      <g id="up-paper">
+        <rect x="20" y="40" width="250" height="170" fill="#fbfaf6" />
+        <rect x="20" y="40" width="250" height="34" fill="#2e3642" />
+        <rect x="36" y="90" width="100" height="70" fill="#b8cce2" />
+        <rect x="150" y="92" width="104" height="8" fill="#9aa3ad" /><rect x="150" y="110" width="104" height="8" fill="#9aa3ad" />
+        <rect x="150" y="128" width="80" height="8" fill="#9aa3ad" /><rect x="36" y="176" width="218" height="8" fill="#9aa3ad" />
+        <rect x="36" y="192" width="160" height="8" fill="#9aa3ad" />
+      </g>
+      <g id="up-cup">
+        <path d="M320 95 H440 L428 205 H332 Z" fill="#e2483f" />
+        <path d="M440 120 a26 26 0 0 1 0 52" fill="none" stroke="#e2483f" stroke-width="14" />
+        <rect x="314" y="86" width="132" height="14" rx="4" fill="#2e3642" />
+        <path id="up-steam1" d="M360 70 q-12 -20 0 -40 q12 -20 0 -40" fill="none" stroke="#9aa3ad" stroke-width="6" stroke-linecap="round" />
+        <path id="up-steam2" d="M400 70 q-12 -20 0 -40 q12 -20 0 -40" fill="none" stroke="#9aa3ad" stroke-width="6" stroke-linecap="round" />
+      </g>
+    </svg>
+  </div>
+  <script>
+    // Cue times (local): "Next time" / "everywhere" / "say" / "ubiquitous" / "One word" / "business pages" / "breakfast"
+    const T = { next: 0.0, every: 2.2, say: 2.9, ubi: 3.5, one: 4.6, pages: 6.2, breakfast: 7.2, out: 8.0 };
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#up-kicker", { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.3, ease: "power2.out" }, 0.05);
+    tl.fromTo("#up-them", { scale: 0.4, opacity: 0, transformOrigin: "10% 100%" }, { scale: 1, opacity: 1, rotation: -1, duration: 0.4, ease: "back.out(1.6)" }, T.next + 0.2);
+    tl.fromTo("#up-x", { scaleX: 0 }, { scaleX: 1, duration: 0.25, ease: "power2.out" }, T.say);
+    tl.fromTo("#up-you", { scale: 0.4, opacity: 0, transformOrigin: "90% 100%" }, { scale: 1, opacity: 1, rotation: 1, duration: 0.4, ease: "back.out(1.6)" }, T.say + 0.1);
+    tl.fromTo("#up-hl", { scaleX: 0 }, { scaleX: 1, duration: 0.3, ease: "power2.out" }, T.ubi);
+    tl.fromTo("#up-one", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.3, ease: "power2.out" }, T.one);
+    tl.fromTo("#up-paper", { y: 260, opacity: 0 }, { y: 0, opacity: 1, duration: 0.4, ease: "back.out(1.4)" }, T.pages);
+    tl.fromTo("#up-cup", { y: 260, opacity: 0 }, { y: 0, opacity: 1, duration: 0.4, ease: "back.out(1.4)" }, T.breakfast);
+    tl.fromTo("#up-steam1, #up-steam2", { opacity: 0, y: 10 }, { opacity: 0.9, y: -6, duration: 0.6, ease: "sine.out", stagger: 0.15 }, T.breakfast + 0.3);
+    tl.to("#up-them, #up-you, #up-kicker, #up-one, #up-scene", { y: -240, opacity: 0, duration: 0.3, ease: "power2.in", stagger: 0.03 }, T.out);
+    window.__timelines["upgrade"] = tl;
+  </script>
+</template>

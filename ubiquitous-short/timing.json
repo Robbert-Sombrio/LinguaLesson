@@ -1,0 +1,3 @@
+{ "hook": [0, 9.0], "everywhere": [9.0, 12.0], "upgrade": [21.0, 8.0], "endcard_start": 29.0,
+  "total": {"youtube": 34, "tiktok": 34.5, "instagram": 35, "linkedin": 36},
+  "voice": {"youtube": 33.5, "tiktok": 34, "instagram": 34.5, "linkedin": 35.5} }

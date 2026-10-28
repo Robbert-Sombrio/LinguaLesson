@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { margin: 0; width: 1080px; height: 1920px; overflow: hidden; background: #eeeae1; }
+      #root { position: relative; width: 100%; height: 100%; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="34" data-width="1080" data-height="1920">
+      <div id="frame" data-composition-id="frame" data-composition-src="compositions/frame.html" data-start="0" data-duration="34"
+        data-track-index="1" data-track-kind="graphics" data-width="1080" data-height="1920" style="z-index: 1"></div>
+      <div id="hook" data-composition-id="hook" data-composition-src="compositions/hook.html" data-start="0" data-duration="9.0"
+        data-track-index="2" data-track-kind="graphics" data-width="1080" data-height="1920" style="z-index: 2"></div>
+      <div id="everywhere" data-composition-id="everywhere" data-composition-src="compositions/everywhere.html" data-start="9.0" data-duration="12.0"
+        data-track-index="3" data-track-kind="graphics" data-width="1080" data-height="1920" style="z-index: 2"></div>
+      <div id="upgrade" data-composition-id="upgrade" data-composition-src="compositions/upgrade.html" data-start="21.0" data-duration="8.0"
+        data-track-index="4" data-track-kind="graphics" data-width="1080" data-height="1920" style="z-index: 2"></div>
+      <div id="endcard" data-composition-id="endcard" data-composition-src="compositions/endcard.html" data-start="29.0" data-duration="5.0"
+        data-track-index="5" data-track-kind="graphics" data-width="1080" data-height="1920" style="z-index: 3" data-variable-values='{"cta": "More words like this", "button": "Subscribe", "done": "Subscribed ✓", "handle": "@fluentedgepodcast"}'></div>
+      <div id="captions" data-composition-id="captions" data-composition-src="compositions/captions.html" data-start="0" data-duration="34"
+        data-track-index="6" data-track-kind="captions" data-width="1080" data-height="1920" style="z-index: 4"></div>
+      <audio id="voice" class="clip" src="assets/audio/voice-youtube.wav" data-start="0" data-duration="33.5" data-track-index="10" data-volume="1.15"></audio>
+      <audio id="bed" class="clip" src="assets/audio/bed-youtube.wav" data-start="0" data-duration="34" data-track-index="11" data-volume="1"></audio>
+    </div>
+    <script>
+      const tl = gsap.timeline({ paused: true });
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>

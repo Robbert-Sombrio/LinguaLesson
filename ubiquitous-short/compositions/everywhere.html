@@ -1,0 +1,56 @@
+<template>
+  <style>
+    @font-face { font-family: "Lora"; src: url("assets/fonts/lora-500-normal.woff2") format("woff2"); font-weight: 400 700; font-style: normal; }
+    #root { position: absolute; inset: 0; overflow: hidden; }
+    #ev-label { position: absolute; left: 0; right: 0; top: 300px; text-align: center; font-family: "Inter", sans-serif; font-size: 26px; font-weight: 700; letter-spacing: 0.22em; color: #e2483f; }
+    #ev-stack { position: absolute; left: 0; right: 0; top: 340px; height: 160px; }
+    .ev-w { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lora", serif; font-weight: 700; font-size: 124px; letter-spacing: -0.02em; }
+    #ev-every { color: #2e3642; }
+    #ev-ubi { color: #2e3642; }
+    #ev-ubi-w { position: relative; display: inline-block; isolation: isolate; }
+    #ev-ubi-hl { position: absolute; left: -10px; right: -10px; top: 24%; bottom: 6%; background: #e3a728; opacity: 0.8; z-index: -1; transform-origin: left center; }
+    .ev-icon { position: absolute; width: 170px; height: 170px; }
+  </style>
+  <div id="root" data-composition-id="everywhere" data-width="1080" data-height="1920">
+    <div id="ev-label">IT MEANS</div>
+    <div id="ev-stack" data-layout-allow-overlap>
+      <div id="ev-every" class="ev-w">everywhere</div>
+      <div id="ev-ubi" class="ev-w"><span id="ev-ubi-w"><b id="ev-ubi-hl"></b>ubiquitous</span></div>
+    </div>
+      <svg id="ev-i0" class="ev-icon ev-laptop" viewBox="0 0 100 100" style="left:70px;top:520px"><rect x="14" y="18" width="72" height="48" rx="4" fill="#4e6388"/><rect x="20" y="24" width="60" height="36" fill="#b8cce2"/><path d="M6 72 H94 L86 82 H14 Z" fill="#2e3642"/></svg>
+      <svg id="ev-i1" class="ev-icon ev-phone" viewBox="0 0 100 100" style="left:310px;top:520px"><rect x="30" y="8" width="40" height="84" rx="8" fill="#2e3642"/><rect x="35" y="16" width="30" height="62" rx="2" fill="#e3a728"/><circle cx="50" cy="85" r="3" fill="#b8cce2"/></svg>
+      <svg id="ev-i2" class="ev-icon ev-meeting" viewBox="0 0 100 100" style="left:550px;top:520px"><ellipse cx="50" cy="52" rx="30" ry="18" fill="#e2483f"/><circle cx="18" cy="52" r="8" fill="#4e6388"/><circle cx="82" cy="52" r="8" fill="#4e6388"/><circle cx="38" cy="24" r="8" fill="#4e6388"/><circle cx="62" cy="24" r="8" fill="#4e6388"/><circle cx="38" cy="80" r="8" fill="#4e6388"/><circle cx="62" cy="80" r="8" fill="#4e6388"/></svg>
+      <svg id="ev-i3" class="ev-icon ev-watch" viewBox="0 0 100 100" style="left:790px;top:520px"><rect x="38" y="4" width="24" height="92" rx="6" fill="#2e3642"/><circle cx="50" cy="50" r="24" fill="#1f8a8c"/><circle cx="50" cy="50" r="18" fill="#eeeae1"/><path d="M50 50 V38 M50 50 L58 55" stroke="#2e3642" stroke-width="4" stroke-linecap="round"/></svg>
+      <svg id="ev-i4" class="ev-icon ev-phone" viewBox="0 0 100 100" style="left:90px;top:720px"><rect x="30" y="8" width="40" height="84" rx="8" fill="#2e3642"/><rect x="35" y="16" width="30" height="62" rx="2" fill="#e3a728"/><circle cx="50" cy="85" r="3" fill="#b8cce2"/></svg>
+      <svg id="ev-i5" class="ev-icon ev-meeting" viewBox="0 0 100 100" style="left:330px;top:720px"><ellipse cx="50" cy="52" rx="30" ry="18" fill="#e2483f"/><circle cx="18" cy="52" r="8" fill="#4e6388"/><circle cx="82" cy="52" r="8" fill="#4e6388"/><circle cx="38" cy="24" r="8" fill="#4e6388"/><circle cx="62" cy="24" r="8" fill="#4e6388"/><circle cx="38" cy="80" r="8" fill="#4e6388"/><circle cx="62" cy="80" r="8" fill="#4e6388"/></svg>
+      <svg id="ev-i6" class="ev-icon ev-laptop" viewBox="0 0 100 100" style="left:570px;top:720px"><rect x="14" y="18" width="72" height="48" rx="4" fill="#4e6388"/><rect x="20" y="24" width="60" height="36" fill="#b8cce2"/><path d="M6 72 H94 L86 82 H14 Z" fill="#2e3642"/></svg>
+      <svg id="ev-i7" class="ev-icon ev-phone" viewBox="0 0 100 100" style="left:810px;top:720px"><rect x="30" y="8" width="40" height="84" rx="8" fill="#2e3642"/><rect x="35" y="16" width="30" height="62" rx="2" fill="#e3a728"/><circle cx="50" cy="85" r="3" fill="#b8cce2"/></svg>
+      <svg id="ev-i8" class="ev-icon ev-meeting" viewBox="0 0 100 100" style="left:70px;top:920px"><ellipse cx="50" cy="52" rx="30" ry="18" fill="#e2483f"/><circle cx="18" cy="52" r="8" fill="#4e6388"/><circle cx="82" cy="52" r="8" fill="#4e6388"/><circle cx="38" cy="24" r="8" fill="#4e6388"/><circle cx="62" cy="24" r="8" fill="#4e6388"/><circle cx="38" cy="80" r="8" fill="#4e6388"/><circle cx="62" cy="80" r="8" fill="#4e6388"/></svg>
+      <svg id="ev-i9" class="ev-icon ev-watch" viewBox="0 0 100 100" style="left:310px;top:920px"><rect x="38" y="4" width="24" height="92" rx="6" fill="#2e3642"/><circle cx="50" cy="50" r="24" fill="#1f8a8c"/><circle cx="50" cy="50" r="18" fill="#eeeae1"/><path d="M50 50 V38 M50 50 L58 55" stroke="#2e3642" stroke-width="4" stroke-linecap="round"/></svg>
+      <svg id="ev-i10" class="ev-icon ev-phone" viewBox="0 0 100 100" style="left:550px;top:920px"><rect x="30" y="8" width="40" height="84" rx="8" fill="#2e3642"/><rect x="35" y="16" width="30" height="62" rx="2" fill="#e3a728"/><circle cx="50" cy="85" r="3" fill="#b8cce2"/></svg>
+      <svg id="ev-i11" class="ev-icon ev-laptop" viewBox="0 0 100 100" style="left:790px;top:920px"><rect x="14" y="18" width="72" height="48" rx="4" fill="#4e6388"/><rect x="20" y="24" width="60" height="36" fill="#b8cce2"/><path d="M6 72 H94 L86 82 H14 Z" fill="#2e3642"/></svg>
+  </div>
+  <script>
+    // Cue times (local): "everywhere" / "AI tools" / "every desk" / "every app" / "every meeting" / "can't escape them"
+    const T = { every: 0.5, tools: 3.4, desk: 6.6, app: 7.5, meet: 8.4, escape: 9.6, out: 11.6 };
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#ev-label", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.3, ease: "power2.out" }, 0.05);
+    tl.fromTo("#ev-every", { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: 0.4, ease: "back.out(1.6)" }, T.every);
+    tl.fromTo("#ev-ubi", { opacity: 0 }, { opacity: 0, duration: 0.01 }, 0);
+    const ROT = [-6, 4, -3, 7, 5, -5, 3, -4, -7, 6, -2, 5];
+    const groups = { desk: [0, 6, 11], app: [1, 4, 7, 10], meet: [2, 5, 8], rest: [3, 9] };
+    // a first icon on "AI tools", then each group on its word
+    tl.fromTo("#ev-i0", { scale: 0, rotation: ROT[0] }, { scale: 1, rotation: ROT[0], duration: 0.35, ease: "back.out(2.2)" }, T.tools);
+    [["desk", T.desk], ["app", T.app], ["meet", T.meet], ["rest", T.escape]].forEach(([g, t]) =>
+      groups[g].filter((i) => i !== 0).forEach((i, k) =>
+        tl.fromTo("#ev-i" + i, { scale: 0, rotation: ROT[i] }, { scale: 1, rotation: ROT[i], duration: 0.3, ease: "back.out(2.2)" }, t + k * 0.08)));
+    // "You can't escape them": everything pulses, everywhere becomes ubiquitous
+    tl.to(".ev-icon", { scale: 1.12, duration: 0.2, ease: "power2.out", yoyo: true, repeat: 1, stagger: 0.03 }, T.escape + 0.3);
+    tl.to("#ev-every", { opacity: 0, y: -40, duration: 0.3, ease: "power2.in" }, T.escape + 0.5);
+    tl.to("#ev-ubi", { opacity: 1, duration: 0.3, ease: "power2.out" }, T.escape + 0.65);
+    tl.fromTo("#ev-ubi-hl", { scaleX: 0 }, { scaleX: 1, duration: 0.35, ease: "power2.out" }, T.escape + 0.8);
+    tl.to("#ev-label", { opacity: 0, duration: 0.2 }, T.escape + 0.5);
+    tl.to(".ev-icon, #ev-stack", { y: -200, opacity: 0, duration: 0.3, ease: "power2.in", stagger: 0.01 }, T.out);
+    window.__timelines["everywhere"] = tl;
+  </script>
+</template>
