@@ -16,6 +16,8 @@ scenes = [("frame", 0, total, 1), ("hook", *t["hook"], 2), ("swap", *t["swap"], 
           ("endcard", t["endcard_start"], total - t["endcard_start"], 3), ("captions", 0, total, 4)]
 hosts = []
 for i, (cid, st, du, z) in enumerate(scenes):
+    if cid == "endcard" and platform == "linkedin":
+        cid = "endcard-linkedin"   # every LinkedIn post ends on Sean's personal card
     kind = "captions" if cid == "captions" else "graphics"
     extra = ""
     if cid == "endcard":

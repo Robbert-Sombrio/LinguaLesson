@@ -79,6 +79,8 @@ Pronunciation, since it trips people up: re-CAL-ih-brate, with the stress on the
 
 Try it in your next update email and see how it lands.
 
+More English tips: follow Sean Watson, English Communication Coach.
+
 #BusinessEnglish #ProfessionalCommunication #EmailWriting
 
 ---
@@ -86,4 +88,4 @@ Try it in your next update email and see how it lands.
 ## Checks before posting
 - YouTube: upload the .srt under Subtitles so auto-captions don't mangle "recalibrate".
 - LinkedIn: upload recalibrate-linkedin.srt as captions (LinkedIn accepts .srt on video posts).
-- The end card on the LinkedIn video shows @fluentedgepodcast.
+- Every LinkedIn video ends on Sean's personal card (More English tips / Sean Watson / English Communication Coach / Follow), and every LinkedIn post ends with the matching sign-off line.
