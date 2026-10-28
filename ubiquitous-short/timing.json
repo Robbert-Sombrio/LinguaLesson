@@ -1,3 +1,27 @@
-{ "hook": [0, 9.0], "everywhere": [9.0, 12.0], "upgrade": [21.0, 8.0], "endcard_start": 29.0,
-  "total": {"youtube": 34, "tiktok": 34.5, "instagram": 35, "linkedin": 36},
-  "voice": {"youtube": 33.5, "tiktok": 34, "instagram": 34.5, "linkedin": 35.5} }
+{
+ "hook": [
+  0,
+  9.3
+ ],
+ "everywhere": [
+  9.3,
+  12.1
+ ],
+ "upgrade": [
+  21.4,
+  10.35
+ ],
+ "endcard_start": 31.75,
+ "total": {
+  "youtube": 36.78,
+  "tiktok": 37.29,
+  "instagram": 37.71,
+  "linkedin": 38.8
+ },
+ "voice": {
+  "youtube": 35.98,
+  "tiktok": 36.49,
+  "instagram": 36.91,
+  "linkedin": 38.0
+ }
+}

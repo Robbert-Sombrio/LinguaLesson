@@ -3,7 +3,7 @@ import json, html
 
 words = json.load(open("assets/audio/words.json"))
 words = words if isinstance(words, list) else words["words"]
-HIDE = [(5.6, 8.4), (11.3, 14.6), (16.5, 20.4), (30.0, 99)]   # the same words are already on screen
+HIDE = [(0.0, 2.0), (4.8, 7.45), (23.1, 27.4), (31.7, 99)]   # the same words are already on screen
 MAXW = 5
 
 # split at punctuation, then cut long phrases into even chunks of at most MAXW words

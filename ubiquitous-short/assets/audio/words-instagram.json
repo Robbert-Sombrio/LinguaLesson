@@ -1,0 +1,536 @@
+[
+ {
+  "text": "A",
+  "start": 0.07,
+  "end": 0.1,
+  "id": "w0"
+ },
+ {
+  "text": "client",
+  "start": 0.1,
+  "end": 0.53,
+  "id": "w1"
+ },
+ {
+  "text": "said",
+  "start": 0.53,
+  "end": 0.83,
+  "id": "w2"
+ },
+ {
+  "text": "this",
+  "start": 0.83,
+  "end": 1.13,
+  "id": "w3"
+ },
+ {
+  "text": "in",
+  "start": 1.13,
+  "end": 1.28,
+  "id": "w4"
+ },
+ {
+  "text": "a",
+  "start": 1.28,
+  "end": 1.35,
+  "id": "w5"
+ },
+ {
+  "text": "session,",
+  "start": 1.35,
+  "end": 2.07,
+  "id": "w6"
+ },
+ {
+  "text": "and",
+  "start": 2.07,
+  "end": 2.31,
+  "id": "w7"
+ },
+ {
+  "text": "I",
+  "start": 2.31,
+  "end": 2.4,
+  "id": "w8"
+ },
+ {
+  "text": "had",
+  "start": 2.4,
+  "end": 2.55,
+  "id": "w9"
+ },
+ {
+  "text": "to",
+  "start": 2.55,
+  "end": 2.7,
+  "id": "w10"
+ },
+ {
+  "text": "stop",
+  "start": 2.7,
+  "end": 2.95,
+  "id": "w11"
+ },
+ {
+  "text": "and",
+  "start": 3,
+  "end": 3.12,
+  "id": "w12"
+ },
+ {
+  "text": "explain",
+  "start": 3.12,
+  "end": 3.55,
+  "id": "w13"
+ },
+ {
+  "text": "it.",
+  "start": 3.58,
+  "end": 3.92,
+  "id": "w14"
+ },
+ {
+  "text": "The",
+  "start": 4.02,
+  "end": 4.24,
+  "id": "w15"
+ },
+ {
+  "text": "word",
+  "start": 4.24,
+  "end": 4.67,
+  "id": "w16"
+ },
+ {
+  "text": "is",
+  "start": 4.67,
+  "end": 4.87,
+  "id": "w17"
+ },
+ {
+  "text": "ubiquitous.",
+  "start": 4.88,
+  "end": 6.17,
+  "id": "w18"
+ },
+ {
+  "text": "ubiquitous,",
+  "start": 6.17,
+  "end": 7.47,
+  "id": "w19"
+ },
+ {
+  "text": "Stress",
+  "start": 7.54,
+  "end": 7.91,
+  "id": "w20"
+ },
+ {
+  "text": "on",
+  "start": 7.91,
+  "end": 8.04,
+  "id": "w21"
+ },
+ {
+  "text": "the",
+  "start": 8.04,
+  "end": 8.24,
+  "id": "w22"
+ },
+ {
+  "text": "second",
+  "start": 8.24,
+  "end": 8.65,
+  "id": "w23"
+ },
+ {
+  "text": "syllable.",
+  "start": 8.65,
+  "end": 9.44,
+  "id": "w24"
+ },
+ {
+  "text": "It",
+  "start": 9.53,
+  "end": 9.59,
+  "id": "w25"
+ },
+ {
+  "text": "means",
+  "start": 9.67,
+  "end": 10.01,
+  "id": "w26"
+ },
+ {
+  "text": "everywhere,",
+  "start": 10.01,
+  "end": 10.99,
+  "id": "w27"
+ },
+ {
+  "text": "more",
+  "start": 10.99,
+  "end": 11.21,
+  "id": "w28"
+ },
+ {
+  "text": "than",
+  "start": 11.44,
+  "end": 11.63,
+  "id": "w29"
+ },
+ {
+  "text": "common.",
+  "start": 11.63,
+  "end": 12.39,
+  "id": "w30"
+ },
+ {
+  "text": "AI",
+  "start": 12.49,
+  "end": 12.55,
+  "id": "w31"
+ },
+ {
+  "text": "tools",
+  "start": 12.63,
+  "end": 12.96,
+  "id": "w32"
+ },
+ {
+  "text": "are",
+  "start": 12.96,
+  "end": 13.2,
+  "id": "w33"
+ },
+ {
+  "text": "now",
+  "start": 13.2,
+  "end": 13.44,
+  "id": "w34"
+ },
+ {
+  "text": "ubiquitous",
+  "start": 13.44,
+  "end": 14.16,
+  "id": "w35"
+ },
+ {
+  "text": "in",
+  "start": 14.16,
+  "end": 14.4,
+  "id": "w36"
+ },
+ {
+  "text": "the",
+  "start": 14.4,
+  "end": 14.63,
+  "id": "w37"
+ },
+ {
+  "text": "workplace.",
+  "start": 14.63,
+  "end": 15.6,
+  "id": "w38"
+ },
+ {
+  "text": "They're",
+  "start": 15.7,
+  "end": 16.2,
+  "id": "w39"
+ },
+ {
+  "text": "on",
+  "start": 16.21,
+  "end": 16.38,
+  "id": "w40"
+ },
+ {
+  "text": "every",
+  "start": 16.38,
+  "end": 16.81,
+  "id": "w41"
+ },
+ {
+  "text": "desk,",
+  "start": 16.81,
+  "end": 17.33,
+  "id": "w42"
+ },
+ {
+  "text": "in",
+  "start": 17.33,
+  "end": 17.37,
+  "id": "w43"
+ },
+ {
+  "text": "every",
+  "start": 17.6,
+  "end": 17.93,
+  "id": "w44"
+ },
+ {
+  "text": "app,",
+  "start": 17.93,
+  "end": 18.39,
+  "id": "w45"
+ },
+ {
+  "text": "in",
+  "start": 18.42,
+  "end": 18.55,
+  "id": "w46"
+ },
+ {
+  "text": "every",
+  "start": 18.6,
+  "end": 18.96,
+  "id": "w47"
+ },
+ {
+  "text": "meeting.",
+  "start": 18.96,
+  "end": 19.76,
+  "id": "w48"
+ },
+ {
+  "text": "You",
+  "start": 19.85,
+  "end": 20.01,
+  "id": "w49"
+ },
+ {
+  "text": "can't",
+  "start": 20.08,
+  "end": 20.41,
+  "id": "w50"
+ },
+ {
+  "text": "escape",
+  "start": 20.46,
+  "end": 20.92,
+  "id": "w51"
+ },
+ {
+  "text": "them.",
+  "start": 20.92,
+  "end": 21.51,
+  "id": "w52"
+ },
+ {
+  "text": "Next",
+  "start": 21.62,
+  "end": 21.84,
+  "id": "w53"
+ },
+ {
+  "text": "time",
+  "start": 21.84,
+  "end": 22.15,
+  "id": "w54"
+ },
+ {
+  "text": "someone",
+  "start": 22.16,
+  "end": 22.71,
+  "id": "w55"
+ },
+ {
+  "text": "says,",
+  "start": 22.71,
+  "end": 23.2,
+  "id": "w56"
+ },
+ {
+  "text": "these",
+  "start": 23.2,
+  "end": 23.58,
+  "id": "w57"
+ },
+ {
+  "text": "tools",
+  "start": 23.58,
+  "end": 23.96,
+  "id": "w58"
+ },
+ {
+  "text": "are",
+  "start": 23.96,
+  "end": 24.19,
+  "id": "w59"
+ },
+ {
+  "text": "everywhere,",
+  "start": 24.19,
+  "end": 25.07,
+  "id": "w60"
+ },
+ {
+  "text": "say",
+  "start": 25.14,
+  "end": 25.84,
+  "id": "w61"
+ },
+ {
+  "text": "they're",
+  "start": 25.84,
+  "end": 26.16,
+  "id": "w62"
+ },
+ {
+  "text": "ubiquitous.",
+  "start": 26.16,
+  "end": 27.29,
+  "id": "w63"
+ },
+ {
+  "text": "One",
+  "start": 27.53,
+  "end": 27.67,
+  "id": "w64"
+ },
+ {
+  "text": "word.",
+  "start": 27.67,
+  "end": 28.09,
+  "id": "w65"
+ },
+ {
+  "text": "You",
+  "start": 28.14,
+  "end": 28.36,
+  "id": "w66"
+ },
+ {
+  "text": "sound",
+  "start": 28.36,
+  "end": 28.75,
+  "id": "w67"
+ },
+ {
+  "text": "like",
+  "start": 28.75,
+  "end": 29.04,
+  "id": "w68"
+ },
+ {
+  "text": "you",
+  "start": 29.04,
+  "end": 29.21,
+  "id": "w69"
+ },
+ {
+  "text": "read",
+  "start": 29.44,
+  "end": 29.6,
+  "id": "w70"
+ },
+ {
+  "text": "the",
+  "start": 29.6,
+  "end": 29.83,
+  "id": "w71"
+ },
+ {
+  "text": "business",
+  "start": 29.83,
+  "end": 30.45,
+  "id": "w72"
+ },
+ {
+  "text": "pages",
+  "start": 30.45,
+  "end": 30.84,
+  "id": "w73"
+ },
+ {
+  "text": "over",
+  "start": 30.84,
+  "end": 31.1,
+  "id": "w74"
+ },
+ {
+  "text": "breakfast.",
+  "start": 31.4,
+  "end": 32.16,
+  "id": "w75"
+ },
+ {
+  "text": "Save",
+  "start": 32.26,
+  "end": 32.5,
+  "id": "w76"
+ },
+ {
+  "text": "this",
+  "start": 32.5,
+  "end": 32.81,
+  "id": "w77"
+ },
+ {
+  "text": "for",
+  "start": 32.86,
+  "end": 33.09,
+  "id": "w78"
+ },
+ {
+  "text": "your",
+  "start": 33.09,
+  "end": 33.43,
+  "id": "w79"
+ },
+ {
+  "text": "next",
+  "start": 33.43,
+  "end": 33.76,
+  "id": "w80"
+ },
+ {
+  "text": "meeting.",
+  "start": 33.76,
+  "end": 34.64,
+  "id": "w81"
+ },
+ {
+  "text": "Follow",
+  "start": 34.74,
+  "end": 35.04,
+  "id": "w82"
+ },
+ {
+  "text": "the",
+  "start": 35.04,
+  "end": 35.23,
+  "id": "w83"
+ },
+ {
+  "text": "Fluent",
+  "start": 35.24,
+  "end": 35.64,
+  "id": "w84"
+ },
+ {
+  "text": "Edge",
+  "start": 35.64,
+  "end": 35.91,
+  "id": "w85"
+ },
+ {
+  "text": "for",
+  "start": 35.91,
+  "end": 36.11,
+  "id": "w86"
+ },
+ {
+  "text": "more",
+  "start": 36.11,
+  "end": 36.38,
+  "id": "w87"
+ },
+ {
+  "text": "words.",
+  "start": 36.38,
+  "end": 36.96,
+  "id": "w88"
+ }
+]

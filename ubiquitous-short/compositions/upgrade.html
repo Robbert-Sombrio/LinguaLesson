@@ -14,8 +14,8 @@
     .up-w { position: relative; display: inline-block; isolation: isolate; }
     #up-x { position: absolute; left: -4px; right: -4px; top: 54%; height: 7px; background: #e2483f; border-radius: 3px; transform-origin: left center; }
     #up-hl { position: absolute; left: -8px; right: -8px; top: 20%; bottom: 4%; background: #e3a728; opacity: 0.75; z-index: -1; transform-origin: left center; }
-    #up-one { position: absolute; left: 0; right: 0; top: 900px; text-align: center; font-family: "Inter", sans-serif; font-size: 34px; font-weight: 800; letter-spacing: 0.18em; color: #4e6388; }
-    #up-scene { position: absolute; left: 290px; top: 960px; width: 500px; height: 220px; }
+    #up-one { position: absolute; left: 0; right: 0; top: 860px; text-align: center; font-family: "Inter", sans-serif; font-size: 34px; font-weight: 800; letter-spacing: 0.18em; color: #4e6388; }
+    #up-scene { position: absolute; left: 315px; top: 915px; width: 450px; height: 198px; }
   </style>
   <div id="root" data-composition-id="upgrade" data-width="1080" data-height="1920">
     <div id="up-kicker">AT WORK</div>
@@ -48,7 +48,7 @@
   </div>
   <script>
     // Cue times (local): "Next time" / "everywhere" / "say" / "ubiquitous" / "One word" / "business pages" / "breakfast"
-    const T = { next: 0.0, every: 2.2, say: 2.9, ubi: 3.5, one: 4.6, pages: 6.2, breakfast: 7.2, out: 8.0 };
+    const T = { next: 0.2, every: 2.79, say: 3.74, ubi: 4.76, one: 6.13, pages: 8.35, breakfast: 8.85, out: 10.05 };
     const tl = gsap.timeline({ paused: true });
     tl.fromTo("#up-kicker", { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.3, ease: "power2.out" }, 0.05);
     tl.fromTo("#up-them", { scale: 0.4, opacity: 0, transformOrigin: "10% 100%" }, { scale: 1, opacity: 1, rotation: -1, duration: 0.4, ease: "back.out(1.6)" }, T.next + 0.2);
