@@ -143,7 +143,7 @@ rt = lp(noise(CH[1] + 1.0), 300) * 0.006
 fol[:len(rt), :] += (rt * np.minimum(1, np.linspace(1.5, 0, len(rt))))[:, None].astype(np.float32)
 
 # ---------------- mix ----------------
-music *= 1.5                                                  # voice ≈ 11 dB above the music under speech
+music *= 0.75                                                 # voice ≈ 17 dB above the music under speech (Sean: quieter)
 out = music + fol + np.stack([voice, voice], 1) * 1.0
 peak = np.abs(out).max()
 for c in range(2): out[:, c] = sfx.limit(out[:, c], 0.95)
