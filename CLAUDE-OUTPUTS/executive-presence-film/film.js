@@ -467,7 +467,7 @@ function sceneEnd(t) {
   const rows = [
     ['Listen', 'thefluentedge.com', '@fluentedgepodcast'],
     ['Sean Watson', 'English Communication Coach', 'seanwatson.coach'],
-    ['Dr. Howie Jacobson', 'Leadership and mindset', 'thefluentedge.com'],
+    ['Dr. Howie Jacobson', 'Leadership and mindset', 'howiejacobson.com'],
   ];
   rows.forEach((r, i) => {
     const y = 700 + i * 92, p = lin(t, t0 + BEAT * 4 + i * BEAT, t0 + BEAT * 5 + i * BEAT);
