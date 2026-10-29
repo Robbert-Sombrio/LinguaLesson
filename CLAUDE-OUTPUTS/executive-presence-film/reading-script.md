@@ -87,6 +87,10 @@ Pick one this week. Use it in a meeting, or spot someone who has it.
 
 Executive presence is learnable. Start today.
 
+**[PAUSE]**
+
+For more English for the boardroom, subscribe to The Fluent Edge.
+
 ---
 
 ## Recording notes

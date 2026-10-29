@@ -33,7 +33,7 @@ CH_AT = {1: 51, 2: 84, 3: 126, 4: 171, 5: 182, 6: 243, 7: 301, 8: 333, 9: 378}
 CH = [dict(n=n, t=q(t(i) - 0.4)) for n, i in CH_AT.items()]
 RECAP, OUTRO, LAST = 412, 435, len(W) - 1
 END = q(W[LAST]["t1"] + 0.9)                 # end card starts
-DUR = round(END + 8.0, 3)
+DUR = round(END + 15.0, 3)                   # 15 s end card: room for YouTube end-screen elements
 
 M = {  # hit marks (seconds)
     "leans": t(16), "title": t(18), "nine": t(36),

@@ -97,7 +97,7 @@ Pick one this week. Use it in a meeting, or spot someone who has it.
 
 Executive presence is learnable. Start today.
 
-**End card:** The Fluent Edge · thefluentedge.com · @fluentedgepodcast · Sean Watson, English Communication Coach · seanwatson.coach · Dr. Howie Jacobson, Leadership and mindset · howiejacobson.com
+**End card (YouTube, 15 s):** The Fluent Edge · "Communicate with confidence. Lead with clarity." · Subscribe @fluentedgepodcast · right page left clear for YouTube end-screen elements. Links go in the video description.
 
 ---
 

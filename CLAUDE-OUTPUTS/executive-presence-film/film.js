@@ -464,25 +464,19 @@ function sceneOutro(t) {
 }
 
 function sceneEnd(t) {
+  // YouTube end card: one ask on the left page; the right page stays clear for YouTube's end-screen elements
   const t0 = TL.m.end;
   gridLines(0.35);
-  const w = reveal('The Fluent Edge', M0, 420, 150, 800, C.ink, snap(t, t0 + E8 * 2, E8 * 2), 0, -3);
-  dot(M0 + w + 24, 420 - 14, 15);
-  reveal('Sean Watson & Dr. Howie Jacobson', M0, 500, 44, 600, C.slate, snap(t, t0 + BEAT * 2, E8 * 1.5));
-  reveal('Leadership, mindset and executive English. A weekly podcast.', M0, 556, 32, 500, C.slate, snap(t, t0 + BEAT * 2 + E8, E8 * 1.5));
-  const rows = [
-    ['Listen', 'thefluentedge.com', '@fluentedgepodcast'],
-    ['Sean Watson', 'English Communication Coach', 'seanwatson.coach'],
-    ['Dr. Howie Jacobson', 'Leadership and mindset', 'howiejacobson.com'],
-  ];
-  rows.forEach((r, i) => {
-    const y = 700 + i * 92, p = lin(t, t0 + BEAT * 4 + i * BEAT, t0 + BEAT * 5 + i * BEAT);
-    rule(M0, y - 34, col(11) + COLW, C.slate, p);
-    if (p < 1) return;
-    text(r[0].toUpperCase(), M0, y, 19, 700, C.blue, 1.6);
-    text(r[1], col(3), y, 30, 600, C.ink);
-    text(r[2], col(8), y, 30, 600, C.ink);
-  });
+  const w = reveal('The Fluent Edge', M0, 400, 120, 800, C.ink, snap(t, t0 + E8 * 2, E8 * 2), 0, -2.4);
+  dot(M0 + w + 20, 400 - 12, 12);
+  reveal('Communicate with confidence.', M0, 500, 50, 600, C.slate, snap(t, t0 + BEAT * 2, E8 * 1.5));
+  reveal('Lead with clarity.', M0, 566, 50, 600, C.slate, snap(t, t0 + BEAT * 2 + E8 * 2, E8 * 1.5));
+  const y = 720, p = lin(t, t0 + BEAT * 5, t0 + BEAT * 6);
+  rule(M0, y - 40, col(5) - GUT, C.slate, p);
+  if (p >= 1) {
+    text('SUBSCRIBE', M0, y, 19, 700, C.blue, 1.6);
+    text('@fluentedgepodcast', M0, y + 56, 40, 700, C.ink, -0.5);
+  }
 }
 
 // ---------- subtitles: part of the layout, each word clip-revealed on its timestamp ----------

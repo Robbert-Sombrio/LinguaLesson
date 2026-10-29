@@ -99,6 +99,8 @@ for name, a, b in sections:
 # the end card: one vibraphone chord, ringing out
 for i, m_ in enumerate([57, 64, 69, 72]):
     put(vibes(m_, 0.6, d=6.0), M["end"] + i * 0.02, 0.14, -0.3 + 0.2 * i)
+for i, m_ in enumerate([53, 60, 65, 69]):                 # and a second, softer chord halfway through it
+    put(vibes(m_, 0.45, d=7.0), M["end"] + 7.5 + i * 0.02, 0.10, -0.3 + 0.2 * i)
 
 # the hard stop: everything cut on the downbeat, nothing until chapter 9
 s0, s1 = int(stop * SR), int(CH[9] * SR)
