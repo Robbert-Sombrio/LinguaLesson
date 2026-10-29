@@ -68,3 +68,9 @@ Mix: voice compressed, ~10 dB above the music by RMS, music ducked under the voi
 - **Terms:** 120–150 px ink, weight 800, −2 % tracking, followed by the coral dot as a full stop.
 - **Numerals:** 520 px, weight 800, sky-blue, optically flush left.
 - **Caption rows:** 19 px, weight 500, blue `#577399`, 1 px slate rule above.
+
+## Production notes (as built)
+- Final length 3:23 (narration 3:13 + 1.6 s inserted silence + 8 s end card), 24 fps, −14.0 LUFS, true peak −1.0 dB.
+- Score as built: 96 bpm synthesised marimba, vibraphone, felt kick and hat; hard stop at 2:36, true silence until "The silence did the work." Voice sits ~11 dB above the music under speech.
+- ffmpeg 6.1 on this machine (the library asks for 7+): loudness is measured and applied to the audio alone, then muxed (`tools/master.sh`).
+- One fix round after the first contact sheet: opening push-in cropped the title; the recap zoom read as a blank frame; the outro had 2 s of near-empty frame (now "Pick one / this week" with the dot as full stop).

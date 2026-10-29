@@ -1,0 +1,13 @@
+Executive presence: 9 words and phrases (The Fluent Edge)
+
+Voice      ElevenLabs, voice "Brian - Deep, Resonant and Comforting" (premade), model eleven_v4.
+           Generated on Sean Watson's ElevenLabs account; use is governed by ElevenLabs' terms for that account.
+Font       DM Sans, Colophon Foundry / Google Fonts, SIL Open Font License 1.1 (fonts/OFL.txt).
+Music      Original score, synthesised in code (mix.py). No samples.
+Sound      Procedural foley: core/audio/sfx.py from Lemo-Opuscar (MIT License, github.com/lemomo-ai/lemo-opuscar).
+Tools      Rendering and subtitle tools from Lemo-Opuscar core/ (MIT License). faster-whisper (MIT) for the speech check.
+Style      Fluent Edge Swiss, based on Swiss Motion Graphics from Lemo-Opuscar (MIT License).
+
+Real-world references in the narration (US Airways 1549, Apple WWDC 2010 and Macworld 2007,
+Airbnb's May 2020 letter, Satya Nadella's 2014 email) are described as facts; no logos, footage
+or photos of those companies or people appear in the film.

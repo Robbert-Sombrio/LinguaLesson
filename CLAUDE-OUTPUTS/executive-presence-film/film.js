@@ -450,11 +450,17 @@ function sceneOutro(t) {
   // the dot glides to the left page, where the last line is set
   const mp = lin(t, t0 + 3.0, t0 + 4.2);
   const tl = TL.m.learnable - 1.0;
-  const w1 = measure('is learnable', 150, 800, -3);
-  const end = { x: M0 + w1 + 22, y: 590 - 14 };
+  // the dot is the full stop of the second line: "this week", then "is learnable"
+  const e1 = { x: M0 + measure('this week', 150, 800, -3) + 22, y: 590 - 14 };
+  const e2 = { x: M0 + measure('is learnable', 150, 800, -3) + 22, y: 590 - 14 };
+  const sw = lin(t, q8(tl) + E8 * 2, q8(tl) + E8 * 2 + 0.5);
+  const end = { x: lerp(e1.x, e2.x, sw), y: e1.y };
   dot(lerp(d.x, end.x, ease(mp)), lerp(d.y, end.y, ease(mp)), lerp(9, 15, mp));
-  reveal('Executive presence', M0, 440, 150, 800, C.ink, snap(t, q8(tl), E8 * 1.5), 0, -3);
-  reveal('is learnable', M0, 590, 150, 800, C.ink, snap(t, q8(tl) + E8, E8 * 1.5), 0, -3);
+  const tp = Math.max(tw('pick', t0 - 1), t0 + 2.9);       // after the wall is cleared
+  reveal('Pick one', M0, 440, 150, 800, C.ink, snap(t, q8(tp) + E8, E8 * 1.5), snap(t, q8(tl), E8 * 1.5), -3);
+  reveal('this week', M0, 590, 150, 800, C.slate, snap(t, q8(tp) + E8 * 3, E8 * 1.5), snap(t, q8(tl), E8 * 1.5), -3);
+  reveal('Executive presence', M0, 440, 150, 800, C.ink, snap(t, q8(tl) + E8, E8 * 1.5), 0, -3);
+  reveal('is learnable', M0, 590, 150, 800, C.ink, snap(t, q8(tl) + E8 * 2, E8 * 1.5), 0, -3);
 }
 
 function sceneEnd(t) {
@@ -523,8 +529,8 @@ function draw(t) {
   const drawAt = (k, dx, tt) => {
     g.save(); g.translate(dx, 0);
     // intro: a slow push-in on the room; recap: a pull-out to the wall
-    if (k === 0) { const s = 1 + 0.05 * lin(tt, 0, SC[0].e); g.translate(W * 0.62, H / 2); g.scale(s, s); g.translate(-W * 0.62, -H / 2); }
-    if (SC[k].f === sceneRecap) { const p = snap(tt, TL.m.recap + BEAT * 2, BEAT * 2); const s = lerp(1.55, 1, p); const c = wallCell(0); g.translate(lerp(c.x + c.w / 2, W / 2, p), lerp(c.y + c.h / 2, H / 2, p)); g.scale(s, s); g.translate(-W / 2, -H / 2); }
+    if (k === 0) { const s = 1 + 0.03 * lin(tt, 0, SC[0].e); g.translate(W / 2, H / 2); g.scale(s, s); g.translate(-W / 2, -H / 2); }
+    if (SC[k].f === sceneRecap) { const p = snap(tt, TL.m.recap + BEAT * 2, BEAT * 2); const s = lerp(1.55, 1, p); const c = wallCell(0); g.translate(W / 2, H / 2); g.scale(s, s); g.translate(-lerp(c.x + c.w / 2, W / 2, p), -lerp(c.y + c.h / 2, H / 2, p)); }
     SC[k].f(tt);
     g.restore();
   };
