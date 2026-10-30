@@ -480,8 +480,9 @@ function sceneEnd(t) {
 }
 
 // ---------- subtitles: part of the layout, each word clip-revealed on its timestamp ----------
+const NOSUB = new URLSearchParams(location.search).has('nosub');   // YouTube master: captions come from the .srt
 function subtitles(t) {
-  if (t >= TL.m.end) return;
+  if (NOSUB || t >= TL.m.end) return;
   const c = TL.cues.find((c) => t >= c.t0 && t < c.t1);
   if (!c) return;
   const size = 34, lh = 46, maxW = W - M0 - RX;
