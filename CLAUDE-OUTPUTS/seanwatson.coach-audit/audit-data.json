@@ -1,0 +1,276 @@
+{
+  "summary": {
+    "health_score": 56,
+    "business_type": "Online professional service (1-on-1 English communication coaching)",
+    "top_findings": [
+      "teachersean.ca SSL certificate expired 21 June 2026; old links land on a browser warning",
+      "Site ranks 5th for 'Sean Watson English coach', behind podcast, LinkedIn and YouTube",
+      "No content targeting non-branded searches (5 pages, ~1,900 words)",
+      "Server-rendered meta and og:description differ from the saved SEO description",
+      "Gamma ships ~4.8 MB of JavaScript per page"
+    ],
+    "quick_wins": [
+      "Renew teachersean.ca certificate and 301 to seanwatson.coach",
+      "Rewrite 4 inner-page titles",
+      "Add sameAs links to homepage schema",
+      "Add alt text to About headshot",
+      "Fix social preview descriptions in Gamma"
+    ]
+  },
+  "categories": [
+    {
+      "name": "Technical SEO",
+      "score": 72,
+      "what_works": [
+        "HTTPS and www redirects",
+        "robots.txt and sitemap",
+        "Self-referencing canonicals",
+        "Server-rendered text",
+        "Proper 404s"
+      ],
+      "findings": [
+        {
+          "title": "teachersean.ca certificate expired",
+          "severity": "High",
+          "description": "Let's Encrypt renewals stopped after March 2026; certificate expired 21 June 2026.",
+          "recommendation": "Renew certificate and 301-redirect every URL to seanwatson.coach."
+        },
+        {
+          "title": "Raw description differs from rendered one",
+          "severity": "Medium",
+          "description": "Server HTML carries an auto-generated 305-character description; the saved description is only swapped in by JavaScript. og:description stays messy.",
+          "recommendation": "Check SEO and social preview descriptions in Gamma; report to Gamma if already set."
+        },
+        {
+          "title": "Trailing-slash URLs return 404",
+          "severity": "Low",
+          "description": "/about/ returns 404 instead of redirecting.",
+          "recommendation": "Ask Gamma support for trailing-slash redirects."
+        },
+        {
+          "title": "No security headers",
+          "severity": "Low",
+          "description": "No HSTS or CSP.",
+          "recommendation": "Platform-controlled; no action needed."
+        }
+      ]
+    },
+    {
+      "name": "Content Quality",
+      "score": 55,
+      "what_works": [
+        "Clear B2+ audience and fit filter",
+        "Strong credentials and named employers",
+        "Specific testimonials",
+        "Sourced statistics"
+      ],
+      "findings": [
+        {
+          "title": "No non-branded content",
+          "severity": "High",
+          "description": "About 1,900 words site-wide, all service description.",
+          "recommendation": "Add a /lessons section and republish 1 piece a week."
+        },
+        {
+          "title": "Services are one paragraph each",
+          "severity": "Medium",
+          "description": "Six services share one page.",
+          "recommendation": "Build a dedicated pronunciation and accent clarity page."
+        },
+        {
+          "title": "No pricing signal",
+          "severity": "Medium",
+          "description": "No indication of cost.",
+          "recommendation": "Optionally add 'packages from' pricing."
+        },
+        {
+          "title": "About page light on specifics",
+          "severity": "Low",
+          "description": "Mostly market statistics.",
+          "recommendation": "Add how you work, TESL source, opera background details."
+        }
+      ]
+    },
+    {
+      "name": "On-Page SEO",
+      "score": 62,
+      "what_works": [
+        "Strong homepage title",
+        "One H1 per page",
+        "Consistent internal linking"
+      ],
+      "findings": [
+        {
+          "title": "Thin inner-page titles",
+          "severity": "High",
+          "description": "About, Coaching, Community and Contact titles are 19-23 characters with no topic.",
+          "recommendation": "Use the suggested titles in ACTION-PLAN.md."
+        },
+        {
+          "title": "Vague inner-page H1s",
+          "severity": "Medium",
+          "description": "'Meet Your Coach', 'Let's Talk' carry no topic.",
+          "recommendation": "Add the topic while keeping the voice."
+        },
+        {
+          "title": "Heading levels skip",
+          "severity": "Low",
+          "description": "H2 to H4 on homepage.",
+          "recommendation": "Template issue; low priority."
+        }
+      ]
+    },
+    {
+      "name": "Schema / Structured Data",
+      "score": 35,
+      "what_works": [
+        "Person and ProfessionalService linked via @id"
+      ],
+      "findings": [
+        {
+          "title": "Schema lacks sameAs and detail",
+          "severity": "High",
+          "description": "No sameAs, image, credential or knowsAbout; brand name is shared with other coaches.",
+          "recommendation": "Use the expanded schema in ACTION-PLAN.md."
+        },
+        {
+          "title": "Schema is homepage-only and GTM-injected",
+          "severity": "Medium",
+          "description": "AI crawlers that skip JavaScript never see it.",
+          "recommendation": "Move into page HTML if Gamma allows; add Service and PodcastSeries."
+        },
+        {
+          "title": "FAQ without FAQPage schema",
+          "severity": "Info",
+          "description": "FAQ rich results were retired for all sites in May 2026.",
+          "recommendation": "No action needed."
+        }
+      ]
+    },
+    {
+      "name": "Performance (CWV)",
+      "score": 40,
+      "what_works": [
+        "CLS near 0 on every page",
+        "Images under 200 KB total"
+      ],
+      "findings": [
+        {
+          "title": "4.8 MB of platform JavaScript",
+          "severity": "Medium",
+          "description": "Lighthouse mobile performance 27 (cloud lab run); 2.6 MB unused JS; 5.4 MB total page weight.",
+          "recommendation": "Platform-limited; revisit hosting if the site grows into a content hub."
+        },
+        {
+          "title": "Google Tag Manager adds 119 KB",
+          "severity": "Low",
+          "description": "GTM appears to inject only the schema.",
+          "recommendation": "Move schema into the page and drop GTM if unused otherwise."
+        }
+      ]
+    },
+    {
+      "name": "AI Search Readiness",
+      "score": 50,
+      "what_works": [
+        "All AI crawlers allowed",
+        "Copy present in raw HTML",
+        "Podcast distributed widely"
+      ],
+      "findings": [
+        {
+          "title": "No quotable answer content",
+          "severity": "High",
+          "description": "Site describes services but answers no questions.",
+          "recommendation": "The /lessons section fixes this."
+        },
+        {
+          "title": "Entity ambiguity",
+          "severity": "Medium",
+          "description": "Other Sean Watson coaches compete for the name.",
+          "recommendation": "sameAs links plus profiles linking back."
+        },
+        {
+          "title": "No llms.txt",
+          "severity": "Low",
+          "description": "No confirmed benefit.",
+          "recommendation": "Skip for now."
+        }
+      ]
+    },
+    {
+      "name": "Images",
+      "score": 60,
+      "what_works": [
+        "WebP via image proxy"
+      ],
+      "findings": [
+        {
+          "title": "Headshot missing alt attribute",
+          "severity": "Medium",
+          "description": "About-page headshot has no alt.",
+          "recommendation": "Alt: 'Sean Watson, English communication coach'."
+        },
+        {
+          "title": "Empty alt on content photos",
+          "severity": "Low",
+          "description": "Homepage and community photos have alt=\"\".",
+          "recommendation": "Describe them if not decorative."
+        },
+        {
+          "title": "Unsized images",
+          "severity": "Low",
+          "description": "No width/height attributes.",
+          "recommendation": "Platform-controlled; CLS already 0."
+        }
+      ]
+    }
+  ],
+  "action_plan": {
+    "phases": [
+      {
+        "name": "Phase 1: Critical Fixes",
+        "timeframe": "Week 1",
+        "items": [
+          "Fix teachersean.ca certificate and redirect",
+          "Rewrite inner-page titles",
+          "Fix SEO and social descriptions",
+          "Add headshot alt text"
+        ]
+      },
+      {
+        "name": "Phase 2: High-Impact Improvements",
+        "timeframe": "Weeks 2-3",
+        "items": [
+          "Expand schema with sameAs",
+          "Point every profile to seanwatson.coach",
+          "Rewrite inner-page H1s",
+          "Link the newsletter"
+        ]
+      },
+      {
+        "name": "Phase 3: Content & Authority",
+        "timeframe": "Month 2",
+        "items": [
+          "Launch /lessons with 1 piece a week",
+          "Dedicated pronunciation and accent clarity page",
+          "Connect Google Search Console",
+          "Optional pricing signal"
+        ]
+      },
+      {
+        "name": "Phase 4: Monitoring & Iteration",
+        "timeframe": "Ongoing",
+        "items": [
+          "Monthly Search Console review",
+          "Quarterly re-audit",
+          "Revisit hosting past ~30 content pages"
+        ]
+      }
+    ]
+  },
+  "artifacts": {
+    "findings_dir": "findings/",
+    "screenshots_dir": "screenshots/"
+  }
+}
