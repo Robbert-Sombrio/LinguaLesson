@@ -1,20 +1,14 @@
 # Action plan: seanwatson.coach
 
-Health score today: **56 / 100**. Phases 1 and 2 should bring it into the high 60s. Phase 3 is what gets you found by people who haven't heard of you yet.
+Health score today: **57 / 100**. Phases 1 and 2 should bring it into the high 60s. Phase 3 is what gets you found by people who haven't heard of you yet.
 
 Each item lists what it depends on and how you'll know it worked.
 
 ---
 
-## Phase 1: this week (about 2 hours total)
+## Phase 1: this week (about 1 hour total)
 
-### 1. Fix teachersean.ca (High)
-Renew the certificate or move the domain to a registrar or host that renews automatically (Cloudflare's free plan does this). Then set a 301 redirect from every teachersean.ca URL to seanwatson.coach.
-- **Depends on:** nothing. Do it first.
-- **Worked if:** `https://teachersean.ca` loads with no warning and lands on seanwatson.coach.
-- **Watch:** referral visits from teachersean.ca show up in your analytics.
-
-### 2. Rewrite the 4 inner-page titles (High)
+### 1. Rewrite the 4 inner-page titles (High)
 In Gamma, open each page's settings and change the SEO title:
 
 | Page | New title |
@@ -26,12 +20,12 @@ In Gamma, open each page's settings and change the SEO title:
 
 - **Worked if:** a `site:seanwatson.coach` search on Google shows the new titles within 2 to 3 weeks.
 
-### 3. Fix the social and SEO descriptions (Medium)
+### 2. Fix the social and SEO descriptions (Medium)
 On each page in Gamma, check that the SEO description and the social preview description are both set and identical. Then test the homepage in the LinkedIn Post Inspector (linkedin.com/post-inspector).
 - **Worked if:** the LinkedIn preview shows your clean, single-line description.
 - **If it doesn't:** it's a Gamma bug. Send their support this: "The server-rendered `<meta name="description">` and `og:description` use auto-generated text from the first card, not the page's saved SEO description. The saved one only appears after hydration."
 
-### 4. Add alt text to your About-page headshot (Medium)
+### 3. Add alt text to your About-page headshot (Medium)
 Alt text: `Sean Watson, English communication coach`
 - **Worked if:** Lighthouse stops flagging the image.
 
@@ -39,7 +33,7 @@ Alt text: `Sean Watson, English communication coach`
 
 ## Phase 2: weeks 2 to 3
 
-### 5. Expand the schema (High)
+### 4. Expand the schema (High)
 Replace what Google Tag Manager currently injects with the version below. Paste it into Gamma's custom-code / head section if that option exists. If it doesn't, keep it in GTM.
 
 Fill in or remove the `[brackets]` before publishing.
@@ -97,28 +91,28 @@ Fill in or remove the `[brackets]` before publishing.
 
 Remove `"fr"` from `knowsLanguage` if you don't coach in French.
 
-- **Depends on:** nothing, but it pays off more once item 6 is done.
+- **Depends on:** nothing, but it pays off more once item 5 is done.
 - **Worked if:** the Rich Results Test (search.google.com/test/rich-results) shows Person, ProfessionalService and PodcastSeries with no errors.
 - **Watch:** over 1 to 3 months, seanwatson.coach should move up in the "Sean Watson English coach" results.
 
-### 6. Make every profile point back to the site (High)
-LinkedIn (Contact info and Featured), Skool profile, Captivate show page, YouTube channel "Links" section, Substack "About" page. Each should link to `https://seanwatson.coach`, not teachersean.ca.
-- **Worked if:** you can't find teachersean.ca anywhere in your public profiles.
+### 5. Make every profile point back to the site (High)
+LinkedIn (Contact info and Featured), Skool profile, Captivate show page, YouTube channel "Links" section, Substack "About" page. Each should link to `https://seanwatson.coach`.
+- **Worked if:** every public profile has a working link to seanwatson.coach.
 
-### 7. Rewrite the inner-page H1s (Medium)
+### 6. Rewrite the inner-page H1s (Medium)
 Keep your voice and add the topic.
 - About: "Meet Sean Watson, Your English Communication Coach"
 - Contact: "Let's Talk: Book Your Free Discovery Call"
 - Community: "The English Edge: Conversation Practice for Professionals"
 
-### 8. Link your newsletter (Low)
+### 7. Link your newsletter (Low)
 Add Substack to the footer next to Listen and Follow.
 
 ---
 
 ## Phase 3: month 2 onwards (content and authority)
 
-### 9. Start a `/lessons` section on the site (High)
+### 8. Start a `/lessons` section on the site (High)
 This is the single biggest lever. You already write a lesson, a newsletter issue and a podcast episode every week. Republish 1 a week on seanwatson.coach, edited to answer one specific question.
 
 Starting topics, picked to match what your clients bring to sessions:
@@ -134,17 +128,17 @@ Starting topics, picked to match what your clients bring to sessions:
 
 Each piece: 800 to 1,500 words, one clear question in the title, a short direct answer in the first 2 sentences (the part AI tools quote), real examples from your clients' industries, and a link to book a call at the end.
 
-- **Depends on:** item 2 (titles), so the new section doesn't compete with weak core pages.
+- **Depends on:** item 1 (titles), so the new section doesn't compete with weak core pages.
 - **Worked if:** within 8 to 12 weeks, Search Console shows impressions for queries without your name in them.
 - **Watch:** non-branded impressions in Search Console, week over week.
 
-### 10. Give pronunciation and accent clarity its own page (Medium)
+### 9. Give pronunciation and accent clarity its own page (Medium)
 `/pronunciation-coaching`. Build it around the opera-trained ear and real before-and-after stories, like Emmanuel's French-accent work (with permission). It's your most distinctive service and the easiest to rank for.
 
-### 11. Connect Google Search Console (Medium)
+### 10. Connect Google Search Console (Medium)
 If it isn't connected already, verify seanwatson.coach in Search Console and submit the sitemap. Without it, you can't measure whether any of this is working.
 
-### 12. Add a pricing signal (your call)
+### 11. Add a pricing signal (your call)
 Even "Packages from $X CAD" or "Sessions start at..." on the Coaching page. Skip it if hiding pricing is a deliberate sales choice.
 
 ---

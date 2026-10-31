@@ -4,11 +4,11 @@ Audited 31 October 2026 with Claude SEO v2.5.0. All 5 pages in the sitemap were 
 
 ## Executive summary
 
-**SEO health score: 56 / 100**
+**SEO health score: 57 / 100**
 
 | Category | Weight | Score |
 |---|---|---|
-| Technical SEO | 22% | 72 |
+| Technical SEO | 22% | 76 |
 | Content quality | 23% | 55 |
 | On-page SEO | 20% | 62 |
 | Schema / structured data | 10% | 35 |
@@ -24,19 +24,19 @@ The problem is reach. The site has 5 pages and about 1,900 words, and every page
 
 ### Top 5 issues
 
-1. **teachersean.ca has an expired security certificate** (since 21 June 2026). Anyone who clicks an old link gets a browser security warning instead of your site.
-2. **You come 5th in Google for "Sean Watson English coach".** Your podcast episode, LinkedIn and YouTube all rank above the site, and a US ADHD coach called Sean Watson is in the same results.
-3. **There's no content for strangers to find.** No articles, no lessons, no pages built around a problem a professional would search for.
+1. **You come 5th in Google for "Sean Watson English coach".** Your podcast episode, LinkedIn and YouTube all rank above the site, and a US ADHD coach called Sean Watson is in the same results.
+2. **There's no content for strangers to find.** No articles, no lessons, no pages built around a problem a professional would search for.
+3. **The inner-page titles tell Google almost nothing.** "About | Sean Watson" is 19 characters and names no topic.
 4. **Search engines and link previews see a messier description than visitors do.** Gamma sends one description in the page code, then swaps in your good one with JavaScript. LinkedIn previews, Bing and AI crawlers get the messy one.
 5. **Every page loads about 4.8 MB of Gamma's JavaScript.** That's a platform limit you can't fix from inside Gamma, but it costs you on mobile.
 
 ### Top 5 quick wins
 
-1. Renew the teachersean.ca certificate, or point the domain at a host that does it automatically, and redirect it to seanwatson.coach. (30 minutes)
-2. Rewrite the 4 inner-page titles so each one says what the page is about. (15 minutes)
-3. Expand the homepage schema with links to your LinkedIn, YouTube, podcast and Skool profiles so Google ties them all to one Sean Watson. (30 minutes)
+1. Rewrite the 4 inner-page titles so each one says what the page is about. (15 minutes)
+2. Expand the homepage schema with links to your LinkedIn, YouTube, podcast and Skool profiles so Google ties them all to one Sean Watson. (30 minutes)
+3. Fix the social-preview description in Gamma so LinkedIn shares show clean text. (10 minutes)
 4. Add alt text to your headshot on the About page. (2 minutes)
-5. Fix the social-preview description in Gamma so LinkedIn shares show clean text. (10 minutes)
+5. Add your Substack newsletter to the site footer. (5 minutes)
 
 ---
 
@@ -52,11 +52,6 @@ The problem is reach. The site has 5 pages and about 1,900 words, and every page
 - Unknown URLs return a real 404.
 
 ### Findings
-
-**High: teachersean.ca certificate expired on 21 June 2026.**
-Certificate Transparency logs show Let's Encrypt renewed it every 90 days until March 2026, then stopped. `http://teachersean.ca` redirects to `https://`, which now fails with "certificate has expired". Any link from an old newsletter, directory listing, LinkedIn post or student bookmark lands on a browser warning page, and Google can't pass that link's value to your new domain.
-*Fix:* renew the certificate (or move DNS to a host that renews automatically) and set a 301 redirect from every teachersean.ca URL to the matching seanwatson.coach page, or to the homepage.
-*How you'll know it worked:* `https://teachersean.ca` loads without a warning and lands on seanwatson.coach.
 
 **Medium: the description in the page code doesn't match the one visitors see.**
 Gamma stores your good description ("Advanced English coaching for senior professionals: clarity, executive presence, and the confidence to speak up in any room. Book your free discovery call.") but sends a different, auto-generated one in the HTML:
@@ -212,7 +207,6 @@ When someone asks ChatGPT or Perplexity "how can a non-native speaker build exec
 - Compared the raw server HTML with the rendered page to catch JavaScript-only content.
 - Ran Lighthouse 12.6 (mobile) on the homepage.
 - Checked robots.txt, the sitemap, redirects, 404 handling and AI crawler access.
-- Checked teachersean.ca's certificate history in public Certificate Transparency logs.
 - Ran 2 Google searches: "Sean Watson English coach" and "CELPIP speaking coach online one-on-one".
 
 **Not covered:** backlink data, Google Search Console traffic and indexing data, and field Core Web Vitals. These need a Search Console connection or API keys.

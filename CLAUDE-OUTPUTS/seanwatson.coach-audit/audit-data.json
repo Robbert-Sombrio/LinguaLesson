@@ -1,26 +1,26 @@
 {
   "summary": {
-    "health_score": 56,
+    "health_score": 57,
     "business_type": "Online professional service (1-on-1 English communication coaching)",
     "top_findings": [
-      "teachersean.ca SSL certificate expired 21 June 2026; old links land on a browser warning",
       "Site ranks 5th for 'Sean Watson English coach', behind podcast, LinkedIn and YouTube",
       "No content targeting non-branded searches (5 pages, ~1,900 words)",
+      "Inner-page titles are 19-23 characters and name no topic",
       "Server-rendered meta and og:description differ from the saved SEO description",
       "Gamma ships ~4.8 MB of JavaScript per page"
     ],
     "quick_wins": [
-      "Renew teachersean.ca certificate and 301 to seanwatson.coach",
       "Rewrite 4 inner-page titles",
       "Add sameAs links to homepage schema",
+      "Fix social preview descriptions in Gamma",
       "Add alt text to About headshot",
-      "Fix social preview descriptions in Gamma"
+      "Add Substack newsletter to the footer"
     ]
   },
   "categories": [
     {
       "name": "Technical SEO",
-      "score": 72,
+      "score": 76,
       "what_works": [
         "HTTPS and www redirects",
         "robots.txt and sitemap",
@@ -29,12 +29,6 @@
         "Proper 404s"
       ],
       "findings": [
-        {
-          "title": "teachersean.ca certificate expired",
-          "severity": "High",
-          "description": "Let's Encrypt renewals stopped after March 2026; certificate expired 21 June 2026.",
-          "recommendation": "Renew certificate and 301-redirect every URL to seanwatson.coach."
-        },
         {
           "title": "Raw description differs from rendered one",
           "severity": "Medium",
@@ -232,7 +226,6 @@
         "name": "Phase 1: Critical Fixes",
         "timeframe": "Week 1",
         "items": [
-          "Fix teachersean.ca certificate and redirect",
           "Rewrite inner-page titles",
           "Fix SEO and social descriptions",
           "Add headshot alt text"
