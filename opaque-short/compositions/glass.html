@@ -1,0 +1,60 @@
+<template>
+  <style>
+    @font-face { font-family: "Lora"; src: url("assets/fonts/lora-500-normal.woff2") format("woff2"); font-weight: 400 700; font-style: normal; }
+    @font-face { font-family: "Lora"; src: url("assets/fonts/lora-500-italic.woff2") format("woff2"); font-weight: 400 700; font-style: italic; }
+    #root { position: absolute; inset: 0; overflow: hidden; }
+    #gl-label { position: absolute; left: 0; right: 0; top: 300px; text-align: center; font-family: "Inter", sans-serif; font-size: 26px; font-weight: 700; letter-spacing: 0.22em; color: #e2483f; }
+    #gl-panel { position: absolute; left: 90px; top: 350px; width: 900px; height: 560px; background: #fbfaf6; overflow: hidden; filter: drop-shadow(0 14px 22px rgba(30,38,51,0.16)); }
+    .gl-chart { position: absolute; left: 160px; top: 14px; width: 580px; height: 403px; }
+    #gl-blur { filter: blur(16px); }
+    #gl-glass { position: absolute; inset: 0; background: rgba(226, 232, 238, 0.55);
+      background-image: repeating-linear-gradient(115deg, rgba(255,255,255,0.18) 0 3px, transparent 3px 14px); }
+    #gl-tag { position: absolute; left: 0; right: 0; top: 428px; text-align: center; font-family: "Lora", serif; font-weight: 700; font-size: 84px; color: #2e3642; letter-spacing: -0.01em; }
+    #gl-tag2 { position: absolute; left: 0; right: 0; top: 428px; text-align: center; font-family: "Lora", serif; font-weight: 700; font-size: 84px; color: #1f8a8c; }
+    #gl-cardwrap { position: absolute; left: 70px; right: 70px; top: 960px; filter: drop-shadow(0 12px 18px rgba(30,38,51,0.16)); }
+    #gl-card { background: #fbfaf6; padding: 26px 36px 30px; border-left: 12px solid #e3a728; }
+    #gl-ex { font-family: "Inter", sans-serif; font-size: 22px; font-weight: 800; letter-spacing: 0.18em; color: #c4861a; }
+    #gl-sent { font-family: "Lora", serif; font-style: italic; font-size: 46px; line-height: 1.25; color: #2e3642; margin-top: 8px; }
+    #gl-w { position: relative; display: inline-block; isolation: isolate; font-weight: 700; font-style: normal; }
+    #gl-w-hl { position: absolute; left: -6px; right: -6px; top: 20%; bottom: 4%; background: #e3a728; opacity: 0.7; z-index: -1; transform-origin: left center; }
+  </style>
+  <div id="root" data-composition-id="glass" data-width="1080" data-height="1920">
+    <div id="gl-label">IT MEANS</div>
+    <div id="gl-panel">
+      <svg class="gl-chart" id="gl-sharp" viewBox="0 0 720 500"><line x1="30" y1="460" x2="700" y2="460" stroke="#2e3642" stroke-width="4"/><line x1="30" y1="40" x2="30" y2="460" stroke="#2e3642" stroke-width="4"/><rect x="60" y="240" width="60" height="220" fill="#4e6388" /><rect x="150" y="160" width="60" height="300" fill="#e3a728" /><rect x="240" y="280" width="60" height="180" fill="#4e6388" /><rect x="330" y="100" width="60" height="360" fill="#e3a728" /><rect x="420" y="200" width="60" height="260" fill="#4e6388" /><rect x="510" y="60" width="60" height="400" fill="#e3a728" /><rect x="600" y="130" width="60" height="330" fill="#4e6388" /><polyline points="90,200 180,120 270,240 360,60 450,160 540,20 630,90" fill="none" stroke="#e2483f" stroke-width="8" stroke-linejoin="round"/><text x="40" y="30" font-family="Inter" font-size="26" font-weight="700" fill="#6b7480">REVENUE · COSTS · DEBT</text></svg>
+      <svg class="gl-chart" id="gl-blur" viewBox="0 0 720 500"><line x1="30" y1="460" x2="700" y2="460" stroke="#2e3642" stroke-width="4"/><line x1="30" y1="40" x2="30" y2="460" stroke="#2e3642" stroke-width="4"/><rect x="60" y="240" width="60" height="220" fill="#4e6388" /><rect x="150" y="160" width="60" height="300" fill="#e3a728" /><rect x="240" y="280" width="60" height="180" fill="#4e6388" /><rect x="330" y="100" width="60" height="360" fill="#e3a728" /><rect x="420" y="200" width="60" height="260" fill="#4e6388" /><rect x="510" y="60" width="60" height="400" fill="#e3a728" /><rect x="600" y="130" width="60" height="330" fill="#4e6388" /><polyline points="90,200 180,120 270,240 360,60 450,160 540,20 630,90" fill="none" stroke="#e2483f" stroke-width="8" stroke-linejoin="round"/><text x="40" y="30" font-family="Inter" font-size="26" font-weight="700" fill="#6b7480">REVENUE · COSTS · DEBT</text></svg>
+      <div id="gl-glass"></div>
+      <div id="gl-tag">opaque</div>
+      <div id="gl-tag2">transparent</div>
+    </div>
+    <div id="gl-cardwrap"><div id="gl-card">
+      <div id="gl-ex">FOR EXAMPLE</div>
+      <div id="gl-sent">"The company's finances remain <span id="gl-w"><b id="gl-w-hl"></b>opaque</span> to investors."</div>
+    </div></div>
+  </div>
+  <script>
+    // Cue times (local): "means" / "see through it" / "Hard to understand" / "For example" / "opaque" (in the sentence) / "opposite" / "transparent"
+    const T = { means: 0.3, see: 1.4, hard: 2.6, example: 4.2, inSent: 6.4, opposite: 8.6, transparent: 9.6, out: 11.2 };
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#gl-label", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.3, ease: "power2.out" }, 0.05);
+    tl.fromTo("#gl-panel", { y: 300, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: "power3.out" }, 0.05);
+    tl.fromTo("#gl-sharp", { opacity: 0 }, { opacity: 0, duration: 0.01 }, 0);
+    tl.fromTo("#gl-tag2", { opacity: 0 }, { opacity: 0, duration: 0.01 }, 0);
+    // the glass slides across the chart on "can't see through it"
+    tl.fromTo("#gl-glass", { x: -900 }, { x: 0, duration: 0.7, ease: "power3.inOut" }, T.see);
+    tl.fromTo("#gl-blur", { filter: "blur(0px)" }, { filter: "blur(16px)", duration: 0.7, ease: "power2.inOut" }, T.see);
+    tl.fromTo("#gl-tag", { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(1.8)" }, T.hard);
+    tl.to("#gl-glass", { x: 10, duration: 0.9, ease: "sine.inOut", yoyo: true, repeat: 3 }, T.hard + 0.5);
+    // "For example: The company's finances remain opaque to investors."
+    tl.fromTo("#gl-cardwrap", { y: 260, opacity: 0 }, { y: 0, opacity: 1, duration: 0.45, ease: "power3.out" }, T.example);
+    tl.fromTo("#gl-w-hl", { scaleX: 0 }, { scaleX: 1, duration: 0.3, ease: "power2.out" }, T.inSent);
+    // "The opposite is transparent": the glass slides away, the chart sharpens
+    tl.to("#gl-tag", { opacity: 0, duration: 0.2 }, T.opposite);
+    tl.to("#gl-glass", { x: 900, duration: 0.7, ease: "power3.inOut" }, T.transparent - 0.2);
+    tl.to("#gl-sharp", { opacity: 1, duration: 0.5, ease: "power2.out" }, T.transparent - 0.1);
+    tl.to("#gl-blur", { opacity: 0, duration: 0.5, ease: "power2.out" }, T.transparent - 0.1);
+    tl.to("#gl-tag2", { opacity: 1, duration: 0.35, ease: "back.out(1.8)" }, T.transparent);
+    tl.to("#gl-panel, #gl-cardwrap, #gl-label", { y: -240, opacity: 0, duration: 0.3, ease: "power2.in", stagger: 0.03 }, T.out);
+    window.__timelines["glass"] = tl;
+  </script>
+</template>
