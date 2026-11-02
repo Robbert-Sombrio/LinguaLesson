@@ -1,0 +1,77 @@
+<template>
+  <style>
+    @font-face { font-family: "Lora"; src: url("assets/fonts/lora-500-normal.woff2") format("woff2"); font-weight: 400 700; font-style: normal; }
+    @font-face { font-family: "Lora"; src: url("assets/fonts/lora-500-italic.woff2") format("woff2"); font-weight: 400 700; font-style: italic; }
+    #root { position: absolute; inset: 0; overflow: hidden; }
+    #fl-label { position: absolute; left: 0; right: 0; top: 300px; text-align: center; font-family: "Inter", sans-serif; font-size: 26px; font-weight: 700; letter-spacing: 0.22em; color: #e2483f; }
+    #fl-panel { position: absolute; left: 90px; top: 350px; width: 900px; height: 560px; background: #f3efe6; overflow: hidden; filter: drop-shadow(0 14px 22px rgba(30,38,51,0.16)); }
+    #fl-svg { position: absolute; inset: 0; width: 900px; height: 560px; }
+    #fl-cardwrap { position: absolute; left: 70px; right: 70px; top: 960px; filter: drop-shadow(0 12px 18px rgba(30,38,51,0.16)); }
+    #fl-card { background: #fbfaf6; padding: 26px 36px 30px; border-left: 12px solid #e3a728; }
+    #fl-ex { font-family: "Inter", sans-serif; font-size: 22px; font-weight: 800; letter-spacing: 0.18em; color: #c4861a; }
+    #fl-sent { font-family: "Lora", serif; font-style: italic; font-size: 46px; line-height: 1.25; color: #2e3642; margin-top: 8px; }
+    #fl-w { position: relative; display: inline-block; isolation: isolate; font-weight: 700; font-style: normal; }
+    #fl-w-hl { position: absolute; left: -6px; right: -6px; top: 20%; bottom: 4%; background: #e3a728; opacity: 0.7; z-index: -1; transform-origin: left center; }
+  </style>
+  <div id="root" data-composition-id="float" data-width="1080" data-height="1920">
+    <div id="fl-label">IT MEANS</div>
+    <div id="fl-panel">
+      <svg id="fl-svg" viewBox="0 0 900 560" data-layout-allow-overflow>
+        <circle id="fl-sun" cx="760" cy="110" r="56" fill="#e3a728" />
+        <polyline id="fl-line" points="40,330 170,300 290,310 410,240 530,250 650,170 800,110" fill="none" stroke="#c4861a" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" />
+        <g id="fl-block">
+          <rect x="560" y="-150" width="200" height="120" fill="#2e3642" />
+          <text x="660" y="-78" text-anchor="middle" font-family="Inter" font-size="30" font-weight="800" letter-spacing="2" fill="#eeeae1">LAYOFFS</text>
+        </g>
+        <g id="fl-buoy">
+          <line x1="330" y1="190" x2="330" y2="270" stroke="#2e3642" stroke-width="8" />
+          <path d="M334 192 L380 208 L334 224 Z" fill="#e3a728" />
+          <circle cx="330" cy="330" r="68" fill="#e2483f" />
+          <rect x="262" y="314" width="136" height="32" fill="#fbfaf6" />
+          <circle cx="330" cy="330" r="68" fill="none" stroke="#2e3642" stroke-width="5" />
+        </g>
+        <g id="fl-splash" fill="#b8cce2">
+          <circle cx="600" cy="360" r="14" /><circle cx="640" cy="350" r="10" /><circle cx="700" cy="355" r="12" /><circle cx="740" cy="362" r="9" />
+        </g>
+        <g id="fl-water">
+          <path id="fl-w1" d="M-200 370 Q-125 345 -50 370 T100 370 T250 370 T400 370 T550 370 T700 370 T850 370 T1000 370 T1150 370 T1300 370 T1450 370 V560 H-200 Z" fill="#4e6388" />
+          <path id="fl-w2" d="M-500 420 Q-425 400 -350 420 T-200 420 T-50 420 T100 420 T250 420 T400 420 T550 420 T700 420 T850 420 T1000 420 T1150 420 T1300 420 T1450 420 V560 H-200 Z" fill="#3c4f72" />
+          <rect x="0" y="470" width="900" height="8" fill="#b8cce2" opacity="0.5" />
+          <rect x="0" y="510" width="900" height="6" fill="#b8cce2" opacity="0.35" />
+        </g>
+      </svg>
+    </div>
+    <div id="fl-cardwrap"><div id="fl-card">
+      <div id="fl-ex">FOR EXAMPLE</div>
+      <div id="fl-sent">"The labour market remains <span id="fl-w"><b id="fl-w-hl"></b>buoyant</span> despite layoffs."</div>
+    </div></div>
+  </div>
+  <script>
+    // Cue times (local): "floats" / "rising" / "optimistic" / "For example" / "buoyant" (in sentence) / "layoffs"
+    const T = { floats: 0.9, rising: 2.6, optim: 3.3, example: 4.6, inSent: 7.0, layoffs: 8.3, out: 10.2 };
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#fl-label", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.3, ease: "power2.out" }, 0.05);
+    tl.fromTo("#fl-panel", { y: 300, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: "power3.out" }, 0.05);
+    // the water never stops moving; the buoy bobs on it
+    tl.fromTo("#fl-w1", { x: 0 }, { x: -300, duration: 10.5, ease: "none" }, 0);
+    tl.fromTo("#fl-w2", { x: -150 }, { x: 150, duration: 10.5, ease: "none" }, 0);
+    tl.fromTo("#fl-buoy", { y: 260, rotation: 0, svgOrigin: "330 330" }, { y: 0, rotation: 0, svgOrigin: "330 330", duration: 0.7, ease: "back.out(1.6)" }, T.floats - 0.3);
+    tl.to("#fl-buoy", { y: -10, rotation: 4, svgOrigin: "330 330", duration: 0.75, ease: "sine.inOut", yoyo: true, repeat: 7 }, T.floats + 0.4);
+    // "rising and optimistic"
+    tl.fromTo("#fl-line", { strokeDasharray: 1000, strokeDashoffset: 1000 }, { strokeDashoffset: 0, duration: 1.0, ease: "power2.out" }, T.rising);
+    tl.fromTo("#fl-sun", { scale: 0, svgOrigin: "760 110" }, { scale: 1, svgOrigin: "760 110", duration: 0.5, ease: "back.out(2)" }, T.optim);
+    // the example sentence
+    tl.fromTo("#fl-cardwrap", { y: 260, opacity: 0 }, { y: 0, opacity: 1, duration: 0.45, ease: "power3.out" }, T.example);
+    tl.fromTo("#fl-w-hl", { scaleX: 0 }, { scaleX: 1, duration: 0.3, ease: "power2.out" }, T.inSent);
+    // "despite layoffs": the block drops in, the buoy dips, then rides back up
+    tl.fromTo("#fl-block", { y: 0 }, { y: 300, duration: 0.4, ease: "power2.out" }, T.layoffs - 0.2);
+    tl.to("#fl-block", { y: 480, duration: 0.25, ease: "power2.in" }, T.layoffs + 0.4);
+    tl.fromTo("#fl-splash", { opacity: 0, y: 0 }, { opacity: 1, y: -60, duration: 0.3, ease: "power2.out" }, T.layoffs + 0.62);
+    tl.to("#fl-splash", { opacity: 0, y: -20, duration: 0.4, ease: "power2.in" }, T.layoffs + 0.92);
+    tl.to("#fl-buoy", { y: 50, rotation: -10, svgOrigin: "330 330", duration: 0.25, ease: "power2.in" }, T.layoffs + 0.62);
+    tl.to("#fl-buoy", { y: -40, rotation: 6, svgOrigin: "330 330", duration: 0.55, ease: "back.out(2.5)" }, T.layoffs + 0.87);
+    tl.to("#fl-block", { y: 560, opacity: 0, duration: 0.5, ease: "power1.in" }, T.layoffs + 0.65);
+    tl.to("#fl-panel, #fl-cardwrap, #fl-label", { y: -240, opacity: 0, duration: 0.3, ease: "power2.in", stagger: 0.03 }, T.out);
+    window.__timelines["float"] = tl;
+  </script>
+</template>

@@ -1,0 +1,51 @@
+<template>
+  <style>
+    @font-face { font-family: "Lora"; src: url("assets/fonts/lora-500-normal.woff2") format("woff2"); font-weight: 400 700; font-style: normal; }
+    #root { position: absolute; inset: 0; overflow: hidden; }
+    #up-kicker { position: absolute; left: 70px; top: 300px; font-family: "Inter", sans-serif; font-size: 26px; font-weight: 700; letter-spacing: 0.2em; color: #e2483f; }
+    #up-chart { position: absolute; left: 130px; top: 360px; width: 820px; height: 440px; }
+    #up-wrap { position: absolute; left: 100px; right: 80px; top: 860px; filter: drop-shadow(0 14px 20px rgba(30,38,51,0.16)); }
+    #up-bub { background: #fbfaf6; padding: 30px 42px 36px; box-shadow: inset 0 0 0 7px #e3a728; }
+    .up-tag { font-family: "Inter", sans-serif; font-size: 22px; font-weight: 700; letter-spacing: 0.16em; color: #6b7480; display: flex; align-items: center; gap: 12px; }
+    .up-tag i { display: block; width: 16px; height: 16px; border-radius: 50%; background: #4e6388; }
+    #up-line { font-family: "Lora", serif; font-weight: 600; font-size: 58px; line-height: 1.25; color: #2e3642; margin-top: 10px; }
+    .up-slot { position: relative; display: inline-block; isolation: isolate; }
+    #up-x { position: absolute; left: -4px; right: -4px; top: 54%; height: 7px; background: #e2483f; border-radius: 3px; transform-origin: left center; }
+    #up-hl { position: absolute; left: -8px; right: -8px; top: 20%; bottom: 4%; background: #e3a728; opacity: 0.75; z-index: -1; transform-origin: left center; }
+  </style>
+  <div id="root" data-composition-id="upgrade" data-width="1080" data-height="1920">
+    <div id="up-kicker">AT WORK</div>
+    <svg id="up-chart" viewBox="0 0 820 440" data-layout-allow-overflow>
+      <line x1="40" y1="380" x2="800" y2="380" stroke="#2e3642" stroke-width="5" />
+      <rect id="up-q1" x="90" y="260" width="120" height="120" fill="#b8cce2" />
+      <rect id="up-q2" x="270" y="210" width="120" height="170" fill="#b8cce2" />
+      <rect id="up-q3" x="450" y="150" width="120" height="230" fill="#4e6388" />
+      <rect id="up-q4" x="630" y="60" width="120" height="320" fill="#e3a728" />
+      <g font-family="Inter" font-size="28" font-weight="800" fill="#6b7480" text-anchor="middle">
+        <text x="150" y="420">Q1</text><text x="330" y="420">Q2</text><text x="510" y="420">Q3</text><text x="690" y="420">Q4</text>
+      </g>
+      <path id="up-arrow" d="M150 230 L330 180 L510 120 L690 30" fill="none" stroke="#e2483f" stroke-width="8" stroke-linecap="round" />
+    </svg>
+    <div id="up-wrap"><div id="up-bub">
+      <div class="up-tag"><i></i>TRY THIS</div>
+      <div id="up-line">"Sales are <span class="up-slot" id="up-good">good<b id="up-x"></b></span> <span class="up-slot" id="up-buoy"><b id="up-hl"></b>buoyant</span> this quarter."</div>
+    </div></div>
+  </div>
+  <script>
+    // Cue times (local): "At work" / "good" / "buoyant" / "Sales are" / "buoyant" (in the line) / end
+    const T = { work: 0.1, good: 1.0, swap: 1.6, sales: 2.6, inLine: 3.3, out: 5.0 };
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#up-kicker", { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.3, ease: "power2.out" }, 0.05);
+    ["#up-q1", "#up-q2", "#up-q3", "#up-q4"].forEach((q, i) =>
+      tl.fromTo(q, { scaleY: 0, transformOrigin: "50% 100%" }, { scaleY: 1, duration: 0.35, ease: "back.out(1.6)" }, T.work + i * 0.12));
+    tl.fromTo("#up-arrow", { strokeDasharray: 700, strokeDashoffset: 700 }, { strokeDashoffset: 0, duration: 0.7, ease: "power2.out" }, T.work + 0.6);
+    tl.fromTo("#up-wrap", { scale: 0.4, opacity: 0, transformOrigin: "10% 100%" }, { scale: 1, opacity: 1, rotation: -1, duration: 0.4, ease: "back.out(1.6)" }, T.good - 0.2);
+    tl.fromTo("#up-buoy", { opacity: 0, y: 24 }, { opacity: 0, y: 24, duration: 0.01 }, 0);
+    tl.fromTo("#up-x", { scaleX: 0 }, { scaleX: 1, duration: 0.25, ease: "power2.out" }, T.swap);
+    tl.to("#up-buoy", { opacity: 1, y: 0, duration: 0.35, ease: "back.out(2)" }, T.swap + 0.15);
+    tl.fromTo("#up-hl", { scaleX: 0 }, { scaleX: 1, duration: 0.3, ease: "power2.out" }, T.inLine);
+    tl.to("#up-q4", { scaleY: 1.06, transformOrigin: "50% 100%", duration: 0.3, ease: "power2.out", yoyo: true, repeat: 1 }, T.inLine);
+    tl.to("#up-chart, #up-wrap, #up-kicker", { y: -240, opacity: 0, duration: 0.3, ease: "power2.in", stagger: 0.03 }, T.out);
+    window.__timelines["upgrade"] = tl;
+  </script>
+</template>
