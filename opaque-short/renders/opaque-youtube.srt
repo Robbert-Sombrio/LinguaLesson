@@ -1,0 +1,51 @@
+1
+00:00:00,120 --> 00:00:00,990
+Here's a word you'll
+
+2
+00:00:00,990 --> 00:00:02,440
+see in business news.
+
+3
+00:00:02,440 --> 00:00:03,320
+Opaque.
+
+4
+00:00:03,320 --> 00:00:04,520
+oh-PAYK.
+
+5
+00:00:04,520 --> 00:00:06,580
+Stress on the second syllable.
+
+6
+00:00:06,580 --> 00:00:09,240
+Opaque means you can't see through it:
+
+7
+00:00:09,240 --> 00:00:10,760
+hard to understand.
+
+8
+00:00:10,760 --> 00:00:11,550
+For example,
+
+9
+00:00:11,550 --> 00:00:15,560
+"The company's finances remain opaque to investors."
+
+10
+00:00:15,560 --> 00:00:17,720
+The opposite is transparent.
+
+11
+00:00:17,720 --> 00:00:18,510
+At work,
+
+12
+00:00:18,510 --> 00:00:19,230
+try:
+
+13
+00:00:19,230 --> 00:00:21,600
+"This process is a little opaque."

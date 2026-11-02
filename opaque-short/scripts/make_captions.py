@@ -3,14 +3,14 @@ import json, html
 
 words = json.load(open("assets/audio/words.json"))
 words = words if isinstance(words, list) else words["words"]
-HIDE = [(0.0, 2.0), (4.8, 7.45), (23.1, 27.4), (31.7, 99)]   # the same words are already on screen
+HIDE = [(2.4, 4.5), (10.6, 15.3), (19.2, 22.0), (22.0, 99)]   # the same words are already on screen
 MAXW = 5
 
 # split at punctuation, then cut long phrases into even chunks of at most MAXW words
 phrases, cur = [], []
 for w in words:
     cur.append(w)
-    if w["text"][-1] in ".,?!:":
+    if w["text"].rstrip("\"")[-1] in ".,?!:":
         phrases.append(cur); cur = []
 if cur:
     phrases.append(cur)

@@ -8,7 +8,7 @@ FIX = {"recalibrate,": "recalibrate.", "next": "next"}
 phrases, cur = [], []
 for w in words:
     cur.append(w)
-    if w["text"][-1] in ".,?!":
+    if w["text"].rstrip("\"")[-1] in ".,?!:":
         phrases.append(cur); cur = []
 if cur:
     phrases.append(cur)

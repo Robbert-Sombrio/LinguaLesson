@@ -6,7 +6,7 @@ import numpy as np
 SRC = "assets/audio/src/recording.mp3"
 CTA_SRC = "../recalibrate-short/assets/audio/src/recording.mp3"   # the 4 platform endings, reused
 SR = 48000
-BODY = (0.0, 37.6)
+BODY = (0.0, 29.6)
 BODY_CUTS = []
 CTAS = {"youtube": (50.95, 55.25), "tiktok": (57.85, 62.85), "instagram": (65.85, 71.35), "linkedin": (75.25, 81.95)}
 GAP_BEFORE_CTA = 0.45

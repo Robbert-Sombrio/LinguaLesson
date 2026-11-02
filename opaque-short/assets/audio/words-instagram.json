@@ -1,0 +1,362 @@
+[
+ {
+  "text": "Here's",
+  "start": 0.17,
+  "end": 0.37,
+  "id": "w0"
+ },
+ {
+  "text": "a",
+  "start": 0.37,
+  "end": 0.43,
+  "id": "w1"
+ },
+ {
+  "text": "word",
+  "start": 0.43,
+  "end": 0.68,
+  "id": "w2"
+ },
+ {
+  "text": "you'll",
+  "start": 0.68,
+  "end": 1.04,
+  "id": "w3"
+ },
+ {
+  "text": "see",
+  "start": 1.04,
+  "end": 1.22,
+  "id": "w4"
+ },
+ {
+  "text": "in",
+  "start": 1.22,
+  "end": 1.34,
+  "id": "w5"
+ },
+ {
+  "text": "business",
+  "start": 1.34,
+  "end": 1.81,
+  "id": "w6"
+ },
+ {
+  "text": "news.",
+  "start": 1.84,
+  "end": 2.21,
+  "id": "w7"
+ },
+ {
+  "text": "Opaque.",
+  "start": 2.49,
+  "end": 3.2,
+  "id": "w8"
+ },
+ {
+  "text": "Opaque.",
+  "start": 3.37,
+  "end": 4.48,
+  "id": "w9"
+ },
+ {
+  "text": "Stress",
+  "start": 4.65,
+  "end": 4.9,
+  "id": "w10"
+ },
+ {
+  "text": "on",
+  "start": 4.9,
+  "end": 5.04,
+  "id": "w11"
+ },
+ {
+  "text": "the",
+  "start": 5.04,
+  "end": 5.23,
+  "id": "w12"
+ },
+ {
+  "text": "second",
+  "start": 5.27,
+  "end": 5.67,
+  "id": "w13"
+ },
+ {
+  "text": "syllable.",
+  "start": 5.67,
+  "end": 6.48,
+  "id": "w14"
+ },
+ {
+  "text": "Opaque",
+  "start": 6.63,
+  "end": 6.93,
+  "id": "w15"
+ },
+ {
+  "text": "means",
+  "start": 6.93,
+  "end": 7.31,
+  "id": "w16"
+ },
+ {
+  "text": "you",
+  "start": 7.31,
+  "end": 7.54,
+  "id": "w17"
+ },
+ {
+  "text": "can't",
+  "start": 7.54,
+  "end": 7.89,
+  "id": "w18"
+ },
+ {
+  "text": "see",
+  "start": 7.92,
+  "end": 8.15,
+  "id": "w19"
+ },
+ {
+  "text": "through",
+  "start": 8.15,
+  "end": 8.68,
+  "id": "w20"
+ },
+ {
+  "text": "it:",
+  "start": 8.68,
+  "end": 9.12,
+  "id": "w21"
+ },
+ {
+  "text": "hard",
+  "start": 9.29,
+  "end": 9.44,
+  "id": "w22"
+ },
+ {
+  "text": "to",
+  "start": 9.44,
+  "end": 9.6,
+  "id": "w23"
+ },
+ {
+  "text": "understand.",
+  "start": 9.6,
+  "end": 10.64,
+  "id": "w24"
+ },
+ {
+  "text": "For",
+  "start": 10.81,
+  "end": 10.88,
+  "id": "w25"
+ },
+ {
+  "text": "example,",
+  "start": 10.88,
+  "end": 11.6,
+  "id": "w26"
+ },
+ {
+  "text": "\"The",
+  "start": 11.6,
+  "end": 11.82,
+  "id": "w27"
+ },
+ {
+  "text": "company's",
+  "start": 11.82,
+  "end": 12.5,
+  "id": "w28"
+ },
+ {
+  "text": "finances",
+  "start": 12.5,
+  "end": 12.84,
+  "id": "w29"
+ },
+ {
+  "text": "remain",
+  "start": 13.13,
+  "end": 13.62,
+  "id": "w30"
+ },
+ {
+  "text": "opaque",
+  "start": 13.94,
+  "end": 14.22,
+  "id": "w31"
+ },
+ {
+  "text": "to",
+  "start": 14.33,
+  "end": 14.48,
+  "id": "w32"
+ },
+ {
+  "text": "investors.\"",
+  "start": 14.48,
+  "end": 15.44,
+  "id": "w33"
+ },
+ {
+  "text": "The",
+  "start": 15.61,
+  "end": 15.68,
+  "id": "w34"
+ },
+ {
+  "text": "opposite",
+  "start": 15.68,
+  "end": 16.31,
+  "id": "w35"
+ },
+ {
+  "text": "is",
+  "start": 16.31,
+  "end": 16.47,
+  "id": "w36"
+ },
+ {
+  "text": "transparent.",
+  "start": 16.47,
+  "end": 17.6,
+  "id": "w37"
+ },
+ {
+  "text": "At",
+  "start": 17.77,
+  "end": 17.84,
+  "id": "w38"
+ },
+ {
+  "text": "work,",
+  "start": 17.84,
+  "end": 18.56,
+  "id": "w39"
+ },
+ {
+  "text": "try:",
+  "start": 18.56,
+  "end": 19.48,
+  "id": "w40"
+ },
+ {
+  "text": "\"This",
+  "start": 19.48,
+  "end": 19.73,
+  "id": "w41"
+ },
+ {
+  "text": "process",
+  "start": 19.73,
+  "end": 20.18,
+  "id": "w42"
+ },
+ {
+  "text": "is",
+  "start": 20.18,
+  "end": 20.3,
+  "id": "w43"
+ },
+ {
+  "text": "a",
+  "start": 20.3,
+  "end": 20.36,
+  "id": "w44"
+ },
+ {
+  "text": "little",
+  "start": 20.36,
+  "end": 20.58,
+  "id": "w45"
+ },
+ {
+  "text": "opaque.\"",
+  "start": 20.9,
+  "end": 21.3,
+  "id": "w46"
+ },
+ {
+  "text": "Save",
+  "start": 21.3,
+  "end": 21.895,
+  "id": "w47"
+ },
+ {
+  "text": "this",
+  "start": 21.895,
+  "end": 22.49,
+  "id": "w48"
+ },
+ {
+  "text": "for",
+  "start": 22.49,
+  "end": 22.65,
+  "id": "w49"
+ },
+ {
+  "text": "your",
+  "start": 22.65,
+  "end": 23.11,
+  "id": "w50"
+ },
+ {
+  "text": "next",
+  "start": 23.11,
+  "end": 23.59,
+  "id": "w51"
+ },
+ {
+  "text": "meeting.",
+  "start": 23.59,
+  "end": 24.53,
+  "id": "w52"
+ },
+ {
+  "text": "Follow",
+  "start": 24.97,
+  "end": 25.16,
+  "id": "w53"
+ },
+ {
+  "text": "the",
+  "start": 25.16,
+  "end": 25.34,
+  "id": "w54"
+ },
+ {
+  "text": "Fluent",
+  "start": 25.34,
+  "end": 25.7,
+  "id": "w55"
+ },
+ {
+  "text": "Edge",
+  "start": 25.7,
+  "end": 25.93,
+  "id": "w56"
+ },
+ {
+  "text": "for",
+  "start": 25.94,
+  "end": 26.12,
+  "id": "w57"
+ },
+ {
+  "text": "more",
+  "start": 26.12,
+  "end": 26.36,
+  "id": "w58"
+ },
+ {
+  "text": "words.",
+  "start": 26.36,
+  "end": 26.88,
+  "id": "w59"
+ }
+]
