@@ -102,7 +102,7 @@ Hit "Save Keys." Setup's over. That took about 3 minutes and you never have to d
 
 ### 3:25 Pick your level
 
-Next, choose your level. Right now it's B2, Upper Intermediate, or C1, Advanced.
+Next, choose your level: B2, C1 or C2.
 
 Be honest here. If you pick C1 when you're really B2, the lesson will feel like a wall. If you pick B2 when you're C1, it'll feel like a nap.
 
@@ -191,7 +191,7 @@ Try LinguaLesson, tell me which article you used in the comments, and I'll see y
 ```
 I turned a BBC article about AI and your brain into a full English lesson. Here's exactly how, plus how to use AI so it makes your English better and doesn't do the work for you.
 
-LinguaLesson is a Chrome extension I built for my students. Open any news article and it gives you vocabulary with pronunciation, a grammar point, a comprehension quiz and discussion questions at your level (B2 or C1). Words you get wrong go into your Word Bank for spaced-repetition review.
+LinguaLesson is a Chrome extension I built for my students. Open any news article and it gives you vocabulary with pronunciation, a grammar point, a comprehension quiz and discussion questions at your level (B2 to C2). Words you get wrong go into your Word Bank for spaced-repetition review.
 
 Get LinguaLesson: [Chrome Web Store link]
 The article I used (BBC Future): https://www.bbc.com/future/article/20260505-how-to-use-ai-without-turning-your-brain-to-mush
@@ -224,7 +224,7 @@ More from me: seanwatson.coach
 #learnenglish #englishfromthenews #businessenglish #aitools #chromeextension
 ```
 
-**Tags:** learn English from news, English lesson from article, business English, advanced English vocabulary, C1 English, B2 English, English pronunciation stress, spaced repetition vocabulary, AI for learning English, Chrome extension for English learners, LinguaLesson, The Fluent Edge
+**Tags:** learn English from news, English lesson from article, business English, advanced English vocabulary, C2 English, C1 English, B2 English, English pronunciation stress, spaced repetition vocabulary, AI for learning English, Chrome extension for English learners, LinguaLesson, The Fluent Edge
 
 ---
 
@@ -239,7 +239,7 @@ A-roll is you talking to the camera. SR is a screen recording at 1080p or higher
 | 1:10 | Install | Short intro line | SR: Chrome Web Store page → Add to Chrome → puzzle piece → pin | Arrow on the pin icon |
 | 1:40 | OpenAI key | Cut in for "the only annoying part" and the cost line | SR: platform.openai.com → Billing → add credit → API keys → Create new secret key → name it → copy → paste into LinguaLesson. **Blur the key.** | "Copy it now. You only see it once." |
 | 3:00 | News key | Short | SR: NewsAPI box → Save Keys | "Optional · free · 100/day" |
-| 3:25 | Level | A-roll for "wall" / "nap" | SR: level picker, B2 and C1 | (none) |
+| 3:25 | Level | A-roll for "wall" / "nap" | SR: level picker, B2, C1 and C2 | (none) |
 | 3:45 | 3 ways in | Number each on camera (1, 2, 3 fingers) | SR: "Article detected" → paste a link → topic browse → type a custom topic → 3 angles | "1 · 2 · 3" |
 | 4:45 | Inside the lesson | Cut in for the stress point and the Adam Green quote | SR: slow scroll through summary, vocab, grammar, quiz, discussion. Zoom in on one pronunciation line | The Green quote as a lower third, credited to BBC Future |
 | 6:15 | Word Bank | Cut in for "almost forgetting it" | SR: vocab exercise, get one wrong on purpose → Word Bank → the "no words due" message | "Wrong answer → saved" |
