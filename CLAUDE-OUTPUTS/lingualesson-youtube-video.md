@@ -2,7 +2,7 @@
 
 **Format:** Walter Johnson's tool-stack style, flipped. His chapters follow the order he built things. Yours follow the order a student uses the app.
 **Audience:** B2–C2 professionals learning English.
-**Length:** about 8.5 minutes (roughly 1,300 spoken words).
+**Length:** about 6.5 minutes (roughly 960 spoken words).
 **Demo article:** BBC Future, *'Think outside the bots': How to stop AI from turning your brain to mush* by Thomas Germain (6 May 2026)
 https://www.bbc.com/future/article/20260505-how-to-use-ai-without-turning-your-brain-to-mush
 
@@ -24,7 +24,7 @@ Pick one pairing. Each title fits within the ~60 characters YouTube shows in sea
 
 **Thumbnail image:** you on the right, pointing left at a split screen. The BBC article is on the left and the LinguaLesson side panel is next to it. Keep the text to 3 words max, in big type with high contrast.
 
-[If you pick #3, make sure "free to install" is accurate. The extension is free from the Chrome Web Store, but students pay OpenAI a few cents for usage.]
+[If you pick #3, the extension is free to install, but students still need an OpenAI key, which costs a few cents of usage.]
 
 ---
 
@@ -58,55 +58,23 @@ That's LinguaLesson.
 
 [Optional: one real sentence here about the moment you decided to build it. A real story is worth more than anything I could write.]
 
-### 1:10 Install it
+### 1:10 Getting started
 
-It's a Chrome extension, so step 1 is the Chrome Web Store. The link's in the description.
+LinguaLesson is a Chrome extension. You'll find it on the Chrome Web Store, and the link's in the description.
 
-Click "Add to Chrome," then click the little puzzle piece in your toolbar and pin LinguaLesson so it's always there.
+To use it, you'll need your own OpenAI key. That's what builds your lessons, and each lesson costs a fraction of a cent. There's a link to get one in the description too.
 
-When you click the icon, it opens as a side panel. So your article stays on the left, and your lesson sits on the right. You never leave the page.
+There's also an optional box for a free news key, if you want to browse trending headlines inside the app. Skip it if you'd rather find your own articles.
 
-### 1:40 Get your OpenAI key
+Once that's done, click the logo. It opens as a side panel, so your article stays on the left and your lesson sits on the right. You never leave the page.
 
-OK, this is the only annoying part. You do it once.
-
-LinguaLesson uses OpenAI to build your lessons, so you need your own OpenAI key. Think of it like a password that lets the app use OpenAI on your account.
-
-Here's how.
-
-Go to platform.openai.com. There's a link right inside the app. Create an account or log in.
-
-Go to Billing and add a little credit. [Show the current minimum on screen; when I checked it was $5.]
-
-And here's the good news. LinguaLesson uses one of OpenAI's cheapest models. A lesson costs a fraction of a cent. That $5 is going to last you a very long time.
-
-[After you record a few lessons, check your OpenAI usage page and say the real cost per lesson here. Real numbers sell this.]
-
-Now go to API keys and click "Create new secret key." Call it LinguaLesson so you remember what it's for.
-
-Copy it right away. OpenAI only shows it to you once. If you lose it, no big deal, just make a new one.
-
-Go back to LinguaLesson, paste it in, and you're done.
-
-One more tip: in your OpenAI billing settings, set a monthly limit. Then you know exactly what you'll spend.
-
-And your key stays in your browser. It doesn't get sent to me or anyone else.
-
-### 3:00 The news key (optional)
-
-There's a second box for something called NewsAPI. This one's free, up to 100 searches a day, and it lets you browse trending news inside the app.
-
-If you're only going to paste in articles you find yourself, skip it. You can add it later.
-
-Hit "Save Keys." Setup's over. That took about 3 minutes and you never have to do it again.
-
-### 3:25 Pick your level
+### 1:40 Pick your level
 
 Next, choose your level: B2, C1 or C2.
 
 Be honest here. If you pick C1 when you're really B2, the lesson will feel like a wall. If you pick B2 when you're C1, it'll feel like a nap.
 
-### 3:45 3 ways to start a lesson
+### 2:00 3 ways to start a lesson
 
 There are 3 ways in.
 
@@ -118,7 +86,7 @@ There are 3 ways in.
 
 Or type any topic you want. "Remote work." "Electric cars." "Why Germans love paperwork." It gives you 3 different angles to choose from, and then writes a short article for you at your level.
 
-### 4:45 Inside the lesson
+### 3:00 Inside the lesson
 
 So let's open the one we made from the BBC piece.
 
@@ -144,7 +112,7 @@ And the BBC article itself explains why. One neuroscientist in it, Adam Green fr
 
 So read the article first. Struggle a bit. Then let the lesson test you. As the article says, friction is the point.
 
-### 6:15 Your Word Bank
+### 4:30 Your Word Bank
 
 This is my favourite feature, and it's the one that actually changes your English.
 
@@ -156,13 +124,13 @@ Then it brings that word back later, just as you're about to forget it. That's c
 
 And when nothing is due, it tells you so. It literally says your brain needs time before the next review. I love that.
 
-### 7:00 Save it, export it
+### 5:15 Save it, export it
 
 Tap the bookmark to save a lesson. Your recent lessons show up in History, so you can go back to them.
 
 And you can export any lesson as a PDF or a Markdown file. Print it, write on it, bring it to class.
 
-### 7:25 Teacher Mode (20 seconds)
+### 5:40 Teacher Mode (20 seconds)
 
 Quick one for the teachers watching.
 
@@ -170,7 +138,7 @@ There's a Teacher Mode. Give it an article, pick 1 of 3 angles, and it builds a 
 
 Students, if you've got a coach, send them this video.
 
-### 7:50 Close
+### 6:05 Close
 
 So here's how I'd use LinguaLesson this week.
 
@@ -195,25 +163,22 @@ LinguaLesson is a Chrome extension I built for my students. Open any news articl
 
 Get LinguaLesson: [Chrome Web Store link]
 The article I used (BBC Future): https://www.bbc.com/future/article/20260505-how-to-use-ai-without-turning-your-brain-to-mush
-Get your OpenAI API key: https://platform.openai.com/api-keys
+You'll need an OpenAI API key: https://platform.openai.com/api-keys
 Free NewsAPI key (optional): https://newsapi.org/register
 
 Chapters:
 0:00 An AI lesson from an article about AI
 0:25 Why I built LinguaLesson
-1:10 Install it from the Chrome Web Store
-1:40 How to get your OpenAI key (and what it costs)
-3:00 The optional news key
-3:25 Choose your level
-3:45 3 ways to start a lesson
-4:45 Inside the lesson
-6:15 Your Word Bank (spaced repetition)
-7:00 Save and export as PDF
-7:25 Teacher Mode
-7:50 How I'd use it this week
+1:10 Getting started
+1:40 Choose your level
+2:00 3 ways to start a lesson
+3:00 Inside the lesson
+4:30 Your Word Bank (spaced repetition)
+5:15 Save and export as PDF
+5:40 Teacher Mode
+6:05 How I'd use it this week
 
 Phrases to listen for in this video:
-- "the only annoying part"
 - "it'll feel like a wall"
 - "friction is the point"
 - "the hard way"
@@ -236,18 +201,15 @@ A-roll is you talking to the camera. SR is a screen recording at 1080p or higher
 |---|---|---|---|---|
 | 0:00 | Cold open | Cut in for "I see the irony" | SR: BBC article → click icon → side panel → Generate → lesson appears. Keep the real wait in; add a timer overlay | Timer counting up |
 | 0:25 | Why I built it | Mostly A-roll | Quick B-roll: a Zoom session (with permission or blurred), your desk with a printed article | "No code." |
-| 1:10 | Install | Short intro line | SR: Chrome Web Store page → Add to Chrome → puzzle piece → pin | Arrow on the pin icon |
-| 1:40 | OpenAI key | Cut in for "the only annoying part" and the cost line | SR: platform.openai.com → Billing → add credit → API keys → Create new secret key → name it → copy → paste into LinguaLesson. **Blur the key.** | "Copy it now. You only see it once." |
-| 3:00 | News key | Short | SR: NewsAPI box → Save Keys | "Optional · free · 100/day" |
-| 3:25 | Level | A-roll for "wall" / "nap" | SR: level picker, B2, C1 and C2 | (none) |
-| 3:45 | 3 ways in | Number each on camera (1, 2, 3 fingers) | SR: "Article detected" → paste a link → topic browse → type a custom topic → 3 angles | "1 · 2 · 3" |
-| 4:45 | Inside the lesson | Cut in for the stress point and the Adam Green quote | SR: slow scroll through summary, vocab, grammar, quiz, discussion. Zoom in on one pronunciation line | The Green quote as a lower third, credited to BBC Future |
-| 6:15 | Word Bank | Cut in for "almost forgetting it" | SR: vocab exercise, get one wrong on purpose → Word Bank → the "no words due" message | "Wrong answer → saved" |
-| 7:00 | Save + export | Short | SR: bookmark → History → Download PDF → open the PDF | (none) |
-| 7:25 | Teacher Mode | Short | SR: Teacher Mode → 3 angles → the 13-section lesson, fast scroll | "13 sections" |
-| 7:50 | Close | Full A-roll | End screen: Fluent Edge podcast cover + subscribe | "The Fluent Edge" |
+| 1:10 | Getting started | Mostly A-roll | SR: click the LinguaLesson logo → side panel opens next to the article | "You'll need an OpenAI key" |
+| 1:40 | Level | A-roll for "wall" / "nap" | SR: level picker, B2, C1 and C2 | (none) |
+| 2:00 | 3 ways in | Number each on camera (1, 2, 3 fingers) | SR: "Article detected" → paste a link → topic browse → type a custom topic → 3 angles | "1 · 2 · 3" |
+| 3:00 | Inside the lesson | Cut in for the stress point and the Adam Green quote | SR: slow scroll through summary, vocab, grammar, quiz, discussion. Zoom in on one pronunciation line | The Green quote as a lower third, credited to BBC Future |
+| 4:30 | Word Bank | Cut in for "almost forgetting it" | SR: vocab exercise, get one wrong on purpose → Word Bank → the "no words due" message | "Wrong answer → saved" |
+| 5:15 | Save + export | Short | SR: bookmark → History → Download PDF → open the PDF | (none) |
+| 5:40 | Teacher Mode | Short | SR: Teacher Mode → 3 angles → the 13-section lesson, fast scroll | "13 sections" |
+| 6:05 | Close | Full A-roll | End screen: Fluent Edge podcast cover + subscribe | "The Fluent Edge" |
 
 **Before you record:**
 1. Generate the BBC lesson for real at C1 and use the words it actually gives you. The script doesn't name any vocabulary because it changes every time.
-2. Make a fresh OpenAI key just for filming, and delete it afterwards. Even blurred keys sometimes leak in a frame.
-3. Check the BBC article's image licence before using it in the thumbnail. The art is credited to Serenity Strull/BBC/Getty, so a screenshot of the headline in the browser is safer.
+2. Check the BBC article's image licence before using it in the thumbnail. The art is credited to Serenity Strull/BBC/Getty, so a screenshot of the headline in the browser is safer.
