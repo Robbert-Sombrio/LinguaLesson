@@ -26,15 +26,16 @@ while len(music) < N:
 music = music[:N]
 t = np.arange(N) / SR
 env = np.clip(t / 1.5, 0, 1) * np.clip((total - t) / 2.0, 0, 1)
-env *= np.interp(t, [0, 21.6, 22.1, total], [1, 1, 1.8, 1.8])   # lift under the end card
+env *= np.interp(t, [0, 23.5, 24.0, total], [1, 1, 1.8, 1.8])   # lift under the end card
 bed = music * env[:, None] * db(-21)
 
 CUES = [
-    ("paper", 0.05, 12), ("marker", 0.43, 2), ("tap", 2.45, -10), ("tap", 3.35, -12), ("tap", 3.65, -12),
-    ("chime", 4.55, -9), ("whoosh", 6.35, -10), ("whoosh", 7.92, -8), ("tap", 9.29, -10), ("paper", 10.75, 8),
-    ("marker", 13.94, 2), ("whoosh", 16.27, -8), ("chime", 16.5, -9), ("whoosh", 17.55, -10), ("tap", 17.8, -12),
-    ("tap", 17.9, -12), ("tap", 18.0, -12), ("whoosh", 18.25, -14), ("paper", 19.3, 8), ("marker", 20.95, 2),
-    ("whoosh", 22.0, -8), ("tap", 23.5, -10), ("chime", 23.6, -7),
+    ("paper", 0.05, 12), ("marker", 3.0, 0), ("marker", 3.6, 2), ("tap", 4.72, -12), ("tap", 5.02, -12),
+    ("chime", 5.85, -9), ("whoosh", 7.95, -10), ("tap", 9.73, -8), ("whoosh", 12.43, -12), ("chime", 13.19, -10),
+    ("paper", 14.25, 8), ("marker", 17.02, 2), ("whoosh", 17.6, -8), ("tap", 18.25, -4), ("rope", 18.45, -12),
+    ("chime", 18.95, -10), ("whoosh", 19.55, -10), ("tap", 19.65, -12), ("tap", 19.77, -12), ("tap", 19.89, -12),
+    ("tap", 20.01, -12), ("paper", 19.95, 8), ("marker", 20.65, 0), ("marker", 22.2, 2), ("whoosh", 23.9, -8),
+    ("tap", 25.4, -10), ("chime", 25.5, -7),
 ]
 cache = {}
 for name, at, gain in CUES:

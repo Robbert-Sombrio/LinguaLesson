@@ -48,7 +48,7 @@
   </div>
   <script>
     // Cue times (local): "floats" / "rising" / "optimistic" / "For example" / "buoyant" (in sentence) / "layoffs"
-    const T = { floats: 0.9, rising: 2.6, optim: 3.3, example: 4.6, inSent: 7.0, layoffs: 8.3, out: 10.2 };
+    const T = { floats: 1.68, rising: 4.38, optim: 5.14, example: 6.2, inSent: 8.97, layoffs: 10.09, out: 11.3 };
     const tl = gsap.timeline({ paused: true });
     tl.fromTo("#fl-label", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.3, ease: "power2.out" }, 0.05);
     tl.fromTo("#fl-panel", { y: 300, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: "power3.out" }, 0.05);
@@ -64,13 +64,13 @@
     tl.fromTo("#fl-cardwrap", { y: 260, opacity: 0 }, { y: 0, opacity: 1, duration: 0.45, ease: "power3.out" }, T.example);
     tl.fromTo("#fl-w-hl", { scaleX: 0 }, { scaleX: 1, duration: 0.3, ease: "power2.out" }, T.inSent);
     // "despite layoffs": the block drops in, the buoy dips, then rides back up
-    tl.fromTo("#fl-block", { y: 0 }, { y: 300, duration: 0.4, ease: "power2.out" }, T.layoffs - 0.2);
-    tl.to("#fl-block", { y: 480, duration: 0.25, ease: "power2.in" }, T.layoffs + 0.4);
-    tl.fromTo("#fl-splash", { opacity: 0, y: 0 }, { opacity: 1, y: -60, duration: 0.3, ease: "power2.out" }, T.layoffs + 0.62);
-    tl.to("#fl-splash", { opacity: 0, y: -20, duration: 0.4, ease: "power2.in" }, T.layoffs + 0.92);
-    tl.to("#fl-buoy", { y: 50, rotation: -10, svgOrigin: "330 330", duration: 0.25, ease: "power2.in" }, T.layoffs + 0.62);
-    tl.to("#fl-buoy", { y: -40, rotation: 6, svgOrigin: "330 330", duration: 0.55, ease: "back.out(2.5)" }, T.layoffs + 0.87);
-    tl.to("#fl-block", { y: 560, opacity: 0, duration: 0.5, ease: "power1.in" }, T.layoffs + 0.65);
+    tl.fromTo("#fl-block", { y: 0 }, { y: 300, duration: 0.4, ease: "power2.out" }, T.layoffs - 0.5);
+    tl.to("#fl-block", { y: 480, duration: 0.25, ease: "power2.in" }, T.layoffs + 0.1);
+    tl.fromTo("#fl-splash", { opacity: 0, y: 0 }, { opacity: 1, y: -60, duration: 0.3, ease: "power2.out" }, T.layoffs + 0.32);
+    tl.to("#fl-splash", { opacity: 0, y: -20, duration: 0.4, ease: "power2.in" }, T.layoffs + 0.62);
+    tl.to("#fl-buoy", { y: 50, rotation: -10, svgOrigin: "330 330", duration: 0.25, ease: "power2.in" }, T.layoffs + 0.32);
+    tl.to("#fl-buoy", { y: -40, rotation: 6, svgOrigin: "330 330", duration: 0.55, ease: "back.out(2.5)" }, T.layoffs + 0.57);
+    tl.to("#fl-block", { y: 560, opacity: 0, duration: 0.5, ease: "power1.in" }, T.layoffs + 0.35);
     tl.to("#fl-panel, #fl-cardwrap, #fl-label", { y: -240, opacity: 0, duration: 0.3, ease: "power2.in", stagger: 0.03 }, T.out);
     window.__timelines["float"] = tl;
   </script>

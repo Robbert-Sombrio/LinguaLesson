@@ -1,3 +1,27 @@
-{ "hook": [0, 7.0], "float": [7.0, 10.6], "upgrade": [17.6, 5.4], "endcard_start": 23.0,
-  "total": {"youtube": 28, "tiktok": 28.5, "instagram": 29, "linkedin": 30},
-  "voice": {"youtube": 27.5, "tiktok": 28, "instagram": 28.5, "linkedin": 29.5} }
+{
+ "hook": [
+  0,
+  8.05
+ ],
+ "float": [
+  8.05,
+  11.6
+ ],
+ "upgrade": [
+  19.65,
+  4.35
+ ],
+ "endcard_start": 24.0,
+ "total": {
+  "youtube": 28.88,
+  "tiktok": 29.36,
+  "instagram": 29.81,
+  "linkedin": 30.9
+ },
+ "voice": {
+  "youtube": 28.08,
+  "tiktok": 28.56,
+  "instagram": 29.01,
+  "linkedin": 30.1
+ }
+}

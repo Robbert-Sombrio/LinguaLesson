@@ -1,7 +1,59 @@
 <template>
-  <div id="root" data-composition-id="captions" data-width="1080" data-height="1920"></div>
+  <style>
+    #root { position: absolute; inset: 0; }
+    .cap { position: absolute; left: 70px; right: 70px; top: 1190px; text-align: center; font-family: "Inter", sans-serif; font-size: 50px; font-weight: 700; line-height: 1.3; color: #2e3642; }
+    .cap span { display: inline-block; padding: 0 6px; border-radius: 6px; background-image: linear-gradient(#e3a728cc, #e3a728cc); background-repeat: no-repeat; background-position: left 80%; background-size: 0% 100%; }
+  </style>
+  <div id="root" data-composition-id="captions" data-width="1080" data-height="1920">
+    <div id="cap-0" class="clip cap" data-start="0.030" data-duration="1.520"><span id="cap-0-0">Business</span> <span id="cap-0-1">reporters</span> <span id="cap-0-2">have</span> <span id="cap-0-3">a</span></div>
+    <div id="cap-1" class="clip cap" data-start="1.550" data-duration="2.060"><span id="cap-1-0">better</span> <span id="cap-1-1">word</span> <span id="cap-1-2">than</span> <span id="cap-1-3">&quot;good.&quot;</span></div>
+    <div id="cap-2" class="clip cap" data-start="5.790" data-duration="2.300"><span id="cap-2-0">Stress</span> <span id="cap-2-1">on</span> <span id="cap-2-2">the</span> <span id="cap-2-3">first</span> <span id="cap-2-4">syllable.</span></div>
+    <div id="cap-3" class="clip cap" data-start="8.090" data-duration="2.130"><span id="cap-3-0">Buoyant</span> <span id="cap-3-1">means</span> <span id="cap-3-2">it</span> <span id="cap-3-3">floats.</span></div>
+    <div id="cap-4" class="clip cap" data-start="10.220" data-duration="1.010"><span id="cap-4-0">In</span> <span id="cap-4-1">business,</span></div>
+    <div id="cap-5" class="clip cap" data-start="11.230" data-duration="3.400"><span id="cap-5-0">it</span> <span id="cap-5-1">means</span> <span id="cap-5-2">rising</span> <span id="cap-5-3">and</span> <span id="cap-5-4">optimistic.</span></div>
+    <div id="cap-6" class="clip cap" data-start="19.030" data-duration="0.620"><span id="cap-6-0">At</span> <span id="cap-6-1">work,</span></div>
+    <div id="cap-7" class="clip cap" data-start="19.650" data-duration="2.170"><span id="cap-7-0">swap</span> <span id="cap-7-1">&quot;good&quot;</span> <span id="cap-7-2">for</span> <span id="cap-7-3">&quot;buoyant&quot;:</span></div>
+  </div>
   <script>
     const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#cap-0-0", { backgroundSize: "0% 100%" }, { backgroundSize: "100% 100%", duration: 0.12, ease: "none" }, 0.110);
+    tl.fromTo("#cap-0-1", { backgroundSize: "0% 100%" }, { backgroundSize: "100% 100%", duration: 0.12, ease: "none" }, 0.590);
+    tl.fromTo("#cap-0-2", { backgroundSize: "0% 100%" }, { backgroundSize: "100% 100%", duration: 0.12, ease: "none" }, 1.260);
+    tl.fromTo("#cap-0-3", { backgroundSize: "0% 100%" }, { backgroundSize: "100% 100%", duration: 0.12, ease: "none" }, 1.560);
+    tl.fromTo("#cap-0", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.14, ease: "power2.out" }, 0.030);
+    tl.fromTo("#cap-1-0", { backgroundSize: "0% 100%" }, { backgroundSize: "100% 100%", duration: 0.12, ease: "none" }, 1.630);
+    tl.fromTo("#cap-1-1", { backgroundSize: "0% 100%" }, { backgroundSize: "100% 100%", duration: 0.12, ease: "none" }, 2.070);
+    tl.fromTo("#cap-1-2", { backgroundSize: "0% 100%" }, { backgroundSize: "100% 100%", duration: 0.12, ease: "none" }, 2.370);
+    tl.fromTo("#cap-1-3", { backgroundSize: "0% 100%" }, { backgroundSize: "100% 100%", duration: 0.12, ease: "none" }, 2.700);
+    tl.fromTo("#cap-1", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.14, ease: "power2.out" }, 1.550);
+    tl.fromTo("#cap-2-0", { backgroundSize: "0% 100%" }, { backgroundSize: "100% 100%", duration: 0.12, ease: "none" }, 5.870);
+    tl.fromTo("#cap-2-1", { backgroundSize: "0% 100%" }, { backgroundSize: "100% 100%", duration: 0.12, ease: "none" }, 6.360);
+    tl.fromTo("#cap-2-2", { backgroundSize: "0% 100%" }, { backgroundSize: "100% 100%", duration: 0.12, ease: "none" }, 6.600);
+    tl.fromTo("#cap-2-3", { backgroundSize: "0% 100%" }, { backgroundSize: "100% 100%", duration: 0.12, ease: "none" }, 6.770);
+    tl.fromTo("#cap-2-4", { backgroundSize: "0% 100%" }, { backgroundSize: "100% 100%", duration: 0.12, ease: "none" }, 7.170);
+    tl.fromTo("#cap-2", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.14, ease: "power2.out" }, 5.790);
+    tl.fromTo("#cap-3-0", { backgroundSize: "0% 100%" }, { backgroundSize: "100% 100%", duration: 0.12, ease: "none" }, 8.170);
+    tl.fromTo("#cap-3-1", { backgroundSize: "0% 100%" }, { backgroundSize: "100% 100%", duration: 0.12, ease: "none" }, 8.770);
+    tl.fromTo("#cap-3-2", { backgroundSize: "0% 100%" }, { backgroundSize: "100% 100%", duration: 0.12, ease: "none" }, 9.280);
+    tl.fromTo("#cap-3-3", { backgroundSize: "0% 100%" }, { backgroundSize: "100% 100%", duration: 0.12, ease: "none" }, 9.600);
+    tl.fromTo("#cap-3", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.14, ease: "power2.out" }, 8.090);
+    tl.fromTo("#cap-4-0", { backgroundSize: "0% 100%" }, { backgroundSize: "100% 100%", duration: 0.12, ease: "none" }, 10.300);
+    tl.fromTo("#cap-4-1", { backgroundSize: "0% 100%" }, { backgroundSize: "100% 100%", duration: 0.12, ease: "none" }, 10.500);
+    tl.fromTo("#cap-4", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.14, ease: "power2.out" }, 10.220);
+    tl.fromTo("#cap-5-0", { backgroundSize: "0% 100%" }, { backgroundSize: "100% 100%", duration: 0.12, ease: "none" }, 11.310);
+    tl.fromTo("#cap-5-1", { backgroundSize: "0% 100%" }, { backgroundSize: "100% 100%", duration: 0.12, ease: "none" }, 11.620);
+    tl.fromTo("#cap-5-2", { backgroundSize: "0% 100%" }, { backgroundSize: "100% 100%", duration: 0.12, ease: "none" }, 12.030);
+    tl.fromTo("#cap-5-3", { backgroundSize: "0% 100%" }, { backgroundSize: "100% 100%", duration: 0.12, ease: "none" }, 12.650);
+    tl.fromTo("#cap-5-4", { backgroundSize: "0% 100%" }, { backgroundSize: "100% 100%", duration: 0.12, ease: "none" }, 12.960);
+    tl.fromTo("#cap-5", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.14, ease: "power2.out" }, 11.230);
+    tl.fromTo("#cap-6-0", { backgroundSize: "0% 100%" }, { backgroundSize: "100% 100%", duration: 0.12, ease: "none" }, 19.110);
+    tl.fromTo("#cap-6-1", { backgroundSize: "0% 100%" }, { backgroundSize: "100% 100%", duration: 0.12, ease: "none" }, 19.180);
+    tl.fromTo("#cap-6", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.14, ease: "power2.out" }, 19.030);
+    tl.fromTo("#cap-7-0", { backgroundSize: "0% 100%" }, { backgroundSize: "100% 100%", duration: 0.12, ease: "none" }, 19.730);
+    tl.fromTo("#cap-7-1", { backgroundSize: "0% 100%" }, { backgroundSize: "100% 100%", duration: 0.12, ease: "none" }, 20.100);
+    tl.fromTo("#cap-7-2", { backgroundSize: "0% 100%" }, { backgroundSize: "100% 100%", duration: 0.12, ease: "none" }, 20.530);
+    tl.fromTo("#cap-7-3", { backgroundSize: "0% 100%" }, { backgroundSize: "100% 100%", duration: 0.12, ease: "none" }, 20.750);
+    tl.fromTo("#cap-7", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.14, ease: "power2.out" }, 19.650);
     window.__timelines["captions"] = tl;
   </script>
 </template>
