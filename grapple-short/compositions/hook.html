@@ -32,7 +32,7 @@
   </div>
   <script>
     // Cue times (local): "word" (in "used this word") / "Grapple" / "GRAP-uhl" / "Stress"
-    const T = { good: 1.6, buoyant: 3.4, sylls: 4.4, stress: 5.6, out: 7.4 };
+    const T = { good: 2.3, buoyant: 4.57, sylls: 5.40, uhl: 6.16, stress: 6.77, out: 8.45 };
     const tl = gsap.timeline({ paused: true });
     tl.fromTo("#hk-disc", { scale: 0 }, { scale: 1, duration: 0.8, ease: "power3.out" }, 0);
     tl.fromTo("#hk-bar", { x: -520 }, { x: 0, duration: 0.6, ease: "power3.out" }, 0.1);
@@ -42,7 +42,7 @@
     tl.to("#hk-cardwrap", { rotation: 0.5, duration: 1.3, ease: "sine.inOut", yoyo: true, repeat: 2 }, 0.7);
     tl.fromTo("#hk-word", { opacity: 0, y: 40, scale: 0.9 }, { opacity: 1, y: 0, scale: 1, duration: 0.4, ease: "back.out(1.6)" }, T.buoyant);
     tl.fromTo("#hk-b0", { y: -300, opacity: 0 }, { y: 0, opacity: 1, duration: 0.28, ease: "bounce.out" }, T.sylls);
-    tl.fromTo("#hk-b1", { y: -300, opacity: 0 }, { y: 0, opacity: 1, duration: 0.28, ease: "bounce.out" }, T.sylls + 0.3);
+    tl.fromTo("#hk-b1", { y: -300, opacity: 0 }, { y: 0, opacity: 1, duration: 0.28, ease: "bounce.out" }, T.uhl);
     tl.to("#hk-b0", { height: 170, duration: 0.4, ease: "back.out(1.8)" }, T.stress);
     tl.to("#hk-b1", { opacity: 0.6, duration: 0.3 }, T.stress + 0.05);
     tl.to("#hk-cardwrap, #hk-word, #hk-row", { y: -260, opacity: 0, duration: 0.3, ease: "power2.in", stagger: 0.03 }, T.out);

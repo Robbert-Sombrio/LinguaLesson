@@ -21,7 +21,7 @@
   </div>
   <script>
     // Cue times (local): "Notice" / "WITH"
-    const T = { notice: 0.1, with: 1.9, out: 3.2 };
+    const T = { notice: 0.1, with: 2.15, out: 3.28 };
     const tl = gsap.timeline({ paused: true });
     tl.fromTo("#ww-label", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.25, ease: "power2.out" }, T.notice);
     tl.fromTo("#ww-g", { opacity: 0, x: -60 }, { opacity: 1, x: 0, duration: 0.35, ease: "power3.out" }, T.notice);
@@ -30,7 +30,7 @@
     tl.fromTo("#ww-x2", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.25, ease: "power2.out" }, T.notice + 0.9);
     tl.fromTo("#ww-s2", { scaleX: 0 }, { scaleX: 1, duration: 0.2, ease: "power2.out" }, T.notice + 1.25);
     tl.fromTo("#ww-with", { scale: 0, rotation: -10 }, { scale: 1, rotation: 0, duration: 0.35, ease: "back.out(2.4)" }, T.with);
-    tl.fromTo("#ww-ok", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.3, ease: "back.out(1.8)" }, T.with + 0.2);
+    tl.fromTo("#ww-ok", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.3, ease: "back.out(1.8)" }, T.notice + 1.45);
     tl.to("#ww-row, .ww-ex, #ww-label", { y: -240, opacity: 0, duration: 0.3, ease: "power2.in", stagger: 0.02 }, T.out);
     window.__timelines["withword"] = tl;
   </script>

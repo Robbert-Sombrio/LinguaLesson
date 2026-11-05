@@ -3,7 +3,7 @@ import json, html
 
 words = json.load(open("assets/audio/words.json"))
 words = words if isinstance(words, list) else words["words"]
-HIDE = [(3.5, 5.8), (14.3, 18.9), (21.2, 24.0), (24.0, 99)]   # the same words are already on screen
+HIDE = [(4.4, 6.7), (14.6, 21.1), (26.8, 28.25), (29.2, 32.4), (37.2, 99)]   # the same words are already on screen
 MAXW = 5
 
 # split at punctuation, then cut long phrases into even chunks of at most MAXW words
@@ -42,7 +42,7 @@ for gi, g in enumerate(groups):
 page = f'''<template>
   <style>
     #root {{ position: absolute; inset: 0; }}
-    .cap {{ position: absolute; left: 70px; right: 70px; top: 1190px; text-align: center; font-family: "Inter", sans-serif; font-size: 50px; font-weight: 700; line-height: 1.3; color: #2e3642; }}
+    .cap {{ position: absolute; left: 70px; right: 70px; top: 1250px; text-align: center; font-family: "Inter", sans-serif; font-size: 50px; font-weight: 700; line-height: 1.3; color: #2e3642; }}
     .cap span {{ display: inline-block; padding: 0 6px; border-radius: 6px; background-image: linear-gradient(#e3a728cc, #e3a728cc); background-repeat: no-repeat; background-position: left 80%; background-size: 0% 100%; }}
   </style>
   <div id="root" data-composition-id="captions" data-width="1080" data-height="1920">

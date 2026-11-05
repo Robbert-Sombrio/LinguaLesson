@@ -1,3 +1,31 @@
-{ "hook": [0, 7.7], "wrestle": [7.7, 11.7], "withword": [19.4, 3.5], "upgrade": [22.9, 7.3], "endcard_start": 30.2,
-  "total": {"youtube": 35, "tiktok": 35.5, "instagram": 36, "linkedin": 37},
-  "voice": {"youtube": 34.5, "tiktok": 35, "instagram": 35.5, "linkedin": 36.5} }
+{
+ "hook": [
+  0,
+  8.75
+ ],
+ "wrestle": [
+  8.75,
+  15.98
+ ],
+ "withword": [
+  24.73,
+  3.6
+ ],
+ "upgrade": [
+  28.33,
+  8.87
+ ],
+ "endcard_start": 37.2,
+ "total": {
+  "youtube": 42.02,
+  "tiktok": 42.5,
+  "instagram": 42.94,
+  "linkedin": 44.04
+ },
+ "voice": {
+  "youtube": 41.22,
+  "tiktok": 41.7,
+  "instagram": 42.14,
+  "linkedin": 43.24
+ }
+}

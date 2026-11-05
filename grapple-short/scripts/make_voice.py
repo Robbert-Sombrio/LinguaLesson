@@ -6,8 +6,12 @@ import numpy as np
 SRC = "assets/audio/src/recording.mp3"
 CTA_SRC = "../recalibrate-short/assets/audio/src/recording.mp3"   # the 4 platform endings, reused
 SR = 48000
-BODY = (0.0, 40.0)
-BODY_CUTS = []
+BODY = (0.0, 56.90)
+BODY_CUTS = [(36.30, 47.15)]   # 2 earlier takes of "At work, try..." (keep the last full take)
+CTAS = {"youtube": (50.95, 55.25), "tiktok": (57.85, 62.85), "instagram": (65.85, 71.35), "linkedin": (75.25, 81.95)}
+GAP_BEFORE_CTA = 0.45
+SPEED = 1.07
+TMP = sys.argv[1]
 
 pcm = subprocess.run(["ffmpeg", "-v", "error", "-i", SRC, "-ac", "1", "-ar", str(SR), "-f", "s16le", "-"],
                      capture_output=True, check=True).stdout

@@ -48,7 +48,7 @@
   </div>
   <script>
     // Cue times (local): "struggle" / "wrestling" / "The headline" / "grapples" (in the headline) / "wrestling" (2nd) / "tariffs"
-    const T = { struggle: 1.6, wrestling: 3.4, headline: 4.6, inHead: 7.6, wrestle2: 9.2, tariffs: 10.6, out: 11.4 };
+    const T = { struggle: 2.13, wrestling: 4.95, headline: 5.98, inHead: 10.5, wrestle2: 12.85, tariffs: 15.12, out: 15.65 };
     const tl = gsap.timeline({ paused: true });
     tl.fromTo("#wr-label", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.3, ease: "power2.out" }, 0.05);
     tl.fromTo("#wr-panel", { y: 300, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: "power3.out" }, 0.05);
@@ -66,6 +66,8 @@
     tl.fromTo("#wr-fac", { x: -500 }, { x: 0, duration: 0.5, ease: "power3.out" }, T.headline + 0.2);
     tl.fromTo("#wr-wall", { y: -500 }, { y: 0, duration: 0.45, ease: "bounce.out" }, T.headline + 0.35);
     tl.fromTo("#wr-cardwrap", { y: 260, opacity: 0 }, { y: 0, opacity: 1, duration: 0.45, ease: "power3.out" }, T.headline);
+    tl.to("#wr-cardwrap", { scale: 1.035, duration: 4.4, ease: "sine.inOut" }, T.headline + 0.6);
+    tl.to("#wr-fac, #wr-wall", { y: -6, duration: 1.1, ease: "sine.inOut", yoyo: true, repeat: 3 }, T.headline + 0.9);
     tl.fromTo("#wr-w-hl", { scaleX: 0 }, { scaleX: 1, duration: 0.3, ease: "power2.out" }, T.inHead);
     tl.to("#wr-fac", { x: 22, duration: 0.3, ease: "sine.inOut", yoyo: true, repeat: 5 }, T.wrestle2 - 0.4);
     tl.to("#wr-wall", { x: 10, rotation: 2, svgOrigin: "590 470", duration: 0.3, ease: "sine.inOut", yoyo: true, repeat: 5 }, T.wrestle2 - 0.4);
