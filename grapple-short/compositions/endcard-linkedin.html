@@ -1,0 +1,53 @@
+<template>
+  <style>
+    @font-face { font-family: "Lora"; src: url("assets/fonts/lora-500-normal.woff2") format("woff2"); font-weight: 400 700; font-style: normal; }
+    #root { position: absolute; inset: 0; overflow: hidden; }
+    #li-bg { position: absolute; inset: 0; background: #4f5f6e; transform-origin: 50% 100%; }
+    #li-tex { position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 60% 40% at 20% 15%, rgba(255,255,255,0.07), transparent 70%),
+        radial-gradient(ellipse 50% 45% at 85% 70%, rgba(0,0,0,0.12), transparent 70%),
+        radial-gradient(ellipse 40% 30% at 60% 35%, rgba(255,255,255,0.05), transparent 70%),
+        repeating-linear-gradient(37deg, rgba(255,255,255,0.025) 0 2px, transparent 2px 5px),
+        repeating-linear-gradient(-53deg, rgba(0,0,0,0.04) 0 1px, transparent 1px 4px); }
+    #li-logo { position: absolute; left: 0; right: 0; top: 560px; display: flex; justify-content: center; align-items: center; gap: 30px; }
+    #li-c { width: 96px; height: 96px; border-radius: 50%; background: #f2575a; }
+    #li-s { width: 88px; height: 88px; background: #5b7092; }
+    #li-t { width: 0; height: 0; border-left: 52px solid transparent; border-right: 52px solid transparent; border-bottom: 90px solid #b8cce2; }
+    #li-kick { position: absolute; left: 0; right: 0; top: 760px; text-align: center; font-family: "Inter", sans-serif; font-size: 40px; font-weight: 500; color: #c3d2e2; }
+    #li-name { position: absolute; left: 0; right: 0; top: 820px; text-align: center; font-family: "Lora", serif; font-weight: 700; font-size: 132px; color: #ffffff; letter-spacing: -0.01em; }
+    #li-rule { position: absolute; left: 250px; width: 580px; top: 1000px; height: 7px; background: #f2575a; }
+    #li-role { position: absolute; left: 0; right: 0; top: 1040px; text-align: center; font-family: "Inter", sans-serif; font-size: 40px; font-weight: 500; color: #c3d2e2; }
+    #li-btn { position: absolute; left: 390px; width: 300px; top: 1180px; height: 110px; border-radius: 55px; background: #f2575a; display: flex; align-items: center; justify-content: center; font-family: "Inter", sans-serif; font-size: 48px; font-weight: 800; color: #ffffff; }
+    #li-cur { position: absolute; left: 860px; top: 1500px; width: 56px; height: 56px; border-radius: 50%; background: #ececec; box-shadow: 0 4px 10px rgba(0,0,0,0.25); }
+  </style>
+  <div id="root" data-composition-id="endcard-linkedin" data-width="1080" data-height="1920">
+    <div id="li-bg"><div id="li-tex"></div></div>
+    <div id="li-logo"><div id="li-c"></div><div id="li-s"></div><div id="li-t"></div></div>
+    <div id="li-kick">More English tips</div>
+    <div id="li-name">Sean Watson</div>
+    <div id="li-rule"></div>
+    <div id="li-role">English Communication Coach</div>
+    <div id="li-btn">Follow</div>
+    <div id="li-cur" data-layout-ignore></div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#li-bg", { scaleY: 0 }, { scaleY: 1, duration: 0.4, ease: "power3.inOut" }, 0.0);
+    tl.fromTo("#li-c", { scale: 0 }, { scale: 1, duration: 0.35, ease: "back.out(2.4)" }, 0.3);
+    tl.fromTo("#li-s", { scale: 0, rotation: -45 }, { scale: 1, rotation: 0, duration: 0.35, ease: "back.out(2.4)" }, 0.4);
+    tl.fromTo("#li-t", { scale: 0, y: 20 }, { scale: 1, y: 0, duration: 0.35, ease: "back.out(2.4)" }, 0.5);
+    tl.fromTo("#li-kick", { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.35, ease: "power2.out" }, 0.55);
+    tl.fromTo("#li-name", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" }, 0.65);
+    tl.fromTo("#li-rule", { scaleX: 0 }, { scaleX: 1, duration: 0.4, ease: "power3.out" }, 0.9);
+    tl.fromTo("#li-role", { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.35, ease: "power2.out" }, 1.0);
+    tl.fromTo("#li-btn", { opacity: 0, scale: 0.7 }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(2)" }, 1.2);
+    // the cursor glides in and taps Follow
+    tl.fromTo("#li-cur", { opacity: 0, x: 120, y: 160 }, { opacity: 1, x: -180, y: -260, duration: 0.9, ease: "power2.inOut" }, 1.8);
+    tl.to("#li-cur", { scale: 0.8, duration: 0.1, ease: "power2.in", yoyo: true, repeat: 1 }, 2.75);
+    tl.to("#li-btn", { scale: 0.93, duration: 0.1, ease: "power2.in", yoyo: true, repeat: 1 }, 2.75);
+    tl.to("#li-c", { y: -12, duration: 0.8, ease: "sine.inOut", yoyo: true, repeat: 3 }, 3.2);
+    tl.to("#li-t", { rotation: 8, duration: 1.0, ease: "sine.inOut", yoyo: true, repeat: 2 }, 3.4);
+    window.__timelines["endcard-linkedin"] = tl;
+  </script>
+</template>

@@ -1,0 +1,75 @@
+<template>
+  <style>
+    @font-face { font-family: "Lora"; src: url("assets/fonts/lora-500-normal.woff2") format("woff2"); font-weight: 400 700; font-style: normal; }
+    @font-face { font-family: "Lora"; src: url("assets/fonts/lora-500-italic.woff2") format("woff2"); font-weight: 400 700; font-style: italic; }
+    #root { position: absolute; inset: 0; overflow: hidden; }
+    #wr-label { position: absolute; left: 0; right: 0; top: 300px; text-align: center; font-family: "Inter", sans-serif; font-size: 26px; font-weight: 700; letter-spacing: 0.22em; color: #e2483f; }
+    #wr-panel { position: absolute; left: 90px; top: 350px; width: 900px; height: 560px; background: #f3efe6; overflow: hidden; filter: drop-shadow(0 14px 22px rgba(30,38,51,0.16)); }
+    #wr-svg { position: absolute; inset: 0; width: 900px; height: 560px; }
+    #wr-cardwrap { position: absolute; left: 70px; right: 70px; top: 960px; filter: drop-shadow(0 12px 18px rgba(30,38,51,0.16)); }
+    #wr-card { background: #fbfaf6; padding: 26px 36px 30px; border-left: 12px solid #e3a728; }
+    #wr-ex { font-family: "Inter", sans-serif; font-size: 22px; font-weight: 800; letter-spacing: 0.18em; color: #c4861a; }
+    #wr-sent { font-family: "Lora", serif; font-size: 46px; line-height: 1.25; color: #2e3642; margin-top: 8px; }
+    #wr-w { position: relative; display: inline-block; isolation: isolate; font-weight: 700; }
+    #wr-w-hl { position: absolute; left: -6px; right: -6px; top: 20%; bottom: 4%; background: #e3a728; opacity: 0.7; z-index: -1; transform-origin: left center; }
+  </style>
+  <div id="root" data-composition-id="wrestle" data-width="1080" data-height="1920">
+    <div id="wr-label">IT MEANS</div>
+    <div id="wr-panel">
+      <svg id="wr-svg" viewBox="0 0 900 560" data-layout-allow-overflow>
+        <rect x="0" y="470" width="900" height="90" fill="#e4dccd" />
+        <g id="wr-pair">
+          <g id="wr-you"><circle cx="330" cy="330" r="130" fill="#e2483f" />
+            <text x="330" y="345" text-anchor="middle" font-family="Inter" font-size="40" font-weight="800" fill="#fbfaf6">YOU</text></g>
+          <g id="wr-prob"><rect x="460" y="200" width="250" height="260" fill="#4e6388" />
+            <text x="585" y="345" text-anchor="middle" font-family="Inter" font-size="36" font-weight="800" fill="#fbfaf6">PROBLEM</text></g>
+        </g>
+        <g id="wr-pair2">
+          <g id="wr-fac">
+            <rect x="120" y="290" width="300" height="180" fill="#4e6388" />
+            <path d="M120 290 L170 230 L220 290 L270 230 L320 290 L370 230 L420 290 Z" fill="#3c4f72" />
+            <rect x="350" y="160" width="40" height="100" fill="#2e3642" />
+            <rect x="160" y="350" width="50" height="50" fill="#e3a728" /><rect x="245" y="350" width="50" height="50" fill="#e3a728" /><rect x="330" y="350" width="50" height="50" fill="#e3a728" />
+            <text x="270" y="450" text-anchor="middle" font-family="Inter" font-size="30" font-weight="800" fill="#fbfaf6">AUDI</text>
+          </g>
+          <g id="wr-wall">
+            <rect x="440" y="170" width="300" height="300" fill="#e2483f" />
+            <g stroke="#b8332c" stroke-width="5"><line x1="440" y1="245" x2="740" y2="245" /><line x1="440" y1="320" x2="740" y2="320" /><line x1="440" y1="395" x2="740" y2="395" />
+              <line x1="590" y1="170" x2="590" y2="245" /><line x1="515" y1="245" x2="515" y2="320" /><line x1="665" y1="245" x2="665" y2="320" /><line x1="590" y1="320" x2="590" y2="395" /><line x1="515" y1="395" x2="515" y2="470" /><line x1="665" y1="395" x2="665" y2="470" /></g>
+            <text x="590" y="296" text-anchor="middle" font-family="Inter" font-size="40" font-weight="800" fill="#fbfaf6">TARIFFS</text>
+          </g>
+        </g>
+      </svg>
+    </div>
+    <div id="wr-cardwrap"><div id="wr-card">
+      <div id="wr-ex">FINANCIAL TIMES · HEADLINE</div>
+      <div id="wr-sent">"Audi to build $4bn US plant as it <span id="wr-w"><b id="wr-w-hl"></b>grapples with</span> tariffs"</div>
+    </div></div>
+  </div>
+  <script>
+    // Cue times (local): "struggle" / "wrestling" / "The headline" / "grapples" (in the headline) / "wrestling" (2nd) / "tariffs"
+    const T = { struggle: 1.6, wrestling: 3.4, headline: 4.6, inHead: 7.6, wrestle2: 9.2, tariffs: 10.6, out: 11.4 };
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#wr-label", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.3, ease: "power2.out" }, 0.05);
+    tl.fromTo("#wr-panel", { y: 300, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: "power3.out" }, 0.05);
+    tl.fromTo("#wr-pair2", { opacity: 0 }, { opacity: 0, duration: 0.01 }, 0);
+    // two shapes slide in and lock together
+    tl.fromTo("#wr-you", { x: -500 }, { x: 0, duration: 0.5, ease: "power3.out" }, 0.3);
+    tl.fromTo("#wr-prob", { x: 500 }, { x: 0, duration: 0.5, ease: "power3.out" }, 0.3);
+    // "struggle ... like wrestling it": they push back and forth
+    tl.to("#wr-you", { x: 30, rotation: 8, svgOrigin: "330 330", duration: 0.35, ease: "sine.inOut", yoyo: true, repeat: 5 }, T.struggle);
+    tl.to("#wr-prob", { x: 30, rotation: 6, svgOrigin: "585 330", duration: 0.35, ease: "sine.inOut", yoyo: true, repeat: 5 }, T.struggle);
+    tl.to("#wr-pair", { y: -12, duration: 0.18, ease: "power2.out", yoyo: true, repeat: 3 }, T.wrestling);
+    // the headline: factory against the tariff wall
+    tl.to("#wr-pair", { opacity: 0, duration: 0.3, ease: "power2.in" }, T.headline);
+    tl.to("#wr-pair2", { opacity: 1, duration: 0.3, ease: "power2.out" }, T.headline + 0.2);
+    tl.fromTo("#wr-fac", { x: -500 }, { x: 0, duration: 0.5, ease: "power3.out" }, T.headline + 0.2);
+    tl.fromTo("#wr-wall", { y: -500 }, { y: 0, duration: 0.45, ease: "bounce.out" }, T.headline + 0.35);
+    tl.fromTo("#wr-cardwrap", { y: 260, opacity: 0 }, { y: 0, opacity: 1, duration: 0.45, ease: "power3.out" }, T.headline);
+    tl.fromTo("#wr-w-hl", { scaleX: 0 }, { scaleX: 1, duration: 0.3, ease: "power2.out" }, T.inHead);
+    tl.to("#wr-fac", { x: 22, duration: 0.3, ease: "sine.inOut", yoyo: true, repeat: 5 }, T.wrestle2 - 0.4);
+    tl.to("#wr-wall", { x: 10, rotation: 2, svgOrigin: "590 470", duration: 0.3, ease: "sine.inOut", yoyo: true, repeat: 5 }, T.wrestle2 - 0.4);
+    tl.to("#wr-panel, #wr-cardwrap, #wr-label", { y: -240, opacity: 0, duration: 0.3, ease: "power2.in", stagger: 0.03 }, T.out);
+    window.__timelines["wrestle"] = tl;
+  </script>
+</template>

@@ -1,0 +1,37 @@
+<template>
+  <style>
+    @font-face { font-family: "Lora"; src: url("assets/fonts/lora-500-normal.woff2") format("woff2"); font-weight: 400 700; font-style: normal; }
+    #root { position: absolute; inset: 0; overflow: hidden; }
+    #ww-label { position: absolute; left: 0; right: 0; top: 300px; text-align: center; font-family: "Inter", sans-serif; font-size: 26px; font-weight: 700; letter-spacing: 0.22em; color: #e2483f; }
+    #ww-row { position: absolute; left: 0; right: 0; top: 380px; display: flex; justify-content: center; align-items: center; gap: 30px; }
+    #ww-g { font-family: "Lora", serif; font-weight: 700; font-size: 130px; color: #2e3642; letter-spacing: -0.02em; }
+    #ww-with { font-family: "Inter", sans-serif; font-weight: 900; font-size: 110px; color: #1f2733; background: #e3a728; padding: 6px 30px 12px; }
+    .ww-ex { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lora", serif; font-size: 58px; }
+    #ww-x1 { top: 640px; color: #9aa3ad; } #ww-x2 { top: 740px; color: #9aa3ad; } #ww-ok { top: 870px; color: #2e3642; font-weight: 700; }
+    .ww-ex span { position: relative; display: inline-block; }
+    .ww-strike { position: absolute; left: -6px; right: -6px; top: 54%; height: 6px; background: #e2483f; border-radius: 3px; transform-origin: left center; }
+    #ww-tick { color: #1f8a8c; margin-right: 14px; }
+  </style>
+  <div id="root" data-composition-id="withword" data-width="1080" data-height="1920">
+    <div id="ww-label">ALWAYS</div>
+    <div id="ww-row"><div id="ww-g">grapple</div><div id="ww-with">WITH</div></div>
+    <div id="ww-x1" class="ww-ex"><span>grapple the problem<b id="ww-s1" class="ww-strike"></b></span></div>
+    <div id="ww-x2" class="ww-ex"><span>grapple about it<b id="ww-s2" class="ww-strike"></b></span></div>
+    <div id="ww-ok" class="ww-ex"><span id="ww-tick">✓</span>grapple with the problem</div>
+  </div>
+  <script>
+    // Cue times (local): "Notice" / "WITH"
+    const T = { notice: 0.1, with: 1.9, out: 3.2 };
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#ww-label", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.25, ease: "power2.out" }, T.notice);
+    tl.fromTo("#ww-g", { opacity: 0, x: -60 }, { opacity: 1, x: 0, duration: 0.35, ease: "power3.out" }, T.notice);
+    tl.fromTo("#ww-x1", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.25, ease: "power2.out" }, T.notice + 0.4);
+    tl.fromTo("#ww-s1", { scaleX: 0 }, { scaleX: 1, duration: 0.2, ease: "power2.out" }, T.notice + 0.75);
+    tl.fromTo("#ww-x2", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.25, ease: "power2.out" }, T.notice + 0.9);
+    tl.fromTo("#ww-s2", { scaleX: 0 }, { scaleX: 1, duration: 0.2, ease: "power2.out" }, T.notice + 1.25);
+    tl.fromTo("#ww-with", { scale: 0, rotation: -10 }, { scale: 1, rotation: 0, duration: 0.35, ease: "back.out(2.4)" }, T.with);
+    tl.fromTo("#ww-ok", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.3, ease: "back.out(1.8)" }, T.with + 0.2);
+    tl.to("#ww-row, .ww-ex, #ww-label", { y: -240, opacity: 0, duration: 0.3, ease: "power2.in", stagger: 0.02 }, T.out);
+    window.__timelines["withword"] = tl;
+  </script>
+</template>

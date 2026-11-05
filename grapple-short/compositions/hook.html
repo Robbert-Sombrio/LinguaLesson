@@ -1,0 +1,53 @@
+<template>
+  <style>
+    @font-face { font-family: "Lora"; src: url("assets/fonts/lora-500-normal.woff2") format("woff2"); font-weight: 400 700; font-style: normal; }
+    #root { position: absolute; inset: 0; overflow: hidden; }
+    #hk-disc { position: absolute; right: -230px; top: 260px; width: 560px; height: 560px; border-radius: 50%; background: #b8cce2; }
+    #hk-bar { position: absolute; left: -40px; top: 1420px; width: 480px; height: 90px; background: #e3a728; }
+    #hk-cardwrap { position: absolute; left: 70px; right: 70px; top: 300px; filter: drop-shadow(0 16px 24px rgba(30,38,51,0.18)); }
+    #hk-card { background: #fbfaf6; padding: 30px 40px 40px; }
+    #hk-mast { font-family: "Lora", serif; font-weight: 700; font-size: 44px; color: #2e3642; border-bottom: 4px double #2e3642; padding-bottom: 10px; display: flex; justify-content: space-between; align-items: baseline; }
+    #hk-mast span { font-family: "Inter", sans-serif; font-size: 20px; font-weight: 700; letter-spacing: 0.16em; color: #6b7480; }
+    #hk-head { font-family: "Lora", serif; font-size: 56px; line-height: 1.2; color: #2e3642; margin-top: 18px; }
+    .hk-slot { position: relative; display: inline-block; isolation: isolate; font-weight: 700; }
+    #hk-good-x { position: absolute; left: -4px; right: -4px; top: 54%; height: 7px; background: #e2483f; border-radius: 3px; transform-origin: left center; }
+    #hk-buoy-hl { position: absolute; left: -8px; right: -8px; top: 18%; bottom: 4%; background: #e3a728; opacity: 0.75; z-index: -1; transform-origin: left center; }
+    #hk-word { position: absolute; left: 0; right: 0; top: 820px; text-align: center; font-family: "Lora", serif; font-weight: 700; font-size: 150px; color: #2e3642; letter-spacing: -0.02em; }
+    #hk-row { position: absolute; left: 230px; top: 1010px; width: 620px; height: 180px; }
+    .hk-b { position: absolute; bottom: 0; height: 100px; display: flex; align-items: center; justify-content: center; font-family: "Lora", serif; font-weight: 700; font-size: 58px; color: #2e3642; background: #b8cce2; }
+    #hk-b0 { left: 0; width: 300px; background: #e3a728; color: #1f2733; } #hk-b1 { left: 320px; width: 300px; }
+  </style>
+  <div id="root" data-composition-id="hook" data-width="1080" data-height="1920">
+    <div id="hk-disc" data-layout-allow-overflow></div>
+    <div id="hk-bar" data-layout-allow-overflow></div>
+    <div id="hk-cardwrap"><div id="hk-card">
+      <div id="hk-mast">Financial Times<span>AUTOMOBILES</span></div>
+      <div id="hk-head">Audi to build $4bn US plant as it <span class="hk-slot" id="hk-buoy"><b id="hk-buoy-hl"></b>grapples</span> with tariffs</div>
+    </div></div>
+    <div id="hk-word">grapple</div>
+    <div id="hk-row">
+      <div id="hk-b0" class="hk-b">GRAP</div>
+      <div id="hk-b1" class="hk-b">uhl</div>
+    </div>
+  </div>
+  <script>
+    // Cue times (local): "word" (in "used this word") / "Grapple" / "GRAP-uhl" / "Stress"
+    const T = { good: 1.6, buoyant: 3.4, sylls: 4.4, stress: 5.6, out: 7.4 };
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#hk-disc", { scale: 0 }, { scale: 1, duration: 0.8, ease: "power3.out" }, 0);
+    tl.fromTo("#hk-bar", { x: -520 }, { x: 0, duration: 0.6, ease: "power3.out" }, 0.1);
+    tl.fromTo("#hk-cardwrap", { y: 240, opacity: 0, rotation: 3 }, { y: 0, opacity: 1, rotation: -1, duration: 0.55, ease: "power3.out" }, 0);
+    tl.fromTo("#hk-buoy-hl", { scaleX: 0 }, { scaleX: 1, duration: 0.3, ease: "power2.out" }, T.good);
+    tl.fromTo("#hk-buoy", { scale: 1 }, { scale: 1.08, duration: 0.18, ease: "power2.out", yoyo: true, repeat: 1 }, T.good + 0.05);
+    tl.to("#hk-cardwrap", { rotation: 0.5, duration: 1.3, ease: "sine.inOut", yoyo: true, repeat: 2 }, 0.7);
+    tl.fromTo("#hk-word", { opacity: 0, y: 40, scale: 0.9 }, { opacity: 1, y: 0, scale: 1, duration: 0.4, ease: "back.out(1.6)" }, T.buoyant);
+    tl.fromTo("#hk-b0", { y: -300, opacity: 0 }, { y: 0, opacity: 1, duration: 0.28, ease: "bounce.out" }, T.sylls);
+    tl.fromTo("#hk-b1", { y: -300, opacity: 0 }, { y: 0, opacity: 1, duration: 0.28, ease: "bounce.out" }, T.sylls + 0.3);
+    tl.to("#hk-b0", { height: 170, duration: 0.4, ease: "back.out(1.8)" }, T.stress);
+    tl.to("#hk-b1", { opacity: 0.6, duration: 0.3 }, T.stress + 0.05);
+    tl.to("#hk-cardwrap, #hk-word, #hk-row", { y: -260, opacity: 0, duration: 0.3, ease: "power2.in", stagger: 0.03 }, T.out);
+    tl.to("#hk-disc", { scale: 0, duration: 0.3, ease: "power2.in" }, T.out);
+    tl.to("#hk-bar", { x: -520, duration: 0.3, ease: "power2.in" }, T.out);
+    window.__timelines["hook"] = tl;
+  </script>
+</template>
