@@ -7,9 +7,9 @@ Cover frame for every platform: 0:27 ("grapple WITH" with the 2 wrong versions s
 ## YouTube Shorts (grapple-youtube.mp4 + grapple-youtube.srt)
 
 **Title**
-Grapple: 1 word for 'struggle with' at work
+Audi's $4bn problem in 1 word: grapple
 
-Alternative: Grapple vs struggle: 1 business word
+Alternative: Grapple with: 1 word for a hard problem
 
 **Description**
 Grapple (GRAP-uhl, stress on the 1st syllable) means to struggle with a difficult problem, like wrestling it.
