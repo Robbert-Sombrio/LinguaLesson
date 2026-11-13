@@ -1,0 +1,71 @@
+<template>
+  <style>
+    @font-face { font-family: "Lora"; src: url("assets/fonts/lora-500-normal.woff2") format("woff2"); font-weight: 400 700; font-style: normal; }
+    #root { position: absolute; inset: 0; overflow: hidden; }
+    .vs-head { position: absolute; top: 310px; width: 400px; height: 96px; display: flex; align-items: center; justify-content: center; font-family: "Lora", serif; font-weight: 700; font-size: 60px; color: #fbfaf6; }
+    #vs-h0 { left: 90px; background: #4e6388; } #vs-h1 { left: 590px; background: #e2483f; }
+    #vs-ne { position: absolute; left: 490px; width: 100px; top: 300px; text-align: center; font-family: "Lora", serif; font-weight: 700; font-size: 110px; line-height: 1; color: #2e3642; }
+    .vs-panel { position: absolute; top: 440px; width: 400px; height: 680px; background: #fbfaf6; filter: drop-shadow(0 14px 20px rgba(30,38,51,0.14)); }
+    #vs-p0 { left: 90px; } #vs-p1 { left: 590px; }
+    .vs-svg { position: absolute; inset: 0; width: 400px; height: 680px; }
+    .vs-lab { position: absolute; left: 0; right: 0; bottom: 34px; text-align: center; font-family: "Inter", sans-serif; font-size: 34px; font-weight: 800; letter-spacing: 0.08em; }
+    #vs-l0 { color: #4e6388; } #vs-l1 { color: #c0362e; }
+  </style>
+  <div id="root" data-composition-id="versus" data-width="1080" data-height="1920">
+    <div class="vs-head" id="vs-h0">laid off</div>
+    <div id="vs-ne">≠</div>
+    <div class="vs-head" id="vs-h1">fired</div>
+    <div class="vs-panel" id="vs-p0">
+      <svg class="vs-svg" viewBox="0 0 400 680" data-layout-allow-overflow>
+        <rect x="30" y="520" width="340" height="10" fill="#2e3642" />
+        <g id="vs-me0"><circle cx="110" cy="330" r="38" fill="#4e6388" /><path d="M60 520 V420 a50 50 0 0 1 100 0 V520 Z" fill="#4e6388" /></g>
+        <g id="vs-jobL"><rect x="200" y="300" width="80" height="220" fill="#e3a728" /></g>
+        <g id="vs-jobR"><rect x="280" y="300" width="80" height="220" fill="#e3a728" /></g>
+        <text id="vs-jobt" x="280" y="425" text-anchor="middle" font-family="Inter" font-size="34" font-weight="800" fill="#1f2733">JOB</text>
+        <line id="vs-cutl" x1="280" y1="250" x2="280" y2="560" stroke="#e2483f" stroke-width="8" stroke-dasharray="18 12" />
+      </svg>
+      <div class="vs-lab" id="vs-l0">THE JOB GOES</div>
+    </div>
+    <div class="vs-panel" id="vs-p1">
+      <svg class="vs-svg" viewBox="0 0 400 680" data-layout-allow-overflow>
+        <rect x="30" y="520" width="340" height="10" fill="#2e3642" />
+        <rect x="70" y="300" width="160" height="220" fill="#e3a728" />
+        <text x="150" y="425" text-anchor="middle" font-family="Inter" font-size="34" font-weight="800" fill="#1f2733">JOB</text>
+        <g id="vs-me1"><circle cx="300" cy="330" r="38" fill="#4e6388" /><path d="M250 520 V420 a50 50 0 0 1 100 0 V520 Z" fill="#4e6388" /></g>
+        <g id="vs-arrow"><line x1="300" y1="120" x2="300" y2="250" stroke="#e2483f" stroke-width="12" /><path d="M270 235 L300 280 L330 235 Z" fill="#e2483f" /></g>
+      </svg>
+      <div class="vs-lab" id="vs-l1">YOU GO</div>
+    </div>
+  </div>
+  <script>
+    // Cue times (local, scene starts at 8.3 s): "different" / "Laid off:" / "cut your job" / "Fired:" / "cut you"
+    const T = { ne: 1.67, left: 3.38, cutjob: 5.11, right: 6.19, cutyou: 7.59, out: 8.45 };
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#vs-h0", { x: -500 }, { x: 0, duration: 0.45, ease: "power3.out" }, 0.05);
+    tl.fromTo("#vs-h1", { x: 500 }, { x: 0, duration: 0.45, ease: "power3.out" }, 0.25);
+    tl.fromTo("#vs-ne", { scale: 0, rotation: -30 }, { scale: 1, rotation: 0, duration: 0.35, ease: "back.out(2.4)" }, T.ne);
+    tl.fromTo(".vs-panel", { y: 300, opacity: 0 }, { y: 0, opacity: 1, duration: 0.45, ease: "power3.out", stagger: 0.1 }, 0.6);
+    tl.fromTo(".vs-lab", { opacity: 0 }, { opacity: 0, duration: 0.01 }, 0);
+    tl.fromTo("#vs-cutl", { opacity: 0, strokeDashoffset: 300 }, { opacity: 0, strokeDashoffset: 300, duration: 0.01 }, 0);
+    tl.fromTo("#vs-arrow", { opacity: 0, y: -120 }, { opacity: 0, y: -120, duration: 0.01 }, 0);
+    // laid off: the job is cut, the person stays
+    tl.to("#vs-p0", { scale: 1.04, duration: 0.3, ease: "power2.out" }, T.left);
+    tl.to("#vs-h0", { scale: 1.06, duration: 0.15, ease: "power2.out", yoyo: true, repeat: 1 }, T.left);
+    tl.to("#vs-cutl", { opacity: 1, strokeDashoffset: 0, duration: 0.3, ease: "power2.out" }, T.cutjob - 0.3);
+    tl.to("#vs-jobt", { opacity: 0, duration: 0.1 }, T.cutjob);
+    tl.to("#vs-jobL", { x: -20, y: 260, rotation: -25, svgOrigin: "240 520", opacity: 0, duration: 0.55, ease: "power2.in" }, T.cutjob);
+    tl.to("#vs-jobR", { x: 30, y: 260, rotation: 25, svgOrigin: "320 520", opacity: 0, duration: 0.55, ease: "power2.in" }, T.cutjob + 0.05);
+    tl.to("#vs-cutl", { opacity: 0, duration: 0.2 }, T.cutjob + 0.3);
+    tl.to("#vs-l0", { opacity: 1, duration: 0.3 }, T.cutjob + 0.35);
+    tl.to("#vs-p0", { scale: 1, duration: 0.3, ease: "power2.out" }, T.right - 0.1);
+    // fired: the job stays, the person goes
+    tl.to("#vs-p1", { scale: 1.04, duration: 0.3, ease: "power2.out" }, T.right);
+    tl.to("#vs-h1", { scale: 1.06, duration: 0.15, ease: "power2.out", yoyo: true, repeat: 1 }, T.right);
+    tl.to("#vs-arrow", { opacity: 1, y: 0, duration: 0.35, ease: "back.out(2)" }, T.right + 0.4);
+    tl.to("#vs-arrow", { y: 12, duration: 0.25, ease: "sine.inOut", yoyo: true, repeat: 1 }, T.right + 0.8);
+    tl.to("#vs-me1, #vs-arrow", { x: 260, opacity: 0, duration: 0.45, ease: "power2.in" }, T.cutyou);
+    tl.to("#vs-l1", { opacity: 1, duration: 0.3 }, T.cutyou + 0.2);
+    tl.to("#vs-h0, #vs-h1, #vs-ne, .vs-panel", { y: -240, opacity: 0, duration: 0.3, ease: "power2.in", stagger: 0.02 }, T.out);
+    window.__timelines["versus"] = tl;
+  </script>
+</template>

@@ -1,0 +1,64 @@
+<template>
+  <style>
+    @font-face { font-family: "Lora"; src: url("assets/fonts/lora-500-normal.woff2") format("woff2"); font-weight: 400 700; font-style: normal; }
+    #root { position: absolute; inset: 0; overflow: hidden; }
+    #hd-disc { position: absolute; right: -230px; top: 260px; width: 560px; height: 560px; border-radius: 50%; background: #b8cce2; }
+    #hd-bar { position: absolute; left: -40px; top: 1660px; width: 480px; height: 90px; background: #e3a728; }
+    #hd-cardwrap { position: absolute; left: 70px; right: 70px; top: 300px; filter: drop-shadow(0 16px 24px rgba(30,38,51,0.18)); }
+    #hd-card { background: #fbfaf6; padding: 30px 40px 40px; }
+    #hd-mast { font-family: "Lora", serif; font-weight: 700; font-size: 44px; color: #2e3642; border-bottom: 4px double #2e3642; padding-bottom: 10px; display: flex; justify-content: space-between; align-items: baseline; }
+    #hd-mast span { font-family: "Inter", sans-serif; font-size: 28px; font-weight: 700; letter-spacing: 0.14em; color: #555c66; }
+    #hd-head { font-family: "Lora", serif; font-size: 56px; line-height: 1.2; color: #2e3642; margin-top: 18px; }
+    #hd-w { position: relative; display: inline-block; isolation: isolate; font-weight: 700; }
+    #hd-hl { position: absolute; left: -8px; right: -8px; top: 18%; bottom: 4%; background: #e3a728; opacity: 0.75; z-index: -1; transform-origin: left center; }
+    #hd-team { position: absolute; left: 110px; top: 900px; width: 860px; height: 300px; }
+    .hd-p { position: absolute; top: 0; width: 70px; height: 150px; }
+    .hd-p i { position: absolute; left: 15px; top: 0; width: 40px; height: 40px; border-radius: 50%; background: #4e6388; }
+    .hd-p u { position: absolute; left: 0; top: 48px; width: 70px; height: 92px; border-radius: 35px 35px 8px 8px; background: #4e6388; }
+    .hd-p.cut i, .hd-p.cut u { background: #e2483f; }
+    #hd-floor { position: absolute; left: 0; top: 150px; width: 860px; height: 8px; background: #2e3642; }
+  </style>
+  <div id="root" data-composition-id="headline" data-width="1080" data-height="1920">
+    <div id="hd-disc" data-layout-allow-overflow></div>
+    <div id="hd-bar" data-layout-allow-overflow></div>
+    <div id="hd-cardwrap"><div id="hd-card">
+      <div id="hd-mast">Business Insider<span>WORK</span></div>
+      <div id="hd-head">Companies <span id="hd-w"><b id="hd-hl"></b>laying off</span> staff this year include Meta, Amazon, and Dropbox</div>
+    </div></div>
+    <div id="hd-team" data-layout-allow-overflow>
+      <div id="hd-floor"></div>
+      <div class="hd-p" style="left:0px"><i></i><u></u></div>
+      <div class="hd-p cut" id="hd-c0" style="left:88px"><i></i><u></u></div>
+      <div class="hd-p" style="left:176px"><i></i><u></u></div>
+      <div class="hd-p cut" id="hd-c1" style="left:264px"><i></i><u></u></div>
+      <div class="hd-p" style="left:352px"><i></i><u></u></div>
+      <div class="hd-p cut" id="hd-c2" style="left:440px"><i></i><u></u></div>
+      <div class="hd-p" style="left:528px"><i></i><u></u></div>
+      <div class="hd-p cut" id="hd-c3" style="left:616px"><i></i><u></u></div>
+      <div class="hd-p" style="left:704px"><i></i><u></u></div>
+      <div class="hd-p cut" id="hd-c4" style="left:792px"><i></i><u></u></div>
+    </div>
+  </div>
+  <script>
+    // Cue times (video time): "laying off" / "Meta" / "Amazon" / "Dropbox"
+    const T = { hl: 3.44, meta: 5.66, amazon: 6.37, dropbox: 7.31, out: 7.95 };
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#hd-disc", { scale: 0 }, { scale: 1, duration: 0.8, ease: "power3.out" }, 0);
+    tl.fromTo("#hd-bar", { x: -520 }, { x: 0, duration: 0.6, ease: "power3.out" }, 0.1);
+    tl.fromTo("#hd-cardwrap", { y: 240, opacity: 0, rotation: 3 }, { y: 0, opacity: 1, rotation: -1, duration: 0.55, ease: "power3.out" }, 0);
+    tl.to("#hd-cardwrap", { rotation: 0.5, duration: 1.3, ease: "sine.inOut", yoyo: true, repeat: 2 }, 0.7);
+    tl.fromTo("#hd-floor", { scaleX: 0, transformOrigin: "0% 50%" }, { scaleX: 1, duration: 0.5, ease: "power3.out" }, 0.8);
+    tl.fromTo(".hd-p", { y: 200, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: "back.out(1.6)", stagger: 0.06 }, 1.0);
+    tl.fromTo(".hd-p.cut i, .hd-p.cut u", { backgroundColor: "#4e6388" }, { backgroundColor: "#4e6388", duration: 0.01 }, 0);
+    tl.fromTo("#hd-hl", { scaleX: 0 }, { scaleX: 1, duration: 0.35, ease: "power2.out" }, T.hl);
+    tl.fromTo("#hd-w", { scale: 1 }, { scale: 1.06, duration: 0.18, ease: "power2.out", yoyo: true, repeat: 1 }, T.hl + 0.1);
+    tl.to(".hd-p.cut i, .hd-p.cut u", { backgroundColor: "#e2483f", duration: 0.25 }, T.hl + 0.2);
+    tl.to("#hd-c0, #hd-c1", { y: 420, rotation: 20, opacity: 0, duration: 0.5, ease: "power2.in", stagger: 0.08 }, T.meta);
+    tl.to("#hd-c2, #hd-c3", { y: 420, rotation: -20, opacity: 0, duration: 0.5, ease: "power2.in", stagger: 0.08 }, T.amazon);
+    tl.to("#hd-c4", { y: 420, rotation: 20, opacity: 0, duration: 0.5, ease: "power2.in" }, T.dropbox);
+    tl.to("#hd-cardwrap, #hd-team", { y: -260, opacity: 0, duration: 0.3, ease: "power2.in", stagger: 0.03 }, T.out);
+    tl.to("#hd-disc", { scale: 0, duration: 0.3, ease: "power2.in" }, T.out);
+    tl.to("#hd-bar", { x: -520, duration: 0.3, ease: "power2.in" }, T.out);
+    window.__timelines["headline"] = tl;
+  </script>
+</template>

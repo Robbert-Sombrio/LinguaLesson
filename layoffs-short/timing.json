@@ -1,0 +1,31 @@
+{
+ "headline": [
+  0,
+  8.3
+ ],
+ "versus": [
+  8.3,
+  8.75
+ ],
+ "interview": [
+  17.05,
+  4.15
+ ],
+ "stress": [
+  21.2,
+  6.22
+ ],
+ "endcard_start": 27.42,
+ "total": {
+  "youtube": 39.45,
+  "tiktok": 39.14,
+  "instagram": 39.14,
+  "linkedin": 39.31
+ },
+ "voice": {
+  "youtube": 38.25,
+  "tiktok": 37.94,
+  "instagram": 37.94,
+  "linkedin": 38.11
+ }
+}

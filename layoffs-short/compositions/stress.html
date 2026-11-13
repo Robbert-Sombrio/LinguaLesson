@@ -1,0 +1,47 @@
+<template>
+  <style>
+    @font-face { font-family: "Lora"; src: url("assets/fonts/lora-500-normal.woff2") format("woff2"); font-weight: 400 700; font-style: normal; }
+    #root { position: absolute; inset: 0; overflow: hidden; }
+    #st-kicker { position: absolute; left: 0; right: 0; top: 300px; text-align: center; font-family: "Inter", sans-serif; font-size: 28px; font-weight: 700; letter-spacing: 0.2em; color: #e2483f; }
+    .st-row { position: absolute; left: 90px; width: 900px; height: 360px; }
+    #st-r0 { top: 380px; } #st-r1 { top: 790px; }
+    .st-lab { position: absolute; left: 0; top: 0; font-family: "Inter", sans-serif; font-size: 32px; font-weight: 800; letter-spacing: 0.14em; color: #4e6388; }
+    .st-ex { position: absolute; left: 0; top: 50px; font-family: "Lora", serif; font-size: 50px; color: #2e3642; }
+    .st-b { position: absolute; bottom: 20px; height: 110px; display: flex; align-items: center; justify-content: center; font-family: "Lora", serif; font-weight: 700; font-size: 68px; color: #2e3642; background: #b8cce2; }
+    #st-a0 { left: 120px; width: 300px; } #st-a1 { left: 440px; width: 300px; }
+    #st-b0 { left: 120px; width: 300px; } #st-b1 { left: 440px; width: 300px; }
+  </style>
+  <div id="root" data-composition-id="stress" data-width="1080" data-height="1920">
+    <div id="st-kicker">ONE MORE THING</div>
+    <div class="st-row" id="st-r0">
+      <div class="st-lab">NOUN</div>
+      <div class="st-ex">a layoff</div>
+      <div class="st-b" id="st-a0">LAY</div>
+      <div class="st-b" id="st-a1">off</div>
+    </div>
+    <div class="st-row" id="st-r1">
+      <div class="st-lab">PHRASAL VERB</div>
+      <div class="st-ex">to lay off</div>
+      <div class="st-b" id="st-b0">lay</div>
+      <div class="st-b" id="st-b1">OFF</div>
+    </div>
+  </div>
+  <script>
+    // Cue times (local, scene starts at 21.2 s): "The noun" / "LAY-off" / "The phrasal verb" / "lay" / "OFF"
+    const T = { noun: 1.21, nounStress: 2.08, verb: 2.88, lay: 4.53, verbStress: 4.81, out: 5.8 };
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#st-kicker", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.3, ease: "power2.out" }, 0.05);
+    tl.fromTo("#st-r0 .st-lab, #st-r0 .st-ex", { opacity: 0, x: -40 }, { opacity: 1, x: 0, duration: 0.3, ease: "power3.out", stagger: 0.08 }, T.noun);
+    tl.fromTo("#st-a0", { y: -300, opacity: 0 }, { y: 0, opacity: 1, duration: 0.26, ease: "bounce.out" }, T.nounStress - 0.3);
+    tl.fromTo("#st-a1", { y: -300, opacity: 0 }, { y: 0, opacity: 1, duration: 0.26, ease: "bounce.out" }, T.nounStress - 0.1);
+    tl.to("#st-a0", { height: 190, backgroundColor: "#e3a728", color: "#1f2733", duration: 0.4, ease: "back.out(1.8)" }, T.nounStress);
+    tl.to("#st-a1", { opacity: 0.6, duration: 0.3 }, T.nounStress + 0.2);
+    tl.fromTo("#st-r1 .st-lab, #st-r1 .st-ex", { opacity: 0, x: -40 }, { opacity: 1, x: 0, duration: 0.3, ease: "power3.out", stagger: 0.08 }, T.verb);
+    tl.fromTo("#st-b0", { y: -300, opacity: 0 }, { y: 0, opacity: 1, duration: 0.26, ease: "bounce.out" }, T.lay - 0.25);
+    tl.fromTo("#st-b1", { y: -300, opacity: 0 }, { y: 0, opacity: 1, duration: 0.26, ease: "bounce.out" }, T.lay);
+    tl.to("#st-b1", { height: 190, backgroundColor: "#e3a728", color: "#1f2733", duration: 0.4, ease: "back.out(1.8)" }, T.verbStress);
+    tl.to("#st-b0", { opacity: 0.6, duration: 0.3 }, T.verbStress + 0.2);
+    tl.to("#st-kicker, #st-r0, #st-r1", { y: -240, opacity: 0, duration: 0.3, ease: "power2.in", stagger: 0.03 }, T.out);
+    window.__timelines["stress"] = tl;
+  </script>
+</template>

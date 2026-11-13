@@ -1,0 +1,548 @@
+[
+ {
+  "text": "Business",
+  "start": 0.09,
+  "end": 0.73,
+  "id": "w0"
+ },
+ {
+  "text": "Insider",
+  "start": 0.73,
+  "end": 1.32,
+  "id": "w1"
+ },
+ {
+  "text": "ran",
+  "start": 1.44,
+  "end": 1.64,
+  "id": "w2"
+ },
+ {
+  "text": "this",
+  "start": 1.64,
+  "end": 1.99,
+  "id": "w3"
+ },
+ {
+  "text": "headline:",
+  "start": 1.99,
+  "end": 2.88,
+  "id": "w4"
+ },
+ {
+  "text": "\"Companies",
+  "start": 2.88,
+  "end": 3.44,
+  "id": "w5"
+ },
+ {
+  "text": "laying",
+  "start": 3.44,
+  "end": 3.88,
+  "id": "w6"
+ },
+ {
+  "text": "off",
+  "start": 3.88,
+  "end": 4.06,
+  "id": "w7"
+ },
+ {
+  "text": "staff",
+  "start": 4.11,
+  "end": 4.43,
+  "id": "w8"
+ },
+ {
+  "text": "this",
+  "start": 4.57,
+  "end": 4.72,
+  "id": "w9"
+ },
+ {
+  "text": "year",
+  "start": 4.72,
+  "end": 5.08,
+  "id": "w10"
+ },
+ {
+  "text": "include",
+  "start": 5.19,
+  "end": 5.66,
+  "id": "w11"
+ },
+ {
+  "text": "Meta,",
+  "start": 5.66,
+  "end": 6.13,
+  "id": "w12"
+ },
+ {
+  "text": "Amazon,",
+  "start": 6.37,
+  "end": 7.04,
+  "id": "w13"
+ },
+ {
+  "text": "and",
+  "start": 7.13,
+  "end": 7.31,
+  "id": "w14"
+ },
+ {
+  "text": "Dropbox.\"",
+  "start": 7.31,
+  "end": 8.24,
+  "id": "w15"
+ },
+ {
+  "text": "Laid",
+  "start": 8.24,
+  "end": 8.6,
+  "id": "w16"
+ },
+ {
+  "text": "off",
+  "start": 8.6,
+  "end": 8.86,
+  "id": "w17"
+ },
+ {
+  "text": "and",
+  "start": 8.86,
+  "end": 9.11,
+  "id": "w18"
+ },
+ {
+  "text": "fired",
+  "start": 9.2,
+  "end": 9.59,
+  "id": "w19"
+ },
+ {
+  "text": "mean",
+  "start": 9.6,
+  "end": 9.97,
+  "id": "w20"
+ },
+ {
+  "text": "different",
+  "start": 9.97,
+  "end": 10.8,
+  "id": "w21"
+ },
+ {
+  "text": "things.",
+  "start": 10.8,
+  "end": 11.68,
+  "id": "w22"
+ },
+ {
+  "text": "Laid",
+  "start": 11.68,
+  "end": 11.92,
+  "id": "w23"
+ },
+ {
+  "text": "off:",
+  "start": 11.92,
+  "end": 12.56,
+  "id": "w24"
+ },
+ {
+  "text": "the",
+  "start": 12.56,
+  "end": 12.76,
+  "id": "w25"
+ },
+ {
+  "text": "company",
+  "start": 12.76,
+  "end": 13.16,
+  "id": "w26"
+ },
+ {
+  "text": "cut",
+  "start": 13.41,
+  "end": 13.53,
+  "id": "w27"
+ },
+ {
+  "text": "your",
+  "start": 13.53,
+  "end": 13.87,
+  "id": "w28"
+ },
+ {
+  "text": "job.",
+  "start": 13.87,
+  "end": 14.4,
+  "id": "w29"
+ },
+ {
+  "text": "Fired:",
+  "start": 14.49,
+  "end": 15.01,
+  "id": "w30"
+ },
+ {
+  "text": "the",
+  "start": 15.01,
+  "end": 15.27,
+  "id": "w31"
+ },
+ {
+  "text": "company",
+  "start": 15.27,
+  "end": 15.89,
+  "id": "w32"
+ },
+ {
+  "text": "cut",
+  "start": 15.89,
+  "end": 16.15,
+  "id": "w33"
+ },
+ {
+  "text": "you.",
+  "start": 16.15,
+  "end": 16.71,
+  "id": "w34"
+ },
+ {
+  "text": "So",
+  "start": 16.71,
+  "end": 16.92,
+  "id": "w35"
+ },
+ {
+  "text": "in",
+  "start": 16.92,
+  "end": 17.05,
+  "id": "w36"
+ },
+ {
+  "text": "an",
+  "start": 17.27,
+  "end": 17.35,
+  "id": "w37"
+ },
+ {
+  "text": "interview",
+  "start": 17.35,
+  "end": 18.3,
+  "id": "w38"
+ },
+ {
+  "text": "say:",
+  "start": 18.3,
+  "end": 18.79,
+  "id": "w39"
+ },
+ {
+  "text": "\"I",
+  "start": 18.79,
+  "end": 18.83,
+  "id": "w40"
+ },
+ {
+  "text": "was",
+  "start": 18.97,
+  "end": 19.11,
+  "id": "w41"
+ },
+ {
+  "text": "laid",
+  "start": 19.11,
+  "end": 19.42,
+  "id": "w42"
+ },
+ {
+  "text": "off",
+  "start": 19.42,
+  "end": 19.68,
+  "id": "w43"
+ },
+ {
+  "text": "in",
+  "start": 19.68,
+  "end": 19.8,
+  "id": "w44"
+ },
+ {
+  "text": "a",
+  "start": 19.85,
+  "end": 19.92,
+  "id": "w45"
+ },
+ {
+  "text": "round",
+  "start": 19.92,
+  "end": 20.34,
+  "id": "w46"
+ },
+ {
+  "text": "of",
+  "start": 20.34,
+  "end": 20.5,
+  "id": "w47"
+ },
+ {
+  "text": "cuts.\"",
+  "start": 20.5,
+  "end": 21.12,
+  "id": "w48"
+ },
+ {
+  "text": "One",
+  "start": 21.21,
+  "end": 21.4,
+  "id": "w49"
+ },
+ {
+  "text": "more",
+  "start": 21.4,
+  "end": 21.76,
+  "id": "w50"
+ },
+ {
+  "text": "thing.",
+  "start": 21.81,
+  "end": 22.4,
+  "id": "w51"
+ },
+ {
+  "text": "The",
+  "start": 22.41,
+  "end": 22.69,
+  "id": "w52"
+ },
+ {
+  "text": "noun",
+  "start": 22.69,
+  "end": 23.06,
+  "id": "w53"
+ },
+ {
+  "text": "is",
+  "start": 23.06,
+  "end": 23.19,
+  "id": "w54"
+ },
+ {
+  "text": "LAY-off.",
+  "start": 23.28,
+  "end": 24.08,
+  "id": "w55"
+ },
+ {
+  "text": "The",
+  "start": 24.08,
+  "end": 24.36,
+  "id": "w56"
+ },
+ {
+  "text": "phrasal",
+  "start": 24.36,
+  "end": 25,
+  "id": "w57"
+ },
+ {
+  "text": "verb",
+  "start": 25,
+  "end": 25.32,
+  "id": "w58"
+ },
+ {
+  "text": "is",
+  "start": 25.37,
+  "end": 25.55,
+  "id": "w59"
+ },
+ {
+  "text": "to",
+  "start": 25.55,
+  "end": 25.73,
+  "id": "w60"
+ },
+ {
+  "text": "lay",
+  "start": 25.73,
+  "end": 26.01,
+  "id": "w61"
+ },
+ {
+  "text": "OFF.",
+  "start": 26.01,
+  "end": 26.64,
+  "id": "w62"
+ },
+ {
+  "text": "If",
+  "start": 26.64,
+  "end": 27.24,
+  "id": "w63"
+ },
+ {
+  "text": "you're",
+  "start": 27.49,
+  "end": 27.68,
+  "id": "w64"
+ },
+ {
+  "text": "upper-intermediate",
+  "start": 27.68,
+  "end": 28.64,
+  "id": "w65"
+ },
+ {
+  "text": "or",
+  "start": 28.73,
+  "end": 28.77,
+  "id": "w67"
+ },
+ {
+  "text": "advanced,",
+  "start": 28.77,
+  "end": 29.44,
+  "id": "w68"
+ },
+ {
+  "text": "and",
+  "start": 29.44,
+  "end": 29.64,
+  "id": "w69"
+ },
+ {
+  "text": "you",
+  "start": 29.64,
+  "end": 29.84,
+  "id": "w70"
+ },
+ {
+  "text": "want",
+  "start": 29.84,
+  "end": 30.11,
+  "id": "w71"
+ },
+ {
+  "text": "more",
+  "start": 30.11,
+  "end": 30.38,
+  "id": "w72"
+ },
+ {
+  "text": "speaking",
+  "start": 30.38,
+  "end": 30.9,
+  "id": "w73"
+ },
+ {
+  "text": "practice,",
+  "start": 30.92,
+  "end": 31.59,
+  "id": "w74"
+ },
+ {
+  "text": "join",
+  "start": 31.59,
+  "end": 31.86,
+  "id": "w75"
+ },
+ {
+  "text": "The",
+  "start": 31.86,
+  "end": 32.06,
+  "id": "w76"
+ },
+ {
+  "text": "English",
+  "start": 32.06,
+  "end": 32.54,
+  "id": "w77"
+ },
+ {
+  "text": "Edge,",
+  "start": 32.54,
+  "end": 33.04,
+  "id": "w78"
+ },
+ {
+  "text": "my",
+  "start": 33.04,
+  "end": 33.28,
+  "id": "w79"
+ },
+ {
+  "text": "conversation",
+  "start": 33.28,
+  "end": 33.92,
+  "id": "w80"
+ },
+ {
+  "text": "community.",
+  "start": 33.92,
+  "end": 34.72,
+  "id": "w81"
+ },
+ {
+  "text": "Try",
+  "start": 34.81,
+  "end": 34.96,
+  "id": "w82"
+ },
+ {
+  "text": "it",
+  "start": 34.98,
+  "end": 35.11,
+  "id": "w83"
+ },
+ {
+  "text": "free",
+  "start": 35.15,
+  "end": 35.46,
+  "id": "w84"
+ },
+ {
+  "text": "for",
+  "start": 35.46,
+  "end": 35.7,
+  "id": "w85"
+ },
+ {
+  "text": "7",
+  "start": 35.7,
+  "end": 36.04,
+  "id": "w86"
+ },
+ {
+  "text": "days.",
+  "start": 36.16,
+  "end": 36.71,
+  "id": "w87"
+ },
+ {
+  "text": "Link",
+  "start": 36.71,
+  "end": 37.04,
+  "id": "w88"
+ },
+ {
+  "text": "in",
+  "start": 37.04,
+  "end": 37.2,
+  "id": "w89"
+ },
+ {
+  "text": "the",
+  "start": 37.2,
+  "end": 37.35,
+  "id": "w90"
+ },
+ {
+  "text": "post.",
+  "start": 37.59,
+  "end": 38.08,
+  "id": "w91"
+ }
+]
