@@ -1,0 +1,608 @@
+[
+ {
+  "text": "This",
+  "start": 0.1,
+  "end": 0.32,
+  "id": "w0"
+ },
+ {
+  "text": "word",
+  "start": 0.32,
+  "end": 0.63,
+  "id": "w1"
+ },
+ {
+  "text": "shows",
+  "start": 0.64,
+  "end": 1.03,
+  "id": "w2"
+ },
+ {
+  "text": "up",
+  "start": 1.03,
+  "end": 1.19,
+  "id": "w3"
+ },
+ {
+  "text": "in",
+  "start": 1.19,
+  "end": 1.27,
+  "id": "w4"
+ },
+ {
+  "text": "The",
+  "start": 1.46,
+  "end": 1.59,
+  "id": "w5"
+ },
+ {
+  "text": "Economist",
+  "start": 1.59,
+  "end": 2.3,
+  "id": "w6"
+ },
+ {
+  "text": "all",
+  "start": 2.3,
+  "end": 2.54,
+  "id": "w7"
+ },
+ {
+  "text": "the",
+  "start": 2.54,
+  "end": 2.78,
+  "id": "w8"
+ },
+ {
+  "text": "time.",
+  "start": 2.78,
+  "end": 3.14,
+  "id": "w9"
+ },
+ {
+  "text": "It",
+  "start": 3.46,
+  "end": 3.52,
+  "id": "w10"
+ },
+ {
+  "text": "scares",
+  "start": 3.52,
+  "end": 3.99,
+  "id": "w11"
+ },
+ {
+  "text": "people",
+  "start": 3.99,
+  "end": 4.46,
+  "id": "w12"
+ },
+ {
+  "text": "off.",
+  "start": 4.46,
+  "end": 4.96,
+  "id": "w13"
+ },
+ {
+  "text": "Hegemony.",
+  "start": 5.06,
+  "end": 5.91,
+  "id": "w14"
+ },
+ {
+  "text": "hi-JEM-uh-nee.",
+  "start": 6.02,
+  "end": 7.04,
+  "id": "w15"
+ },
+ {
+  "text": "Stress",
+  "start": 7.14,
+  "end": 7.46,
+  "id": "w16"
+ },
+ {
+  "text": "on",
+  "start": 7.46,
+  "end": 7.6,
+  "id": "w17"
+ },
+ {
+  "text": "the",
+  "start": 7.6,
+  "end": 7.74,
+  "id": "w18"
+ },
+ {
+  "text": "second",
+  "start": 7.84,
+  "end": 8.23,
+  "id": "w19"
+ },
+ {
+  "text": "syllable.",
+  "start": 8.23,
+  "end": 9.04,
+  "id": "w20"
+ },
+ {
+  "text": "It",
+  "start": 9.14,
+  "end": 9.18,
+  "id": "w21"
+ },
+ {
+  "text": "looks",
+  "start": 9.18,
+  "end": 9.54,
+  "id": "w22"
+ },
+ {
+  "text": "like",
+  "start": 9.54,
+  "end": 9.74,
+  "id": "w23"
+ },
+ {
+  "text": "a",
+  "start": 9.84,
+  "end": 9.9,
+  "id": "w24"
+ },
+ {
+  "text": "medical",
+  "start": 9.9,
+  "end": 10.31,
+  "id": "w25"
+ },
+ {
+  "text": "term.",
+  "start": 10.5,
+  "end": 10.95,
+  "id": "w26"
+ },
+ {
+  "text": "It",
+  "start": 11.06,
+  "end": 11.14,
+  "id": "w27"
+ },
+ {
+  "text": "means",
+  "start": 11.14,
+  "end": 11.59,
+  "id": "w28"
+ },
+ {
+  "text": "dominance.",
+  "start": 11.59,
+  "end": 12.72,
+  "id": "w29"
+ },
+ {
+  "text": "One",
+  "start": 12.82,
+  "end": 12.99,
+  "id": "w30"
+ },
+ {
+  "text": "company",
+  "start": 12.99,
+  "end": 13.62,
+  "id": "w31"
+ },
+ {
+  "text": "or",
+  "start": 13.62,
+  "end": 13.8,
+  "id": "w32"
+ },
+ {
+  "text": "one",
+  "start": 13.8,
+  "end": 13.99,
+  "id": "w33"
+ },
+ {
+  "text": "country",
+  "start": 14.18,
+  "end": 14.72,
+  "id": "w34"
+ },
+ {
+  "text": "calling",
+  "start": 14.72,
+  "end": 15.27,
+  "id": "w35"
+ },
+ {
+  "text": "the",
+  "start": 15.27,
+  "end": 15.51,
+  "id": "w36"
+ },
+ {
+  "text": "shots.",
+  "start": 15.51,
+  "end": 16.16,
+  "id": "w37"
+ },
+ {
+  "text": "The",
+  "start": 16.26,
+  "end": 16.37,
+  "id": "w38"
+ },
+ {
+  "text": "Economist",
+  "start": 16.37,
+  "end": 17.02,
+  "id": "w39"
+ },
+ {
+  "text": "writes",
+  "start": 17.02,
+  "end": 17.43,
+  "id": "w40"
+ },
+ {
+  "text": "about",
+  "start": 17.62,
+  "end": 17.84,
+  "id": "w41"
+ },
+ {
+  "text": "dollar",
+  "start": 17.84,
+  "end": 18.33,
+  "id": "w42"
+ },
+ {
+  "text": "hegemony.",
+  "start": 18.33,
+  "end": 19.28,
+  "id": "w43"
+ },
+ {
+  "text": "Translation:",
+  "start": 19.38,
+  "end": 20.32,
+  "id": "w44"
+ },
+ {
+  "text": "The",
+  "start": 20.42,
+  "end": 20.57,
+  "id": "w45"
+ },
+ {
+  "text": "world",
+  "start": 20.57,
+  "end": 20.97,
+  "id": "w46"
+ },
+ {
+  "text": "runs",
+  "start": 20.98,
+  "end": 21.31,
+  "id": "w47"
+ },
+ {
+  "text": "on",
+  "start": 21.31,
+  "end": 21.45,
+  "id": "w48"
+ },
+ {
+  "text": "dollars.",
+  "start": 21.46,
+  "end": 22.32,
+  "id": "w49"
+ },
+ {
+  "text": "Try",
+  "start": 22.42,
+  "end": 22.56,
+  "id": "w50"
+ },
+ {
+  "text": "it",
+  "start": 22.56,
+  "end": 22.72,
+  "id": "w51"
+ },
+ {
+  "text": "at",
+  "start": 22.72,
+  "end": 22.88,
+  "id": "w52"
+ },
+ {
+  "text": "work:",
+  "start": 22.88,
+  "end": 23.44,
+  "id": "w53"
+ },
+ {
+  "text": "Our",
+  "start": 23.54,
+  "end": 23.66,
+  "id": "w54"
+ },
+ {
+  "text": "competitor",
+  "start": 23.66,
+  "end": 24.39,
+  "id": "w55"
+ },
+ {
+  "text": "has",
+  "start": 24.4,
+  "end": 24.62,
+  "id": "w56"
+ },
+ {
+  "text": "hegemony",
+  "start": 24.62,
+  "end": 25.21,
+  "id": "w57"
+ },
+ {
+  "text": "in",
+  "start": 25.21,
+  "end": 25.35,
+  "id": "w58"
+ },
+ {
+  "text": "the",
+  "start": 25.35,
+  "end": 25.57,
+  "id": "w59"
+ },
+ {
+  "text": "budget",
+  "start": 25.57,
+  "end": 26.01,
+  "id": "w60"
+ },
+ {
+  "text": "segment.",
+  "start": 26.01,
+  "end": 26.58,
+  "id": "w61"
+ },
+ {
+  "text": "You'll",
+  "start": 26.9,
+  "end": 27.1,
+  "id": "w62"
+ },
+ {
+  "text": "sound",
+  "start": 27.1,
+  "end": 27.35,
+  "id": "w63"
+ },
+ {
+  "text": "like",
+  "start": 27.35,
+  "end": 27.5,
+  "id": "w64"
+ },
+ {
+  "text": "you",
+  "start": 27.6,
+  "end": 27.7,
+  "id": "w65"
+ },
+ {
+  "text": "read",
+  "start": 27.7,
+  "end": 27.9,
+  "id": "w66"
+ },
+ {
+  "text": "The",
+  "start": 27.9,
+  "end": 28.05,
+  "id": "w67"
+ },
+ {
+  "text": "Economist",
+  "start": 28.05,
+  "end": 28.56,
+  "id": "w68"
+ },
+ {
+  "text": "over",
+  "start": 28.56,
+  "end": 28.8,
+  "id": "w69"
+ },
+ {
+  "text": "breakfast.",
+  "start": 28.8,
+  "end": 29.44,
+  "id": "w70"
+ },
+ {
+  "text": "Because",
+  "start": 29.54,
+  "end": 29.85,
+  "id": "w71"
+ },
+ {
+  "text": "you",
+  "start": 29.85,
+  "end": 30.03,
+  "id": "w72"
+ },
+ {
+  "text": "did.",
+  "start": 30.03,
+  "end": 30.39,
+  "id": "w73"
+ },
+ {
+  "text": "If",
+  "start": 30.5,
+  "end": 30.51,
+  "id": "w74"
+ },
+ {
+  "text": "you're",
+  "start": 30.51,
+  "end": 30.85,
+  "id": "w75"
+ },
+ {
+  "text": "upper-intermediate",
+  "start": 30.85,
+  "end": 31.67,
+  "id": "w76"
+ },
+ {
+  "text": "or",
+  "start": 31.86,
+  "end": 32,
+  "id": "w78"
+ },
+ {
+  "text": "advanced",
+  "start": 32,
+  "end": 32.64,
+  "id": "w79"
+ },
+ {
+  "text": "and",
+  "start": 32.64,
+  "end": 32.79,
+  "id": "w80"
+ },
+ {
+  "text": "you",
+  "start": 32.8,
+  "end": 32.87,
+  "id": "w81"
+ },
+ {
+  "text": "want",
+  "start": 32.88,
+  "end": 33.19,
+  "id": "w82"
+ },
+ {
+  "text": "more",
+  "start": 33.21,
+  "end": 33.36,
+  "id": "w83"
+ },
+ {
+  "text": "speaking",
+  "start": 33.36,
+  "end": 33.54,
+  "id": "w84"
+ },
+ {
+  "text": "practice,",
+  "start": 33.92,
+  "end": 34.7,
+  "id": "w85"
+ },
+ {
+  "text": "join",
+  "start": 34.82,
+  "end": 35.02,
+  "id": "w86"
+ },
+ {
+  "text": "the",
+  "start": 35.02,
+  "end": 35.24,
+  "id": "w87"
+ },
+ {
+  "text": "English",
+  "start": 35.24,
+  "end": 35.77,
+  "id": "w88"
+ },
+ {
+  "text": "Edge,",
+  "start": 35.77,
+  "end": 36.24,
+  "id": "w89"
+ },
+ {
+  "text": "my",
+  "start": 36.24,
+  "end": 36.36,
+  "id": "w90"
+ },
+ {
+  "text": "conversation",
+  "start": 36.36,
+  "end": 37.13,
+  "id": "w91"
+ },
+ {
+  "text": "community.",
+  "start": 37.13,
+  "end": 37.86,
+  "id": "w92"
+ },
+ {
+  "text": "Try",
+  "start": 38.02,
+  "end": 38.2,
+  "id": "w93"
+ },
+ {
+  "text": "it",
+  "start": 38.2,
+  "end": 38.38,
+  "id": "w94"
+ },
+ {
+  "text": "free",
+  "start": 38.38,
+  "end": 38.75,
+  "id": "w95"
+ },
+ {
+  "text": "for",
+  "start": 38.75,
+  "end": 39.03,
+  "id": "w96"
+ },
+ {
+  "text": "7",
+  "start": 39.03,
+  "end": 39.49,
+  "id": "w97"
+ },
+ {
+  "text": "days.",
+  "start": 39.49,
+  "end": 40.16,
+  "id": "w98"
+ },
+ {
+  "text": "Link",
+  "start": 40.26,
+  "end": 40.69,
+  "id": "w99"
+ },
+ {
+  "text": "in",
+  "start": 40.69,
+  "end": 40.86,
+  "id": "w100"
+ },
+ {
+  "text": "bio.",
+  "start": 40.96,
+  "end": 41.68,
+  "id": "w101"
+ }
+]

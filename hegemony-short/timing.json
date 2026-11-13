@@ -1,0 +1,31 @@
+{
+ "hook": [
+  0,
+  9.1
+ ],
+ "meaning": [
+  9.1,
+  7.15
+ ],
+ "example": [
+  16.25,
+  6.15
+ ],
+ "work": [
+  22.4,
+  8.05
+ ],
+ "endcard_start": 30.45,
+ "total": {
+  "youtube": 42.43,
+  "tiktok": 42.13,
+  "instagram": 42.13,
+  "linkedin": 42.31
+ },
+ "voice": {
+  "youtube": 41.63,
+  "tiktok": 41.33,
+  "instagram": 41.33,
+  "linkedin": 41.51
+ }
+}

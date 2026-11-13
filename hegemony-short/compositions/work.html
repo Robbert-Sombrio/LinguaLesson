@@ -1,0 +1,79 @@
+<template>
+  <style>
+    @font-face { font-family: "Lora"; src: url("assets/fonts/lora-500-normal.woff2") format("woff2"); font-weight: 400 700; font-style: normal; }
+    #root { position: absolute; inset: 0; overflow: hidden; }
+    #wk-kicker { position: absolute; left: 70px; top: 300px; font-family: "Inter", sans-serif; font-size: 28px; font-weight: 700; letter-spacing: 0.2em; color: #e2483f; }
+    #wk-slidewrap { position: absolute; left: 110px; top: 360px; width: 860px; height: 420px; filter: drop-shadow(0 14px 20px rgba(30,38,51,0.16)); }
+    #wk-slide { position: absolute; inset: 0; background: #fbfaf6; }
+    #wk-svg { position: absolute; inset: 0; width: 860px; height: 420px; }
+    #wk-wrap { position: absolute; left: 100px; right: 80px; top: 840px; filter: drop-shadow(0 14px 20px rgba(30,38,51,0.16)); }
+    #wk-bub { background: #fbfaf6; padding: 30px 42px 36px; box-shadow: inset 0 0 0 7px #e3a728; }
+    .wk-tag { font-family: "Inter", sans-serif; font-size: 28px; font-weight: 700; letter-spacing: 0.16em; color: #4e6388; display: flex; align-items: center; gap: 12px; }
+    .wk-tag i { display: block; width: 16px; height: 16px; border-radius: 50%; background: #4e6388; }
+    #wk-line { font-family: "Lora", serif; font-weight: 600; font-size: 58px; line-height: 1.25; color: #2e3642; margin-top: 10px; }
+    #wk-w { position: relative; display: inline-block; isolation: isolate; }
+    #wk-hl { position: absolute; left: -8px; right: -8px; top: 20%; bottom: 4%; background: #e3a728; opacity: 0.75; z-index: -1; transform-origin: left center; }
+    #wk-table { position: absolute; left: 60px; top: 380px; width: 960px; height: 800px; }
+  </style>
+  <div id="root" data-composition-id="work" data-width="1080" data-height="1920">
+    <div id="wk-kicker">AT WORK</div>
+    <div id="wk-slidewrap"><div id="wk-slide"></div>
+      <svg id="wk-svg" viewBox="0 0 860 420" data-layout-allow-overflow>
+        <rect x="0" y="0" width="860" height="56" fill="#2e3642" />
+        <text x="30" y="38" font-family="Inter" font-size="28" font-weight="800" letter-spacing="2" fill="#eeeae1">BUDGET SEGMENT · MARKET SHARE</text>
+        <line x1="60" y1="370" x2="800" y2="370" stroke="#2e3642" stroke-width="4" />
+        <rect class="wk-bar" id="wk-b0" x="110" y="100" width="180" height="270" fill="#e3a728" />
+        <rect class="wk-bar" x="350" y="310" width="110" height="60" fill="#4e6388" />
+        <rect class="wk-bar" x="510" y="325" width="110" height="45" fill="#8fa6c2" />
+        <rect class="wk-bar" x="670" y="335" width="110" height="35" fill="#4e6388" />
+        <text x="200" y="406" text-anchor="middle" font-family="Inter" font-size="28" font-weight="800" fill="#2e3642">THEM</text>
+        <text x="405" y="406" text-anchor="middle" font-family="Inter" font-size="28" font-weight="800" fill="#4e6388">US</text>
+      </svg>
+    </div>
+    <div id="wk-wrap"><div id="wk-bub">
+      <div class="wk-tag"><i></i>TRY THIS</div>
+      <div id="wk-line">"Our competitor has <span id="wk-w"><b id="wk-hl"></b>hegemony</span> in the budget segment."</div>
+    </div></div>
+    <svg id="wk-table" viewBox="0 0 960 800" data-layout-allow-overflow>
+      <rect id="wk-top" x="0" y="660" width="960" height="40" fill="#c9b79a" />
+      <g id="wk-paper">
+        <rect x="480" y="300" width="420" height="360" fill="#fbfaf6" stroke="#2e3642" stroke-width="5" />
+        <rect x="510" y="330" width="360" height="22" fill="#2e3642" />
+        <g stroke="#d9dcd8" stroke-width="14" stroke-linecap="round">
+          <line x1="520" y1="400" x2="860" y2="400" /><line x1="520" y1="440" x2="650" y2="440" /><line x1="520" y1="480" x2="860" y2="480" />
+          <line x1="520" y1="520" x2="840" y2="520" /><line x1="520" y1="560" x2="760" y2="560" /><line x1="520" y1="600" x2="860" y2="600" /></g>
+        <rect id="wk-pw-hl" x="664" y="424" width="196" height="34" fill="#e3a728" opacity="0.8" />
+        <text x="762" y="450" text-anchor="middle" font-family="Lora" font-size="30" font-weight="700" fill="#2e3642">hegemony</text>
+      </g>
+      <g id="wk-cup">
+        <g id="wk-steam" stroke="#8fa6c2" stroke-width="10" stroke-linecap="round" fill="none">
+          <path d="M150 300 C120 260 180 230 150 190" /><path d="M215 290 C185 250 245 220 215 180" /><path d="M280 300 C250 260 310 230 280 190" /></g>
+        <path d="M90 340 H340 L320 640 H110 Z" fill="#e2483f" />
+        <path d="M335 400 C420 400 420 540 325 540" fill="none" stroke="#e2483f" stroke-width="26" />
+        <rect x="40" y="640" width="350" height="22" rx="11" fill="#2e3642" />
+      </g>
+      <g id="wk-check"><circle cx="860" cy="300" r="62" fill="#e3a728" /><path d="M828 300 L852 326 L896 278" fill="none" stroke="#1f2733" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" /></g>
+    </svg>
+  </div>
+  <script>
+    // Cue times (local, scene starts at 22.4 s): "Our competitor" / "hegemony" / "You'll sound" / "Economist" / "because you did"
+    const T = { line: 1.16, hl: 2.22, table: 4.5, paper: 5.65, did: 7.19, out: 7.75 };
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#wk-kicker", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.3, ease: "power2.out" }, 0.0);
+    tl.fromTo("#wk-slidewrap", { y: 300, opacity: 0 }, { y: 0, opacity: 1, duration: 0.45, ease: "power3.out" }, 0.05);
+    tl.fromTo(".wk-bar", { scaleY: 0, transformOrigin: "50% 100%" }, { scaleY: 1, duration: 0.45, ease: "back.out(1.4)", stagger: 0.08 }, 0.4);
+    tl.fromTo("#wk-wrap", { scale: 0.4, opacity: 0, transformOrigin: "10% 100%" }, { scale: 1, opacity: 1, rotation: -1, duration: 0.4, ease: "back.out(1.6)" }, T.line);
+    tl.fromTo("#wk-hl", { scaleX: 0 }, { scaleX: 1, duration: 0.3, ease: "power2.out" }, T.hl);
+    tl.to("#wk-b0", { scaleY: 1.08, transformOrigin: "50% 100%", duration: 0.2, ease: "power2.out", yoyo: true, repeat: 1 }, T.hl);
+    tl.to("#wk-slidewrap, #wk-wrap, #wk-kicker", { y: -240, opacity: 0, duration: 0.3, ease: "power2.in", stagger: 0.03 }, T.table - 0.35);
+    tl.fromTo("#wk-top", { scaleX: 0, transformOrigin: "0% 50%" }, { scaleX: 1, duration: 0.4, ease: "power3.out" }, T.table);
+    tl.fromTo("#wk-cup", { y: 500, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: "back.out(1.3)" }, T.table + 0.1);
+    tl.fromTo("#wk-steam path", { strokeDasharray: 160, strokeDashoffset: 160 }, { strokeDashoffset: 0, duration: 0.6, ease: "sine.out", stagger: 0.12 }, T.table + 0.5);
+    tl.to("#wk-steam", { y: -16, duration: 0.7, ease: "sine.inOut", yoyo: true, repeat: 2 }, T.table + 1.1);
+    tl.fromTo("#wk-paper", { x: 500, opacity: 0, rotation: 10, svgOrigin: "690 480" }, { x: 0, opacity: 1, rotation: -3, duration: 0.5, ease: "power3.out" }, T.paper - 0.15);
+    tl.fromTo("#wk-pw-hl", { scaleX: 0, svgOrigin: "664 441" }, { scaleX: 1, duration: 0.3, ease: "power2.out" }, T.paper + 0.45);
+    tl.fromTo("#wk-check", { scale: 0, svgOrigin: "860 300" }, { scale: 1, duration: 0.35, ease: "back.out(2.4)" }, T.did + 0.2);
+    tl.to("#wk-table", { y: -240, opacity: 0, duration: 0.3, ease: "power2.in" }, T.out);
+    window.__timelines["work"] = tl;
+  </script>
+</template>
