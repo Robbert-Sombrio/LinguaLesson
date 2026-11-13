@@ -8,7 +8,7 @@ Laid off: the company cut your job. Fired: the company cut you.
 
 So in an interview, say: "I was laid off in a round of cuts."
 
-One more thing. The noun is a LAY-off. The verb is to lay OFF.
+One more thing. The noun is a LAY-off. The phrasal verb is to lay OFF.
 
 Ending: reuse the English Edge invite + "Link in..." tags from hegemony-short/assets/audio/src/recording.mp3 (39.10-49.35 s; tags 54.75-56.40, 57.12-58.45, 59.06-60.60).
 
