@@ -26,7 +26,7 @@ while len(music) < N:
 music = music[:N]
 t = np.arange(N) / SR
 env = np.clip(t / 1.5, 0, 1) * np.clip((total - t) / 2.0, 0, 1)
-env *= np.interp(t, [0, 24.42, 24.92, total], [1, 1, 1.8, 1.8])   # lift under the end card
+env *= np.interp(t, [0, 23.72, 24.22, total], [1, 1, 1.8, 1.8])   # lift under the end card
 bed = music * env[:, None] * db(-21)
 
 CUES = [
@@ -39,13 +39,13 @@ CUES = [
     ("tap", 12.15, -2), ("tap", 13.89, -4), ("tap", 14.09, -8), ("tap", 14.21, -8), ("tap", 14.33, -8),
     ("tap", 14.45, -8), ("tap", 14.57, -8), ("whoosh", 15.1, -10),
     # email
-    ("paper", 15.45, 8), ("marker", 18.1, 0), ("tap", 18.4, -8), ("marker", 20.2, 2), ("tap", 21.8, -8),
-    ("chime", 22.61, -9), ("whoosh", 23.15, -10),
+    ("paper", 15.45, 8), ("marker", 18.1, 0), ("tap", 18.4, -8), ("marker", 19.5, 2), ("tap", 21.1, -8),
+    ("chime", 21.91, -9), ("whoosh", 22.45, -10),
     # drill
-    ("tap", 23.45, -12), ("tap", 23.52, -12), ("tap", 23.59, -12), ("tap", 23.66, -12), ("chime", 23.95, -9),
-    # end card (same cues as hegemony, shifted to 24.92)
-    ("tap", 25.22, -10), ("tap", 25.72, -10), ("chime", 29.67, -9), ("tap", 32.77, -2), ("chime", 32.87, -8),
-    ("tap", 34.77, -8),
+    ("tap", 22.75, -12), ("tap", 22.82, -12), ("tap", 22.89, -12), ("tap", 22.96, -12), ("chime", 23.25, -9),
+    # end card (same cues as hegemony, shifted to 24.22)
+    ("tap", 24.52, -10), ("tap", 25.02, -10), ("chime", 28.97, -9), ("tap", 32.07, -2), ("chime", 32.17, -8),
+    ("tap", 34.07, -8),
 ]
 cache = {}
 for name, at, gain in CUES:
