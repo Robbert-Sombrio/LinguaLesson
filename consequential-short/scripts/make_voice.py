@@ -44,6 +44,11 @@ for a, b in BODY_CUTS:
 parts.append(piece(cur, BODY[1]))
 write(f"{TMP}/body-raw.wav", np.concatenate(parts))
 tighten(f"{TMP}/body-raw.wav", f"{TMP}/body-tight.wav")
+# polish the body take to match the (already polished) English Edge ending: EQ, de-ess, compression
+CHAIN = open("scripts/polish_chain.txt").read().strip()
+subprocess.run(["ffmpeg", "-y", "-v", "error", "-i", f"{TMP}/body-tight.wav", "-af", CHAIN, "-ar", str(SR), "-ac", "1",
+                f"{TMP}/body-polished.wav"], check=True)
+os.replace(f"{TMP}/body-polished.wav", f"{TMP}/body-tight.wav")
 
 for p, (a, b) in CTAS.items():
     write(f"{TMP}/cta-{p}-raw.wav", np.concatenate([piece(*ENDING, cx), np.zeros(int(0.35 * SR), dtype=np.float32), piece(a, b, cx)]))
