@@ -1,31 +1,31 @@
 {
  "hook": [
   0,
-  6.3
+  6.95
  ],
  "meaning": [
-  6.3,
-  3.2
- ],
- "example": [
-  9.5,
-  6.7
+  6.95,
+  8.45
  ],
  "work": [
-  16.2,
-  6.15
+  15.4,
+  8.0
  ],
- "endcard_start": 22.35,
+ "drill": [
+  23.4,
+  1.52
+ ],
+ "endcard_start": 24.92,
  "total": {
-  "youtube": 34.5,
-  "tiktok": 34.2,
-  "instagram": 34.2,
-  "linkedin": 34.36
+  "youtube": 37.06,
+  "tiktok": 36.75,
+  "instagram": 36.75,
+  "linkedin": 36.92
  },
  "voice": {
-  "youtube": 33.3,
-  "tiktok": 33.0,
-  "instagram": 33.0,
-  "linkedin": 33.16
+  "youtube": 35.86,
+  "tiktok": 35.55,
+  "instagram": 35.55,
+  "linkedin": 35.72
  }
 }

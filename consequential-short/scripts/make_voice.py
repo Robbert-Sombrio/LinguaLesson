@@ -4,12 +4,12 @@ pauses tightened, 7% faster, loudness-normalised. Cut points sit in measured sil
 import os, subprocess, sys, wave
 import numpy as np
 
-SRC = "assets/audio/src/recording.mp3"
+SRC = "assets/audio/src/recording-104-polished.mp3"   # Sean's own EQ + compression of Recording 104
 CTA_SRC = "../hegemony-short/assets/audio/src/recording.mp3"   # English Edge invite + "Link in..." tags
 SR = 48000
-BODY = (3.9, 42.3)
+BODY = (6.8, 53.7)
 ENDING = (39.0, 49.35)   # "If you're upper-intermediate ... Try it free for 7 days." in the hegemony take
-BODY_CUTS = [(29.25, 40.1)]   # 2nd "At work, try..." take (pause and restart); the 1st take is clean
+BODY_CUTS = [(27.0, 40.2), (41.5, 43.55)]   # unverified Economist quote + "One word shifts..."; the "in your next mail" restart
 CTAS = {"youtube": (54.75, 56.40), "tiktok": (57.12, 58.45), "instagram": (57.12, 58.45), "linkedin": (59.06, 60.60)}
 GAP_BEFORE_CTA = 0.40
 SPEED = 1.10
@@ -46,9 +46,10 @@ write(f"{TMP}/body-raw.wav", np.concatenate(parts))
 tighten(f"{TMP}/body-raw.wav", f"{TMP}/body-tight.wav")
 # polish the body take to match the (already polished) English Edge ending: EQ, de-ess, compression
 CHAIN = open("scripts/polish_chain.txt").read().strip()
-subprocess.run(["ffmpeg", "-y", "-v", "error", "-i", f"{TMP}/body-tight.wav", "-af", CHAIN, "-ar", str(SR), "-ac", "1",
+if False:  # Sean polished this take himself
+  subprocess.run(["ffmpeg", "-y", "-v", "error", "-i", f"{TMP}/body-tight.wav", "-af", CHAIN, "-ar", str(SR), "-ac", "1",
                 f"{TMP}/body-polished.wav"], check=True)
-os.replace(f"{TMP}/body-polished.wav", f"{TMP}/body-tight.wav")
+  os.replace(f"{TMP}/body-polished.wav", f"{TMP}/body-tight.wav")
 
 for p, (a, b) in CTAS.items():
     write(f"{TMP}/cta-{p}-raw.wav", np.concatenate([piece(*ENDING, cx), np.zeros(int(0.35 * SR), dtype=np.float32), piece(a, b, cx)]))

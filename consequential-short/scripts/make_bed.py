@@ -26,25 +26,26 @@ while len(music) < N:
 music = music[:N]
 t = np.arange(N) / SR
 env = np.clip(t / 1.5, 0, 1) * np.clip((total - t) / 2.0, 0, 1)
-env *= np.interp(t, [0, 21.85, 22.35, total], [1, 1, 1.8, 1.8])   # lift under the end card
+env *= np.interp(t, [0, 24.42, 24.92, total], [1, 1, 1.8, 1.8])   # lift under the end card
 bed = music * env[:, None] * db(-21)
 
 CUES = [
-    # hook
-    ("paper", 0.05, 10), ("tap", 0.4, -8), ("marker", 1.0, 2), ("whoosh", 2.1, -10), ("chime", 2.4, -9),
-    ("tap", 3.64, -12), ("tap", 3.82, -12), ("tap", 4.0, -12), ("tap", 4.24, -12), ("chime", 5.32, -9), ("whoosh", 6.0, -10),
-    # meaning (dominoes)
-    ("tap", 6.35, -10), ("tap", 7.2, -4), ("tap", 7.4, -8), ("tap", 7.52, -8), ("tap", 7.64, -8), ("tap", 7.76, -8),
-    ("tap", 7.88, -8), ("whoosh", 9.25, -10),
-    # example
-    ("paper", 9.55, 8), ("tap", 10.82, -6), ("marker", 12.59, 2), ("whoosh", 14.31, -10), ("tap", 14.56, -8),
-    ("tap", 14.81, -8), ("whoosh", 15.9, -10),
-    # work
-    ("paper", 16.25, 8), ("marker", 16.87, 0), ("tap", 17.17, -8), ("marker", 17.8, 2), ("tap", 20.0, -8),
-    ("chime", 20.98, -9), ("whoosh", 22.05, -10),
-    # end card (same cues as hegemony, shifted to 22.35)
-    ("tap", 22.65, -10), ("tap", 23.15, -10), ("chime", 27.1, -9), ("tap", 30.2, -2), ("chime", 30.3, -8),
-    ("tap", 32.2, -8),
+    # hook: strike, Economist card, the word
+    ("paper", 0.05, 10), ("marker", 1.05, 2), ("whoosh", 2.0, -10), ("paper", 2.25, 6), ("marker", 3.5, 2),
+    ("whoosh", 4.5, -10), ("chime", 5.3, -9), ("tap", 5.6, -12), ("tap", 5.75, -12), ("tap", 5.9, -12),
+    ("tap", 6.05, -12), ("chime", 6.15, -11), ("whoosh", 6.65, -10),
+    # meaning: matters + consequences, dominoes, weight, cascade
+    ("tap", 7.7, -8), ("tap", 9.55, -8), ("marker", 10.32, 2), ("whoosh", 10.95, -10), ("tap", 11.25, -10),
+    ("tap", 12.15, -2), ("tap", 13.89, -4), ("tap", 14.09, -8), ("tap", 14.21, -8), ("tap", 14.33, -8),
+    ("tap", 14.45, -8), ("tap", 14.57, -8), ("whoosh", 15.1, -10),
+    # email
+    ("paper", 15.45, 8), ("marker", 18.1, 0), ("tap", 18.4, -8), ("marker", 20.2, 2), ("tap", 21.8, -8),
+    ("chime", 22.61, -9), ("whoosh", 23.15, -10),
+    # drill
+    ("tap", 23.45, -12), ("tap", 23.52, -12), ("tap", 23.59, -12), ("tap", 23.66, -12), ("chime", 23.95, -9),
+    # end card (same cues as hegemony, shifted to 24.92)
+    ("tap", 25.22, -10), ("tap", 25.72, -10), ("chime", 29.67, -9), ("tap", 32.77, -2), ("chime", 32.87, -8),
+    ("tap", 34.77, -8),
 ]
 cache = {}
 for name, at, gain in CUES:

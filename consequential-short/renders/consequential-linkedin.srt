@@ -1,79 +1,75 @@
 1
-00:00:00,240 --> 00:00:01,950
+00:00:00,060 --> 00:00:02,100
 Stop saying important.
 
 2
-00:00:01,950 --> 00:00:03,590
-Say consequential.
+00:00:02,100 --> 00:00:04,720
+Use the word The Economist actually uses.
 
 3
-00:00:03,590 --> 00:00:04,770
-con-se-QUEN-shul.
+00:00:04,720 --> 00:00:06,990
+The word is consequential.
 
 4
-00:00:04,770 --> 00:00:05,950
-Stress on QUEN.
+00:00:06,990 --> 00:00:08,740
+It doesn't just mean matters.
 
 5
-00:00:05,950 --> 00:00:07,510
-It means important because
+00:00:08,740 --> 00:00:11,150
+It means this will have consequences.
 
 6
-00:00:07,510 --> 00:00:08,950
-of what happens next.
+00:00:11,150 --> 00:00:13,980
+This decision carries weight because
 
 7
-00:00:08,950 --> 00:00:11,350
-The Economist called IBM's
+00:00:13,980 --> 00:00:15,230
+of what happens next.
 
 8
-00:00:11,350 --> 00:00:13,950
-personal computer hugely consequential.
+00:00:15,230 --> 00:00:16,570
+In your next email,
 
 9
-00:00:13,950 --> 00:00:15,950
-It shaped what came after.
+00:00:16,570 --> 00:00:18,390
+replace "this is important" with
 
 10
-00:00:15,950 --> 00:00:16,670
-At work,
+00:00:18,390 --> 00:00:21,680
+"this is a consequential decision."
 
 11
-00:00:16,670 --> 00:00:17,150
-try:
-
-12
-00:00:17,150 --> 00:00:19,950
-"This is a consequential decision."
-
-13
-00:00:19,950 --> 00:00:20,930
+00:00:21,680 --> 00:00:22,560
 Same meaning,
 
-14
-00:00:20,930 --> 00:00:21,950
+12
+00:00:22,560 --> 00:00:23,580
 sharper signal.
 
-15
-00:00:21,950 --> 00:00:24,620
+13
+00:00:23,580 --> 00:00:24,800
+Consequential.
+
+14
+00:00:24,800 --> 00:00:27,180
 If you're upper-intermediate or advanced and
 
-16
-00:00:24,620 --> 00:00:26,770
+15
+00:00:27,180 --> 00:00:29,150
 you want more speaking practice,
 
-17
-00:00:26,770 --> 00:00:28,040
+16
+00:00:29,150 --> 00:00:30,590
 join The English Edge,
 
-18
-00:00:28,040 --> 00:00:29,950
+17
+00:00:30,590 --> 00:00:32,380
 my conversation community.
 
-19
-00:00:29,950 --> 00:00:31,950
+18
+00:00:32,380 --> 00:00:34,350
 Try it free for 7 days.
 
-20
-00:00:31,950 --> 00:00:33,300
+19
+00:00:34,350 --> 00:00:36,140
 Link in the post.

@@ -1,0 +1,31 @@
+<template>
+  <style>
+    @font-face { font-family: "Lora"; src: url("assets/fonts/lora-500-normal.woff2") format("woff2"); font-weight: 400 700; font-style: normal; }
+    #root { position: absolute; inset: 0; overflow: hidden; }
+    #dr-kicker { position: absolute; left: 0; right: 0; top: 330px; text-align: center; font-family: "Inter", sans-serif; font-size: 30px; font-weight: 700; letter-spacing: 0.2em; color: #e2483f; }
+    #dr-row { position: absolute; left: 100px; top: 520px; width: 880px; height: 220px; }
+    .dr-b { position: absolute; bottom: 0; height: 120px; display: flex; align-items: center; justify-content: center; font-family: "Lora", serif; font-weight: 700; font-size: 66px; color: #2e3642; background: #b8cce2; }
+    #dr-b0 { left: 0; width: 180px; } #dr-b1 { left: 200px; width: 150px; }
+    #dr-b2 { left: 370px; width: 280px; background: #e3a728; color: #1f2733; } #dr-b3 { left: 670px; width: 210px; }
+  </style>
+  <div id="root" data-composition-id="drill" data-width="1080" data-height="1920">
+    <div id="dr-kicker">SAY IT</div>
+    <div id="dr-row">
+      <div id="dr-b0" class="dr-b">con</div>
+      <div id="dr-b1" class="dr-b">se</div>
+      <div id="dr-b2" class="dr-b">QUEN</div>
+      <div id="dr-b3" class="dr-b">shul</div>
+    </div>
+  </div>
+  <script>
+    // Cue times (local, scene starts at 23.4 s): "Consequential." spoken once, slowly
+    const T = { in: 0.05, stress: 0.55, out: 1.3 };
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#dr-kicker", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.2, ease: "power2.out" }, T.in);
+    tl.fromTo(".dr-b", { y: -300, opacity: 0 }, { y: 0, opacity: 1, duration: 0.22, ease: "bounce.out", stagger: 0.07 }, T.in);
+    tl.to("#dr-b2", { height: 200, duration: 0.3, ease: "back.out(1.8)" }, T.stress);
+    tl.to("#dr-b0, #dr-b1, #dr-b3", { opacity: 0.6, duration: 0.2 }, T.stress + 0.05);
+    tl.to("#dr-kicker, #dr-row", { y: -200, opacity: 0, duration: 0.2, ease: "power2.in" }, T.out);
+    window.__timelines["drill"] = tl;
+  </script>
+</template>

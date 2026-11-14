@@ -18,7 +18,7 @@
     #wk-c1 { left: 520px; color: #1f2733; background: #e3a728; border: 4px solid #e3a728; }
   </style>
   <div id="root" data-composition-id="work" data-width="1080" data-height="1920">
-    <div id="wk-kicker">AT WORK</div>
+    <div id="wk-kicker">IN YOUR NEXT EMAIL</div>
     <div id="wk-mailwrap"><div id="wk-mail">
       <div id="wk-head"><b>To:</b> Leadership team<br /><b>Subject:</b> Q1 plan</div>
       <div id="wk-body">
@@ -30,8 +30,8 @@
     <div class="wk-chip" id="wk-c1">sharper signal</div>
   </div>
   <script>
-    // Cue times (local, scene starts at 16.2 s): "This is a" / "consequential" / "Same meaning" / "sharper signal"
-    const T = { line: 0.97, hl: 1.6, same: 3.8, sharp: 4.78, out: 5.85 };
+    // Cue times (local, scene starts at 15.4 s): "with" / "consequential" / "Same meaning" / "sharper signal"
+    const T = { line: 3.0, hl: 4.8, same: 6.4, sharp: 7.21, out: 7.75 };
     const tl = gsap.timeline({ paused: true });
     tl.fromTo("#wk-kicker", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.3, ease: "power2.out" }, 0.0);
     tl.fromTo("#wk-mailwrap", { y: 300, opacity: 0 }, { y: 0, opacity: 1, duration: 0.45, ease: "power3.out" }, 0.05);

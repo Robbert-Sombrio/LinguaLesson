@@ -1,6 +1,6 @@
 # Consequential: posting copy for all 4 platforms
 
-Cover frame for every platform: 0:05 ("important" struck out, "consequential" with con / se / QUEN / shul and the gold stress block), saved as renders/cover.jpg.
+Cover frame for every platform: 0:06 ("consequential" with con / se / QUEN / shul and the gold stress block), saved as renders/cover.jpg.
 
 The English Edge link: http://tiny.cc/6fmd101 (7-day free trial)
 
@@ -16,11 +16,11 @@ Alternative: Swap 'important' for 1 sharper word
 **Description**
 Want more speaking practice? Try The English Edge free for 7 days: http://tiny.cc/6fmd101
 
-Consequential (con-se-QUEN-shul, stress on QUEN) means important because of what happens next.
+Consequential (con-se-QUEN-shul, stress on QUEN) means this will have consequences. The decision carries weight because of what happens next.
 
-The Economist called IBM's personal computer "hugely consequential." It shaped what came after.
+The Economist uses it: it called IBM's personal computer "hugely consequential."
 
-At work, try: "This is a consequential decision." Same meaning, sharper signal.
+In your next email, replace "This is important" with "This is a consequential decision." Same meaning, sharper signal.
 
 The English Edge is my community for upper-intermediate and advanced learners who want real conversation and speaking practice.
 
@@ -51,11 +51,11 @@ Want more speaking practice? Try The English Edge free for 7 days. Link in bio.
 Stop saying important. Say this instead: consequential.
 
 Say it: con-se-QUEN-shul, stress on QUEN.
-It means important because of what happens next.
+It means this will have consequences: the decision carries weight because of what happens next.
 
 The Economist called IBM's personal computer "hugely consequential."
 
-At work, try: "This is a consequential decision." Same meaning, sharper signal.
+In your next email, replace "This is important" with "This is a consequential decision." Same meaning, sharper signal.
 
 Upper-intermediate or advanced, and want more speaking practice? Try The English Edge, my conversation community, free for 7 days. Link in bio.
 
@@ -68,11 +68,11 @@ Upper-intermediate or advanced, and want more speaking practice? Try The English
 **Post**
 "This is important" is the most forgettable sentence in a lot of emails.
 
-Try "consequential." It means important because of what happens next. The decision has a chain of effects behind it.
+Try "consequential." It means this will have consequences. The decision carries weight because of what happens next.
 
-The Economist recently called IBM's personal computer "hugely consequential." It shaped what came after.
+The Economist recently called IBM's personal computer "hugely consequential."
 
-At work: "This is a consequential decision." Same meaning, sharper signal.
+In your next email, replace "This is important" with "This is a consequential decision." Same meaning, sharper signal.
 
 Pronunciation: con-se-QUEN-shul, with the stress on the third syllable.
 

@@ -8,7 +8,7 @@ FOOT = {"youtube": "@fluentedgepodcast", "tiktok": "@thefluentedge", "instagram"
         "linkedin": "Sean Watson · English Communication Coach"}
 t = json.load(open("timing.json"))
 total = t["total"][platform]
-scenes = [("frame", 0, total, 1), ("hook", *t["hook"], 2), ("meaning", *t["meaning"], 2), ("example", *t["example"], 2), ("work", *t["work"], 2),
+scenes = [("frame", 0, total, 1), ("hook", *t["hook"], 2), ("meaning", *t["meaning"], 2), ("work", *t["work"], 2), ("drill", *t["drill"], 2),
           ("endcard", t["endcard_start"], total - t["endcard_start"], 3), ("captions", 0, total, 4)]
 hosts = []
 for i, (cid, st, du, z) in enumerate(scenes):

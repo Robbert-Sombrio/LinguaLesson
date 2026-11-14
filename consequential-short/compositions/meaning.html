@@ -3,32 +3,50 @@
     @font-face { font-family: "Lora"; src: url("assets/fonts/lora-500-normal.woff2") format("woff2"); font-weight: 400 700; font-style: normal; }
     #root { position: absolute; inset: 0; overflow: hidden; }
     #mn-kicker { position: absolute; left: 0; right: 0; top: 330px; text-align: center; font-family: "Inter", sans-serif; font-size: 30px; font-weight: 700; letter-spacing: 0.2em; color: #e2483f; }
-    #mn-dom { position: absolute; left: 60px; top: 460px; width: 960px; height: 460px; }
+    #mn-matters { position: absolute; left: 0; right: 0; top: 420px; text-align: center; font-family: "Lora", serif; font-weight: 700; font-size: 100px; color: #6b7480; }
+    #mn-plus { position: absolute; left: 0; right: 0; top: 560px; text-align: center; font-family: "Lora", serif; font-weight: 700; font-size: 80px; color: #2e3642; }
+    #mn-cons { position: absolute; left: 0; right: 0; top: 660px; text-align: center; font-family: "Lora", serif; font-weight: 700; font-size: 110px; color: #2e3642; }
+    #mn-consw { position: relative; display: inline-block; isolation: isolate; }
+    #mn-hl { position: absolute; left: -10px; right: -10px; top: 22%; bottom: 6%; background: #e3a728; opacity: 0.75; z-index: -1; transform-origin: left center; }
+    #mn-dom { position: absolute; left: 60px; top: 360px; width: 960px; height: 560px; }
     #mn-next { position: absolute; left: 0; right: 0; top: 960px; text-align: center; font-family: "Lora", serif; font-weight: 700; font-size: 64px; color: #2e3642; }
   </style>
   <div id="root" data-composition-id="meaning" data-width="1080" data-height="1920">
     <div id="mn-kicker">IT MEANS</div>
-    <svg id="mn-dom" viewBox="0 0 960 460" data-layout-allow-overflow>
-      <rect x="0" y="400" width="960" height="12" fill="#2e3642" />
-      <g id="mn-d0"><rect x="60" y="150" width="80" height="250" fill="#e3a728" /><text x="100" y="290" text-anchor="middle" font-family="Inter" font-size="30" font-weight="800" fill="#1f2733" transform="rotate(-90 100 280)">DECISION</text></g>
-      <rect class="mn-d" x="220" y="170" width="70" height="230" fill="#4e6388" />
-      <rect class="mn-d" x="360" y="170" width="70" height="230" fill="#8fa6c2" />
-      <rect class="mn-d" x="500" y="170" width="70" height="230" fill="#4e6388" />
-      <rect class="mn-d" x="640" y="170" width="70" height="230" fill="#8fa6c2" />
-      <rect class="mn-d" x="780" y="170" width="70" height="230" fill="#4e6388" />
+    <div id="mn-matters">matters</div>
+    <div id="mn-plus">+</div>
+    <div id="mn-cons"><span id="mn-consw"><b id="mn-hl"></b>consequences</span></div>
+    <svg id="mn-dom" viewBox="0 0 960 560" data-layout-allow-overflow>
+      <rect x="0" y="500" width="960" height="12" fill="#2e3642" />
+      <g id="mn-d0"><rect x="60" y="250" width="80" height="250" fill="#e3a728" /><text x="100" y="380" text-anchor="middle" font-family="Inter" font-size="30" font-weight="800" fill="#1f2733" transform="rotate(-90 100 375)">DECISION</text></g>
+      <g id="mn-wt"><path d="M70 160 h60 l12 90 h-84 z" fill="#2e3642" /><path d="M82 160 a18 18 0 0 1 36 0" fill="none" stroke="#2e3642" stroke-width="10" /><text x="100" y="230" text-anchor="middle" font-family="Inter" font-size="30" font-weight="800" fill="#fbfaf6">KG</text></g>
+      <rect class="mn-d" x="220" y="270" width="70" height="230" fill="#4e6388" />
+      <rect class="mn-d" x="360" y="270" width="70" height="230" fill="#8fa6c2" />
+      <rect class="mn-d" x="500" y="270" width="70" height="230" fill="#4e6388" />
+      <rect class="mn-d" x="640" y="270" width="70" height="230" fill="#8fa6c2" />
+      <rect class="mn-d" x="780" y="270" width="70" height="230" fill="#4e6388" />
     </svg>
     <div id="mn-next">what happens next →</div>
   </div>
   <script>
-    // Cue times (local, scene starts at 6.3 s): "important" / "what happens next"
-    const T = { tip: 0.9, next: 1.4, out: 2.95 };
+    // Cue times (local, scene starts at 6.95 s): "matters" / "consequences" / "decision" / "carries weight" / "what happens next"
+    const T = { matters: 1.0, cons: 3.17, dom: 4.3, weight: 5.4, next: 7.24, out: 8.15 };
     const tl = gsap.timeline({ paused: true });
-    tl.fromTo("#mn-kicker", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.25, ease: "power2.out" }, 0.0);
-    tl.fromTo("#mn-d0, .mn-d", { scaleY: 0, transformOrigin: "50% 100%" }, { scaleY: 1, duration: 0.3, ease: "back.out(1.6)", stagger: 0.05 }, 0.05);
-    tl.to("#mn-d0", { rotation: 22, svgOrigin: "140 400", duration: 0.3, ease: "power2.in" }, T.tip);
-    tl.to(".mn-d", { rotation: 30, transformOrigin: "100% 100%", duration: 0.25, ease: "power2.in", stagger: 0.12 }, T.tip + 0.2);
+    tl.fromTo("#mn-kicker", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.25, ease: "power2.out" }, 0.05);
+    tl.fromTo("#mn-matters", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, T.matters - 0.3);
+    tl.fromTo("#mn-plus", { opacity: 0, scale: 0 }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2.4)" }, T.cons - 0.6);
+    tl.fromTo("#mn-cons", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, T.cons - 0.1);
+    tl.fromTo("#mn-hl", { scaleX: 0 }, { scaleX: 1, duration: 0.35, ease: "power2.out" }, T.cons + 0.2);
+    tl.to("#mn-kicker, #mn-matters, #mn-plus, #mn-cons", { y: -240, opacity: 0, duration: 0.25, ease: "power2.in", stagger: 0.02 }, T.dom - 0.3);
+    tl.fromTo("#mn-dom", { opacity: 0 }, { opacity: 1, duration: 0.15 }, T.dom - 0.05);
+    tl.fromTo("#mn-d0", { scaleY: 0, svgOrigin: "100 500" }, { scaleY: 1, duration: 0.3, ease: "back.out(1.6)" }, T.dom);
+    tl.fromTo(".mn-d", { scaleY: 0, transformOrigin: "50% 100%" }, { scaleY: 1, duration: 0.3, ease: "back.out(1.6)", stagger: 0.05 }, T.dom + 0.05);
+    tl.fromTo("#mn-wt", { y: -500, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: "bounce.out" }, T.weight - 0.2);
+    tl.to("#mn-d0", { scaleY: 0.94, svgOrigin: "100 500", duration: 0.12, ease: "power2.out", yoyo: true, repeat: 1 }, T.weight + 0.12);
+    tl.to("#mn-d0, #mn-wt", { rotation: 22, svgOrigin: "140 500", duration: 0.3, ease: "power2.in" }, T.next - 0.3);
+    tl.to(".mn-d", { rotation: 30, transformOrigin: "100% 100%", duration: 0.25, ease: "power2.in", stagger: 0.12 }, T.next - 0.1);
     tl.fromTo("#mn-next", { opacity: 0, x: -60 }, { opacity: 1, x: 0, duration: 0.35, ease: "power3.out" }, T.next);
-    tl.to("#mn-kicker, #mn-dom, #mn-next", { y: -240, opacity: 0, duration: 0.25, ease: "power2.in", stagger: 0.02 }, T.out);
+    tl.to("#mn-dom, #mn-next", { y: -240, opacity: 0, duration: 0.25, ease: "power2.in", stagger: 0.02 }, T.out);
     window.__timelines["meaning"] = tl;
   </script>
 </template>
