@@ -11,9 +11,7 @@
         repeating-linear-gradient(37deg, rgba(255,255,255,0.025) 0 2px, transparent 2px 5px),
         repeating-linear-gradient(-53deg, rgba(0,0,0,0.04) 0 1px, transparent 1px 4px); }
     #li-logo { position: absolute; left: 0; right: 0; top: 560px; display: flex; justify-content: center; align-items: center; gap: 30px; }
-    #li-c { width: 96px; height: 96px; border-radius: 50%; background: #f2575a; }
-    #li-s { width: 88px; height: 88px; background: #5b7092; }
-    #li-t { width: 0; height: 0; border-left: 52px solid transparent; border-right: 52px solid transparent; border-bottom: 90px solid #b8cce2; }
+    #li-mark { width: 140px; height: 140px; display: block; }
     #li-kick { position: absolute; left: 0; right: 0; top: 760px; text-align: center; font-family: "Inter", sans-serif; font-size: 40px; font-weight: 500; color: #c3d2e2; }
     #li-name { position: absolute; left: 0; right: 0; top: 820px; text-align: center; font-family: "Lora", serif; font-weight: 700; font-size: 132px; color: #ffffff; letter-spacing: -0.01em; }
     #li-rule { position: absolute; left: 250px; width: 580px; top: 1000px; height: 7px; background: #f2575a; }
@@ -23,7 +21,7 @@
   </style>
   <div id="root" data-composition-id="endcard-linkedin" data-width="1080" data-height="1920">
     <div id="li-bg"><div id="li-tex"></div></div>
-    <div id="li-logo"><div id="li-c"></div><div id="li-s"></div><div id="li-t"></div></div>
+    <div id="li-logo"><svg id="li-mark" viewBox="0 0 100 100"><path id="li-sq" d="M0 18 H52 L82 48 V100 H0 Z" fill="#b8cfdc" /><path id="li-cn" d="M60 8 H94 V42 Z" fill="#f43253" /></svg></div>
     <div id="li-kick">More English tips</div>
     <div id="li-name">Sean Watson</div>
     <div id="li-rule"></div>
@@ -34,9 +32,8 @@
   <script>
     const tl = gsap.timeline({ paused: true });
     tl.fromTo("#li-bg", { scaleY: 0 }, { scaleY: 1, duration: 0.4, ease: "power3.inOut" }, 0.0);
-    tl.fromTo("#li-c", { scale: 0 }, { scale: 1, duration: 0.35, ease: "back.out(2.4)" }, 0.3);
-    tl.fromTo("#li-s", { scale: 0, rotation: -45 }, { scale: 1, rotation: 0, duration: 0.35, ease: "back.out(2.4)" }, 0.4);
-    tl.fromTo("#li-t", { scale: 0, y: 20 }, { scale: 1, y: 0, duration: 0.35, ease: "back.out(2.4)" }, 0.5);
+    tl.fromTo("#li-sq", { scale: 0, svgOrigin: "41 59" }, { scale: 1, duration: 0.35, ease: "back.out(2.2)" }, 0.3);
+    tl.fromTo("#li-cn", { x: 30, y: -30, opacity: 0 }, { x: 0, y: 0, opacity: 1, duration: 0.35, ease: "back.out(2.4)" }, 0.5);
     tl.fromTo("#li-kick", { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.35, ease: "power2.out" }, 0.55);
     tl.fromTo("#li-name", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" }, 0.65);
     tl.fromTo("#li-rule", { scaleX: 0 }, { scaleX: 1, duration: 0.4, ease: "power3.out" }, 0.9);
@@ -46,8 +43,7 @@
     tl.fromTo("#li-cur", { opacity: 0, x: 120, y: 160 }, { opacity: 1, x: -180, y: -260, duration: 0.9, ease: "power2.inOut" }, 1.8);
     tl.to("#li-cur", { scale: 0.8, duration: 0.1, ease: "power2.in", yoyo: true, repeat: 1 }, 2.75);
     tl.to("#li-btn", { scale: 0.93, duration: 0.1, ease: "power2.in", yoyo: true, repeat: 1 }, 2.75);
-    tl.to("#li-c", { y: -12, duration: 0.8, ease: "sine.inOut", yoyo: true, repeat: 3 }, 3.2);
-    tl.to("#li-t", { rotation: 8, duration: 1.0, ease: "sine.inOut", yoyo: true, repeat: 2 }, 3.4);
+    tl.to("#li-cn", { x: 4, y: -4, duration: 0.8, ease: "sine.inOut", yoyo: true, repeat: 3 }, 3.2);
     window.__timelines["endcard-linkedin"] = tl;
   </script>
 </template>
