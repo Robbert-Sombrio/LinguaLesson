@@ -2,7 +2,7 @@
 
 Cover frame for every platform: 0:08 (the pot with "the main point" left after the noise steams away), saved as renders/cover.jpg.
 
-The English Edge link: http://tiny.cc/6fmd101 (7-day free trial)
+Endings: the follow endings from the recalibrate recording (no English Edge pitch in the video). The English Edge link stays as 1 quiet line in each caption.
 
 ---
 
@@ -14,23 +14,22 @@ Boil down to: 1 phrase for sharper meetings
 Alternative: 1 phrase that makes you sound decisive
 
 **Description**
-Want more speaking practice? Try The English Edge free for 7 days: http://tiny.cc/6fmd101
-
 "Boil down to" means: the main point is. Like boiling a sauce until only the flavour is left.
 
 The Economist: "Doing business, after all, boils down to managing a complex web of relationships with customers, suppliers and others."
 
 In your next meeting, try: "The decision boils down to cost versus risk." One sentence, and everyone knows what matters.
 
-The English Edge is my community for upper-intermediate and advanced learners who want real conversation and speaking practice.
+Subscribe for more words like this.
 
 The Fluent Edge, with Sean Watson and Dr. Howie Jacobson.
 seanwatson.coach
+Speaking practice community: http://tiny.cc/6fmd101
 
 #shorts #businessenglish #vocabulary
 
 **Tags**
-boil down to, boils down to meaning, boil down to example, phrasal verbs for business, business english, meeting english, english for meetings, advanced english vocabulary, english for professionals, english speaking practice, the fluent edge, the english edge
+boil down to, boils down to meaning, boil down to example, phrasal verbs for business, business english, meeting english, english for meetings, advanced english vocabulary, english for professionals, the fluent edge
 
 ---
 
@@ -39,9 +38,9 @@ boil down to, boils down to meaning, boil down to example, phrasal verbs for bus
 **Caption**
 1 phrase that cuts a long meeting short: "It boils down to…"
 
-Want more speaking practice? Try The English Edge free for 7 days. Link in bio.
+Comment NEXT for the next word.
 
-#BusinessEnglish #PhrasalVerbs #LearnEnglish #EnglishForWork #SpeakingPractice
+#BusinessEnglish #PhrasalVerbs #LearnEnglish #EnglishForWork #FluentEdge
 
 ---
 
@@ -56,9 +55,9 @@ The Economist: "Doing business, after all, boils down to managing a complex web 
 
 Try: "The decision boils down to cost versus risk."
 
-Upper-intermediate or advanced, and want more speaking practice? Try The English Edge, my conversation community, free for 7 days. Link in bio.
+Save this for your next meeting, and follow @thefluentedgepod for more words like this.
 
-#BusinessEnglish #PhrasalVerbs #LearnEnglish #EnglishForWork #SpeakingPractice
+#BusinessEnglish #PhrasalVerbs #LearnEnglish #EnglishForWork #FluentEdge
 
 ---
 
@@ -75,7 +74,7 @@ In your next meeting, try: "The decision boils down to cost versus risk." One se
 
 It works in negotiations and presentations too. It tells people you've done the thinking.
 
-If you're upper-intermediate or advanced and want more speaking practice, try The English Edge, my conversation community, free for 7 days: http://tiny.cc/6fmd101
+Speaking practice community: http://tiny.cc/6fmd101
 
 More English tips: follow Sean Watson, English Communication Coach.
 
@@ -85,6 +84,6 @@ More English tips: follow Sean Watson, English Communication Coach.
 
 ## Checks before posting
 - YouTube and LinkedIn: upload the .srt files.
-- TikTok and Instagram: http://tiny.cc/6fmd101 at the top of your link-in-bio page, labelled "The English Edge: 7-day free trial."
-- The LinkedIn end card shows Sean Watson, English Communication Coach, and the post ends with the matching sign-off line.
+- TikTok and Instagram: keep http://tiny.cc/6fmd101 in your link-in-bio page; the videos don't mention it.
+- The LinkedIn video ends on Sean's personal card; the LinkedIn post ends with the matching sign-off line.
 - Source: The Economist, special report "Social contracts" (2010). No date in the video.

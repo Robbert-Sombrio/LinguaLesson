@@ -26,7 +26,7 @@ while len(music) < N:
 music = music[:N]
 t = np.arange(N) / SR
 env = np.clip(t / 1.5, 0, 1) * np.clip((total - t) / 2.0, 0, 1)
-env *= np.interp(t, [0, 25.21, 25.71, total], [1, 1, 1.8, 1.8])   # lift under the end card
+env *= np.interp(t, [0, 25.25, 25.75, total], [1, 1, 1.8, 1.8])   # lift under the end card
 bed = music * env[:, None] * db(-21)
 
 CUES = [
@@ -42,9 +42,8 @@ CUES = [
     ("paper", 16.9, 8), ("tap", 18.52, -8), ("marker", 19.9, 2), ("tap", 20.85, -6), ("tap", 21.35, -6), ("whoosh", 22.0, -10),
     # close
     ("tap", 22.35, -6), ("tap", 23.05, -10), ("chime", 23.8, -10), ("chime", 23.92, -12), ("chime", 24.04, -14), ("whoosh", 25.45, -10),
-    # end card (same cues as hegemony, shifted to 25.71)
-    ("tap", 26.01, -10), ("tap", 26.51, -10), ("chime", 30.46, -9), ("tap", 33.56, -2), ("chime", 33.66, -8),
-    ("tap", 35.56, -8),
+    # end card (button tap)
+    ("tap", 27.15, -10), ("chime", 27.25, -7),
 ]
 cache = {}
 for name, at, gain in CUES:

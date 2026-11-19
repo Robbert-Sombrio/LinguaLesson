@@ -5,13 +5,13 @@ import os, subprocess, sys, wave
 import numpy as np
 
 SRC = "assets/audio/src/recording.mp3"
-CTA_SRC = "../hegemony-short/assets/audio/src/recording.mp3"   # English Edge invite + "Link in..." tags
+CTA_SRC = "../recalibrate-short/assets/audio/src/recording.mp3"   # the 4 platform follow endings, reused
 SR = 48000
 BODY = (1.3, 34.8)
 ENDING = (39.0, 49.35)   # "If you're upper-intermediate ... Try it free for 7 days." in the hegemony take
 BODY_CUTS = []
-CTAS = {"youtube": (54.75, 56.40), "tiktok": (57.12, 58.45), "instagram": (57.12, 58.45), "linkedin": (59.06, 60.60)}
-GAP_BEFORE_CTA = 0.40
+CTAS = {"youtube": (50.95, 55.25), "tiktok": (57.85, 62.85), "instagram": (65.85, 71.35), "linkedin": (75.25, 81.95)}
+GAP_BEFORE_CTA = 0.45
 SPEED = 1.10
 TMP = sys.argv[1]
 
@@ -52,7 +52,7 @@ if False:  # Sean polished this take himself
   os.replace(f"{TMP}/body-polished.wav", f"{TMP}/body-tight.wav")
 
 for p, (a, b) in CTAS.items():
-    write(f"{TMP}/cta-{p}-raw.wav", np.concatenate([piece(*ENDING, cx), np.zeros(int(0.35 * SR), dtype=np.float32), piece(a, b, cx)]))
+    write(f"{TMP}/cta-{p}-raw.wav", piece(a, b, cx))
     tighten(f"{TMP}/cta-{p}-raw.wav", f"{TMP}/cta-{p}-tight.wav")
     subprocess.run(["ffmpeg", "-y", "-v", "error", "-i", f"{TMP}/body-tight.wav", "-i", f"{TMP}/cta-{p}-tight.wav",
                     "-filter_complex", f"[0:a]loudnorm=I=-16:TP=-2:LRA=9,apad=pad_dur={GAP_BEFORE_CTA}[b];[1:a]loudnorm=I=-16:TP=-2:LRA=9[c];[b][c]concat=n=2:v=0:a=1,atempo={SPEED},"
