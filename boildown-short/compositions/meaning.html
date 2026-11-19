@@ -1,0 +1,48 @@
+<template>
+  <style>
+    @font-face { font-family: "Lora"; src: url("assets/fonts/lora-500-normal.woff2") format("woff2"); font-weight: 400 700; font-style: normal; }
+    #root { position: absolute; inset: 0; overflow: hidden; }
+    #mn-kicker { position: absolute; left: 0; right: 0; top: 320px; text-align: center; font-family: "Inter", sans-serif; font-size: 30px; font-weight: 700; letter-spacing: 0.2em; color: #e2483f; }
+    #mn-def { position: absolute; left: 0; right: 0; top: 380px; text-align: center; font-family: "Lora", serif; font-weight: 700; font-size: 84px; color: #2e3642; }
+    #mn-pot { position: absolute; left: 140px; top: 520px; width: 800px; height: 680px; }
+    .mn-chip { position: absolute; font-family: "Inter", sans-serif; font-size: 34px; font-weight: 800; letter-spacing: 0.06em; color: #2e3642; background: #fbfaf6; border: 4px solid #8fa6c2; border-radius: 30px; padding: 8px 22px; }
+    #mn-c0 { left: 220px; top: 690px; } #mn-c1 { left: 560px; top: 680px; } #mn-c2 { left: 330px; top: 770px; }
+    #mn-c3 { left: 640px; top: 770px; } #mn-c4 { left: 250px; top: 850px; } #mn-c5 { left: 520px; top: 855px; }
+    #mn-core { position: absolute; left: 340px; width: 400px; top: 880px; height: 96px; display: flex; align-items: center; justify-content: center; background: #e3a728; border-radius: 48px; font-family: "Lora", serif; font-weight: 700; font-size: 46px; color: #1f2733; }
+  </style>
+  <div id="root" data-composition-id="meaning" data-width="1080" data-height="1920">
+    <div id="mn-kicker">IT MEANS</div>
+    <div id="mn-def">the main point is…</div>
+    <svg id="mn-pot" viewBox="0 0 800 680" data-layout-allow-overflow>
+      <g id="mn-steam" stroke="#8fa6c2" stroke-width="12" stroke-linecap="round" fill="none">
+        <path d="M250 150 C210 100 290 60 250 10" /><path d="M400 140 C360 90 440 50 400 0" /><path d="M550 150 C510 100 590 60 550 10" /></g>
+      <rect x="60" y="210" width="680" height="24" rx="12" fill="#2e3642" />
+      <path d="M90 234 H710 V420 Q710 500 630 500 H170 Q90 500 90 420 Z" fill="#4e6388" />
+      <rect x="10" y="260" width="80" height="26" rx="13" fill="#2e3642" /><rect x="710" y="260" width="80" height="26" rx="13" fill="#2e3642" />
+      <g id="mn-fire"><path d="M300 600 L340 520 L380 600 Z" fill="#e3a728" /><path d="M380 600 L420 500 L460 600 Z" fill="#e2483f" /><path d="M460 600 L500 520 L540 600 Z" fill="#e3a728" /></g>
+      <rect x="240" y="600" width="320" height="18" rx="9" fill="#2e3642" />
+    </svg>
+    <div class="mn-chip" id="mn-c0">deadlines</div>
+    <div class="mn-chip" id="mn-c1">opinions</div>
+    <div class="mn-chip" id="mn-c2">politics</div>
+    <div class="mn-chip" id="mn-c3">egos</div>
+    <div class="mn-chip" id="mn-c4">details</div>
+    <div class="mn-chip" id="mn-c5">noise</div>
+    <div id="mn-core">the main point</div>
+  </div>
+  <script>
+    // Cue times (local, scene starts at 3.3 s): "the main point is" / "like boiling a sauce" / "until only" / "the flavour is left"
+    const T = { def: 0.96, pot: 2.5, boil: 3.1, core: 4.65, out: 5.75 };
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#mn-kicker", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.25, ease: "power2.out" }, 0.05);
+    tl.fromTo("#mn-def", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, T.def);
+    tl.fromTo("#mn-pot", { opacity: 0, y: 300 }, { opacity: 1, y: 0, duration: 0.45, ease: "back.out(1.3)" }, T.pot);
+    tl.fromTo(".mn-chip", { opacity: 0, scale: 0.4 }, { opacity: 1, scale: 1, duration: 0.25, ease: "back.out(2)", stagger: 0.06 }, T.pot + 0.25);
+    tl.fromTo("#mn-fire", { scaleY: 0.4, svgOrigin: "420 600" }, { scaleY: 1.1, svgOrigin: "420 600", duration: 0.2, ease: "sine.inOut", yoyo: true, repeat: 9 }, T.pot + 0.3);
+    tl.fromTo("#mn-steam path", { strokeDasharray: 160, strokeDashoffset: 160 }, { strokeDashoffset: 0, duration: 0.6, ease: "sine.out", stagger: 0.1 }, T.boil - 0.3);
+    tl.to(".mn-chip", { y: -380, opacity: 0, duration: 0.7, ease: "power1.in", stagger: 0.18 }, T.boil);
+    tl.fromTo("#mn-core", { opacity: 0, scale: 0.5 }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(2.2)" }, T.core);
+    tl.to("#mn-kicker, #mn-def, #mn-pot, #mn-core", { y: -240, opacity: 0, duration: 0.22, ease: "power2.in", stagger: 0.02 }, T.out);
+    window.__timelines["meaning"] = tl;
+  </script>
+</template>

@@ -1,0 +1,38 @@
+<template>
+  <style>
+    @font-face { font-family: "Lora"; src: url("assets/fonts/lora-500-normal.woff2") format("woff2"); font-weight: 400 700; font-style: normal; }
+    #root { position: absolute; inset: 0; overflow: hidden; }
+    #hk-disc { position: absolute; right: -230px; top: 260px; width: 560px; height: 560px; border-radius: 50%; background: #b8cce2; }
+    #hk-bar { position: absolute; left: -40px; top: 1660px; width: 480px; height: 90px; background: #e3a728; }
+    #hk-kicker { position: absolute; left: 0; right: 0; top: 520px; text-align: center; font-family: "Inter", sans-serif; font-size: 36px; font-weight: 800; letter-spacing: 0.18em; color: #e2483f; }
+    #hk-word { position: absolute; left: 0; right: 0; top: 640px; text-align: center; font-family: "Lora", serif; font-weight: 700; font-size: 150px; line-height: 1.05; color: #2e3642; letter-spacing: -0.02em; }
+    .hk-w { display: inline-block; }
+    #hk-down { position: relative; isolation: isolate; }
+    #hk-hl { position: absolute; left: -12px; right: -12px; top: 26%; bottom: 4%; background: #e3a728; z-index: -1; transform-origin: left center; }
+    #hk-arrow { position: absolute; left: 500px; top: 880px; width: 80px; height: 160px; }
+  </style>
+  <div id="root" data-composition-id="hook" data-width="1080" data-height="1920">
+    <div id="hk-disc" data-layout-allow-overflow></div>
+    <div id="hk-bar" data-layout-allow-overflow></div>
+    <div id="hk-kicker">A PHRASE FOR MEETINGS</div>
+    <div id="hk-word"><span class="hk-w" id="hk-w0">boil</span> <span class="hk-w" id="hk-down"><b id="hk-hl"></b>down</span> <span class="hk-w" id="hk-w2">to</span></div>
+    <svg id="hk-arrow" viewBox="0 0 80 160" data-layout-allow-overflow><line x1="40" y1="0" x2="40" y2="120" stroke="#2e3642" stroke-width="12" /><path d="M8 110 L40 158 L72 110 Z" fill="#2e3642" /></svg>
+  </div>
+  <script>
+    // Cue times (video time): "Here's a phrase for meetings" / "boil" / "down" / "to"
+    const T = { kick: 0.2, boil: 2.0, down: 2.45, to: 2.85, out: 3.05 };
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#hk-disc", { scale: 0 }, { scale: 1, duration: 0.8, ease: "power3.out" }, 0);
+    tl.fromTo("#hk-bar", { x: -520 }, { x: 0, duration: 0.6, ease: "power3.out" }, 0.1);
+    tl.fromTo("#hk-kicker", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out" }, T.kick);
+    tl.fromTo("#hk-w0", { opacity: 0, y: -80 }, { opacity: 1, y: 0, duration: 0.3, ease: "back.out(1.8)" }, T.boil);
+    tl.fromTo("#hk-down", { opacity: 0, y: -80 }, { opacity: 1, y: 0, duration: 0.3, ease: "back.out(1.8)" }, T.down);
+    tl.fromTo("#hk-hl", { scaleX: 0 }, { scaleX: 1, duration: 0.25, ease: "power2.out" }, T.down + 0.15);
+    tl.fromTo("#hk-w2", { opacity: 0, y: -80 }, { opacity: 1, y: 0, duration: 0.25, ease: "back.out(1.8)" }, T.to - 0.1);
+    tl.fromTo("#hk-arrow", { opacity: 0, y: -40 }, { opacity: 1, y: 0, duration: 0.25, ease: "power2.out" }, T.down + 0.2);
+    tl.to("#hk-kicker, #hk-word, #hk-arrow", { y: -260, opacity: 0, duration: 0.22, ease: "power2.in", stagger: 0.02 }, T.out);
+    tl.to("#hk-disc", { scale: 0, duration: 0.22, ease: "power2.in" }, T.out);
+    tl.to("#hk-bar", { x: -520, duration: 0.22, ease: "power2.in" }, T.out);
+    window.__timelines["hook"] = tl;
+  </script>
+</template>

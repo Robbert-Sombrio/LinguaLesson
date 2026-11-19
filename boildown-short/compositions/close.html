@@ -1,0 +1,33 @@
+<template>
+  <style>
+    @font-face { font-family: "Lora"; src: url("assets/fonts/lora-500-normal.woff2") format("woff2"); font-weight: 400 700; font-style: normal; }
+    #root { position: absolute; inset: 0; overflow: hidden; }
+    #cl-big { position: absolute; left: 0; right: 0; top: 380px; text-align: center; font-family: "Lora", serif; font-weight: 700; font-size: 130px; color: #2e3642; }
+    #cl-big b { color: #c4861a; }
+    #cl-room { position: absolute; left: 140px; top: 640px; width: 800px; height: 480px; }
+  </style>
+  <div id="root" data-composition-id="close" data-width="1080" data-height="1920">
+    <div id="cl-big"><b>1</b> sentence.</div>
+    <svg id="cl-room" viewBox="0 0 800 480" data-layout-allow-overflow>
+      <rect x="40" y="430" width="720" height="16" rx="8" fill="#2e3642" />
+      <g class="cl-p"><circle cx="160" cy="250" r="52" fill="#4e6388" /><path d="M85 430 V360 a75 75 0 0 1 150 0 V430 Z" fill="#4e6388" /></g>
+      <g class="cl-p"><circle cx="400" cy="250" r="52" fill="#e2483f" /><path d="M325 430 V360 a75 75 0 0 1 150 0 V430 Z" fill="#e2483f" /></g>
+      <g class="cl-p"><circle cx="640" cy="250" r="52" fill="#8fa6c2" /><path d="M565 430 V360 a75 75 0 0 1 150 0 V430 Z" fill="#8fa6c2" /></g>
+      <g class="cl-c"><circle cx="160" cy="120" r="44" fill="#e3a728" /><path d="M138 120 L154 138 L184 104" fill="none" stroke="#1f2733" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" /></g>
+      <g class="cl-c"><circle cx="400" cy="120" r="44" fill="#e3a728" /><path d="M378 120 L394 138 L424 104" fill="none" stroke="#1f2733" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" /></g>
+      <g class="cl-c"><circle cx="640" cy="120" r="44" fill="#e3a728" /><path d="M618 120 L634 138 L664 104" fill="none" stroke="#1f2733" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" /></g>
+    </svg>
+  </div>
+  <script>
+    // Cue times (local, scene starts at 22.25 s): "One sentence" / "everyone knows" / "what matters"
+    const T = { big: 0.1, room: 0.8, knows: 1.45, out: 3.2 };
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#cl-big", { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(1.8)" }, T.big);
+    tl.fromTo("#cl-room", { opacity: 0 }, { opacity: 1, duration: 0.2 }, T.room - 0.05);
+    tl.fromTo(".cl-p", { y: 300, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: "back.out(1.5)", stagger: 0.08 }, T.room);
+    tl.to(".cl-p", { y: 10, duration: 0.15, ease: "power2.out", yoyo: true, repeat: 1, stagger: 0.12 }, T.knows);
+    tl.fromTo(".cl-c", { scale: 0, transformOrigin: "50% 50%" }, { scale: 1, duration: 0.3, ease: "back.out(2.4)", stagger: 0.12 }, T.knows + 0.1);
+    tl.to("#cl-big, #cl-room", { y: -240, opacity: 0, duration: 0.22, ease: "power2.in", stagger: 0.02 }, T.out);
+    window.__timelines["close"] = tl;
+  </script>
+</template>
